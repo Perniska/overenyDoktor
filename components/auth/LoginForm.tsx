@@ -4,26 +4,55 @@ import { FormEvent, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [saving, setSaving] = useState(false);
 
-  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const canSubmit = email.trim().length > 0 && password.length > 0 && !saving;
+
+  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setMessage("");
 
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail) {
+      setMessage("Zadaj e-mailovú adresu.");
+      return;
+    }
+
+    if (!isValidEmail(trimmedEmail)) {
+      setMessage("E-mailová adresa nemá správny formát.");
+      return;
+    }
+
+    if (!password) {
+      setMessage("Zadaj heslo.");
+      return;
+    }
+
+    setSaving(true);
+
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: trimmedEmail,
       password,
     });
 
+    setSaving(false);
+
     if (error) {
-      setMessage(`Chyba: ${error.message}`);
-    } else {
-      setMessage("Prihlásenie prebehlo úspešne.");
-      window.location.href = "/";
+      setMessage("Prihlásenie zlyhalo. Skontroluj e-mail a heslo.");
+      return;
     }
+
+    setMessage("Prihlásenie prebehlo úspešne.");
+    window.location.href = "/";
   };
 
   return (
@@ -39,12 +68,12 @@ export default function LoginForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">Email</label>
+        <label className="text-sm font-medium">E-mail</label>
         <input
           type="email"
-          placeholder="zadaj email"
+          placeholder="zadaj e-mail"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
           className="w-full rounded-lg border px-3 py-2"
           required
         />
@@ -56,14 +85,14 @@ export default function LoginForm() {
           type="password"
           placeholder="zadaj heslo"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
           className="w-full rounded-lg border px-3 py-2"
           required
         />
       </div>
 
-      <Button type="submit" className="w-full" disabled={!email || !password}>
-        Prihlásiť sa
+      <Button type="submit" className="w-full" disabled={!canSubmit}>
+        {saving ? "Prihlasuje sa..." : "Prihlásiť sa"}
       </Button>
 
       {message && <p className="text-sm text-slate-700">{message}</p>}

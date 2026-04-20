@@ -4,10 +4,6 @@ import { FormEvent, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
 function getPasswordChecks(password: string) {
   return {
     minLength: password.length >= 8,
@@ -28,100 +24,64 @@ function isPasswordValid(password: string) {
   );
 }
 
-export default function RegisterForm() {
-  const [email, setEmail] = useState("");
+export default function ChangePasswordForm() {
   const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
 
   const checks = getPasswordChecks(password);
-  const canSubmit = email.trim().length > 0 && isPasswordValid(password) && !saving;
+  const passwordsMatch = password.length > 0 && password === passwordRepeat;
+  const canSubmit = isPasswordValid(password) && passwordsMatch && !saving;
 
-  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+  const handleChangePassword = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMessage("");
 
-    const trimmedEmail = email.trim();
-
-    if (!trimmedEmail) {
-      setMessage("Zadaj e-mailovú adresu.");
-      return;
-    }
-
-    if (!isValidEmail(trimmedEmail)) {
-      setMessage("E-mailová adresa nemá správny formát.");
-      return;
-    }
-
     if (!isPasswordValid(password)) {
-      setMessage("Heslo nespĺňa všetky požadované pravidlá.");
+      setMessage("Nové heslo nespĺňa všetky bezpečnostné pravidlá.");
+      return;
+    }
+
+    if (!passwordsMatch) {
+      setMessage("Heslá sa nezhodujú.");
       return;
     }
 
     setSaving(true);
 
-    const { error } = await supabase.auth.signUp({
-      email: trimmedEmail,
+    const { error } = await supabase.auth.updateUser({
       password,
     });
 
     setSaving(false);
 
     if (error) {
-      const lowerMessage = error.message.toLowerCase();
-
-      if (
-        lowerMessage.includes("already") ||
-        lowerMessage.includes("registered") ||
-        lowerMessage.includes("exists")
-      ) {
-        setMessage(
-          "Účet s týmto e-mailom už môže existovať. Skús sa prihlásiť alebo použi obnovenie hesla."
-        );
-      } else {
-        setMessage(`Chyba: ${error.message}`);
-      }
-
+      setMessage(`Chyba pri zmene hesla: ${error.message}`);
       return;
     }
 
-    setMessage(
-      "Ak je možné účet vytvoriť, na zadaný e-mail bude odoslaný potvrdzovací odkaz. Ak už účet existuje, skús sa prihlásiť."
-    );
-
-    setEmail("");
     setPassword("");
+    setPasswordRepeat("");
+    setMessage("Heslo bolo úspešne zmenené.");
   };
 
   return (
     <form
-      onSubmit={handleRegister}
-      className="max-w-md space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
+      onSubmit={handleChangePassword}
+      className="space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
     >
-      <div className="space-y-1">
-        <h2 className="text-xl font-semibold">Registrácia</h2>
-        <p className="text-sm text-slate-600">
-          Vytvorenie nového používateľského účtu.
+      <div>
+        <h2 className="text-2xl font-semibold">Zmena hesla</h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Zadaj nové heslo pre svoj používateľský účet.
         </p>
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">E-mail</label>
-        <input
-          type="email"
-          placeholder="zadaj e-mail"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border px-3 py-2"
-          required
-        />
-      </div>
-
-      <div className="space-y-2">
-        <label className="text-sm font-medium">Heslo</label>
+        <label className="text-sm font-medium">Nové heslo</label>
         <input
           type="password"
-          placeholder="zadaj heslo"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           className="w-full rounded-lg border px-3 py-2"
@@ -152,8 +112,25 @@ export default function RegisterForm() {
         )}
       </div>
 
-      <Button type="submit" className="w-full" disabled={!canSubmit}>
-        {saving ? "Registruje sa..." : "Registrovať sa"}
+      <div className="space-y-2">
+        <label className="text-sm font-medium">Zopakuj nové heslo</label>
+        <input
+          type="password"
+          value={passwordRepeat}
+          onChange={(event) => setPasswordRepeat(event.target.value)}
+          className="w-full rounded-lg border px-3 py-2"
+          required
+        />
+
+        {passwordRepeat.length > 0 && (
+          <p className={passwordsMatch ? "text-sm text-green-600" : "text-sm text-red-600"}>
+            {passwordsMatch ? "Heslá sa zhodujú." : "Heslá sa nezhodujú."}
+          </p>
+        )}
+      </div>
+
+      <Button type="submit" disabled={!canSubmit}>
+        {saving ? "Ukladá sa..." : "Zmeniť heslo"}
       </Button>
 
       {message && <p className="text-sm text-slate-700">{message}</p>}
