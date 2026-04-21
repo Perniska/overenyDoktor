@@ -28,7 +28,7 @@ export default function Navbar() {
         data: { user },
       } = await supabase.auth.getUser();
 
-      setUser(user ? { email: user.email } : null);
+      setUser(user ? { email: user.email ?? undefined } : null);
     };
 
     getCurrentUser();
@@ -36,7 +36,7 @@ export default function Navbar() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ? { email: session.user.email } : null);
+      setUser(session?.user ? { email: session.user.email ?? undefined } : null);
     });
 
     return () => {
@@ -45,14 +45,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileDetailsRef.current) {
-      mobileDetailsRef.current.open = false;
-    }
+    closeMobileMenu();
   }, [pathname]);
 
   const publicLinks: NavLink[] = [
     { href: "/", label: "Domov" },
     { href: "/doctors", label: "Lekári" },
+    { href: "/facilities", label: "Zariadenia" },
     { href: "/forum", label: "Fórum" },
     { href: "/analytics", label: "Analytika" },
   ];
@@ -64,105 +63,124 @@ export default function Navbar() {
 
   const links = user ? [...publicLinks, ...privateLinks] : publicLinks;
 
-  const getLinkClassName = (href: string) =>
-    cn(
-      "rounded-lg px-2 py-1 text-sm font-medium transition-colors",
+  function closeMobileMenu() {
+    if (mobileDetailsRef.current) {
+      mobileDetailsRef.current.open = false;
+    }
+  }
+
+  function getLinkClassName(href: string) {
+    return cn(
+      "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
       pathname === href
         ? "bg-sky-100 text-sky-700"
         : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
     );
+  }
 
-  const closeMobileMenu = () => {
-    if (mobileDetailsRef.current) {
-      mobileDetailsRef.current.open = false;
-    }
-  };
+  function getMobileLinkClassName(href: string) {
+    return cn(
+      "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
+      pathname === href
+        ? "bg-sky-100 text-sky-700"
+        : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
+    );
+  }
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-xl font-bold tracking-tight text-slate-900">
+    <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+        <Link href="/" className="text-lg font-bold text-slate-950">
           OverenýDoktor
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          <div className="flex flex-wrap items-center gap-2">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} className={getLinkClassName(link.href)}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="hidden items-center gap-1 md:flex">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className={getLinkClassName(link.href)}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
-          <div className="flex items-center gap-3 border-l pl-4">
-            {user ? (
-              <>
-                <span className="max-w-[180px] truncate text-sm text-slate-600">
-                  {user.email}
-                </span>
-                <LogoutButton />
-              </>
-            ) : (
-              <Link href="/auth/login" className={getLinkClassName("/auth/login")}>
+        <div className="hidden items-center gap-3 md:flex">
+          {user ? (
+            <>
+              <span className="max-w-55 truncate text-sm text-slate-600">
+                {user.email}
+              </span>
+              <LogoutButton />
+            </>
+          ) : (
+            <>
+              <Link
+                href="/auth/login"
+                className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
+              >
                 Prihlásiť sa
               </Link>
-            )}
-          </div>
-        </nav>
 
-        <details ref={mobileDetailsRef} className="group relative md:hidden">
-          <summary className="flex cursor-pointer list-none items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 [&::-webkit-details-marker]:hidden">
-            <span className="group-open:hidden">
-              <Menu size={20} />
-            </span>
-            <span className="hidden group-open:inline">
-              <X size={20} />
-            </span>
+              <Link
+                href="/auth/register"
+                className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                Registrovať sa
+              </Link>
+            </>
+          )}
+        </div>
+
+        <details ref={mobileDetailsRef} className="relative md:hidden">
+          <summary className="flex cursor-pointer list-none items-center rounded-xl border px-3 py-2 text-slate-800">
+            <Menu className="size-5 in-[[open]]:hidden" />
+            <X className="hidden size-5 in-[[open]]:block" />
+            <span className="sr-only">Otvoriť menu</span>
           </summary>
 
-          <div className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-72 rounded-2xl border bg-white p-3 shadow-lg">
-            <div className="flex flex-col gap-2">
+          <div className="absolute right-0 mt-3 w-[calc(100vw-2rem)] max-w-sm rounded-2xl border bg-white p-4 shadow-xl">
+            <div className="space-y-1">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                    pathname === link.href
-                      ? "bg-sky-100 text-sky-700"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
-                  )}
                   onClick={closeMobileMenu}
+                  className={getMobileLinkClassName(link.href)}
                 >
                   {link.label}
                 </Link>
               ))}
+            </div>
 
-              <div className="mt-2 border-t pt-3">
-                {user ? (
-                  <div className="space-y-3">
-                    <p className="break-all text-sm text-slate-600">{user.email}</p>
-                    <LogoutButton />
-                  </div>
-                ) : (
+            <div className="mt-4 border-t pt-4">
+              {user ? (
+                <div className="space-y-3">
+                  <p className="truncate rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
+                    {user.email}
+                  </p>
+                  <LogoutButton />
+                </div>
+              ) : (
+                <div className="space-y-2">
                   <Link
                     href="/auth/login"
-                    className={cn(
-                      "block rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                      pathname === "/auth/login"
-                        ? "bg-sky-100 text-sky-700"
-                        : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
-                    )}
                     onClick={closeMobileMenu}
+                    className="block w-full rounded-xl bg-sky-600 px-4 py-3 text-center text-base font-semibold text-white shadow-sm hover:bg-sky-700"
                   >
                     Prihlásiť sa
                   </Link>
-                )}
-              </div>
+
+                  <Link
+                    href="/auth/register"
+                    onClick={closeMobileMenu}
+                    className="block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-center text-base font-semibold text-slate-800 hover:bg-slate-50"
+                  >
+                    Registrovať sa
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </details>
-      </div>
+      </nav>
     </header>
   );
 }

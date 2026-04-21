@@ -1,31 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
+import {
+  isPasswordValid,
+  PasswordRequirements,
+} from "@/components/auth/PasswordRequirements";
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function getPasswordChecks(password: string) {
-  return {
-    minLength: password.length >= 8,
-    hasUppercase: /[A-Z]/.test(password),
-    hasNumber: /[0-9]/.test(password),
-    hasSpecialChar: /[^A-Za-z0-9]/.test(password),
-  };
-}
-
-function isPasswordValid(password: string) {
-  const checks = getPasswordChecks(password);
-
-  return (
-    checks.minLength &&
-    checks.hasUppercase &&
-    checks.hasNumber &&
-    checks.hasSpecialChar
-  );
 }
 
 export default function RegisterForm() {
@@ -33,9 +17,6 @@ export default function RegisterForm() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
-
-  const checks = getPasswordChecks(password);
-  const canSubmit = email.trim().length > 0 && isPasswordValid(password) && !saving;
 
   const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -96,67 +77,77 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={handleRegister}
-      className="max-w-md space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
+      className="relative z-10 mx-auto w-full max-w-md space-y-5 rounded-2xl border bg-white p-5 shadow-sm sm:p-6"
     >
       <div className="space-y-1">
-        <h2 className="text-xl font-semibold">Registrácia</h2>
+        <h2 className="text-xl font-semibold text-slate-950">Registrácia</h2>
         <p className="text-sm text-slate-600">
           Vytvorenie nového používateľského účtu.
         </p>
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">E-mail</label>
+        <label
+          htmlFor="register-email"
+          className="block text-sm font-medium text-slate-800"
+        >
+          E-mail
+        </label>
         <input
+          id="register-email"
           type="email"
+          inputMode="email"
+          autoComplete="email"
           placeholder="zadaj e-mail"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border px-3 py-2"
-          required
+          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
         />
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">Heslo</label>
+        <label
+          htmlFor="register-password"
+          className="block text-sm font-medium text-slate-800"
+        >
+          Heslo
+        </label>
         <input
+          id="register-password"
           type="password"
+          autoComplete="new-password"
           placeholder="zadaj heslo"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-lg border px-3 py-2"
-          required
+          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
         />
 
-        {password.length > 0 && (
-          <div className="rounded-lg bg-slate-50 p-3 text-sm">
-            <p className="mb-2 font-medium text-slate-700">
-              Heslo musí spĺňať:
-            </p>
-
-            <ul className="space-y-1">
-              <li className={checks.minLength ? "text-green-600" : "text-red-600"}>
-                {checks.minLength ? "✓" : "✗"} aspoň 8 znakov
-              </li>
-              <li className={checks.hasUppercase ? "text-green-600" : "text-red-600"}>
-                {checks.hasUppercase ? "✓" : "✗"} aspoň jedno veľké písmeno
-              </li>
-              <li className={checks.hasNumber ? "text-green-600" : "text-red-600"}>
-                {checks.hasNumber ? "✓" : "✗"} aspoň jedno číslo
-              </li>
-              <li className={checks.hasSpecialChar ? "text-green-600" : "text-red-600"}>
-                {checks.hasSpecialChar ? "✓" : "✗"} aspoň jeden špeciálny znak
-              </li>
-            </ul>
-          </div>
-        )}
+        <PasswordRequirements password={password} />
       </div>
 
-      <Button type="submit" className="w-full" disabled={!canSubmit}>
+      <button
+        type="submit"
+        disabled={saving}
+        className="relative z-20 min-h-12 w-full cursor-pointer rounded-xl bg-sky-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+      >
         {saving ? "Registruje sa..." : "Registrovať sa"}
-      </Button>
+      </button>
 
-      {message && <p className="text-sm text-slate-700">{message}</p>}
+      <p className="text-center text-sm text-slate-600">
+        Už máš účet?{" "}
+        <Link
+          href="/auth/login"
+          className="font-medium text-sky-700 hover:underline"
+        >
+          Prihlás sa
+        </Link>
+      </p>
+
+      {message ? (
+        <p className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+          {message}
+        </p>
+      ) : null}
     </form>
   );
 }

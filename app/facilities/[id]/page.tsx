@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Star,
   Stethoscope,
+  UserRound,
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSingleRelation } from "@/lib/relations";
@@ -20,7 +21,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
 
-type DoctorDetailPageProps = {
+type FacilityDetailPageProps = {
   params: Promise<{
     id: string;
   }>;
@@ -43,30 +44,36 @@ function getRatingRow(label: string, value?: number | null) {
   );
 }
 
-export default async function DoctorDetailPage({
+export default async function FacilityDetailPage({
   params,
-}: DoctorDetailPageProps) {
+}: FacilityDetailPageProps) {
   const { id } = await params;
   const supabase = await createSupabaseServerClient();
 
-  const { data: doctorData, error } = await supabase
-    .from("doctors")
+  const { data: facilityData, error } = await supabase
+    .from("facilities")
     .select(
       `
       id,
-      title,
-      first_name,
-      last_name,
-      identifier,
+      name,
+      description,
+      website_url,
+      provider_name,
+      provider_ico,
+      region,
+      district,
+      raw_address,
+      facility_kind,
+      primary_specialization,
+      office_hours,
+      price_list_url,
+      price_list_note,
       verification_status,
       data_quality_status,
-      verified_at,
-      created_at,
-      specialization:specialization (
+      facility_type:id_facility_type (
         id,
         name,
-        slug,
-        category
+        slug
       ),
       addresses (
         id,
@@ -79,28 +86,29 @@ export default async function DoctorDetailPage({
         longitude,
         raw_address
       ),
+      facility_specializations (
+        is_primary,
+        specialization:id_specialization (
+          id,
+          name,
+          slug,
+          category
+        )
+      ),
       doctor_facilities (
         role,
         is_current,
         since,
-        facilities (
+        doctors (
           id,
-          name,
-          provider_name,
-          provider_ico,
-          website_url,
-          region,
-          district,
-          raw_address,
-          facility_kind,
-          addresses (
+          title,
+          first_name,
+          last_name,
+          verification_status,
+          specialization:specialization (
             id,
-            street,
-            city,
-            region,
-            zip_code,
-            is_primary,
-            raw_address
+            name,
+            slug
           )
         )
       )
@@ -110,12 +118,12 @@ export default async function DoctorDetailPage({
     .is("deleted_at", null)
     .single();
 
-  if (error || !doctorData) {
+  if (error || !facilityData) {
     notFound();
   }
 
-  const doctor = doctorData as any;
-  const specialization = getSingleRelation(doctor.specialization);
+  const facility = facilityData as any;
+  const facilityType = getSingleRelation(facility.facility_type);
 
   const { data: reviewsData } = await supabase
     .from("reviews")
@@ -130,17 +138,18 @@ export default async function DoctorDetailPage({
       visit_type,
       review_source,
       rating_communication,
-      rating_explanation,
       rating_waiting_time,
       rating_organization,
-      rating_approach,
-      rating_professionalism,
+      rating_cleanliness,
+      rating_environment,
+      rating_equipment,
+      rating_accessibility,
       rating_privacy,
       rating_recommendation
     `
     )
-    .eq("id_doctor", id)
-    .is("id_facility", null)
+    .eq("id_facility", id)
+    .is("id_doctor", null)
     .eq("status", "approved")
     .is("deleted_at", null)
     .order("created_at", { ascending: false })
@@ -154,26 +163,29 @@ export default async function DoctorDetailPage({
         reviews.length
       : 0;
 
-  const doctorName = getDoctorFullName(doctor);
-
   const primaryAddress =
-    doctor.addresses?.find((address: any) => address.is_primary) ??
-    doctor.addresses?.[0];
+    facility.addresses?.find((address: any) => address.is_primary) ??
+    facility.addresses?.[0];
 
-  const currentFacilities =
-    doctor.doctor_facilities
+  const specializations =
+    facility.facility_specializations
+      ?.map((item: any) => getSingleRelation(item.specialization))
+      .filter(Boolean) ?? [];
+
+  const doctors =
+    facility.doctor_facilities
       ?.filter((item: any) => item.is_current)
       .map((item: any) => {
-        const facility = getSingleRelation(item.facilities);
+        const doctor = getSingleRelation(item.doctors);
 
-        if (!facility) {
+        if (!doctor) {
           return null;
         }
 
         return {
           role: item.role,
           since: item.since,
-          ...facility,
+          ...doctor,
         };
       })
       .filter(Boolean) ?? [];
@@ -181,9 +193,9 @@ export default async function DoctorDetailPage({
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-8">
       <Button variant="ghost" asChild>
-        <Link href="/doctors">
+        <Link href="/facilities">
           <ArrowLeft className="size-4" />
-          Späť na lekárov
+          Späť na zariadenia
         </Link>
       </Button>
 
@@ -193,23 +205,23 @@ export default async function DoctorDetailPage({
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
               <div>
                 <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
-                  Profil lekára
+                  Profil zariadenia
                 </p>
 
-                <CardTitle className="mt-2 text-3xl">{doctorName}</CardTitle>
+                <CardTitle className="mt-2 text-3xl">{facility.name}</CardTitle>
 
-                {specialization?.name ? (
-                  <p className="mt-2 flex items-center gap-2 text-slate-600">
-                    <Stethoscope className="size-4" />
-                    {specialization.name}
-                  </p>
-                ) : null}
+                <p className="mt-2 flex items-center gap-2 text-slate-600">
+                  <Building2 className="size-4" />
+                  {facilityType?.name ??
+                    facility.facility_kind ??
+                    "Zdravotnícke zariadenie"}
+                </p>
               </div>
 
-              {doctor.verification_status === "verified" ? (
+              {facility.verification_status === "verified" ? (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700">
                   <ShieldCheck className="size-4" />
-                  Overený profil
+                  Overené zariadenie
                 </span>
               ) : (
                 <span className="inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700">
@@ -237,90 +249,121 @@ export default async function DoctorDetailPage({
               <div className="rounded-xl border p-4">
                 <p className="text-sm text-slate-500">Stav údajov</p>
                 <p className="mt-2 text-base font-semibold">
-                  {getDataQualityStatusLabel(doctor.data_quality_status)}
+                  {getDataQualityStatusLabel(facility.data_quality_status)}
                 </p>
               </div>
             </div>
 
-            {primaryAddress ? (
+            {facility.provider_name ? (
+              <div>
+                <h2 className="mb-2 text-lg font-semibold">Poskytovateľ</h2>
+                <p className="text-slate-700">{facility.provider_name}</p>
+
+                {facility.provider_ico ? (
+                  <p className="mt-1 text-sm text-slate-500">
+                    IČO: {facility.provider_ico}
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
+
+            {primaryAddress || facility.raw_address ? (
               <div>
                 <h2 className="mb-2 text-lg font-semibold">Adresa</h2>
                 <p className="flex items-start gap-2 text-slate-700">
                   <MapPin className="mt-0.5 size-4" />
                   <span>
-                    {[primaryAddress.street, primaryAddress.city]
-                      .filter(Boolean)
-                      .join(", ")}
-                    {primaryAddress.zip_code
-                      ? `, ${primaryAddress.zip_code}`
-                      : ""}
-                    {primaryAddress.region ? `, ${primaryAddress.region}` : ""}
+                    {primaryAddress
+                      ? [
+                          primaryAddress.street,
+                          primaryAddress.city,
+                          primaryAddress.zip_code,
+                          primaryAddress.region,
+                        ]
+                          .filter(Boolean)
+                          .join(", ")
+                      : facility.raw_address}
                   </span>
                 </p>
               </div>
             ) : null}
 
-            <div>
-              <h2 className="mb-3 text-lg font-semibold">
-                Zdravotnícke zariadenia
-              </h2>
+            {facility.website_url ? (
+              <div>
+                <a
+                  href={facility.website_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-sky-700 hover:underline"
+                >
+                  <Globe className="size-4" />
+                  Web zariadenia
+                </a>
+              </div>
+            ) : null}
 
-              {currentFacilities.length === 0 ? (
+            <div>
+              <h2 className="mb-3 text-lg font-semibold">Špecializácie</h2>
+
+              {specializations.length === 0 &&
+              !facility.primary_specialization ? (
                 <p className="text-sm text-slate-600">
-                  K lekárovi zatiaľ nie je priradené zdravotnícke zariadenie.
+                  Špecializácie zatiaľ nie sú uvedené.
+                </p>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {facility.primary_specialization ? (
+                    <span className="rounded-full bg-sky-50 px-3 py-1 text-sm font-medium text-sky-700">
+                      {facility.primary_specialization}
+                    </span>
+                  ) : null}
+
+                  {specializations.map((specialization: any) => (
+                    <span
+                      key={specialization.id}
+                      className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700"
+                    >
+                      {specialization.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <h2 className="mb-3 text-lg font-semibold">Lekári v zariadení</h2>
+
+              {doctors.length === 0 ? (
+                <p className="text-sm text-slate-600">
+                  K zariadeniu zatiaľ nie sú priradení lekári.
                 </p>
               ) : (
                 <div className="space-y-3">
-                  {currentFacilities.map((facility: any) => {
-                    const facilityAddress =
-                      facility.addresses?.find(
-                        (address: any) => address.is_primary
-                      ) ?? facility.addresses?.[0];
+                  {doctors.map((doctor: any) => {
+                    const doctorSpecialization = getSingleRelation(
+                      doctor.specialization
+                    );
 
                     return (
                       <div
-                        key={facility.id}
+                        key={doctor.id}
                         className="rounded-xl border bg-slate-50 p-4"
                       >
                         <p className="flex items-center gap-2 font-semibold">
-                          <Building2 className="size-4" />
+                          <UserRound className="size-4" />
                           <Link
-                            href={`/facilities/${facility.id}`}
+                            href={`/doctors/${doctor.id}`}
                             className="hover:underline"
                           >
-                            {facility.name}
+                            {getDoctorFullName(doctor)}
                           </Link>
                         </p>
 
-                        {facility.provider_name ? (
-                          <p className="mt-1 text-sm text-slate-600">
-                            Poskytovateľ: {facility.provider_name}
+                        {doctorSpecialization?.name ? (
+                          <p className="mt-1 flex items-center gap-1.5 text-sm text-slate-600">
+                            <Stethoscope className="size-4" />
+                            {doctorSpecialization.name}
                           </p>
-                        ) : null}
-
-                        {facilityAddress ? (
-                          <p className="mt-2 flex items-start gap-2 text-sm text-slate-600">
-                            <MapPin className="mt-0.5 size-4" />
-                            {[facilityAddress.street, facilityAddress.city]
-                              .filter(Boolean)
-                              .join(", ")}
-                          </p>
-                        ) : facility.raw_address ? (
-                          <p className="mt-2 text-sm text-slate-600">
-                            {facility.raw_address}
-                          </p>
-                        ) : null}
-
-                        {facility.website_url ? (
-                          <a
-                            href={facility.website_url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-sky-700 hover:underline"
-                          >
-                            <Globe className="size-4" />
-                            Web zariadenia
-                          </a>
                         ) : null}
                       </div>
                     );
@@ -334,18 +377,18 @@ export default async function DoctorDetailPage({
         <aside className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Hodnotenie lekára</CardTitle>
+              <CardTitle>Hodnotenie zariadenia</CardTitle>
             </CardHeader>
 
             <CardContent className="space-y-3">
               <p className="text-sm text-slate-600">
-                Hodnotenie sa vytvára cez štruktúrovaný formulár a zobrazí sa
-                hneď po odoslaní.
+                Tu sa hodnotí zariadenie ako organizačné miesto poskytovania
+                starostlivosti.
               </p>
 
               <Button asChild className="w-full">
-                <Link href={`/reviews/create?doctorId=${doctor.id}`}>
-                  Pridať recenziu lekára
+                <Link href={`/reviews/create?facilityId=${facility.id}`}>
+                  Pridať recenziu zariadenia
                 </Link>
               </Button>
             </CardContent>
@@ -354,12 +397,12 @@ export default async function DoctorDetailPage({
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Recenzie lekára</h2>
+        <h2 className="text-2xl font-bold">Recenzie zariadenia</h2>
 
         {reviews.length === 0 ? (
           <Card>
             <CardContent className="py-8 text-center text-slate-600">
-              Tento lekár zatiaľ nemá recenzie.
+              Toto zariadenie zatiaľ nemá recenzie.
             </CardContent>
           </Card>
         ) : (
@@ -392,15 +435,19 @@ export default async function DoctorDetailPage({
                   )}
 
                   <div className="grid gap-2 md:grid-cols-2">
-                    {getRatingRow("Komunikácia", review.rating_communication)}
                     {getRatingRow(
-                      "Vysvetlenie postupu",
-                      review.rating_explanation
+                      "Komunikácia personálu",
+                      review.rating_communication
                     )}
-                    {getRatingRow("Čakanie", review.rating_waiting_time)}
+                    {getRatingRow(
+                      "Čakanie a vybavenie",
+                      review.rating_waiting_time
+                    )}
                     {getRatingRow("Organizácia", review.rating_organization)}
-                    {getRatingRow("Prístup", review.rating_approach)}
-                    {getRatingRow("Odbornosť", review.rating_professionalism)}
+                    {getRatingRow("Čistota", review.rating_cleanliness)}
+                    {getRatingRow("Prostredie", review.rating_environment)}
+                    {getRatingRow("Vybavenie", review.rating_equipment)}
+                    {getRatingRow("Dostupnosť", review.rating_accessibility)}
                     {getRatingRow("Súkromie", review.rating_privacy)}
                     {getRatingRow("Odporúčanie", review.rating_recommendation)}
                   </div>

@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -13,8 +13,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
-
-  const canSubmit = email.trim().length > 0 && password.length > 0 && !saving;
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,51 +49,93 @@ export default function LoginForm() {
       return;
     }
 
-    setMessage("Prihlásenie prebehlo úspešne.");
     window.location.href = "/";
   };
 
   return (
     <form
       onSubmit={handleLogin}
-      className="max-w-md space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
+      className="relative z-10 mx-auto w-full max-w-md space-y-5 rounded-2xl border bg-white p-5 shadow-sm sm:p-6"
     >
       <div className="space-y-1">
-        <h2 className="text-xl font-semibold">Prihlásenie</h2>
+        <h2 className="text-xl font-semibold text-slate-950">Prihlásenie</h2>
         <p className="text-sm text-slate-600">
           Prihlásenie používateľa do systému.
         </p>
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">E-mail</label>
+        <label
+          htmlFor="login-email"
+          className="block text-sm font-medium text-slate-800"
+        >
+          E-mail
+        </label>
         <input
+          id="login-email"
           type="email"
+          inputMode="email"
+          autoComplete="email"
           placeholder="zadaj e-mail"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border px-3 py-2"
-          required
+          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
         />
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">Heslo</label>
+        <label
+          htmlFor="login-password"
+          className="block text-sm font-medium text-slate-800"
+        >
+          Heslo
+        </label>
         <input
+          id="login-password"
           type="password"
+          autoComplete="current-password"
           placeholder="zadaj heslo"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-lg border px-3 py-2"
-          required
+          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
         />
       </div>
 
-      <Button type="submit" className="w-full" disabled={!canSubmit}>
+      <button
+        type="submit"
+        disabled={saving}
+        className="relative z-20 min-h-12 w-full cursor-pointer rounded-xl bg-sky-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+      >
         {saving ? "Prihlasuje sa..." : "Prihlásiť sa"}
-      </Button>
+      </button>
 
-      {message && <p className="text-sm text-slate-700">{message}</p>}
+      <div className="space-y-2 text-center text-sm">
+        <p className="text-slate-600">
+          Zabudla si heslo?{" "}
+          <Link
+            href="/auth/forgot-password"
+            className="font-medium text-sky-700 hover:underline"
+          >
+            Obnoviť heslo
+          </Link>
+        </p>
+
+        <p className="text-slate-600">
+          Nemáš účet?{" "}
+          <Link
+            href="/auth/register"
+            className="font-medium text-sky-700 hover:underline"
+          >
+            Zaregistruj sa
+          </Link>
+        </p>
+      </div>
+
+      {message ? (
+        <p className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+          {message}
+        </p>
+      ) : null}
     </form>
   );
 }
