@@ -1,0 +1,488 @@
+facility_id,evuc_identifier,street,street_number,city,region,zip_code,full_address,is_primary
+db774869-2a05-5f6b-846f-18ca831bd2a2,66-42000912-A0001,Tibora Andrašovana,14300/4,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Tibora Andrašovana, 14300/4, 97401, Banská Bystrica",true
+78126033-4423-5dfb-9551-9d68cf36ba73,66-55279201-A0001,Lazovná,3447/60,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Lazovná, 3447/60, 97401, Banská Bystrica",true
+4d9aa34a-e69f-5d27-95db-2a195bd46f70,51-00165549-A0005,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+0e369020-3ac2-525f-b7a8-323d451fe2b1,66-44184425-A0006,Cesta k nemocnici,4443/1B,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 4443/1B, 97401, Banská Bystrica",true
+7ddc1eb4-a392-5e56-834c-f2680d2f02c0,66-45594929-A0051,Kuzmányho nábrežie,53/28,Zvolen,Banskobystrický samosprávny kraj,96001,"Kuzmányho nábrežie, 53/28, 96001, Zvolen",true
+5c44ee62-3846-5bd1-bf98-5cc4a7a7eed8,51-45594929-A0051,Kuzmányho nábrežie,28,Zvolen,Banskobystrický samosprávny kraj,96001,"Kuzmányho nábrežie, 28, 96001, Zvolen",true
+54e0fa5f-e8a4-5379-96b9-9cf4b370a4e1,66-45736324-A0038,Litovelská,635/25,Revúca,Banskobystrický samosprávny kraj,05001,"Nemocnica s poliklinikou, Litovelská, 635/25, 05001, Revúca",true
+c404cfa2-d041-5d8f-8c3e-1ee418c36a09,66-54588952-A0043,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+719d5edb-a0c8-582d-afd8-642aca7ab203,66-35960884-A0043,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+c360fbd6-00fe-503e-a61b-1409954057ae,66-35960884-A0118,Šrobárova,15/2,Rimavská Sobota,Banskobystrický samosprávny kraj,97901,"Šrobárova, 15/2, 97901, Rimavská Sobota",true
+560616de-818a-5037-90d8-e0ab29f11898,66-45736987-A0018,Jesenského,102/19,Hnúšťa,Banskobystrický samosprávny kraj,98101,"Jesenského, 102/19, 98101, Hnúšťa",true
+75ee35d4-7569-5dd2-bbbd-02f8984a4c6f,66-37954571-A0075,Námestie republiky,2373/15,Lučenec,Banskobystrický samosprávny kraj,98401,"Nemocnica s poliklinikou, Námestie republiky, 2373/15, 98401, Lučenec",true
+16500d7a-c34f-5e8b-a2f4-632d2988fca1,66-37951513-A0001,Námestie republiky,2373/15,Lučenec,Banskobystrický samosprávny kraj,98401,"Námestie republiky, 2373/15, 98401, Lučenec",true
+9606c7e9-dc3e-53ba-9f13-db194c7e586b,66-31908977-A0011,Nemocničná,756/1,Veľký Krtíš,Banskobystrický samosprávny kraj,99001,"Nemocničná, 756/1, 99001, Veľký Krtíš",true
+8325d810-6492-5763-902a-ad34dda06dca,51-37889346-A0001,Tajovského,14294/5,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Tajovského, 14294/5, 97409, Banská Bystrica",true
+5990c470-5448-560f-ab5d-527666685fae,66-50253808-A0001,Rudohorská,2002/27,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudohorská, 2002/27, 97411, Banská Bystrica",true
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,Československej armády,1007/25,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Československej armády, 1007/25, 97401, Banská Bystrica",true
+e77bc120-2d2f-58cf-9d0e-b9dd6b5de213,66-42317614-A0001,Horná,7/24,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 7/24, 97401, Banská Bystrica",true
+15b646cb-e817-5bd5-a860-305686655c86,66-55513484-A0001,Sládkovičova,14200/7A,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 14200/7A, 97405, Banská Bystrica",true
+192aa61b-c2da-5d67-bdd9-5376d410c702,66-35659726-A0003,Tibora Andrašovana,14300/4,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Tibora Andrašovana, 14300/4, 97401, Banská Bystrica",true
+c2abf3e2-b374-5e22-8bfb-47dd33e460be,66-35659726-A0002,Tibora Andrašovana,14300/4,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Tibora Andrašovana, 14300/4, 97401, Banská Bystrica",true
+95d30cbd-eb05-5506-9bbb-9f587f897066,66-37889346-A0001,Tajovského,14294/5,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Tajovského, 14294/5, 97409, Banská Bystrica",true
+ec5a437b-3662-5f2b-b42d-2845479df3eb,51-36289485-A0004,Československej armády,1007/25,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Československej armády, 1007/25, 97401, Banská Bystrica",true
+29ab7eb8-dec0-5871-a616-bf6e777ec930,66-48238864-A0001,Partizánska cesta,97,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Partizánska cesta, 97, 97401, Banská Bystrica",true
+ebbea9d4-d82b-5607-8b31-c1582264e6f0,51-42146003-A0004,Nám. slobody,6208/5,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nám. slobody, 6208/5, 97401, Banská Bystrica",true
+73543ac9-1186-5495-b5b0-8750ff61edd0,66-47612738-A0001,Sládkovičova,2703/13,Žiar nad Hronom,Banskobystrický samosprávny kraj,96501,"Sládkovičova, 2703/13, 96501, Žiar nad Hronom",true
+d542874d-9805-5877-86d8-b0a5fd932dfc,66-47400145-A0001,J.Jesenského,2131/17,Zvolen,Banskobystrický samosprávny kraj,96001,"J.Jesenského, 2131/17, 96001, Zvolen",true
+51d7b61b-c66c-50ea-92bb-6d0c568a5614,66-35659726-A0001,M.R.Štefánika,545/20,Zvolen,Banskobystrický samosprávny kraj,96001,"M.R.Štefánika, 545/20, 96001, Zvolen",true
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,Obchoditá,1028/36,Očová,Banskobystrický samosprávny kraj,96223,"Obchoditá, 1028/36, 96223, Očová",true
+d7c8dc98-c598-578c-9174-92f0517eeb30,66-37824686-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+26ae71d5-a585-5c43-bd4e-fb1ac0ed04a0,66-50420607-A0001,Pletiarska,1613/9,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Pletiarska, 1613/9, 96901, Banská Štiavnica",true
+b112f5ea-f899-5ac4-89aa-4ccb0c570fd5,66-47245875-A0001,L. Svobodu,17/1,Rimavská Sobota,Banskobystrický samosprávny kraj,97901,"L. Svobodu, 17/1, 97901, Rimavská Sobota",true
+63ee8dc3-e458-5c16-bf71-1801ceeb8a54,66-46119361-A0001,Jánošíkova,4989/2,Rimavská Sobota,Banskobystrický samosprávny kraj,97901,"Jánošíkova, 4989/2, 97901, Rimavská Sobota",true
+d68fbe91-a4b7-5794-8cc1-5adf50b45cd1,66-45376191-A0002,Hlavná,28/36,Hnúšťa,Banskobystrický samosprávny kraj,98101,"Hlavná, 28/36, 98101, Hnúšťa",true
+08170cb5-4682-5a7c-bd59-9c54f7eb0f3e,66-53849825-A0001,Pionierska,1130/9,Brezno,Banskobystrický samosprávny kraj,97701,"Pionierska, 1130/9, 97701, Brezno",true
+ab40fe86-8031-5cbc-a9e3-8461326c1fea,66-54109868-A0001,Hlavná,61/62,Pohronská Polhora,Banskobystrický samosprávny kraj,97656,"Hlavná, 61/62, 97656, Pohronská Polhora",true
+8dff2e5a-af93-5961-aa0e-c5420f9c8d35,66-52098940-A0001,Hlavná,121/62,Heľpa,Banskobystrický samosprávny kraj,97668,"Hlavná, 121/62, 97668, Heľpa",true
+fc6607cf-00f4-505d-9467-084fc5c6c280,66-36642711-A0004,Námestie gen. M.R.Štefánika,7/1,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/1, 97701, Brezno",true
+3cffbaa1-b09c-54c8-9eee-798e994a640e,66-31908772-A0001,Heľpa,121,Heľpa,Banskobystrický samosprávny kraj,97668,"Heľpa, 121, 97668",true
+5519cfaa-8fea-57d4-9ac7-1998c592d7c6,66-54850002-A0001,Ulica T. G. Masaryka,2915/7,Lučenec,Banskobystrický samosprávny kraj,98401,"Ulica T. G. Masaryka, 2915/7, 98401, Lučenec",true
+0ad82183-cb07-5abb-9453-46a6e640ab5e,66-36835684-A0001,Tomášovce,,,Banskobystrický samosprávny kraj,,"Riečna, 243/3, Tomášovce",true
+3f190ad7-e8cd-517b-b5ef-d19c1a2f5c10,66-46036946-A0001,Ulica A. Bernoláka,1338/17,Lučenec,Banskobystrický samosprávny kraj,98401,"Ulica A. Bernoláka, 1338/17, 98401, Lučenec",true
+4d6076c9-0a9b-5aca-b78a-7e3ee75fe11b,66-42300771-A0001,SNP,2073/8,Fiľakovo,Banskobystrický samosprávny kraj,98601,"SNP, 2073/8, 98601, Fiľakovo",true
+5b3fa715-0f85-5d95-98ad-654c1d4b5485,66-46119361-A0002,SNP,2073/8,Fiľakovo,Banskobystrický samosprávny kraj,98601,"SNP, 2073/8, 98601, Fiľakovo",true
+764e34a5-0a60-51d4-bf5e-1bb776acd71e,66-36633836-A0001,Biskupická,1730/24,Fiľakovo,Banskobystrický samosprávny kraj,98601,"Biskupická, 1730/24, 98601, Fiľakovo",true
+0233e609-f8da-56e4-b80e-d2136d92755d,66-36744131-A0001,Cintorínska,5680/6,Lučenec,Banskobystrický samosprávny kraj,98401,"Cintorínska, 5680/6, 98401, Lučenec",true
+55fac6c3-ae3b-5cbe-8120-ed8804f5d22b,66-37954571-A0004,Námestie republiky,2373/15,Lučenec,Banskobystrický samosprávny kraj,98401,"Nemocnica s poliklinikou, Námestie republiky, 2373/15, 98401, Lučenec",true
+13cc7591-5dae-5426-b9c8-951413806352,66-47612738-A0002,Bystrická ulica,481/52,Žarnovica,Banskobystrický samosprávny kraj,96681,"Bystrická ulica, 481/52, 96681, Žarnovica",true
+85ead55f-e578-55fc-8fa3-561d18593a21,66-45736324-A0037,Litovelská,635/25,Revúca,Banskobystrický samosprávny kraj,05001,"Nemocnica s poliklinikou, Litovelská, 635/25, 05001, Revúca",true
+3df885a2-9731-53f3-92ff-1c52ed5bcd58,66-45736324-A0039,Litovelská,635/25,Revúca,Banskobystrický samosprávny kraj,05001,"Nemocnica s poliklinikou, Litovelská, 635/25, 05001, Revúca",true
+7bb55c54-736d-543d-96dc-f28eb54c1836,66-45458014-A0001,230,230,Mokrá Lúka,Banskobystrický samosprávny kraj,05001,"230, 05001, Mokrá Lúka",true
+eae7e55b-ffc2-57fc-9e53-1505632098ae,66-53467698-A0001,29. augusta,628/23,Krupina,Banskobystrický samosprávny kraj,96301,"29. augusta, 628/23, 96301, Krupina",true
+c8609fbd-6345-51cf-b4f3-ee04a530a92e,51-36567396-A0002,Cesta Slobody,457/13,Vinica,Banskobystrický samosprávny kraj,99128,"Cesta Slobody, 457/13, 99128, Vinica",true
+ac3a991b-292d-5287-bc1e-0ef67a87611b,66-54718481-A0001,Nemocničná,756/1,Veľký Krtíš,Banskobystrický samosprávny kraj,99001,"Nemocničná, 756/1, 99001, Veľký Krtíš",true
+1e81bd5a-ce25-507b-b034-7ae6fd8a2827,66-33254346-A0001,Nemocničná,756/1,Veľký Krtíš,Banskobystrický samosprávny kraj,99001,"Nemocničná, 756/1, 99001, Veľký Krtíš",true
+7ec4a213-e897-5dfe-95b2-242c0ce1d908,66-37818911-A0001,Nemocničná,756/1,Veľký Krtíš,Banskobystrický samosprávny kraj,99001,"Nemocničná, 756/1, 99001, Veľký Krtíš",true
+c90b98e7-ec3d-53a1-a525-41c06325a717,66-52473775-A0001,109,109,Lesenice,Banskobystrický samosprávny kraj,99108,"109, 99108, Lesenice",true
+2a7ca237-8a20-52d4-8a4a-68a2746607ac,66-45021228-A0001,ulica Hlavná,52/75,Dolná Strehová,Banskobystrický samosprávny kraj,99102,"ulica Hlavná, 52/75, 99102, Dolná Strehová",true
+40939a3e-5dbf-538c-b80c-fd403f14c5e7,66-31908799-A0001,Slaná Lehota,15,Poltár,Banskobystrický samosprávny kraj,98701,"Slaná Lehota, 15, 98701, Poltár",true
+71081212-f610-5a3c-94dc-f8945b14018c,66-47347015-A0001,Banská ulica,102/78,Cinobaňa,Banskobystrický samosprávny kraj,98522,"Banská ulica, 102/78, 98522, Cinobaňa",true
+6ecf63e8-460f-5ac3-9d6b-933fef12eb11,66-36621242-A0003,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,Záhradná,857/3,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/3, 96212, Detva",true
+c5436848-8d19-51ad-9550-cb508b6ead20,53-31642314-A0001,Brusno,,,Banskobystrický samosprávny kraj,,Brusno,true
+17aff8e3-eed9-56e7-9a12-f6726f1bdf70,53-52883281-A0001,Kúpeľná,1/2,Brusno,Banskobystrický samosprávny kraj,97662,"Liečebný dom Poľana, Kúpeľná, 1/2, 97662, Brusno",true
+6ef49226-c230-5085-bd3e-893c4ac30a7e,53-31642438-A0001,Nový Partizán,718/5,Sliač,Banskobystrický samosprávny kraj,96231,"Nový Partizán, 718/5, 96231, Sliač",true
+0063e257-d675-5b36-9230-27c4facc9d2d,53-36059706-A0001,Kúpeľná,76/70,Kováčová,Banskobystrický samosprávny kraj,96237,"Kúpeľná, 76/70, 96237, Kováčová",true
+2e452872-e0b2-5a95-aec6-d006c5ef0c7e,53-00165476-A0001,Sládkovičova,311/3,Kováčová,Banskobystrický samosprávny kraj,96237,"Špecializovaný liečebný ústav Marína, Sládkovičova, 311/3, 96237, Kováčová",true
+42f0e944-633e-54cc-b922-dff9a044480f,53-31642713-A0001,Liečebný ústav Rubín,105,Dudince,Banskobystrický samosprávny kraj,96271,"Liečebný ústav Rubín, 105, 96271, Dudince",true
+e0905c36-b65d-54df-a503-40e8792af067,53-00165506-A0001,Kúpeľná,107/1,Dudince,Banskobystrický samosprávny kraj,96271,"Liečebný dom Diamant, Kúpeľná, 107/1, 96271, Dudince",true
+dc6f08fb-cfea-57b1-85a0-cb43a6b8ca47,53-31642331-A0001,Číž,,Číž,Banskobystrický samosprávny kraj,98043,"Číž, 98043",true
+462620ab-9518-5731-8bce-d4e91c88cec9,53-31642721-A0001,7,103,Sklené Teplice,Banskobystrický samosprávny kraj,96603,"7, 103, 96603, Sklené Teplice",true
+ceca553a-8939-5058-a563-56ad4260353f,66-46991492-A0004,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+6fb734a4-9bab-5fed-85c2-68459b046930,66-56290063-A0002,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+b515deb0-8204-5ffb-a094-9c0f5b6bc108,66-56290063-A0001,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+e16688f6-91d5-5c34-b1ed-9b47f043f093,66-57517771-A0001,Nám. Š. Moysesa,42/14,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nám. Š. Moysesa, 42/14, 97401, Banská Bystrica",true
+9e8e60c1-0770-5e54-bf2b-82a06d25c2c4,66-57499471-A0001,Školská,741/11A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Školská, 741/11A, 97401, Banská Bystrica",true
+72244b88-ea7b-5177-b290-604970922dce,66-57499471-A0002,Školská,741/11A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Školská, 741/11A, 97401, Banská Bystrica",true
+1a65b2c5-8e1c-58e5-bf47-fde0f8f6fc6f,51-17336210-A0071,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"3, Banská Bystrica",true
+954e6281-342f-53d1-81c5-2787346ef72e,66-31623832-A0048,Bernolákova,6900/12,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Poliklinika NOVAMED, Bernolákova, 6900/12, 97405, Banská Bystrica",true
+883d1cbf-283a-597b-b865-5974a6107e33,51-17336210-A0073,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"5, Banská Bystrica",true
+d4189d05-2a83-5943-8483-c30883b8559b,66-57213089-A0001,Nám. slobody,14510/9,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nám. slobody, 14510/9, 97401, Banská Bystrica",true
+89b42e3a-78b8-5e0f-b871-7f4c06cca45f,66-55563333-A0011,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+6f7e73bb-f4b7-5a9c-9d74-00a2291e8cd1,66-55563333-A0012,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,Bakossova,470/6,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Bakossova, 470/6, 97401, Banská Bystrica",true
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,Bakossova,470/6,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Bakossova, 470/6, 97401, Banská Bystrica",true
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,Bakossova,470/6,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Bakossova, 470/6, 97401, Banská Bystrica",true
+b3332ca0-a7df-5648-bf15-0ba6ab29a606,66-52919706-A0001,Hurbanova,15748/2,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Hurbanova, 15748/2, 97401, Banská Bystrica",true
+0aac2815-8233-5164-8977-a93eefdeb015,51-17336210-A0069,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"1, Banská Bystrica",true
+1ced25a5-97ab-531b-8305-5cf44be99c12,51-17336210-A0072,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"4, Banská Bystrica",true
+82e6f0a7-3711-5fcd-8619-aba6628ef709,51-17336210-A0074,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"6, Banská Bystrica",true
+ec7aaf1c-720a-5410-9fe4-3ffedb7ec618,51-17336210-A0076,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"8, Banská Bystrica",true
+9e77fce3-5dd6-58cf-9ad4-e885f2db119c,66-57161348-A0001,Hlavná ulica,588/103,Hrochoť,Banskobystrický samosprávny kraj,97637,"Hlavná ulica, 588/103, 97637, Hrochoť",true
+f42f280a-c1cd-53d6-80ec-7dc601b484f5,51-31908969-A0018,Brusno,,,Banskobystrický samosprávny kraj,,"1, Brusno",true
+ca5393f9-24e9-5c0e-85b3-c3cff21d64a0,66-45452245-A0002,Nad plážou,6873/8,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nad plážou, 6873/8, 97401, Banská Bystrica",true
+d6cc0df9-1511-5771-8d24-b927de8ac931,66-36618799-A0006,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+07c34047-3aa5-55ff-a9fa-8cd06b9ecee7,66-57112924-A0001,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+4f0b6a83-d79e-5d8f-b996-2610a8612e9a,66-57201536-A0001,Nám. Ľ. Štúra,5949/7,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Nám. Ľ. Štúra, 5949/7, 97405, Banská Bystrica",true
+80d9679c-b535-5069-8641-c0e751087ed9,66-57106983-A0001,Na Zábave,3826/13,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Na Zábave, 3826/13, 97411, Banská Bystrica",true
+ccadc560-fab0-5508-a0cb-ab1dc093de7d,66-57188378-A0001,Sládkovičova,14200/7A,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 14200/7A, 97405, Banská Bystrica",true
+10595f3c-e673-55c6-9e13-12fb8dacf2c9,66-55168850-A0001,Partizánska cesta,6626/3,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Partizánska cesta, 6626/3, 97401, Banská Bystrica",true
+4ac57932-e5bd-5163-8244-7024c3237d24,66-50727184-A0007,Starohorská,6880/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Starohorská, 6880/72, 97411, Banská Bystrica",true
+76557bbe-3dd9-51a6-8db8-bb12490ea89b,66-50727184-A0003,Starohorská,6880/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Starohorská, 6880/72, 97411, Banská Bystrica",true
+ae691587-361d-5c9c-acd4-680291328145,66-50727184-A0004,Partizánska ulica,159/38,Selce,Banskobystrický samosprávny kraj,97611,"Partizánska ulica, 159/38, 97611, Selce",true
+13a18e28-17fb-5178-9ce5-f44e89fd2ec5,66-50727184-A0005,Starohorská,6880/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Starohorská, 6880/72, 97411, Banská Bystrica",true
+9a950271-4dd6-5ea9-b189-6a10b14083fe,66-50727184-A0006,Starohorská,6880/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Starohorská, 6880/72, 97411, Banská Bystrica",true
+362fb461-1bcc-5535-b424-32fb6ab46147,66-56659776-A0001,Nám. slobody,14510/9,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nám. slobody, 14510/9, 97401, Banská Bystrica",true
+1a630b15-c027-58ff-9a93-5369f5e0a291,51-00697516-A0008,Banská Bystrica,,,Banskobystrický samosprávny kraj,,"0, Banská Bystrica",true
+56094724-5d3a-5e42-a492-0fb3eb3d49a7,66-35910682-A0001,Bernolákova,6756/2,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Bernolákova, 6756/2, 97405, Banská Bystrica",true
+7187ba35-e8e5-5116-9df2-dba9ce84cc02,66-55479251-A0001,Nám. Ľ. Štúra,5949/7,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Nám. Ľ. Štúra, 5949/7, 97405, Banská Bystrica",true
+d6cda10c-6040-5c94-9736-f923a546891e,66-56765631-A0003,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+c4aa5e87-2677-51da-8fb3-2aa4c98777ae,66-56765631-A0001,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+0703d0a7-49c5-55cc-b2de-79c919f37a4b,66-56765631-A0002,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+27e34592-ee80-58f9-b1c3-81625f1c04c9,66-56642709-A0002,Partizánska cesta,6626/3,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Partizánska cesta, 6626/3, 97401, Banská Bystrica",true
+6f4f9b16-d26a-5d9c-848f-47dcbf47443f,66-56547633-A0001,Nad plážou,14458/9B,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nad plážou, 14458/9B, 97401, Banská Bystrica",true
+fd433a88-601f-5884-9215-11118a6363b9,66-56642709-A0001,Partizánska cesta,6626/3,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Partizánska cesta, 6626/3, 97401, Banská Bystrica",true
+c7c9c3a3-cb1e-5bd1-b589-e0ae92d7dab8,66-50557262-A0001,Skuteckého,133/30,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Skuteckého, 133/30, 97401, Banská Bystrica",true
+e3a7185b-aaca-58a5-929c-10870509a39b,66-50770420-A0002,Švermova,15276/42,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Švermova, 15276/42, 97404, Banská Bystrica",true
+067fcf11-81fd-5b0a-9a88-f26d52c84592,66-50770420-A0001,Švermova,15276/42,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Švermova, 15276/42, 97404, Banská Bystrica",true
+6ef36604-b9f0-5987-8f51-8de61b539d7c,66-36733768-A0004,Dolná,177/4,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Dolná, 177/4, 97401, Banská Bystrica",true
+e5727f7f-4973-5b61-b1ae-2431adaa188b,66-36733768-A0005,Dolná,177/4,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Dolná, 177/4, 97401, Banská Bystrica",true
+bf99493e-740c-5a44-9b05-837d9a8c7a77,66-56264887-A0001,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+3c372c8d-15b5-5f8c-a29b-6fabb54c59a4,66-44407033-A0002,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+7d5fd530-947c-5f39-92f6-29940d07d19b,66-56652062-A0002,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+e13a49ad-3c2c-5fc4-af85-85114df69848,66-56652062-A0001,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+18acebd1-961f-599e-b294-54a8f30237aa,66-51744422-A0011,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+f9aafde6-f1eb-5e40-9f9d-b0246f494faf,66-51744422-A0012,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+b8b6b262-2c21-5d7f-9395-0b65b3fbc4f0,66-56514328-A0001,Športová,535/1,Brusno,Banskobystrický samosprávny kraj,97662,"Športová, 535/1, 97662, Brusno",true
+5134f057-adc9-5c2d-a7dd-c529b350ac69,66-32027222-A0002,Trieda SNP,3502/75,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Trieda SNP, 3502/75, 97401, Banská Bystrica",true
+8c1b4a00-a9dd-5035-b3f5-c6e3171bc3ba,66-56058632-A0001,1.mája,635/2,Slovenská Ľupča,Banskobystrický samosprávny kraj,97613,"1.mája, 635/2, 97613, Slovenská Ľupča",true
+71869de7-efca-55eb-940a-c2252baa6c55,51-00151866-A0060,J. Cikkera,910/3,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"J. Cikkera, 910/3, 97401, Banská Bystrica",true
+3ec7a748-9eb6-5c75-9127-1ee74075fc3d,51-00151866-A0059,J. Cikkera,910/3,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"J. Cikkera, 910/3, 97401, Banská Bystrica",true
+4d301be2-7aaf-5506-9b11-8df8476cbc77,66-54623791-A0002,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+4679c219-4f0b-5604-be91-f2b84145818a,66-55563333-A0009,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+312c5ac3-c895-5504-b759-ca73c278b4e4,66-55563333-A0006,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+d251e035-3dc6-5eea-99c6-715d14832e82,66-55563333-A0008,Rudlovská cesta,15884/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 15884/72, 97411, Banská Bystrica",true
+7abc5772-cd48-541a-8d2a-1470a971612e,66-55563333-A0010,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+8067ad85-9325-563c-a383-6a720e99087c,66-55563333-A0007,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+7a3c8839-ddc7-5b3f-ad21-5de09f9ca167,66-56291833-A0001,Povstalecká cesta,4368/30,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Povstalecká cesta, 4368/30, 97409, Banská Bystrica",true
+2b0401a1-8dbd-59da-a6ea-27b13690ae34,51-36644331-A0024,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+5c463df5-a11f-527f-9d35-882508e25a07,66-55917909-A0001,Horná,838/60,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 838/60, 97401, Banská Bystrica",true
+77b204c1-7c86-538a-8b98-86601a2b1c92,66-51803178-A0001,Nad plážou,14458/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nad plážou, 14458/1, 97401, Banská Bystrica",true
+889c5523-abfe-5daa-883d-341a1d8f7cd1,51-00738301-A0112,Komenského,477/7,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"ÚVV a ÚVTOS, Komenského, 477/7, 97401, Banská Bystrica",true
+ff4e2359-8b61-5eb6-9ba6-a474d27a7edc,51-00738301-A0113,Sládkovičova,2238/80,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"ÚVTOS, Sládkovičova, 2238/80, 97405, Banská Bystrica",true
+7b7535f0-f98b-5dd6-9ecc-b833ee1a473c,66-46991492-A0003,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+40f64977-48ed-591b-ad99-71e5b21bc6b8,66-55917569-A0001,Spojová,6986/25,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Spojová, 6986/25, 97404, Banská Bystrica",true
+e175ecf8-d9f6-5204-8927-090137b92368,66-55563333-A0002,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+069b32f3-441c-5189-bd19-c8088e19472a,66-55563333-A0003,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+202b9117-5cc3-5948-818e-dcde4b701caf,66-55563333-A0004,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+66e44c9a-3821-5a32-a118-f1d3ceeeacf7,66-55563333-A0005,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+23827626-8301-536d-8463-0642b9bdee58,51-37957937-A0057,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+efc62d9b-c09b-5012-a55e-138fd8a02c9e,66-45594929-A0096,Kovačická ulica,15689/1,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Nemocnica Zvolen, Kovačická ulica, 15689/1, 97404, Banská Bystrica",true
+cf94a31e-01d9-58e2-a74c-23bb325accdd,66-47355107-A0002,Športová,535/1,Brusno,Banskobystrický samosprávny kraj,97662,"Športová, 535/1, 97662, Brusno",true
+54696369-4c17-50a5-933c-eb96520f1605,66-56017987-A0001,Sládkovičova,14200/7A,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 14200/7A, 97405, Banská Bystrica",true
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,Cesta olympionikov,1497/3,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Vojenské športové centrum DUKLA Banská Bystrica, Cesta olympionikov, 1497/3, 97404, Banská Bystrica",true
+d81eace2-a15d-5a84-8c59-0b7b435cd447,66-55563333-A0001,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+e03ba9f0-f739-5fdb-9ddb-abfb09cb3e78,66-55741134-A0001,Švermova,15281/4,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Švermova, 15281/4, 97404, Banská Bystrica",true
+b181b3a7-8047-52f9-830b-d299383bd3ba,66-55741134-A0002,Švermova,15281/4,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Švermova, 15281/4, 97404, Banská Bystrica",true
+66a6a7eb-00d0-5842-9189-b99c85d9e324,66-31623832-A0047,Bernolákova,6900/12,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Poliklinika NOVAMED, Bernolákova, 6900/12, 97405, Banská Bystrica",true
+073136a9-1bf4-564e-9922-b45113f8b0be,66-55996558-A0001,Starohorská,6880/72,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Starohorská, 6880/72, 97411, Banská Bystrica",true
+36f10d06-e85f-5fe4-8b97-5a4f32c7f6b7,66-55680801-A0001,Lazovná,513/54,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Lazovná, 513/54, 97401, Banská Bystrica",true
+467ef271-831c-50a7-b7bc-09d7d62443e7,66-55591515-A0001,Bernolákova,6900/12,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Bernolákova, 6900/12, 97405, Banská Bystrica",true
+b622d8fc-25ab-5902-8b4f-a1bf74a0c901,66-52058239-A0004,Spojová,6986/25,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Spojová, 6986/25, 97404, Banská Bystrica",true
+e00291a3-2722-55b6-b0fe-f87c05a6595f,66-54918375-A0001,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+ec3fe679-de52-52c1-86fd-59cf36d88c56,66-53234626-A0001,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+2a4567c2-bfac-5462-a34a-9316a6c1b0fd,51-37957937-A0055,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+ae782a99-2d55-5301-a06a-a376fbb02095,66-46040684-A0001,Internátna,2318/24,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Internátna, 2318/24, 97404, Banská Bystrica",true
+b1218356-3356-57f2-be67-eab0837d11d7,66-55478336-A0001,Na Zábave,3826/13,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Na Zábave, 3826/13, 97411, Banská Bystrica",true
+3ad810bc-f612-5494-835d-cef163986e1b,66-55793410-A0001,Zvolenská cesta,2412/6,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Zvolenská cesta, 2412/6, 97405, Banská Bystrica",true
+28e5444a-2b9d-51a3-b39f-6871c9f4508b,66-55393420-A0001,Sládkovičova,69/9,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 69/9, 97405, Banská Bystrica",true
+3a292ece-0888-5977-94fa-fefd3f37436e,66-55204643-A0001,Spojová,6986/25,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Spojová, 6986/25, 97404, Banská Bystrica",true
+b06d79b7-0bde-5250-b7b9-678531cea556,51-37957937-A0053,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"I. posch., miestnosť č. 1.30, DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+c5a0b7ba-8654-538c-9aba-95c6bcf0930c,51-37957937-A0054,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"I. posch., miestnosť č. 1.44, DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+60fd3635-002a-5467-bcb1-123b7c307ac7,66-51744422-A0007,Horná,838/60,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 838/60, 97401, Banská Bystrica",true
+e93de9fa-b746-5e2b-b19c-de519058cc67,66-55342809-A0001,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+b895c1bc-82cf-5ac4-b0f7-7760172fa164,66-36046582-A0009,Horná,838/60,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 838/60, 97401, Banská Bystrica",true
+74353848-5abf-5526-b6b4-e711336b0525,66-55382649-A0001,Horná,838/60,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 838/60, 97401, Banská Bystrica",true
+c110cb37-63a4-55d4-8a27-5120501907f6,66-36866105-A0002,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+37002d9d-bae1-5e2b-8685-37bb1704f7d7,66-55186114-A0001,Kapitulská,308/7,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Kapitulská, 308/7, 97401, Banská Bystrica",true
+6ce16654-6d36-5f8f-9fcc-ae5afa5116cf,66-55186114-A0002,Kapitulská,308/7,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Kapitulská, 308/7, 97401, Banská Bystrica",true
+72af7e08-c186-5a8d-8940-56242d9f7c0b,66-55206832-A0001,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Zdravomed 2, ambulancia č.3.1, Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+f90e8eac-2bc4-51a1-83e1-f75a0d1bce4f,66-53639880-A0001,Sládkovičova,14200/7A,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 14200/7A, 97405, Banská Bystrica",true
+7b585973-b338-5a16-9a8d-f05f27552a2b,66-55221823-A0001,Kapitána Nálepku,1464/5,Banská Bystrica,Banskobystrický samosprávny kraj,97404,"Kapitána Nálepku, 1464/5, 97404, Banská Bystrica",true
+f98a9ed3-5003-550f-a4ea-21b10e6beb6e,66-36649601-A0002,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"polyfunkčný objekt Gallery, Horná, 14021/61A, 97401, Banská Bystrica",true
+9a80585c-9c61-5020-8c4e-526cde920007,66-46889027-A0002,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+7415acad-8c10-55b5-857b-bac1c4526748,66-54895120-A0001,Sládkovičova,14200/7A,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 14200/7A, 97405, Banská Bystrica",true
+7f978eb1-c288-5fae-905e-39681a6d76a7,51-37957937-A0052,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"1. poschodie, číslo dverí 1.36, DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+bedd1b49-8578-5428-a3d7-ad0ee4ba7757,66-54993032-A0001,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+331c8995-21ba-5860-9081-6d6f563f639d,66-53922352-A0001,Horná,461/67,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 461/67, 97401, Banská Bystrica",true
+68d126a5-db4b-55eb-810c-2bd201e7f731,51-36652725-A0001,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,Jaseňová,5616/1A,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Jaseňová, 5616/1A, 97409, Banská Bystrica",true
+a2e5109e-847d-5c9a-8a54-b143084f5042,66-36862606-A0003,Jaseňová,5616/1A,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Jaseňová, 5616/1A, 97409, Banská Bystrica",true
+c5de1df1-b88d-5ae3-b57b-d4741d1d9ad6,66-54712343-A0001,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+4f9078aa-5ef7-5801-8f65-7db2a22aacc6,51-36869139-A0001,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+c513cea2-0503-510c-b238-838a4fb9f76e,51-36869139-A0002,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+1ff2cdd9-3409-553f-858f-beb21ef69da5,66-54623791-A0001,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+83e34136-cea6-51cb-944d-6d624f70c743,66-54436214-A0001,Nám. slobody,6208/5,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Nám. slobody, 6208/5, 97401, Banská Bystrica",true
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+69aea62d-788e-55c1-a2c7-de23ad0fb7fa,66-50882864-A0002,Rudohorská,1/A,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"2poschodie, Rudohorská, 1/A, 97411, Banská Bystrica",true
+ea537f94-006f-5257-b2ef-e4a62e183f18,66-45594929-A0067,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+d065a7c2-dfc6-5dde-b767-ddc337d243a4,66-45594929-A0065,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+0e05ea4b-59d0-5245-ac21-3508186eb539,66-45594929-A0066,Rudlovská cesta,5978/83,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Rudlovská cesta, 5978/83, 97411, Banská Bystrica",true
+bdd963d2-db57-5cf9-b1b2-3ecf3b2e1bb0,66-54537100-A0001,Povstalecká cesta,4368/30,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"Povstalecká cesta, 4368/30, 97409, Banská Bystrica",true
+d55bb009-cbae-5f33-8077-97706b2c698b,66-54224403-A0001,Tatranská,6557/10,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"- vchod do budovy z ľavej strany, Tatranská, 6557/10, 97411, Banská Bystrica",true
+893b1b45-08d3-57c1-8f68-f51d416867a7,51-37957937-A0051,Námestie Ludvika Svobodu,6818/4,Banská Bystrica,Banskobystrický samosprávny kraj,97409,"prízemie budovy nemocnice, miestnosť č. 024, DFNsP BB, Námestie Ludvika Svobodu, 6818/4, 97409, Banská Bystrica",true
+ced76aae-85d2-5049-bccc-4a6bd9fcfd4e,66-54037760-A0001,Námestie SNP,446/42,Slovenská Ľupča,Banskobystrický samosprávny kraj,97613,"Námestie SNP, 446/42, 97613, Slovenská Ľupča",true
+9d164962-24bd-5a5b-8f16-946377301745,66-54252733-A0001,Námestie Ludvika Svobodu,3865/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Námestie Ludvika Svobodu, 3865/1, 97401, Banská Bystrica",true
+d55e970d-fe17-5b00-81d6-9ff0337a362b,66-52384675-A0002,Cesta k nemocnici,622/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Zdravomed 2, Cesta k nemocnici, 622/1, 97401, Banská Bystrica",true
+f23cfa1b-f6c6-507f-8bc9-9a9750b01169,66-53780825-A0001,Cesta k nemocnici,1231/23,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Zdravomed 1, 3. poschodie, Cesta k nemocnici, 1231/23, 97401, Banská Bystrica",true
+0f4a8dd5-f5da-580c-9192-9704b4c4f2d2,66-54100976-A0001,Dolná,14466/72,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Dolná, 14466/72, 97401, Banská Bystrica",true
+81e3cd83-996e-5446-8440-bdd1f9140fb2,66-47653671-A0001,Horná,461/67,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 461/67, 97401, Banská Bystrica",true
+60a7095c-177f-56cf-ae69-2ad831c64659,66-50056701-A0002,Sládkovičova,69/9,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 69/9, 97405, Banská Bystrica",true
+d4114042-c2ab-51f1-bbb0-df3324799f20,51-42012295-A0001,Rudlovská cesta,1027/1,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Rudlovská cesta, 1027/1, 97401, Banská Bystrica",true
+7bc60e13-eb26-52d5-8e30-253dacede66b,66-53931009-A0001,Horná,61A,Banská Bystrica,Banskobystrický samosprávny kraj,97411,"Horná, 61A, 97411, Banská Bystrica",true
+a41ed53d-aa76-5af2-83af-b0ca66815c2b,66-53981367-A0001,Sládkovičova,69/9,Banská Bystrica,Banskobystrický samosprávny kraj,97405,"Sládkovičova, 69/9, 97405, Banská Bystrica",true
+2bca19a7-3719-51f4-855d-abbb63ad75a7,66-46991492-A0002,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+715c02a1-441a-510d-8587-bb74821349f0,66-36869139-A0003,Horná,14021/61A,Banská Bystrica,Banskobystrický samosprávny kraj,97401,"Horná, 14021/61A, 97401, Banská Bystrica",true
+9e33f7d1-6266-51bf-b87d-f4c045768a72,51-17336210-A0078,Banská Štiavnica,,,Banskobystrický samosprávny kraj,,"2, Banská Štiavnica",true
+6dc3318e-bb99-509f-bce7-526a25f189db,66-36637190-A0005,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+c0d294e3-9197-50a7-a6ee-f9a3e79305ef,51-17336210-A0077,Banská Štiavnica,,,Banskobystrický samosprávny kraj,,"1, Banská Štiavnica",true
+34f0610c-baeb-5234-aea6-10380a6bed40,66-51744422-A0014,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+d7cdc8c5-7d71-543e-aa17-c6e52668dc3f,51-50347225-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+097c0249-87cc-5d15-83ca-542818e3e5a2,66-51744422-A0010,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+d98887c4-9fbe-5ad8-9bb7-0246edca7ba5,66-54588952-A0102,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+64144bec-da5a-5516-b158-36f822839b2a,66-54588952-A0088,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+877f3108-fe4a-58c6-aef0-6d484dc15e0b,66-54588952-A0042,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+3f9f4c36-fa86-5408-b173-e6d3d12ca192,66-54588952-A0036,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+e9c0e8b8-fea4-5a07-9560-c373ab830046,66-54588952-A0031,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+af3e3cfb-f918-5696-bc35-191bc56fb4ed,66-54588952-A0016,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+6bfd4832-d5dd-53d8-b43c-9657a73ec2a4,51-36339865-A0009,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"(MEDI-FARM Centrum), Energetikov, 1492/1, 96901, Banská Štiavnica",true
+b32650ed-32a1-5c5b-b8b4-2e8a1eb526d0,66-53897692-A0001,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+308df174-fd42-5ab5-9dad-92120ff3d81b,66-36836184-A0001,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"prízemie, Energetikov, 1492/1, 96901, Banská Štiavnica",true
+b7cf648b-5172-5d94-92bb-6f8d2e413cf9,72-17336210-A0268,Banská Štiavnica,,,Banskobystrický samosprávny kraj,,"2, Banská Štiavnica",true
+999a14ae-4024-516b-b533-57361c4077a4,72-17336210-A0064,Banská Štiavnica,,,Banskobystrický samosprávny kraj,,"1, Banská Štiavnica",true
+802231e9-7655-5a3d-9454-e6bce4e50607,66-52419061-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+032ec88a-0575-5788-84b2-a00569d4697b,66-50592327-A0002,Dolná,848/10,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Dolná, 848/10, 96901, Banská Štiavnica",true
+f9fb780d-173c-5ae4-bfca-dcaf6755d5a8,66-36650498-A0003,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+431e57f4-0d48-50a7-8c0a-4e1cc215d398,66-50146009-A0003,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+391c9218-adc2-562b-9ba4-461e0c2d2dbb,66-50876376-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+b229e667-6b21-5c2f-bbd4-397cf012c0ec,51-48006564-A0009,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+0a627ea9-a853-5c51-9f7f-62004b26484e,51-48006564-A0007,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+b25195bf-f17b-53c3-aa42-8088375695d6,51-48006564-A0008,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+1f753d08-a6c5-5a24-9f40-806408fe28be,66-50146009-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+ec68444e-d3db-57b4-b0db-c7fce3cec009,66-50041258-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+4cf292bf-2890-5cc9-bb4c-4d1c40fcf7c5,66-47953055-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+eb027997-9d3b-5453-be87-80823f5878b6,66-50592327-A0001,Dolná,848/10,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Dolná, 848/10, 96901, Banská Štiavnica",true
+021e2ab3-b19e-533d-b03c-be385c4c5668,66-35960884-A0102,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+8d4cd697-f9e4-5ae9-810e-943b735265f4,66-45890226-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+b6efdca5-1ef3-5bf6-b647-8da1a9b502d1,66-50347225-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+f74c4b67-06a8-5e90-9b69-ac48179f9769,66-50347225-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+299fdf40-aafc-557a-84f6-2034896e1f21,66-48255891-A0001,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+5a5611f3-6cfe-53fa-9f74-d6f36c72a0b7,66-50449281-A0001,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+d5343623-0a13-5e92-8c7d-03cc28370429,66-48045233-A0001,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+be4a16f3-0e93-5033-86cb-b42450709796,66-36864285-A0002,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+718b7276-ce90-5c27-baf9-f5720e13add7,66-36833916-A0001,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Ambulantné pracovisko, Banská Štiavnica, Energetikov 1, 1. posch., Energetikov, 1492/1, 96901, Banská Štiavnica",true
+239e2963-b2ee-5668-a8eb-7566e4d987df,66-35960884-A0088,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+2f43a124-f978-51a6-92d8-7d967e1d8855,66-35960884-A0042,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+a7eeab84-7250-5ab0-a61b-4344a33a7913,66-35960884-A0036,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+c772ba94-c85d-5a66-809f-8785515b0e36,66-35960884-A0031,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+bf6f32b6-a871-5dd7-9c79-92482bdb3c96,66-35960884-A0016,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+7d46e832-a79c-5252-98e2-c283ac280c2f,66-45890226-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+ef98c42e-f719-53a5-885a-366f800a3785,66-36704164-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+e9728183-6a66-552f-8138-391f21145363,66-44524153-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+cb9a96cf-afa1-57c5-a254-8a80018f43e1,66-31898335-A0001,Mládežnícka,760/6,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Mládežnícka, 760/6, 96901, Banská Štiavnica",true
+78ccd0ab-1865-532d-86f9-28e86b55be6a,66-36637190-A0004,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+206b7958-fb81-5712-8d51-f2c11dadbc62,66-42309760-A0001,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"1. poschodie budovy Nemocnice Banská Štiavnica, Bratská, 1491/17, 96901, Banská Štiavnica",true
+b9d1dd68-2cae-5e97-81a7-43abef5a34a3,66-46598120-A0002,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+ae171ea5-d2e9-5a3c-ba92-630c7af22a8a,66-48059099-A0001,Križovatka,908/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 908/1, 96901, Banská Štiavnica",true
+82505487-5df0-511f-bb43-3e8d20d08972,66-46734023-A0001,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+5a0bd0a1-4da5-5e2e-b52b-afcca858f7dd,66-46734023-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+1c35e8a4-d985-517e-8597-2f4f51f4b94c,66-36650498-A0002,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+f67a4ca9-b368-59a5-a8c8-41c547e8a993,66-36650498-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+7adda8d7-c62c-5e35-bbb3-cbec4ce338e0,66-36649724-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+7cecab71-2c36-5534-9516-01cc59ef52d2,66-36641898-A0001,Križovatka,910/3,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Križovatka, 910/3, 96901, Banská Štiavnica",true
+f9372caa-350f-59d9-bbc2-66efa8eaaa69,51-31647758-A0019,Bratská,17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 17, 96901, Banská Štiavnica",true
+6627f91a-db55-5be6-8742-23814ffaa528,66-36053155-A0002,Energetikov,1492/1,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Energetikov, 1492/1, 96901, Banská Štiavnica",true
+456e47ae-35a6-597a-bb5b-89667d1b71c8,66-43815316-A0001,Bratská,1804/18,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1804/18, 96901, Banská Štiavnica",true
+f2dcd71e-4080-56e0-9e95-3c11b59693aa,66-45447349-A0001,Bratská,1491/17,Banská Štiavnica,Banskobystrický samosprávny kraj,96901,"Bratská, 1491/17, 96901, Banská Štiavnica",true
+0fccbd16-b636-5604-85c5-a92a8c2c6a56,66-52820483-A0003,Rázusova,928/4,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 928/4, 97701, Brezno",true
+9affc5b5-b8f4-5f5b-888f-8ab51fb934be,66-57351651-A0002,Rázusova,928/4,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 928/4, 97701, Brezno",true
+bd375da1-b8b1-5a8c-845b-bde32ee4ad35,66-55944183-A0001,Krčulova,1206/13,Brezno,Banskobystrický samosprávny kraj,97701,"Krčulova, 1206/13, 97701, Brezno",true
+7a757818-a142-5dcb-847d-3404aaf69a18,66-56646780-A0002,Trosky,218/1,Michalová,Banskobystrický samosprávny kraj,97657,"Trosky, 218/1, 97657, Michalová",true
+4588cedf-c3af-5371-8ac4-c1beeb4d0611,51-31908969-A0015,Beňuš,,,Banskobystrický samosprávny kraj,,"1, Beňuš",true
+8abf2047-ee97-5d9d-a1e6-7613d691b8bf,51-31908969-A0020,Pohorelá,,,Banskobystrický samosprávny kraj,,"1, Pohorelá",true
+810a050c-d76f-5007-a042-1cb75247110a,66-57264716-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+3b8f1298-6fbe-54d2-a629-d9506111b3d8,66-57267677-A0001,Sládkovičova,80/16,Podbrezová,Banskobystrický samosprávny kraj,97681,"Sládkovičova, 80/16, 97681, Podbrezová",true
+47a200e8-9072-50e6-8068-f922a425bfdf,66-31908969-A0057,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,Rázusova,928/4,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 928/4, 97701, Brezno",true
+0b859ef5-36ea-523d-8a31-2fd0b1c32d68,51-31908969-A0016,Brezno,,,Banskobystrický samosprávny kraj,,"1, Brezno",true
+3d4b4e81-ffa8-51f7-8005-ed7116830b3c,51-31908969-A0017,Brezno,,,Banskobystrický samosprávny kraj,,"2, Brezno",true
+62cf7e63-17e9-5886-843e-db35f9ab7a9c,66-36627089-A0005,Kalvárska,211/3,Predajná,Banskobystrický samosprávny kraj,97663,"Kalvárska, 211/3, 97663, Predajná",true
+8d8a1735-5081-5c64-9d8a-f301525c26e5,66-51744422-A0016,Rázusova,928/4,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 928/4, 97701, Brezno",true
+cea59d5e-e58f-5bc0-8556-16635205672a,66-48165352-A0002,Andreja Sládkoviča,81/7,Nemecká,Banskobystrický samosprávny kraj,97697,"Andreja Sládkoviča, 81/7, 97697, Nemecká",true
+215a14d5-3f64-52fa-ae42-73232e5d4b80,66-46326227-A0001,Sládkovičova,345/58,Polomka,Banskobystrický samosprávny kraj,97666,"Sládkovičova, 345/58, 97666, Polomka",true
+e6c48c1c-dc28-552f-8ac7-9820062d32eb,66-52465233-A0001,Krčulova,1206/13,Brezno,Banskobystrický samosprávny kraj,97701,"Krčulova, 1206/13, 97701, Brezno",true
+5ee19641-c3df-51e7-9b4d-f92cedf2deab,66-31908969-A0056,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+baf62bdc-c47e-5ce0-bb1d-a9a7113da98c,66-51744422-A0013,Štúrova,922/49,Brezno,Banskobystrický samosprávny kraj,97701,"Štúrova, 922/49, 97701, Brezno",true
+14dab023-d641-5d61-a684-b40d66e987f8,66-45746800-A0002,Krížna,812/2,Heľpa,Banskobystrický samosprávny kraj,97668,"Krížna, 812/2, 97668, Heľpa",true
+6ecfafbd-58cb-5582-b0d6-c62df15f342f,66-45746800-A0001,Sihla,349,Pohorelá,Banskobystrický samosprávny kraj,97669,"Sihla, 349, 97669, Pohorelá",true
+948ce46f-95ae-5089-baa0-d1ef08e04818,66-50596187-A0002,Sládkovičova,81/7,Nemecká,Banskobystrický samosprávny kraj,97697,"Sládkovičova, 81/7, 97697, Nemecká",true
+c5d74e15-2745-5e31-b509-c265c0902aa5,51-35875704-A0119,Československej armády,60/12,Brezno,Banskobystrický samosprávny kraj,97701,"Československej armády, 60/12, 97701, Brezno",true
+93885f4f-0f64-52f4-a2be-a4876630484c,51-55335926-A0003,Hradby,76/2,Brezno,Banskobystrický samosprávny kraj,97701,"Hradby, 76/2, 97701, Brezno",true
+50dc4abe-f521-576e-90bc-77370e5a71e2,66-56001509-A0001,Štúrova,481/1,Valaská,Banskobystrický samosprávny kraj,97646,"Štúrova, 481/1, 97646, Valaská",true
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+6355d967-9405-5108-9d9a-76fa6ece39d9,66-54703883-A0002,Malinovského,2616/2A,Brezno,Banskobystrický samosprávny kraj,97701,"Malinovského, 2616/2A, 97701, Brezno",true
+eea3e307-d174-5063-aa65-d4015f8e577f,66-31908969-A0054,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+472844b9-ebaa-5d61-9020-c1ae3efde66f,66-55767885-A0001,Rázusova,953/29,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 953/29, 97701, Brezno",true
+99f4fd6f-85fc-5784-8ab7-9cf139956604,66-55726798-A0001,Sládkovičova,345/58,Polomka,Banskobystrický samosprávny kraj,97666,"Sládkovičova, 345/58, 97666, Polomka",true
+43420c46-60e1-57c6-9f4d-dc3539f5491b,66-31908969-A0053,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+c93e4e14-d59f-585c-a036-a5cb07dccdaa,66-55343091-A0001,Potočná,1698/26,Čierny Balog,Banskobystrický samosprávny kraj,97652,"Potočná, 1698/26, 97652, Čierny Balog",true
+94b38d57-f2bd-532a-95fc-bc7816b88a8a,66-54790930-A0001,Hradby,76/2,Brezno,Banskobystrický samosprávny kraj,97701,"Hradby, 76/2, 97701, Brezno",true
+8398590a-c48e-5f96-be0c-409fd755535e,66-54703883-A0001,Malinovského,2616/2A,Brezno,Banskobystrický samosprávny kraj,97701,"Malinovského, 2616/2A, 97701, Brezno",true
+05214e55-b3a1-539b-9fab-f15314a1e75a,66-36848760-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+67f9cac5-0c3a-59fb-b83f-49f1fe8b5ed9,66-48243744-A0002,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+d5aaccd2-b7a3-54ed-92a2-4ae917816df2,51-50191471-A0001,Krížna,812/2,Heľpa,Banskobystrický samosprávny kraj,97668,"Krížna, 812/2, 97668, Heľpa",true
+fffebf8d-78bb-5a7d-90eb-501ecba7cba0,51-50191471-A0002,Sihla,349,Pohorelá,Banskobystrický samosprávny kraj,97669,"Sihla, 349, 97669, Pohorelá",true
+5c16dfd0-e42e-5533-8f93-e9c03719d81c,66-54195152-A0001,Závodie,5/,Čierny Balog,Banskobystrický samosprávny kraj,97652,"Závodie, 5/97652, Čierny Balog",true
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+015baa77-4b44-563a-828e-79ee8c9e9ec2,66-52293882-A0001,Juraja Kriváňa,409/3,Šumiac,Banskobystrický samosprávny kraj,97671,"Zdravotné stredisko, Juraja Kriváňa, 409/3, 97671, Šumiac",true
+2d9a26de-32e2-5066-9435-95df1f476055,66-52293882-A0002,Osloboditeľov,59/699,Závadka nad Hronom,Banskobystrický samosprávny kraj,97667,"Osloboditeľov, 59/699, 97667, Závadka nad Hronom",true
+735484bd-8991-58eb-8d1c-6d39375dac0c,66-52293882-A0003,Hlavná,121/62,Heľpa,Banskobystrický samosprávny kraj,97668,"Hlavná, 121/62, 97668, Heľpa",true
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,Sládkovičova,7/8,Podbrezová,Banskobystrický samosprávny kraj,97681,"Sládkovičova, 7/8, 97681, Podbrezová",true
+1568eac6-a3ca-52ca-bcaf-ed64dd5fa7a7,72-31908969-A0328,Bystrá,,,Banskobystrický samosprávny kraj,,"0, Bystrá",true
+018a4ec2-68b2-55db-950b-2d9cff15af43,66-31908969-A0052,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+d2c0ca57-dc7a-543e-b1a3-06e60e8d8783,72-31908969-A0216,Pohorelá,,,Banskobystrický samosprávny kraj,,"0, Pohorelá",true
+5dd336be-8420-566a-8fee-3d2ab7d9cbd5,66-36744859-A0002,Osloboditeľov,287/14,Polomka,Banskobystrický samosprávny kraj,97666,"Osloboditeľov, 287/14, 97666, Polomka",true
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,Kolkáreň,34/41,Podbrezová,Banskobystrický samosprávny kraj,97681,"Kolkáreň, 34/41, 97681, Podbrezová",true
+7d677df1-e64f-51ae-8610-ec869f1f88ee,51-36618284-A0006,Kolkáreň,34/41,Podbrezová,Banskobystrický samosprávny kraj,97681,"Kolkáreň, 34/41, 97681, Podbrezová",true
+79f1335c-f1ec-50d9-a0fa-a679fe30b10e,72-31908969-A0095,Brezno,,,Banskobystrický samosprávny kraj,,"2, Brezno",true
+6606e27e-770d-5159-b804-9a014c967d15,72-31908969-A0042,Brezno,,,Banskobystrický samosprávny kraj,,"1, Brezno",true
+c3832db6-ffc2-52b5-a3a3-c46d82719e4d,66-31929486-A0003,Hlavná,121/62,Heľpa,Banskobystrický samosprávny kraj,97668,"Hlavná, 121/62, 97668, Heľpa",true
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"psychiatrická ambulancia III., Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+fdc47ded-b945-5735-af12-0569b3de74f5,66-50191471-A0002,Sihla,0/349,Pohorelá,Banskobystrický samosprávny kraj,97669,"Sihla, 0/349, 97669, Pohorelá",true
+dba3532e-bce6-5b05-a7b1-eda87c3bfe32,66-51647877-A0001,Nábrežie Dukelských hrdinov,852/6,Brezno,Banskobystrický samosprávny kraj,97701,"Nábrežie Dukelských hrdinov, 852/6, 97701, Brezno",true
+3baa6189-518d-5920-8e74-62f7ecc56e58,66-46857044-A0001,508,508,Beňuš,Banskobystrický samosprávny kraj,97664,"508, 97664, Beňuš",true
+fd9a49ef-780b-5439-ad63-340d6dcabde1,66-50191471-A0001,Krížna,812/2,Heľpa,Banskobystrický samosprávny kraj,97668,"Krížna, 812/2, 97668, Heľpa",true
+a6e8b445-f47f-5b3d-89de-bd3a835e9aa8,66-51261791-A0001,Rázusova,963/39,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 963/39, 97701, Brezno",true
+6325161b-6e3c-5665-8c7a-718c6262901f,66-45295573-A0003,Štúrova,891/14,Brezno,Banskobystrický samosprávny kraj,97701,"Štúrova, 891/14, 97701, Brezno",true
+5d9143a0-debc-5fa4-b3d7-6a89313288a7,66-45295573-A0004,Štúrova,891/14,Brezno,Banskobystrický samosprávny kraj,97701,"Štúrova, 891/14, 97701, Brezno",true
+ae374d8a-4cd4-5815-b3cb-9f484f8e1197,66-44341181-A0004,Hronská,1752/2,Brezno,Banskobystrický samosprávny kraj,97701,"Hronská, 1752/2, 97701, Brezno",true
+55e248af-166d-5ace-b7a8-36e87cade0d1,66-44341181-A0003,Hronská,1752/2,Brezno,Banskobystrický samosprávny kraj,97701,"Hronská, 1752/2, 97701, Brezno",true
+2f5bbb9b-85e1-5078-bcdb-daa4c525b9ad,66-48165352-A0001,Sládkovičova,7/8,Podbrezová,Banskobystrický samosprávny kraj,97681,"Sládkovičova, 7/8, 97681, Podbrezová",true
+4279a4c7-6f5d-57c5-bd72-e7558190a131,51-45597669-A0002,Hlavná,62,Pohronská Polhora,Banskobystrický samosprávny kraj,97656,"Hlavná, 62, 97656, Pohronská Polhora",true
+4862dfbd-1287-569c-a097-dee4c4746377,66-50596187-A0001,Sládkovičova,81/7,Nemecká,Banskobystrický samosprávny kraj,97697,"Sládkovičova, 81/7, 97697, Nemecká",true
+de873bee-1450-53cd-9fe2-5068672999c0,66-47448164-A0002,Trosky,218/1,Michalová,Banskobystrický samosprávny kraj,97657,"Trosky, 218/1, 97657, Michalová",true
+512c083e-e418-5a99-8ddf-3d8351f4f6b6,66-31908969-A0050,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+5041de8f-ff84-5947-afd3-b9866fec40ae,66-31908969-A0049,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+0327f9d9-a4e9-579a-bfb9-3903ee95ddcd,66-36627089-A0004,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+5ae3484e-f5b3-5e2c-a9d5-d66bcbec7ab5,66-31908969-A0047,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+d52b92e2-d73c-55b9-86eb-5afd3688fee8,66-31908969-A0046,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+cf38b6b1-9998-52cf-a404-b71e806c71b9,66-31908969-A0042,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+cdaab59a-519b-51c1-a824-b4e71335ade6,66-31908969-A0043,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+9fbdb95a-bf2c-5064-9d47-f99ea4b6fc04,66-31908969-A0044,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+d83d381d-fe19-5fa0-b1b1-24b5699a1783,66-31908969-A0045,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,Nálepkova,1190/7,Brezno,Banskobystrický samosprávny kraj,97701,"Nálepkova, 1190/7, 97701, Brezno",true
+3b6beb3b-4ce6-50dd-8479-7840afc9e843,66-32591594-A0002,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+520a45c8-00b4-5944-ba8d-0e79b4a626db,66-36647306-A0001,Rázusova,963/39,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 963/39, 97701, Brezno",true
+049fc062-af6b-529b-99d3-20b73488bed6,51-46453458-A0001,Kolkáreň,28/35,Podbrezová,Banskobystrický samosprávny kraj,97681,"Kolkáreň, 28/35, 97681, Podbrezová",true
+be366f4f-26d8-53a0-86c8-582f7d990449,51-46453458-A0003,Kolkáreň,28/35,Podbrezová,Banskobystrický samosprávny kraj,97681,"Kolkáreň, 28/35, 97681, Podbrezová",true
+f2d973fc-db0c-5070-b24b-bceb9a586988,66-36642711-A0001,Námestie gen. M.R.Štefánika,7/1,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/1, 97701, Brezno",true
+7ac5d67b-f635-5eab-9b5c-bef90a208cd2,66-36642711-A0005,Závodie,5/,Čierny Balog,Banskobystrický samosprávny kraj,97652,"Závodie, 5/97652, Čierny Balog",true
+9b8772d5-08cf-55f9-936f-90a873cdc60a,66-36642711-A0006,Závodie,5/,Čierny Balog,Banskobystrický samosprávny kraj,97652,"Závodie, 5/97652, Čierny Balog",true
+04506f8c-0168-5585-808b-4864fd8a26fc,66-36642711-A0002,Námestie gen. M.R.Štefánika,7/1,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/1, 97701, Brezno",true
+67a192db-3726-512b-ab89-97a86a0fddab,66-36647969-A0001,Nová,526/2,Polomka,Banskobystrický samosprávny kraj,97666,"Nová, 526/2, 97666, Polomka",true
+f393f930-67cb-59f0-8a96-4ba288737670,66-30224781-A0001,Bystrianska jaskyňa,,Brezno,Banskobystrický samosprávny kraj,97701,"Bystrianska jaskyňa, 97701, Brezno",true
+229bbbef-d973-55f7-a64a-0ad1be7b1cec,66-44885296-A0002,Námestie gen. M.R.Štefánika,7/8,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/8, 97701, Brezno",true
+eb8ab3dc-05d2-5fce-9c49-c79c67a7aae0,66-36643131-A0004,Rázusova,953/29,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 953/29, 97701, Brezno",true
+068037d0-783d-56e5-a976-cf9e1676f51c,66-36643131-A0003,Rázusova,953/29,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 953/29, 97701, Brezno",true
+77e58e0c-effa-562a-805a-43cf48dcef75,66-36643131-A0002,Rázusova,953/29,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 953/29, 97701, Brezno",true
+020fcd2b-f00a-5387-90f4-3bbd5117fbdd,66-36643131-A0001,Rázusova,953/29,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 953/29, 97701, Brezno",true
+00285dd4-c592-588a-9998-95c1e4f8f285,66-36040541-A0001,Krížna,812/2,Heľpa,Banskobystrický samosprávny kraj,97668,"Krížna, 812/2, 97668, Heľpa",true
+0fe251c7-4115-58c1-8a12-427c603287fd,66-46215743-A0002,Kolkáreň,28/34,Podbrezová,Banskobystrický samosprávny kraj,97681,"Kolkáreň, 28/34, 97681, Podbrezová",true
+914b8edb-417c-5c21-b8b4-c7c60517286f,66-46215743-A0001,Štúrova,880/3,Brezno,Banskobystrický samosprávny kraj,97701,"Štúrova, 880/3, 97701, Brezno",true
+0d5c3f99-562d-566a-882e-0fcdc2037ef9,66-47448164-A0001,Brezenská,805/1,Brezno,Banskobystrický samosprávny kraj,97701,"Brezenská, 805/1, 97701, Brezno",true
+ad50cbff-07fc-5f25-a795-24cac29ce711,66-37817906-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+43c6d447-f9a9-59cd-8cb0-7c20190a2f0d,66-36636801-A0002,Námestie gen. M.R.Štefánika,7/8,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/8, 97701, Brezno",true
+a9138179-0be0-5bfd-816a-4ca1f02a4468,66-36636801-A0003,Námestie gen. M.R.Štefánika,7/8,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/8, 97701, Brezno",true
+fb461730-1aec-5ea1-8469-cd959e51721c,66-36636801-A0004,Námestie gen. M.R.Štefánika,7/8,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/8, 97701, Brezno",true
+c32c8928-09c7-5f26-b8cd-2984ed4c3f5d,66-48243744-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+d75a50c8-68c6-5720-9b0d-a108632053ea,66-36636801-A0001,Námestie gen. M.R.Štefánika,7/8,Brezno,Banskobystrický samosprávny kraj,97701,"Námestie gen. M.R.Štefánika, 7/8, 97701, Brezno",true
+2ceda739-f728-57cb-8a34-525b01050eb0,66-43856691-A0001,Rázusova,963/39,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 963/39, 97701, Brezno",true
+218c5280-6961-5291-adb0-d93e560672ee,51-36626406-A0006,Rázusova,963/39,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 963/39, 97701, Brezno",true
+3a218713-d6e6-5e4e-ab4a-b6366da78d9f,51-35768568-A0071,Československej Armády,60/12,Brezno,Banskobystrický samosprávny kraj,97701,"Československej Armády, 60/12, 97701, Brezno",true
+8ffca32c-5bf7-5e87-8086-e73dc1822756,66-31908969-A0037,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+403a2d97-aa3b-51d9-ab20-1e4366166557,66-31908969-A0002,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+a21a7514-27bd-534f-bcbd-830bc8031b65,66-31908969-A0040,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+aa023479-88af-5543-8192-a1cb60aaa503,66-31908969-A0039,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+aef0a828-6a1d-5518-91e3-99a9f5c6c08d,66-31908969-A0038,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+8332ecb4-884d-55b6-946e-89ebcef073b9,66-31908969-A0033,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+3499cb27-ef4d-59c1-a81d-b76873c683c8,66-31908969-A0035,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+225928b8-3164-57cf-92b8-dd382f729724,66-31908969-A0036,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+eb857f71-6f36-5938-9173-8297a3f37652,66-31908969-A0029,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+06e0c12b-6b21-544c-bf3d-a8a379ed5a5e,66-31908969-A0031,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+21714a2f-740c-503a-832b-eb9f1c84ebab,66-31908969-A0024,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+e2f402c3-d24e-550c-ab48-1fa3c96b81e1,66-31908969-A0025,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+482e07c6-4295-5e17-8c42-ca83db8373af,66-31908969-A0019,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+20b12411-7bd5-5ff1-b433-6613dd4ebe56,66-31908969-A0020,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+73bac8d1-1d95-538e-a5b9-dec3b44d3edd,66-31908969-A0018,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+670d4a00-d3ae-53d0-a487-6bfb532db558,66-31908969-A0010,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+961c7764-259e-5be4-b81f-fb367f442bec,66-31908969-A0006,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+a9a54820-027d-5b4b-b060-bdd38484cbde,66-31908969-A0009,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+15105d53-714a-5ca4-aef6-17a79421f457,66-31908969-A0008,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+1187ab62-2648-57da-9a58-8d19fa8c8c47,66-31908969-A0004,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Nemocnica s poliklinikou, Banisko, 273/1, 97701, Brezno",true
+6c1bbb11-267f-52b8-99d8-c47499ec4096,66-46776656-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+42a12e59-62a9-56c3-b827-6775b3b0dcd0,66-31898572-A0001,Rázusova,938/14,Brezno,Banskobystrický samosprávny kraj,97701,"Rázusova, 938/14, 97701, Brezno",true
+5b137585-4b2f-5ee6-9f5c-7a8808d34cdc,66-31898572-A0002,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+1a7b9a3f-94a3-5767-b806-3502e99c7539,66-32591594-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+90d7ad15-2b2f-514c-9bfa-946fcaf53bb6,66-31912699-A0001,Štúrova,922/49,Brezno,Banskobystrický samosprávny kraj,97701,"Štúrova, 922/49, 97701, Brezno",true
+0e8d5dc0-b654-5c93-987e-f006b28a37f5,66-35663731-A0001,Štúrova,481,Valaská,Banskobystrický samosprávny kraj,97646,"Štúrova, 481, 97646, Valaská",true
+dac9a6e2-ae9c-591c-b661-501d852a8e0d,66-35996625-A0001,Závodie,5/,Čierny Balog,Banskobystrický samosprávny kraj,97652,"Závodie, 5/97652, Čierny Balog",true
+d1cefd92-e27f-54f6-841d-23e726d793e4,66-47416050-A0001,Banisko,273/1,Brezno,Banskobystrický samosprávny kraj,97701,"Banisko, 273/1, 97701, Brezno",true
+0c74632b-6cce-5762-9a54-7dbc1f354642,66-45613711-A0005,Jarmočná,1440/36,Hriňová,Banskobystrický samosprávny kraj,96205,"Jarmočná, 1440/36, 96205, Hriňová",true
+126b8c18-c655-566e-b4e8-bea6cf7f2400,51-35877618-A0072,Hriňová,,,Banskobystrický samosprávny kraj,,"1, Hriňová",true
+9c004aa8-d054-53b9-bc02-91b66e504cf9,51-35877618-A0058,Detva,,,Banskobystrický samosprávny kraj,,"1, Detva",true
+2850bdcd-3538-5057-b085-1ed4788f101b,51-44571747-A0086,časť Pstruša,586,Vígľaš,Banskobystrický samosprávny kraj,96212,"Areál PPS Group, a.s., časť Pstruša, 586, 96212, Vígľaš",true
+4fbf4acc-66f3-5493-8f4c-8de7be2cbcf9,66-54675936-A0001,Námestie SNP,1398/64,Detva,Banskobystrický samosprávny kraj,96212,"Námestie SNP, 1398/64, 96212, Detva",true
+fc958501-c388-5ada-9716-b1ef670ce2dd,66-36644536-A0002,Záhradná,857/5,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/5, 96212, Detva",true
+2ba1f406-2c36-55c7-adce-be7265a1292a,66-56085109-A0001,Záhradná,857/3,Detva,Banskobystrický samosprávny kraj,96212,"BUDOVA RESCUE MED, PRÍZEMIE VPRAVO, Záhradná, 857/3, 96212, Detva",true
+b44e8517-6fe6-51ac-929c-f906a60a48ee,66-35984082-A0002,Záhradná,3323/26,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 3323/26, 96212, Detva",true
+87ad136f-3b22-59bf-9aeb-6fe170f88299,66-51744422-A0008,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+38a14e89-e7a2-5a6b-b09f-04ea64cd2125,66-36870501-A0001,52,52,Korytárky,Banskobystrický samosprávny kraj,96204,"52, 96204, Korytárky",true
+5d61659a-64ce-535c-aff7-394ef198d10c,66-50087223-A0003,Obrancov mieru,874/3,Detva,Banskobystrický samosprávny kraj,96212,"Obrancov mieru, 874/3, 96212, Detva",true
+143cb503-c58c-5959-aa03-d18634b25e34,66-54693411-A0001,Záhradná,857/3,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/3, 96212, Detva",true
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,Záhradná,857/3,Detva,Banskobystrický samosprávny kraj,96212,"druhé poschodie, Záhradná, 857/3, 96212, Detva",true
+cd47ba4d-f351-5e76-8e9a-c1b477a0b3cb,66-45594929-A0062,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"Poliklinika, J. G. Tajovského, 1320/5, 96212, Detva",true
+13fac83a-b85c-507e-a04d-325a5e30efc5,66-44731086-A0001,Záhradná,857/5,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/5, 96212, Detva",true
+f676a71f-c0c3-55ce-b5de-b036c0bed72d,66-53068769-A0002,Partizánska,1877,Hriňová,Banskobystrický samosprávny kraj,96205,"Partizánska, 1877, 96205, Hriňová",true
+6865d138-3313-5663-b52b-86cc0727799f,66-53972503-A0001,Záhradná,857/5,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/5, 96212, Detva",true
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+2aa91086-76a0-5b8a-be3b-583c52fe4eb1,66-51744422-A0002,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+29119f50-b122-5ac4-88cc-eb31a4253d9c,66-51178036-A0002,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+c09e0896-44e8-52ae-b779-f2b1ed014851,66-51178036-A0001,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+0bad3365-1f05-5a19-a981-5bd626a646e4,66-46958274-A0002,Zvolenská,130/6,Vígľaš,Banskobystrický samosprávny kraj,96202,"Zvolenská, 130/6, 96202, Vígľaš",true
+d4f51f9e-3199-55fe-b8ff-bac234173126,66-53068769-A0001,441,441,Kriváň,Banskobystrický samosprávny kraj,96204,"441, 96204, Kriváň",true
+e7896ea6-a094-5550-88b4-2f0427a3aca4,72-35877618-A0169,Hriňová,,,Banskobystrický samosprávny kraj,,"0, Hriňová",true
+9f01ab9b-d337-55a8-9fc5-5cdc41d7951b,66-52227278-A0001,Obrancov mieru,3189/15B,Detva,Banskobystrický samosprávny kraj,96212,"Obrancov mieru, 3189/15B, 96212, Detva",true
+14e6e88b-47a6-5775-bd42-f55cdbb9ecaa,72-35877618-A0059,Detva,,,Banskobystrický samosprávny kraj,,"0, Detva",true
+e73db742-fbff-5b63-bd43-618fc0c58b41,66-52549101-A0001,Záhradná,857/5,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/5, 96212, Detva",true
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+e2ce386a-996a-5ecb-bb0c-75f941f6ed9a,66-52525368-A0001,Jarmočná,1440,Hriňová,Banskobystrický samosprávny kraj,96205,"Jarmočná, 1440, 96205, Hriňová",true
+3e6cda97-2085-57d6-8699-776bdc4dd5e7,66-51480328-A0001,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+d0a4bd15-81e2-5cb7-babe-f59a03af4451,51-44571747-A0064,a.s.,,Detva,Banskobystrický samosprávny kraj,96212,"Areál PPS Group, a.s., 96212, Detva",true
+65fafc1b-ba65-5f16-b79c-4ee6d08b76c4,66-45965501-A0002,Pionierska,866/1,Detva,Banskobystrický samosprávny kraj,96212,"Pionierska, 866/1, 96212, Detva",true
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,Obrancov mieru,3,Detva,Banskobystrický samosprávny kraj,96212,"Obrancov mieru, 3, 96212, Detva",true
+2f35c017-34ba-55e4-a08b-a4c5ba61e381,66-47251867-A0003,J. G. Tajovského,1369/7,Detva,Banskobystrický samosprávny kraj,96212,"Zdravotné stredisko, PPS Group, J. G. Tajovského, 1369/7, 96212, Detva",true
+1df35369-0210-5555-91b4-84fd714dc5be,66-45613711-A0004,Námestie SNP,1398/64,Detva,Banskobystrický samosprávny kraj,96211,"Námestie SNP, 1398/64, 96211, Detva",true
+900f7868-3fd5-5d42-a0b9-f6d1592693b2,66-36621242-A0015,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+66f0825a-ad97-5d42-bb58-583a62b77134,66-36621242-A0002,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+e9f5a76c-47a6-5dc6-8542-7bc02df12540,66-36646741-A0001,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Kpt.Nálepku, 643/10, 96212, Detva",true
+51f15782-7396-5cb4-91e4-8e4a4864d616,66-36628174-A0001,Pionierska,866/1,Detva,Banskobystrický samosprávny kraj,96212,"Pionierska, 866/1, 96212, Detva",true
+9f508942-c4d3-5def-bed2-35a237710587,66-36853305-A0001,1626,1626,Hriňová,Banskobystrický samosprávny kraj,96205,"1626, 96205, Hriňová",true
+830d9d30-6c58-5bc0-8769-f85b67f36bf9,66-45341095-A0001,Záhradná,857/3,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/3, 96212, Detva",true
+b48cec9e-2dbe-5b2c-bdca-0f5c330f9d29,66-45615454-A0001,Partizánska,1877,Hriňová,Banskobystrický samosprávny kraj,96205,"Partizánska, 1877, 96205, Hriňová",true
+34ae3c39-30ce-55b3-8d3b-4c41fa12d3e6,66-36706434-A0001,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Kpt.Nálepku, 643/10, 96212, Detva",true
+9d6b8042-1ee5-57a3-9a52-9c869a76f30f,66-36648370-A0001,Obrancov mieru,3301/3A,Detva,Banskobystrický samosprávny kraj,96212,"Obrancov mieru, 3301/3A, 96212, Detva",true
+0b7b367a-ce0b-52ed-950a-e576c1ea341f,66-36640719-A0001,Obrancov mieru,3189/15B,Detva,Banskobystrický samosprávny kraj,96212,"Obrancov mieru, 3189/15B, 96212, Detva",true
+538925c9-1063-5abb-8d37-254317be63bc,66-43827071-A0001,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+b23135a2-75ee-54e0-bfe7-a48aa7d6e200,66-44748060-A0001,Detva,,,Banskobystrický samosprávny kraj,,"PPS Group a.s., 586, Detva",true
+d0a86761-67b1-5d0c-a6ef-f6d2e6033993,66-36621242-A0012,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+2bca2dee-195d-5ae7-b630-dd1e9aaed7d7,66-36621242-A0013,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+5a793457-4c03-533b-a321-6dedc8d036f6,66-36621242-A0014,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+7ca97aa8-829c-5b94-b2a3-57eb660969cf,66-36621242-A0010,Partizánska,1877,Hriňová,Banskobystrický samosprávny kraj,96205,"Partizánska, 1877, 96205, Hriňová",true
+56e4969b-7e33-524d-afaa-481b4adb6d25,66-36621242-A0006,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+10aed0ec-a2f0-5375-b5a7-a3fcd2ac48c0,66-36621242-A0008,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+111b1966-18b9-5489-a9df-881c15e0fca9,66-36621242-A0009,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+857d25a3-470c-54ba-ad9c-f37d3e78e2af,66-36621242-A0011,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+10e0512c-8f07-5e56-828c-53af650b6fd2,66-36621242-A0005,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+2cf711c7-382c-5f61-96e1-4d5468d6a4b8,66-36621242-A0004,Kpt.Nálepku,643/10,Detva,Banskobystrický samosprávny kraj,96212,"Liečebňa, Kpt.Nálepku, 643/10, 96212, Detva",true
+92bd8ea6-3e12-5289-80bb-37ff7fc6b0cd,66-36618250-A0001,Námestie SNP,256/5,Detva,Banskobystrický samosprávny kraj,96212,"Námestie SNP, 256/5, 96212, Detva",true
+0f27b6b7-10c9-5ae5-b405-b51baeb53330,66-36651648-A0004,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+b8c12388-650d-529c-9562-a4b6e5dae906,66-36651648-A0003,J. G. Tajovského,1320/5,Detva,Banskobystrický samosprávny kraj,96212,"J. G. Tajovského, 1320/5, 96212, Detva",true
+c4ec8232-6fbb-578e-b2ab-bdfcffa366f6,66-36697249-A0002,Partizánska,1877,Hriňová,Banskobystrický samosprávny kraj,96205,"Partizánska, 1877, 96205, Hriňová",true
+1496f446-11d6-54cf-922d-2dea6042f4ee,66-37892126-A0002,Záhradná,857/5,Detva,Banskobystrický samosprávny kraj,96212,"Záhradná, 857/5, 96212, Detva",true

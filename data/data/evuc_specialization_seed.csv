@@ -1,0 +1,338 @@
+id,slug,category,name
+91a3b752-84fa-5514-84a9-f7c044fd2036,adriana-kasacova-sestra,e-vuc,Adriana Kasáčová (sestra)
+160de991-7509-53bd-aa80-7461767c8592,alena-chabadova-sestra,e-vuc,Alena Chabadová (sestra)
+fb9c3516-7f95-5e50-bceb-42c710ccbb8b,alena-dankova-sestra,e-vuc,Alena Danková (sestra)
+de118095-95dc-5b9d-a11c-09a8eaaec3d1,alena-knezelova-sestra,e-vuc,Alena Knezelová (sestra)
+695fd3c4-bbad-5990-9390-e1c1e3dc33a2,alica-krizianova-sestra,e-vuc,Alica Križianová (sestra)
+a6901be7-6119-5faa-98cc-2ebc47e199bb,andrea-beraxova-sestra,e-vuc,Andrea Beraxová (sestra)
+1f41cf44-a231-59db-9214-44f6aa1f0429,andrea-patrasova-sestra,e-vuc,Andrea Patrášová (sestra)
+96780b7c-3fa6-55da-ab1c-5b92ecc515b1,anna-giertlova-sestra,e-vuc,Anna Giertlová (sestra)
+1d579f19-dfb8-5053-be8e-004687f43846,anna-hulinova-sestra,e-vuc,Anna Hulínová (sestra)
+75114225-7245-5f0e-bcdd-72e72dffb4f6,anna-pancikova-sestra,e-vuc,Anna Pančíková (sestra)
+7b6c493a-de0c-59d9-be33-f74c433e11dc,barbora-parickova-sestra,e-vuc,Barbora Páričková (sestra)
+0c1a0366-6c19-544d-b569-1c2e3036b07f,bc-anna-korenova-sestra,e-vuc,Bc. Anna Koreňová (sestra)
+f81ae8d7-138a-53a6-b546-83f054fd4898,bc-bozena-makova-sestra,e-vuc,Bc. Božena Maková (sestra)
+5bfb32a0-cf04-533b-ba05-0757067eec58,bc-jana-hakelova-lekar,e-vuc,Bc. Jana Hakelová (lekár)
+0db0f3a3-c3f0-5691-a9ed-1a9b71924bcc,bc-katarina-bohusova-sestra,e-vuc,Bc. Katarína Bohušová (sestra)
+96e20426-9838-5b43-984d-fa6838075520,bc-michaela-charvatova-sestra,e-vuc,Bc. Michaela Charvátová (sestra)
+c775eae2-4bca-500a-8ca9-40401d203640,bc-miroslava-golecka-porodna-asistentka,e-vuc,Bc. Miroslava Golecká (pôrodná asistentka)
+c90bc518-94e7-5c6e-a346-afcbed9ac94c,bc-petra-kobelova-sestra,e-vuc,Bc. Petra Kobelová (sestra)
+66690a2b-d59d-5927-a96f-702141412772,bc-renata-koristova-sestra,e-vuc,Bc. Renáta Koristová (sestra)
+663bd74c-3961-5a21-808e-99dcb9675c31,bc-slavka-siekela-sestra,e-vuc,Bc. Slávka Siekela (sestra)
+5e8cc2a8-1bad-5478-85ec-0ce287e3bd9e,bc-caban-matus-radiologicky-technik,e-vuc,Bc.Caban Matúš (rádiologický technik)
+7cf1f574-7a32-5453-a715-1b34786adf2b,bc-filip-cerovsky-sestra,e-vuc,Bc.Filip Cerovský (sestra)
+84053c76-1d64-5a4b-a57f-bd9a8df3e4f0,bc-lasutova-michaela-radiologicky-technik,e-vuc,Bc.Lašutová Michaela (rádiologický technik)
+432c4dc3-0a15-52af-95f8-c0bc53cb4b9e,bc-lenka-vybostokova-sestra,e-vuc,Bc.Lenka Výbošťoková (sestra)
+4f7e4b3b-bd48-57b3-8234-a2509e55ea04,bc-miriam-luptakova-sestra,e-vuc,Bc.Miriam Luptáková (sestra)
+80361199-d54f-58bd-9dcd-d00bb9236ff4,blazena-luptovciakova-sestra,e-vuc,Blažena Ľuptovčiaková (sestra)
+800cd2b9-f08c-5f6a-a886-5e665c10baaf,daniela-tokarova-sestra,e-vuc,Daniela Tokárová (sestra)
+0b3af79b-00d8-5939-86df-b6ee77c0b2ab,debnarikova-emilia-sestra,e-vuc,Debnáriková Emília (sestra)
+6f36d76d-4d15-5a75-be26-3e2cd83786fd,demsky-peter-lekar,e-vuc,Demský Peter (lekár)
+6c8d8122-6e6e-5373-9274-247a92021a11,diana-sofilkanych-zubny-lekar,e-vuc,Diana Sofilkanych (zubný lekár)
+ba4313ad-e810-57d7-a663-d067b91ba3ad,dr-vladimir-hudec-lekar,e-vuc,Dr.Vladimír Hudec (lekár)
+a283b483-6d55-5c19-9f46-11965b99183a,ivana-lingorova-sestra,e-vuc,Ivana Lingorová (sestra)
+465c5260-4cf8-5b41-8568-6b07a9ecb097,iveta-hudecova-sestra,e-vuc,Iveta Hudecová (sestra)
+03464ed4-a525-5218-9358-5dba5829adbf,janka-urblikova-sestra,e-vuc,Janka Urblíková (sestra)
+11de72e2-1fbc-52e7-a8a0-501e6c789342,janka-lachka-sestra,e-vuc,Janka Ľachka (sestra)
+67a3e130-e75e-51b6-99c8-c435e9d562fe,janka-siposova-sestra,e-vuc,Janka Šipošová (sestra)
+34f39ca1-b0be-523f-bc3e-c25812b3a09d,jaroslav-nikel-lekar,e-vuc,Jaroslav Nikel (lekár)
+4201692e-df25-5578-a11c-47e78559b7d9,katarina-kmecova-sestra,e-vuc,Katarína Kmecová (sestra)
+6bb3cce4-974b-5e0a-acce-a0a58bd18e7b,katarina-kvoriakova-sestra,e-vuc,Katarína Kvoriaková (sestra)
+903ffdfe-11f6-556f-b586-95e7d23060b1,katarina-slovakova-sestra,e-vuc,Katarína Slováková (sestra)
+fce1f7d1-b186-5ae6-932a-f8dea93bf37f,katarina-veverkova-porodna-asistentka,e-vuc,Katarína Veverková (pôrodná asistentka)
+5f847497-72d5-52e3-a77a-7e5328253569,kelementova-dana-sestra,e-vuc,Kelementova Dana (sestra)
+bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,e-vuc,"Lekári, sestry:"
+950e063f-59c3-55a5-b898-e09ea7c3809b,livia-maruniakova-sestra,e-vuc,Lívia Maruniaková (sestra)
+5afbbea9-ae04-52a7-b6a6-e9e612756581,mddr-adam-michelcik-lekar,e-vuc,MDDr. Adam Michelčík (lekár)
+3fc94328-4cef-58ab-b7d5-2a65839f5bf0,mddr-ivana-pollakova-zubny-lekar,e-vuc,MDDr. Ivana Pollaková (zubný lekár)
+307f31d8-d8b4-5e24-b847-3932b601a398,mddr-karina-jancekova-lekar,e-vuc,MDDr. Karina Jančeková (lekár)
+e2aac48b-4dcc-5108-8ad5-2510ba5e73a8,mddr-kristina-kovacikova-zubny-lekar,e-vuc,MDDr. Kristína Kováčiková (zubný lekár)
+4e9283ed-4670-5d76-97ba-099b8f658394,mddr-miroslava-kosikova-zubny-lekar,e-vuc,MDDr. Miroslava Košíková (zubný lekár)
+eacf6802-85a4-5de2-bc20-d8744e357208,mddr-miroslava-simanova-zubny-lekar,e-vuc,MDDr. Miroslava Simanová (zubný lekár)
+32ddc7cc-dc31-5611-b651-39c50228c920,mddr-monika-krnacova-zubny-lekar,e-vuc,MDDr. Monika Krnáčová (zubný lekár)
+775cf52b-49ad-544c-ae7a-aa7fa01d14e1,mddr-simona-varholakova-zubny-lekar,e-vuc,MDDr. Simona Varholáková (zubný lekár)
+f280608a-1577-5cde-9527-8c58c92d1406,mddr-valeriu-anghileanu-zubny-lekar,e-vuc,MDDr. Valeriu Anghileanu (zubný lekár)
+16b623e8-b9fb-5b6c-811e-e27052bee254,midr-kristina-vaganova,e-vuc,MIDr. Kristína Vagáňová
+7627050b-28fc-54b5-9b2c-c0bd1d2f7fa9,mudr-alena-veselenyiova-lekar,e-vuc,MUDr. Alena Veselényiová (lekár)
+63bd57b3-6de6-533d-93a0-3759a61cf2c9,mudr-alica-kubinska-lekar,e-vuc,MUDr. Alica Kubinská (lekár)
+ee387625-beea-5aae-a5f3-b1eef844bab7,mudr-andrea-sramkova-kvietkova-zubny-lekar,e-vuc,MUDr. Andrea Šrámková Kvietková (zubný lekár)
+fc7ee531-d7d7-5413-b0ac-65773fdd41b2,mudr-anna-hana-gubricova-lekar,e-vuc,MUDr. Anna Hana Gubricová (lekár)
+864c70a1-3cd3-59ba-ab9a-26f8630391f2,mudr-anna-latinakova-lekar,e-vuc,MUDr. Anna Latináková (lekár)
+c94739dc-69ce-555a-a8a2-ccd3c4623975,mudr-anna-maruskova-lekar,e-vuc,MUDr. Anna Marušková (lekár)
+90cd8297-12bc-5b06-a026-056d33248872,mudr-anna-pivoluskova-lekar,e-vuc,MUDr. Anna Pivolusková (lekár)
+1c0c496e-df0a-52c8-9a8f-38572c512481,mudr-arin-stefan-ianecsko,e-vuc,MUDr. Arin Stefan Ianecsko
+b5f5e70f-c73f-586f-879d-c3d886b4cef0,mudr-badinska-necpalova-martina-lekar,e-vuc,MUDr. Badinská Necpálová Martina (lekár)
+7234267f-d1ab-5e27-93cd-e224e3cfe468,mudr-barbora-suchacova-lekar,e-vuc,MUDr. Barbora Sucháčová (lekár)
+4755ccc5-c277-5a85-9549-c9aac71a5775,mudr-beata-dikaszova-lekar,e-vuc,MUDr. Beata Dikaszová (lekár)
+9abb1a88-d6ee-5d52-a483-1b9e776a35c9,mudr-bronislav-zlevsky-lekar,e-vuc,MUDr. Bronislav Zlevský (lekár)
+9b64227f-a3e0-50cc-90b6-1b371ab0b92e,mudr-dagmar-kresakova-lekar,e-vuc,MUDr. Dagmar Krešáková (lekár)
+1b257415-256a-5c6f-864a-625e7761411c,mudr-daniela-chovancova-lekar,e-vuc,MUDr. Daniela Chovancová (lekár)
+d8ff3ad2-ddeb-58f2-b6f4-9c99fb1ee83f,mudr-daniela-simanova-lekar,e-vuc,MUDr. Daniela Simanová (lekár)
+96f5383b-d73f-5d8b-9a5e-c1f6fecc197b,mudr-daniela-stellerova-lekar,e-vuc,MUDr. Daniela Štellerová (lekár)
+31bf469d-fe5a-510c-b481-fbfea7249b46,mudr-diana-berlanska-lekar,e-vuc,MUDr. Diana Berlanská (lekár)
+0ce48165-8efa-50f6-9b74-72385eccc44d,mudr-dusan-gregor-lekar,e-vuc,MUDr. Dušan Gregor (lekár)
+30bf693c-4fce-53f2-bdb3-3257e4e3a935,mudr-dusan-pallay-lekar,e-vuc,MUDr. Dušan Pallay (lekár)
+4f2c172a-c2d0-5df9-b02a-4b60d9591808,mudr-dasa-flochova-lekar,e-vuc,MUDr. Dáša Flochová (lekár)
+1215061a-bf24-50f0-9624-6923aa1c3c22,mudr-elena-snarska-lekar,e-vuc,MUDr. Elena Snarska (lekár)
+16cedeee-8f35-52b0-9f07-bd9f6b9ac6b7,mudr-emilia-buckova-lekar,e-vuc,MUDr. Emília Bučková (lekár)
+06e5a442-8a61-55de-8861-61ee1d33c806,mudr-emilia-zlevska-lekar,e-vuc,MUDr. Emília Zlevská (lekár)
+6befe0b8-442e-5950-8ac6-0950816cb23d,mudr-erik-richter-lekar,e-vuc,MUDr. Erik Richter (lekár)
+c83e4603-7254-5746-b0e4-5c1c8825554e,mudr-erik-wagner,e-vuc,MUDr. Erik Wágner
+1242e8f2-03f7-58f4-8666-26490f9d9c0b,mudr-erik-wagner-lekar,e-vuc,MUDr. Erik Wágner (lekár)
+6b2400b4-ee59-5612-b897-1d3560d8139e,mudr-gabika-berlecka-lekar,e-vuc,MUDr. Gabika Berlecká (lekár)
+cae162c4-6ce4-5c70-858a-8913635bcc95,mudr-ivan-droppa-lekar,e-vuc,MUDr. Ivan Droppa (lekár)
+d2e59b22-f357-5520-94a1-afddabaeb852,mudr-ivan-dubiny-lekar,e-vuc,MUDr. Ivan Dubíny (lekár)
+7c70dbb2-280e-587c-8d87-49023bcf52ed,mudr-ivan-vojtas-lekar,e-vuc,MUDr. Ivan Vojtáš (lekár)
+8448bd66-86d3-59fd-a798-6325e3ef5766,mudr-ivana-gutzelnig-lekar,e-vuc,MUDr. Ivana Gutzelnig (lekár)
+d10b7791-e93c-5e82-b898-6e29f0a900b3,mudr-ivana-mojzisova-lekar,e-vuc,MUDr. Ivana Mojžišová (lekár)
+c30f7d4c-a92a-58b6-943c-f97fbb6a6177,mudr-ivana-sanderova-lekar,e-vuc,MUDr. Ivana Šanderová (lekár)
+db7bddd8-d754-569d-9259-6efe3ab9c3f2,mudr-jana-budinska-velicova-lekar,e-vuc,MUDr. Jana Budinská Veličová (lekár)
+fde7145a-eb56-5c7b-a413-4cab84552928,mudr-jana-fabkova-mph-lekar,e-vuc,"MUDr. Jana Fabková, MPH. (lekár)"
+9e91df05-310d-5bf3-96fc-21be72b33965,mudr-jana-kovacova-lekar,e-vuc,MUDr. Jana Kováčová (lekár)
+774463c4-df84-5bc2-85ab-195a312b3ad5,mudr-jana-makasova-lekar,e-vuc,MUDr. Jana Makasová (lekár)
+135ff02e-11c1-5c80-a759-fc0959aa13f5,mudr-jana-mundierova-lekar,e-vuc,MUDr. Jana Mundierová (lekár)
+673ee890-5d10-5878-ae12-493306a05293,mudr-jana-tkacikova-lekar,e-vuc,MUDr. Jana Tkáčiková (lekár)
+5c96f59b-5fe2-56da-ab5a-a5c63b6cb9d7,mudr-janka-adamcakova-lekar,e-vuc,MUDr. Janka Adamčáková (lekár)
+130351d9-99a2-58c6-b129-5fe1172638c6,mudr-jaroslav-jackuliak,e-vuc,MUDr. Jaroslav Jackuliak
+452ada2a-23c7-5407-a26e-3dcef7a5e41c,mudr-jaroslav-podmanicky-lekar,e-vuc,MUDr. Jaroslav Podmanický (lekár)
+43083152-2470-5e6b-be4e-ca3bcffda369,mudr-jozef-breznicky-lekar,e-vuc,MUDr. Jozef Breznický (lekár)
+da937c27-6f5a-5964-be8b-08ca28ad439d,mudr-jozef-golian-lekar,e-vuc,MUDr. Jozef Golian (lekár)
+43c4c354-c926-5d50-a20d-c9a54ae2106c,mudr-juraj-gemes-lekar,e-vuc,MUDr. Juraj Gémeš (lekár)
+158a636e-9d26-5a9e-a027-9f22749d1dd4,mudr-jan-benda-lekar,e-vuc,MUDr. Ján Benda (lekár)
+d59af0b5-7236-5b7b-8890-5ef156e5ab63,mudr-jan-farkas-lekar,e-vuc,MUDr. Ján Farkas (lekár)
+3184e2a8-e4f2-54b5-bf49-0d1b8936d572,mudr-jan-pancik-lekar,e-vuc,MUDr. Ján Pančík (lekár)
+7cf03ae1-0b26-5e60-9ee4-828d64ceafcc,mudr-katarina-juhaniakova-lekar,e-vuc,MUDr. Katarína Juhaniaková (lekár)
+e7d25a90-cb4a-5b61-843d-b90bbfa8f16b,mudr-kracunova-jana-lekar,e-vuc,MUDr. Kračúnová Jana (lekár)
+db27ed02-c5ef-53fd-a47b-526823fe7356,mudr-kristina-hornak-lekar,e-vuc,MUDr. Kristína Horňák (lekár)
+ebdcf908-dc88-59eb-b512-87231d15e3bc,mudr-kristina-vaganova-lekar,e-vuc,MUDr. Kristína Vagáňová (lekár)
+3c686dff-08a7-5287-9c7d-4cf2d6ca2dc4,mudr-laurincova-silvia-lekar,e-vuc,MUDr. Laurincová Silvia (lekár)
+8c0059d7-78c0-5e2a-b144-2ce0135799ca,mudr-lenka-obsitnikova-lekar,e-vuc,MUDr. Lenka Obšitníková (lekár)
+a08f1559-d69d-57dd-ac93-1f6d79aa8b95,mudr-lucia-gordulicova-lekar,e-vuc,MUDr. Lucia Gorduličová (lekár)
+33a0b30b-4526-5456-a8f3-20a5fec5b1f4,mudr-lukas-sojak-lekar,e-vuc,MUDr. Lukáš Soják (lekár)
+8d95fc9f-37b9-5b6f-a887-30bf7a7fb918,mudr-marcel-hrebenar-lekar,e-vuc,MUDr. Marcel Hrebenár (lekár)
+8b72a4f8-f092-5442-b855-2b9d39c2e2d3,mudr-marcela-bielekova-lekar,e-vuc,MUDr. Marcela Bieleková (lekár)
+756be195-ffe9-5524-b014-8863e4ba4a23,mudr-maros-daxner-lekar,e-vuc,MUDr. Maroš Daxner (lekár)
+5d75dcbc-21d7-5828-be10-06203f0849d6,mudr-martin-micej,e-vuc,MUDr. Martin Mičej
+02a4a5db-9b07-5be5-8f15-57f5569f5fbf,mudr-martin-micej-lekar,e-vuc,MUDr. Martin Mičej (lekár)
+c2904cf0-24be-54e3-a46d-aa20b53d09ab,mudr-martin-macaj-lekar,e-vuc,MUDr. Martin Máčaj (lekár)
+98d3c7d5-2ad0-5b81-a85c-8b08d072e942,mudr-martin-tkacik-lekar,e-vuc,MUDr. Martin Tkáčik (lekár)
+679d4dab-99f0-5ff2-b059-098126ed3c15,mudr-martina-becova-lekar,e-vuc,MUDr. Martina Becová (lekár)
+a472f475-f538-52d9-a909-cbc482dcc94a,mudr-martina-broskova-lekar,e-vuc,MUDr. Martina Brosková (lekár)
+bd575657-2199-55a3-9e80-53e6509f08f4,mudr-martina-vaganova,e-vuc,MUDr. Martina Vagáňová
+578c525f-8f9f-50a3-8e7d-25d6b7863237,mudr-martina-vaganova-lekar,e-vuc,MUDr. Martina Vagáňová (lekár)
+d5dfcbad-2380-5f91-8f93-116e034276b2,mudr-martinikova-martina-lekar,e-vuc,MUDr. Martiníková Martina (lekár)
+0d9b1e64-9971-55a6-873e-1a1964de5f9f,mudr-matus-rutkay-lekar,e-vuc,MUDr. Matúš Rutkay (lekár)
+c6639378-fe42-5ac5-a8e7-6ee7e7bb1be0,mudr-mikulas-nagy-lekar,e-vuc,MUDr. Mikuláš Nagy (lekár)
+0d117593-d52b-5e33-be2d-b6c1a57d7a0c,mudr-milan-darmo-lekar,e-vuc,MUDr. Milan Darmo (lekár)
+d5bf8a01-a941-5f88-9766-92870492511a,mudr-miriama-chovancova-lekar,e-vuc,MUDr. Miriama Chovancová (lekár)
+4700fc0a-870e-50de-bdaa-b1c4de838d1b,mudr-miroslav-kosik,e-vuc,MUDr. Miroslav Košík
+441abeee-6bc3-56b7-949a-fb181872771c,mudr-miroslav-sestina-lekar,e-vuc,MUDr. Miroslav Šestina (lekár)
+947ba13b-aafc-5f27-ae3f-61aa40d6e5a2,mudr-miroslava-babicova-lekar,e-vuc,MUDr. Miroslava Babicová (lekár)
+ae39e9a4-86b0-5796-bef7-b4da40e83a82,mudr-monika-marcokova-lekar,e-vuc,MUDr. Monika Marčoková (lekár)
+dda3b72a-4cea-5e72-a5d7-9d7702b229a9,mudr-monika-sestakova-lekar,e-vuc,MUDr. Monika Šestáková (lekár)
+73d1c1dd-8d10-59f5-9a03-4f949a56c68d,mudr-maria-knapova-lekar,e-vuc,MUDr. Mária Knapová (lekár)
+71b41fad-5ca0-5f97-bd20-6a39b5c816ae,mudr-nikola-brodianska-lekar,e-vuc,MUDr. Nikola Brodianska (lekár)
+93f2c0e6-308b-566b-9882-6ea11216ed50,mudr-norbert-surovy,e-vuc,MUDr. Norbert Surový
+7d9fcb0e-9be1-53a0-91aa-cdb794a0e6d8,mudr-ondrej-antal,e-vuc,MUDr. Ondrej Antal
+7850865f-5cc8-55ea-acae-43eb62f99372,mudr-pavel-chovanec-lekar,e-vuc,MUDr. Pavel Chovanec (lekár)
+02b45062-6076-5e90-9493-b110f9a8e483,mudr-pavel-mraz-lekar,e-vuc,MUDr. Pavel Mráz (lekár)
+c3598642-7320-5090-8d05-045a16af6421,mudr-peter-biensky-lekar,e-vuc,MUDr. Peter Biensky (lekár)
+ec52ef94-dc50-53fe-8c15-2f80d72aa1fd,mudr-peter-molitoris-lekar,e-vuc,MUDr. Peter Molitoris (lekár)
+18b1fc61-6ef8-5de2-a594-e4588305ae00,mudr-petra-kapuscinska-lekar,e-vuc,MUDr. Petra Kapuscinská (lekár)
+9d33cf06-714e-5296-9437-4b2c65260884,mudr-petra-sopkova-lekar,e-vuc,MUDr. Petra Sopková (lekár)
+488234bd-162c-5dcb-bdeb-c948c6df647c,mudr-purgatova-kristina-student-vseobecneho-lekarstva,e-vuc,MUDr. Purgátová Kristína (študent všeobecného lekárstva)
+9ebd2917-4a2f-55a7-845b-cbbea5e3f86b,mudr-radoslav-bielik-lekar,e-vuc,MUDr. Radoslav Bielik (lekár)
+f47be4ca-d3cc-5c59-8873-9e084dfae583,mudr-radoslav-kminiak,e-vuc,MUDr. Radoslav Kminiak
+1e0dd86c-68e3-5907-b014-2816adee416e,mudr-radoslav-kminiak-lekar,e-vuc,MUDr. Radoslav Kminiak (lekár)
+0e60e8dc-702f-5af0-b866-65878a3c9e99,mudr-renata-podobenova-lekar,e-vuc,MUDr. Renáta Podobenová (lekár)
+cff008b9-4438-540a-88b9-ff752ded3393,mudr-roman-gal-lekar,e-vuc,MUDr. Roman Gál (lekár)
+a846fb4f-ef56-5b4d-98a5-5a8bb4b88e47,mudr-roman-necpal-lekar,e-vuc,MUDr. Roman Necpal (lekár)
+b376040d-6a0e-559a-abe9-fb2a5bd89616,mudr-silvia-svinciakova-lekar,e-vuc,MUDr. Silvia Svinčiaková (lekár)
+cf7e5fb2-10d6-582d-ace0-8ec45207c86c,mudr-stankovicova-zuzana-lekar,e-vuc,MUDr. Stankovičová Zuzana (lekár)
+cc4ca650-d84b-5fe8-9e55-e095d340087a,mudr-vladimir-vyrostko-lekar,e-vuc,MUDr. VLadimír Výrostko (lekár)
+1f4f711d-06c0-5523-8916-58bf61e818f6,mudr-valeria-kelemenova-lekar,e-vuc,MUDr. Valeria Kelemenová (lekár)
+ebdc1072-d28e-54cd-b1d9-224a180dc39e,mudr-viera-dekretova-lekar,e-vuc,MUDr. Viera Dekrétová (lekár)
+51b72ee6-8681-5d4d-82b1-0486d2573cc1,mudr-vladimir-holec,e-vuc,MUDr. Vladimír Holec
+3798d373-dd0b-56f9-b87d-11a5f3fd9389,mudr-vladimir-vachalik-lekar,e-vuc,MUDr. Vladimír Vachalík (lekár)
+5cc05c23-266d-5617-a259-971a1821ca5a,mudr-vladimir-vanik,e-vuc,MUDr. Vladimír Vaník
+0ec1eb1c-912a-5947-a16e-da157c44aa44,mudr-vladimir-vanik-lekar,e-vuc,MUDr. Vladimír Vaník (lekár)
+bc903592-5894-524d-87a1-0c29be93845c,mudr-zdena-volentierova-lekar,e-vuc,MUDr. Zdena Volentierová (lekár)
+4b6966bf-754a-5db1-ad8e-15fabd57ad5b,mudr-zuzana-bencova-lekar,e-vuc,MUDr. Zuzana Benčová (lekár)
+baa7782e-7cce-5421-baea-0f5d8b633fc8,mudr-zuzana-konyova,e-vuc,MUDr. Zuzana Kónyová
+bc5a9388-b72c-5e4a-83a1-cf21019a0f2f,mudr-zuzana-vitovska-lekar,e-vuc,MUDr. Zuzana Vitovská (lekár)
+d623dd6e-e00e-5566-96a7-ab0c17f9ed5b,mudr-lubomir-antalik-lekar,e-vuc,MUDr. Ľubomír Antalík (lekár)
+9e9c4858-73f3-51ac-a4e5-7aa89dbfc84c,mudr-lubomir-konya,e-vuc,MUDr. Ľubomír Kónya
+a953e0e4-d06c-5768-9ece-15825ce75478,mudr-ludovit-horvath-lekar,e-vuc,MUDr. Ľudovít Horváth (lekár)
+fd6032d9-518e-5db3-b559-8de5225e4ccf,mudr-alena-kankova-lekar,e-vuc,MUDr.Alena Kanková (lekár)
+5487398d-8fc1-5c5d-bea8-3fbd5fc43712,mudr-andrea-francistyova-lekar,e-vuc,MUDr.Andrea Francistyová (lekár)
+dec2684d-c7a8-5199-a415-e06bc8cbb6f3,mudr-balcercik-milos-lekar,e-vuc,MUDr.Balcerčík Miloš (lekár)
+0991a2bf-1955-5c0e-a562-25327c15b53f,mudr-juraj-hrasko-lekar,e-vuc,MUDr.Juraj Hraško (lekár)
+8110db04-cb5e-5d31-83ed-5de9694cfe5f,mudr-kosik-miroslav-lekar,e-vuc,MUDr.Košík Miroslav (lekár)
+19971b07-de06-544d-9ed6-50bdc3b94959,mudr-kulaviak-richard-mph-lekar,e-vuc,"MUDr.Kulaviak Richard, MPH (lekár)"
+ee9101d2-cd27-5786-958c-b6ff6dc98ffd,mudr-muchova-julia-silvia-lekar,e-vuc,MUDr.Muchová Júlia Silvia (lekár)
+8213dd40-d392-540c-984b-95041dfe8071,mudr-peter-vanek-lekar,e-vuc,MUDr.Peter Vaněk (lekár)
+62100655-5ed6-5a68-b0c8-7315ea4d691d,magda-kapusnakova-sestra,e-vuc,Magda Kapusňáková (sestra)
+7eb51623-c82a-5c98-b1c4-f349f7a70c49,magdalena-slobodnikova-sestra,e-vuc,Magdaléna Slobodníková (sestra)
+4a96659b-a6b6-5b9e-8153-ed142c939b98,mariana-daxnerova-sestra,e-vuc,Mariana Daxnerová (sestra)
+345b0d39-54a5-545f-b378-6a28eb54247f,marjena-dakic-lekar,e-vuc,Marjena Dakić (lekár)
+556351ba-3d23-5f6c-b420-11c19156718e,markova-dana-sestra,e-vuc,Marková Dana (sestra)
+f6efc7ba-96a2-56a8-9f48-d588cf026e1b,marta-turnova-sestra,e-vuc,Marta Turňová (sestra)
+90908f84-740c-5b02-9404-405e314a957f,mgr-blanka-kolenova-logoped,e-vuc,Mgr Blanka Kolenová (logopéd)
+5d349403-49d4-5580-8814-3e1662a7b0cf,mgr-alena-liptakova-sestra,e-vuc,Mgr. Alena Liptáková (sestra)
+02d6b1a4-e96f-5c79-a92b-8f37a4de82c2,mgr-anna-babelova-sestra,e-vuc,Mgr. Anna Babeľová (sestra)
+96d5354b-c12f-556c-a0ed-9307766927c4,mgr-anna-chrapciakova-sestra,e-vuc,Mgr. Anna Chrapčiaková (sestra)
+94b398c1-462d-5421-83c8-729ff647f169,mgr-anna-durjancikova-sestra,e-vuc,Mgr. Anna Durjančíková (sestra)
+c2b98a57-80c4-51af-bd6b-b56c7696f3e0,mgr-beata-sihelska-mph-sestra,e-vuc,"Mgr. Beáta Sihelská, MPH. (sestra)"
+e8d1f90d-48fa-5b18-91af-c0c533fea6bd,mgr-bianka-skalosova-sestra,e-vuc,Mgr. Bianka Skalošová (sestra)
+2a01d962-0921-5901-be49-fe939450e8ba,mgr-bolcova-andrea-dentalna-hygienicka,e-vuc,Mgr. Bolčova Andrea (dentálna hygienička)
+5e4b59a7-f942-53db-9f5f-f8d9069ff788,mgr-bozena-makova-mha-sestra,e-vuc,Mgr. Božena Maková MHA (sestra)
+e78f1134-8c1b-5fb3-8f82-8a8da651e94b,mgr-danka-hajkova-sestra,e-vuc,Mgr. Danka Hajkova (sestra)
+6d396bd0-090a-5848-93d8-4c613439160b,mgr-danka-kubanikova-sestra,e-vuc,Mgr. Danka Kubaníková (sestra)
+4b211086-31d1-5c2c-852e-0a80614bd2a7,mgr-elena-budacova-sestra,e-vuc,Mgr. Elena Budáčová (sestra)
+d5f9c8ed-0e0e-5da2-be85-9e1c6d9c2e95,mgr-jana-bachledova-sestra,e-vuc,Mgr. Jana Bachledová (sestra)
+913c7e2b-b21f-5478-ba73-010510d4b44a,mgr-jana-bradnanova-sestra,e-vuc,Mgr. Jana Brádňanová (sestra)
+0d193446-58b7-5bad-bd0e-5663e3ea1850,mgr-jana-messerschmidtova,e-vuc,Mgr. Jana Messerschmidtová
+04ed96f4-70ff-5b28-9a85-6eeeafc7901e,mgr-jaroslav-straka-sestra,e-vuc,Mgr. Jaroslav Straka (sestra)
+d8ce0241-75cb-5a9b-881c-58e574781de5,mgr-katarina-szilardiova-sestra,e-vuc,Mgr. Katarína Szilárdiová (sestra)
+d190534f-6d94-5a82-8827-e8ff84b2abc1,mgr-martina-kulichova-sestra,e-vuc,Mgr. Martina Kulichová (sestra)
+735dc88a-38a1-5ef3-b2db-c8d09a042aec,mgr-michaela-longauerova-sestra,e-vuc,Mgr. Michaela Longauerová (sestra)
+e5c63db3-79c8-5e7e-8e2f-e15030a6b971,mgr-michaela-zuffova-sestra,e-vuc,Mgr. Michaela Žuffová (sestra)
+b40c92cb-6c89-5a40-af95-ef3412dde5ae,mgr-miroslava-malikova,e-vuc,Mgr. Miroslava Máliková
+abd9d4c5-c207-5004-9a8f-331e719e3330,mgr-nadezda-pavlovicova-sestra,e-vuc,Mgr. Nadežda Pavlovičová (sestra)
+55b5580b-43c0-5775-afb0-623bc06c7b82,mgr-natalia-trnkova-holekova-sestra,e-vuc,Mgr. Natália Trnková Holeková (sestra)
+af5e2bf1-0514-5df7-8651-8dbd71528be4,mgr-petra-vajcikova-sestra,e-vuc,Mgr. Petra Vajcíková (sestra)
+f3adf137-da63-580b-b9c7-3fbf5fa70aa3,mgr-rastislav-koren-sestra,e-vuc,Mgr. Rastislav Koreň (sestra)
+80b37473-ad55-5172-b643-aa271d43e64d,mgr-viera-zelnicka-sestra,e-vuc,Mgr. Viera Zelnická (sestra)
+087b1aa0-db60-5195-8743-25ac325b8163,mgr-vlasta-hrnciarova-sestra,e-vuc,Mgr. Vlasta Hrnčiarová (sestra)
+c4aaaa6b-0edf-5760-82de-181ac48f2adc,mgr-zdenka-filipiakova-sestra,e-vuc,Mgr. Zdenka Filipiaková (sestra)
+87dcd118-2598-5d6c-81a6-ebcd35072e00,mgr-zuzana-kockova-sestra,e-vuc,Mgr. Zuzana Kocková (sestra)
+6f9dcb43-a8b4-5c9e-9d3a-988425292de5,mgr-zuzana-sarikova-sestra,e-vuc,Mgr. Zuzana Šáriková (sestra)
+e705e197-3fcb-5f39-9512-77fb3ebf2891,mgr-bc-petra-fekiacova-liecebny-pedagog,e-vuc,"Mgr., Bc. Petra Fekiačová (liečebný pedagóg)"
+65c970e6-af00-57cd-9437-a7bec79f7390,mgr-adriana-filcikova-sestra,e-vuc,Mgr.Adriána Filčíková (sestra)
+4fa02ce1-16ec-5655-a5ee-82305b9b4211,mgr-frantisek-nociar-psycholog,e-vuc,Mgr.František Nociar (psychológ)
+cbb7deef-2101-5d28-8fca-c472f8e64115,mgr-katarina-pivkova-sestra,e-vuc,Mgr.Katarína Pivková (sestra)
+f8f78562-8418-5019-bf20-8ae6fdc80642,mgr-zuzana-rapcanova-sestra,e-vuc,Mgr.Zuzana Rapčanová (sestra)
+675b38f4-445b-5463-940b-797774ba5349,michaela-henzelova-sestra,e-vuc,Michaela Henželová (sestra)
+1435654a-19da-551f-82f2-a1e8f7d2a23f,michaela-vozarova-prakticka-sestra-asistent,e-vuc,Michaela Vozárová (praktická sestra – asistent)
+71b6d451-f156-5bca-8638-80e27a90e70f,miroslava-habodaszova-sestra,e-vuc,Miroslava Habodaszová (sestra)
+381ba93a-97e0-57b8-af60-44e294c23415,miroslava-molnarova-sestra,e-vuc,Miroslava Molnárová (sestra)
+62f6892a-124e-558e-9623-62684d3d9e22,monika-tomaskova-sestra,e-vuc,Monika Tomašková (sestra)
+31b12e95-ba3c-5e76-b617-246b2ac18a8f,maria-magalova-sestra,e-vuc,Mária Magálová (sestra)
+e7e80994-7356-5a35-bf28-dbeacfb9ab8d,maria-mesarosova-lekar,e-vuc,Mária Mesarošová (lekár)
+762e5d9e-dc6c-5fc2-81d0-300ce2c4e5a4,paeddr-michal-mikula-liecebny-pedagog,e-vuc,PaedDr. Michal Mikula (liečebný pedagóg)
+0561ac71-0628-57a6-b350-7f4859c64386,phdr-anna-surovcova-csc-psycholog,e-vuc,"PhDr. Anna Surovcová, CSc. (psychológ)"
+8d42c0c1-c5f7-5ca5-8c89-10119c701f34,phdr-iveta-mackova-mph-sestra,e-vuc,"PhDr. Iveta Macková, MPH (sestra)"
+ece3b36c-b60e-558d-84be-74251435f316,phdr-jana-galatova-psycholog,e-vuc,PhDr. Jana Galátová (psychológ)
+c967ba23-0d5c-5e56-8514-48334a7a04ed,phdr-renata-melicherikova,e-vuc,PhDr. Renata Melicheríková
+2282aabf-1008-577f-ac91-dd1183f65ca8,phdr-kosikova-katarina-sestra,e-vuc,PhDr.Košíková Katarína (sestra)
+01f53eae-ae3a-5664-a1dd-870d5e96bbba,renata-kovacova-sestra,e-vuc,Renata Kováčová (sestra)
+73c2070e-7e5e-52f2-8660-9830d8dc6e9f,renata-erdelyiova-sestra,e-vuc,Renáta Erdélyiová (sestra)
+e624aa52-07ab-5213-bad7-fabd9798e61a,ruzinska-mariana-prakticka-sestra-asistent,e-vuc,Ružinská Mariana (praktická sestra – asistent)
+c08bac5d-4ed3-5965-9aaf-55b7369599f2,sidonia-sandorova-sestra,e-vuc,Sidónia Šándorová (sestra)
+d39bdd7d-3f93-595f-becd-32f367a83e05,silvia-petrova-sestra,e-vuc,Silvia Petrová (sestra)
+0fe66ea4-818c-5d74-90a5-64c8356cf207,simona-panuskova-sestra,e-vuc,Simona Panušková (sestra)
+0edc27c5-4018-5143-897d-981833b83683,slavka-urbancekova-lekar,e-vuc,Slávka Urbančeková (lekár)
+bd7a9ab6-ad31-5e71-9d85-68ca59efedef,tetiana-vakulenko-lekar,e-vuc,Tetiana Vakulenko (lekár)
+094d8763-cf2b-55bc-b51e-718c2ea9df85,vazanova-sofia-prakticka-sestra-asistent,e-vuc,Vazanová Sofia (praktická sestra – asistent)
+06ff959c-4a12-55e7-b496-0d2cb5b01f8f,veronika-nemcokova-sestra,e-vuc,Veronika Nemčoková (sestra)
+683f6e8d-0c79-5484-b30b-3af38db0dbe6,viera-uhrinova-sestra,e-vuc,Viera Uhrínová (sestra)
+01004b4f-8994-50c1-aa7c-9bee734ce8a2,vierka-mesarcikova-sestra,e-vuc,Vierka Mesarčíková (sestra)
+769d7789-67bb-5c8a-945c-51e510d5f9ec,viktor-poliakhov-lekar,e-vuc,Viktor Poliakhov (lekár)
+4392ca42-8dc2-5a55-bcc8-deb26e75c964,zuzana-hurajova-lekar,e-vuc,Zuzana Hurajová (lekár)
+366c4040-23b0-5d82-8413-79de85d0f458,zuzana-kochanova-sestra,e-vuc,Zuzana Kochanová (sestra)
+de51eeb5-d842-5ea3-bded-d25178fb709e,zuzana-maslejova-logoped,e-vuc,Zuzana Mašlejová (logopéd)
+2c69c467-2e98-5714-9e7f-ff6bfc19cbf4,zuzana-petrikova-sestra,e-vuc,Zuzana Petríková (sestra)
+b3316e00-3a50-5fc2-887c-bb2c3d4a881f,zuzana-slovakova-sestra,e-vuc,Zuzana Slováková (sestra)
+62ec1a51-19d0-5ad9-a8be-883da4b081cf,akupunktura,e-vuc,akupunktúra
+6247b5eb-08de-56d8-8ad7-61469a734ddf,algeziologia,e-vuc,algeziológia
+bda73d65-4d7f-5a0f-8e28-a792ecd28ae0,anesteziologia-a-intenzivna-medicina,e-vuc,anestéziológia a intenzívna medicína
+702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,e-vuc,chirurgia
+91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,e-vuc,cievna chirurgia
+d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,e-vuc,dentoalveolárna chirurgia
+7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,e-vuc,dentálna hygiena
+79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,e-vuc,dermatovenerológia
+0bb3da45-47d0-51b1-8ed1-5c620262f3be,detska-psychiatria,e-vuc,detská psychiatria
+4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,e-vuc,"diabetológia, poruchy látkovej premeny a výživy"
+62f718ed-131a-5845-864a-956254641d37,diplomovany-fyzioterapeut,e-vuc,diplomovaný fyzioterapeut
+28203317-779e-5e46-8036-4ba356a27fe5,domaca-hospicova-starostlivost,e-vuc,domáca hospicová starostlivosť
+29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,e-vuc,domáca ošetrovateľská starostlivosť
+127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,e-vuc,dopravná psychológia
+b7decc09-dc6d-584c-9e44-d6a5a49f4d3b,dorastove-lekarstvo,e-vuc,dorastové lekárstvo
+2559b9e7-baae-579a-a0be-e3004ef32f41,echokardiografia,e-vuc,echokardiografia
+ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,e-vuc,endokrinológia
+0dad4147-c249-5219-aa35-28773f274c50,ergoterapia,e-vuc,ergoterapia
+bdf2ec71-9af9-51d3-a328-9f2949c40c82,funkcna-diagnostika,e-vuc,funkčná diagnostika
+f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,e-vuc,"fyziatria, balneológia a liečebná rehabilitácia"
+3161b4ee-e436-5978-8f03-bbc0b933da82,fyzioterapeut,e-vuc,fyzioterapeut
+86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,e-vuc,fyzioterapia
+4f600d38-05aa-55dd-8b25-a88f187a450e,fyzioterapia-zdravotnicke-vedy,e-vuc,fyzioterapia - zdravotnícke vedy
+8edfa0f4-8806-55ca-80c6-8d129f30e4ce,fyzioterapia-funkcnych-a-strukturalnych-poruch-pohyboveho-systemu,e-vuc,fyzioterapia funkčných a štrukturálnych porúch pohybového systému
+1aa059a8-5bc8-56b7-a8d1-4f7f29b236f0,fyzioterapia-poruch-centralneho-nervoveho-systemu,e-vuc,fyzioterapia porúch centrálneho nervového systému
+a00ec097-db52-5b64-8a2d-d753400a527b,fyzioterapia-v-sporte-a-telovychove,e-vuc,fyzioterapia v športe a telovýchove
+03d5fe8c-1888-5802-8581-17115b5c71ec,fyzioterapia-vybranych-ochoreni-pohyboveho-systemu,e-vuc,fyzioterapia vybraných ochorení pohybového systému
+73b7dff7-e309-5ae5-9ba6-216a8b6d222d,gastroenterologia,e-vuc,gastroenterológia
+d78cb074-8bdf-5e8a-a406-0a391dcda104,geriatria,e-vuc,geriatria
+1e473731-0b39-597c-b3d2-8d7a8b8907f0,gynekologicka-urologia,e-vuc,gynekologická urológia
+d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,e-vuc,gynekológia a pôrodníctvo
+9d180982-b02d-5c91-8122-63473459f633,hematologia-a-transfuziologia,e-vuc,hematológia a transfuziológia
+f937ce8c-aa70-514f-87e0-ad1040a30d93,implantologia,e-vuc,implantológia
+4ddf53fa-7320-5066-a117-93debbc93bff,kardiologia,e-vuc,kardiológia
+7593601d-68be-5e36-870f-00cefe21d1fb,klinicka-biochemia,e-vuc,klinická biochémia
+0e973470-8aab-58e2-921a-72a701ae8a4c,klinicka-imunologia-a-alergologia,e-vuc,klinická imunológia a alergológia
+f2b9dc73-3eca-57c5-86e8-af24ce646173,klinicka-logopedia,e-vuc,klinická logopédia
+d08ea85f-4b95-59ab-a5ef-f9dd11a1bbd8,klinicka-mikrobiologia,e-vuc,klinická mikrobiológia
+b13e5d49-4152-5280-aa69-2a4eb164e980,klinicka-onkologia,e-vuc,klinická onkológia
+c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,e-vuc,klinická psychológia
+744dbe93-db92-580c-93f9-f88cc6ce6152,klinicke-pracovne-lekarstvo-a-klinicka-toxikologia,e-vuc,klinické pracovné lekárstvo a klinická toxikológia
+7a3a72b4-9fa7-547e-a9e0-cfd9fc74a1c1,lekarska-genetika,e-vuc,lekárska genetika
+527273c7-56f1-5228-be74-83c4b11c38ef,liecebna-pedagogika,e-vuc,liečebná pedagogika
+0e3087c3-5fda-584c-bdc4-87e3da871453,magneticka-rezonancia,e-vuc,magnetická rezonancia
+6d9b0c9c-28d7-5733-8b8f-f09a0fc8f196,mikrochirurgia-oka,e-vuc,mikrochirurgia oka
+3b6b2ed7-09d3-5fa7-921c-32b8cabe78e6,mobilizacne-techniky,e-vuc,mobilizačné techniky
+7e671f6b-3f8b-5c61-8303-5cad8fb7ae46,nefrologia,e-vuc,nefrológia
+60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,e-vuc,neurológia
+361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,e-vuc,oftalmológia
+092a94a2-2374-58c5-b311-589372e1a584,ortopedia,e-vuc,ortopédia
+99ab4347-a4ba-5515-b2fc-1f817926ab69,otorinolaryngologia,e-vuc,otorinolaryngológia
+eca6e3d2-9033-5378-8cda-a92c7dbd1561,osetrovatelska-starostlivost-v-komunite,e-vuc,ošetrovateľská starostlivosť v komunite
+81a5ce77-0e8c-5181-bcf5-6417fbd1e9e5,osetrovatelstvo,e-vuc,ošetrovateľstvo
+90035eb6-d65c-5186-b705-f7aa0b970155,paliativna-medicina,e-vuc,paliatívna medicína
+f7082d56-9be6-510d-babe-8c9a163a912b,patologicka-anatomia,e-vuc,patologická anatómia
+cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,e-vuc,pediatria
+d581061e-ffcf-57a8-81cb-de12dddf91d0,pediatricka-endokrinologia-a-diabetologia-poruchy-latkovej-premeny-a-vyzivy,e-vuc,"pediatrická endokrinológia a diabetológia, poruchy látkovej premeny a výživy"
+8de3b18f-6c8a-570c-9530-10214e8d4025,pediatricka-gastroenterologia-hepatologia-a-vyziva,e-vuc,"pediatrická gastroenterológia, hepatológia a výživa"
+b322aa50-f135-5212-a8cc-10a9e0871a58,pediatricka-gynekologia,e-vuc,pediatrická gynekológia
+d3ceb7ca-ffc6-5044-907a-b16393962c60,pediatricka-nefrologia,e-vuc,pediatrická nefrológia
+373a5a87-b4d9-5795-aa80-a4360f623c1f,pediatricka-neurologia,e-vuc,pediatrická neurológia
+31c11b44-28c7-5444-9676-bdeae77c9f7c,pediatricka-oftalmologia,e-vuc,pediatrická oftalmológia
+0b7466d4-1fff-5e14-b125-810e2cb3b601,pediatricka-pneumologia-a-ftizeologia,e-vuc,pediatrická pneumológia a ftizeológia
+53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,e-vuc,plastická chirurgia
+93197836-5b36-50e3-b1b7-7b714b36261c,pneumologia-a-ftizeologia,e-vuc,pneumológia a ftizeológia
+469fcf66-42a6-5bb5-9867-ac24e4255ca2,poradenska-psychologia,e-vuc,poradenská psychológia
+bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,e-vuc,pracovná a organizačná psychológia
+72af3882-0adc-5a64-ae7f-b13b2a72f93b,pracovne-lekarstvo,e-vuc,pracovné lekárstvo
+3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,e-vuc,psychiatria
+6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,e-vuc,psychoterapia
+5bee7bfc-708d-5640-8146-b2e0a4017804,radiacna-onkologia,e-vuc,radiačná onkológia
+d99293cb-bd6f-546d-abd0-4fd80254355f,reflexna-terapia-podla-vojtu,e-vuc,reflexná terapia podľa Vojtu
+689f09da-d1e6-5821-93f4-6f1bf9108688,reumatologia,e-vuc,reumatológia
+17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,e-vuc,rádiológia
+1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,e-vuc,rýchla lekárska pomoc
+3bff53a8-20ae-5489-bea5-01e8ddcccabd,rychla-lekarska-pomoc-v-stretavacom-rezime-rv,e-vuc,rýchla lekárska pomoc v stretávacom režime „RV“
+cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,e-vuc,rýchla zdravotná pomoc
+ea06f5ee-58ae-57e5-b4a1-39a656dbde8f,rychla-zdravotna-pomoc-s,e-vuc,rýchla zdravotná pomoc „S“
+7a6191b2-766d-500b-a155-930e39d5893f,ultrazvuk-v-gynekologii-a-porodnictve,e-vuc,ultrazvuk v gynekológii a pôrodníctve
+0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,e-vuc,urológia
+f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,e-vuc,vnútorné lekárstvo
+cb371692-159a-5e10-b4f7-92126297ea57,vrtulnikova-zachranna-zdravotna-sluzba,e-vuc,vrtuľníková záchranná zdravotná služba
+bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,e-vuc,všeobecná starostlivosť o deti a dorast
+18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,e-vuc,všeobecné lekárstvo
+48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,e-vuc,zubné lekárstvo
+be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,e-vuc,úrazová chirurgia
+0e151b4c-4756-5dc1-8c8e-c78126f1f94f,ustavna-hospicova-starostlivost,e-vuc,ústavná hospicová starostlivosť
+576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,e-vuc,ústavná ošetrovateľská starostlivosť
+a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,e-vuc,čeľustná ortopédia
+cb9652cb-ed0c-5fbb-a9ee-f514127a8526,lubica-lakotova-sestra,e-vuc,Ľubica Lakotová (sestra)
+cb9901a4-0a5d-569b-b6a8-12027beca6ac,lubomira-novotna-sestra,e-vuc,Ľubomíra Novotná (sestra)
+aab53ac7-02eb-50b5-b363-8714e43e3025,specializovana-preprava-pocas-kalendarnych-dni,e-vuc,špecializovaná preprava počas kalendárnych dní
+51d14893-b043-5e4f-83c0-c3a00d0fb673,specializovana-preprava-pocas-pracovnych-dni,e-vuc,špecializovaná preprava počas pracovných dní

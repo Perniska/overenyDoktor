@@ -1,0 +1,926 @@
+facility_id,evuc_identifier,specialization_id,specialization_slug,specialization_name,is_primary
+db774869-2a05-5f6b-846f-18ca831bd2a2,66-42000912-A0001,0e151b4c-4756-5dc1-8c8e-c78126f1f94f,ustavna-hospicova-starostlivost,ústavná hospicová starostlivosť,true
+78126033-4423-5dfb-9551-9d68cf36ba73,66-55279201-A0001,0e151b4c-4756-5dc1-8c8e-c78126f1f94f,ustavna-hospicova-starostlivost,ústavná hospicová starostlivosť,true
+4d9aa34a-e69f-5d27-95db-2a195bd46f70,51-00165549-A0005,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+0e369020-3ac2-525f-b7a8-323d451fe2b1,66-44184425-A0006,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+7ddc1eb4-a392-5e56-834c-f2680d2f02c0,66-45594929-A0051,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+5c44ee62-3846-5bd1-bf98-5cc4a7a7eed8,51-45594929-A0051,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+54e0fa5f-e8a4-5379-96b9-9cf4b370a4e1,66-45736324-A0038,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+c404cfa2-d041-5d8f-8c3e-1ee418c36a09,66-54588952-A0043,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+719d5edb-a0c8-582d-afd8-642aca7ab203,66-35960884-A0043,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+c360fbd6-00fe-503e-a61b-1409954057ae,66-35960884-A0118,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+560616de-818a-5037-90d8-e0ab29f11898,66-45736987-A0018,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+75ee35d4-7569-5dd2-bbbd-02f8984a4c6f,66-37954571-A0075,0e151b4c-4756-5dc1-8c8e-c78126f1f94f,ustavna-hospicova-starostlivost,ústavná hospicová starostlivosť,true
+16500d7a-c34f-5e8b-a2f4-632d2988fca1,66-37951513-A0001,0e151b4c-4756-5dc1-8c8e-c78126f1f94f,ustavna-hospicova-starostlivost,ústavná hospicová starostlivosť,true
+9606c7e9-dc3e-53ba-9f13-db194c7e586b,66-31908977-A0011,576e4e5d-9414-55f1-8d67-39f43974aa1f,ustavna-osetrovatelska-starostlivost,ústavná ošetrovateľská starostlivosť,true
+8325d810-6492-5763-902a-ad34dda06dca,51-37889346-A0001,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+5990c470-5448-560f-ab5d-527666685fae,66-50253808-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+5990c470-5448-560f-ab5d-527666685fae,66-50253808-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5990c470-5448-560f-ab5d-527666685fae,66-50253808-A0001,02d6b1a4-e96f-5c79-a92b-8f37a4de82c2,mgr-anna-babelova-sestra,Mgr. Anna Babeľová (sestra),false
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,81a5ce77-0e8c-5181-bcf5-6417fbd1e9e5,osetrovatelstvo,ošetrovateľstvo,false
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,5d349403-49d4-5580-8814-3e1662a7b0cf,mgr-alena-liptakova-sestra,Mgr. Alena Liptáková (sestra),false
+66eac63b-0a93-5674-859a-2293f688c56a,51-36289485-A0002,abd9d4c5-c207-5004-9a8f-331e719e3330,mgr-nadezda-pavlovicova-sestra,Mgr. Nadežda Pavlovičová (sestra),false
+e77bc120-2d2f-58cf-9d0e-b9dd6b5de213,66-42317614-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+15b646cb-e817-5bd5-a860-305686655c86,66-55513484-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+192aa61b-c2da-5d67-bdd9-5376d410c702,66-35659726-A0003,28203317-779e-5e46-8036-4ba356a27fe5,domaca-hospicova-starostlivost,domáca hospicová starostlivosť,true
+c2abf3e2-b374-5e22-8bfb-47dd33e460be,66-35659726-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+95d30cbd-eb05-5506-9bbb-9f587f897066,66-37889346-A0001,28203317-779e-5e46-8036-4ba356a27fe5,domaca-hospicova-starostlivost,domáca hospicová starostlivosť,true
+ec5a437b-3662-5f2b-b42d-2845479df3eb,51-36289485-A0004,90035eb6-d65c-5186-b705-f7aa0b970155,paliativna-medicina,paliatívna medicína,true
+29ab7eb8-dec0-5871-a616-bf6e777ec930,66-48238864-A0001,eca6e3d2-9033-5378-8cda-a92c7dbd1561,osetrovatelska-starostlivost-v-komunite,ošetrovateľská starostlivosť v komunite,true
+29ab7eb8-dec0-5871-a616-bf6e777ec930,66-48238864-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+29ab7eb8-dec0-5871-a616-bf6e777ec930,66-48238864-A0001,af5e2bf1-0514-5df7-8651-8dbd71528be4,mgr-petra-vajcikova-sestra,Mgr. Petra Vajcíková (sestra),false
+ebbea9d4-d82b-5607-8b31-c1582264e6f0,51-42146003-A0004,28203317-779e-5e46-8036-4ba356a27fe5,domaca-hospicova-starostlivost,domáca hospicová starostlivosť,true
+73543ac9-1186-5495-b5b0-8750ff61edd0,66-47612738-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+73543ac9-1186-5495-b5b0-8750ff61edd0,66-47612738-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+73543ac9-1186-5495-b5b0-8750ff61edd0,66-47612738-A0001,d5f9c8ed-0e0e-5da2-be85-9e1c6d9c2e95,mgr-jana-bachledova-sestra,Mgr. Jana Bachledová (sestra),false
+d542874d-9805-5877-86d8-b0a5fd932dfc,66-47400145-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+d542874d-9805-5877-86d8-b0a5fd932dfc,66-47400145-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d542874d-9805-5877-86d8-b0a5fd932dfc,66-47400145-A0001,e78f1134-8c1b-5fb3-8f82-8a8da651e94b,mgr-danka-hajkova-sestra,Mgr. Danka Hajkova (sestra),false
+51d7b61b-c66c-50ea-92bb-6d0c568a5614,66-35659726-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,913c7e2b-b21f-5478-ba73-010510d4b44a,mgr-jana-bradnanova-sestra,Mgr. Jana Brádňanová (sestra),false
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,903ffdfe-11f6-556f-b586-95e7d23060b1,katarina-slovakova-sestra,Katarína Slováková (sestra),false
+9ae69029-5e26-51d6-823d-e8f84d35196b,66-50608169-A0001,0fe66ea4-818c-5d74-90a5-64c8356cf207,simona-panuskova-sestra,Simona Panušková (sestra),false
+d7c8dc98-c598-578c-9174-92f0517eeb30,66-37824686-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+26ae71d5-a585-5c43-bd4e-fb1ac0ed04a0,66-50420607-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+b112f5ea-f899-5ac4-89aa-4ccb0c570fd5,66-47245875-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+b112f5ea-f899-5ac4-89aa-4ccb0c570fd5,66-47245875-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+b112f5ea-f899-5ac4-89aa-4ccb0c570fd5,66-47245875-A0001,f3adf137-da63-580b-b9c7-3fbf5fa70aa3,mgr-rastislav-koren-sestra,Mgr. Rastislav Koreň (sestra),false
+63ee8dc3-e458-5c16-bf71-1801ceeb8a54,66-46119361-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+63ee8dc3-e458-5c16-bf71-1801ceeb8a54,66-46119361-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+63ee8dc3-e458-5c16-bf71-1801ceeb8a54,66-46119361-A0001,c4aaaa6b-0edf-5760-82de-181ac48f2adc,mgr-zdenka-filipiakova-sestra,Mgr. Zdenka Filipiaková (sestra),false
+d68fbe91-a4b7-5794-8cc1-5adf50b45cd1,66-45376191-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+08170cb5-4682-5a7c-bd59-9c54f7eb0f3e,66-53849825-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+ab40fe86-8031-5cbc-a9e3-8461326c1fea,66-54109868-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+8dff2e5a-af93-5961-aa0e-c5420f9c8d35,66-52098940-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+8dff2e5a-af93-5961-aa0e-c5420f9c8d35,66-52098940-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+8dff2e5a-af93-5961-aa0e-c5420f9c8d35,66-52098940-A0001,5e4b59a7-f942-53db-9f5f-f8d9069ff788,mgr-bozena-makova-mha-sestra,Mgr. Božena Maková MHA (sestra),false
+fc6607cf-00f4-505d-9467-084fc5c6c280,66-36642711-A0004,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+fc6607cf-00f4-505d-9467-084fc5c6c280,66-36642711-A0004,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+fc6607cf-00f4-505d-9467-084fc5c6c280,66-36642711-A0004,087b1aa0-db60-5195-8743-25ac325b8163,mgr-vlasta-hrnciarova-sestra,Mgr. Vlasta Hrnčiarová (sestra),false
+fc6607cf-00f4-505d-9467-084fc5c6c280,66-36642711-A0004,75114225-7245-5f0e-bcdd-72e72dffb4f6,anna-pancikova-sestra,Anna Pančíková (sestra),false
+3cffbaa1-b09c-54c8-9eee-798e994a640e,66-31908772-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+3cffbaa1-b09c-54c8-9eee-798e994a640e,66-31908772-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3cffbaa1-b09c-54c8-9eee-798e994a640e,66-31908772-A0001,f81ae8d7-138a-53a6-b546-83f054fd4898,bc-bozena-makova-sestra,Bc. Božena Maková (sestra),false
+5519cfaa-8fea-57d4-9ac7-1998c592d7c6,66-54850002-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+0ad82183-cb07-5abb-9453-46a6e640ab5e,66-36835684-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+0ad82183-cb07-5abb-9453-46a6e640ab5e,66-36835684-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+0ad82183-cb07-5abb-9453-46a6e640ab5e,66-36835684-A0001,91a3b752-84fa-5514-84a9-f7c044fd2036,adriana-kasacova-sestra,Adriana Kasáčová (sestra),false
+3f190ad7-e8cd-517b-b5ef-d19c1a2f5c10,66-46036946-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+3f190ad7-e8cd-517b-b5ef-d19c1a2f5c10,66-46036946-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3f190ad7-e8cd-517b-b5ef-d19c1a2f5c10,66-46036946-A0001,4b211086-31d1-5c2c-852e-0a80614bd2a7,mgr-elena-budacova-sestra,Mgr. Elena Budáčová (sestra),false
+4d6076c9-0a9b-5aca-b78a-7e3ee75fe11b,66-42300771-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+4d6076c9-0a9b-5aca-b78a-7e3ee75fe11b,66-42300771-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+4d6076c9-0a9b-5aca-b78a-7e3ee75fe11b,66-42300771-A0001,d8ce0241-75cb-5a9b-881c-58e574781de5,mgr-katarina-szilardiova-sestra,Mgr. Katarína Szilárdiová (sestra),false
+5b3fa715-0f85-5d95-98ad-654c1d4b5485,66-46119361-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+764e34a5-0a60-51d4-bf5e-1bb776acd71e,66-36633836-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+764e34a5-0a60-51d4-bf5e-1bb776acd71e,66-36633836-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+764e34a5-0a60-51d4-bf5e-1bb776acd71e,66-36633836-A0001,73c2070e-7e5e-52f2-8660-9830d8dc6e9f,renata-erdelyiova-sestra,Renáta Erdélyiová (sestra),false
+0233e609-f8da-56e4-b80e-d2136d92755d,66-36744131-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+55fac6c3-ae3b-5cbe-8120-ed8804f5d22b,66-37954571-A0004,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+55fac6c3-ae3b-5cbe-8120-ed8804f5d22b,66-37954571-A0004,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+55fac6c3-ae3b-5cbe-8120-ed8804f5d22b,66-37954571-A0004,6d396bd0-090a-5848-93d8-4c613439160b,mgr-danka-kubanikova-sestra,Mgr. Danka Kubaníková (sestra),false
+13cc7591-5dae-5426-b9c8-951413806352,66-47612738-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+85ead55f-e578-55fc-8fa3-561d18593a21,66-45736324-A0037,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+3df885a2-9731-53f3-92ff-1c52ed5bcd58,66-45736324-A0039,28203317-779e-5e46-8036-4ba356a27fe5,domaca-hospicova-starostlivost,domáca hospicová starostlivosť,true
+7bb55c54-736d-543d-96dc-f28eb54c1836,66-45458014-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+7bb55c54-736d-543d-96dc-f28eb54c1836,66-45458014-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+7bb55c54-736d-543d-96dc-f28eb54c1836,66-45458014-A0001,94b398c1-462d-5421-83c8-729ff647f169,mgr-anna-durjancikova-sestra,Mgr. Anna Durjančíková (sestra),false
+eae7e55b-ffc2-57fc-9e53-1505632098ae,66-53467698-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+c8609fbd-6345-51cf-b4f3-ee04a530a92e,51-36567396-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+c8609fbd-6345-51cf-b4f3-ee04a530a92e,51-36567396-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+c8609fbd-6345-51cf-b4f3-ee04a530a92e,51-36567396-A0002,80b37473-ad55-5172-b643-aa271d43e64d,mgr-viera-zelnicka-sestra,Mgr. Viera Zelnická (sestra),false
+ac3a991b-292d-5287-bc1e-0ef67a87611b,66-54718481-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+1e81bd5a-ce25-507b-b034-7ae6fd8a2827,66-33254346-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+7ec4a213-e897-5dfe-95b2-242c0ce1d908,66-37818911-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+c90b98e7-ec3d-53a1-a525-41c06325a717,66-52473775-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+c90b98e7-ec3d-53a1-a525-41c06325a717,66-52473775-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+c90b98e7-ec3d-53a1-a525-41c06325a717,66-52473775-A0001,8d42c0c1-c5f7-5ca5-8c89-10119c701f34,phdr-iveta-mackova-mph-sestra,"PhDr. Iveta Macková, MPH (sestra)",false
+2a7ca237-8a20-52d4-8a4a-68a2746607ac,66-45021228-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+40939a3e-5dbf-538c-b80c-fd403f14c5e7,66-31908799-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+40939a3e-5dbf-538c-b80c-fd403f14c5e7,66-31908799-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+40939a3e-5dbf-538c-b80c-fd403f14c5e7,66-31908799-A0001,cb9652cb-ed0c-5fbb-a9ee-f514127a8526,lubica-lakotova-sestra,Ľubica Lakotová (sestra),false
+71081212-f610-5a3c-94dc-f8945b14018c,66-47347015-A0001,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+71081212-f610-5a3c-94dc-f8945b14018c,66-47347015-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+71081212-f610-5a3c-94dc-f8945b14018c,66-47347015-A0001,c2b98a57-80c4-51af-bd6b-b56c7696f3e0,mgr-beata-sihelska-mph-sestra,"Mgr. Beáta Sihelská, MPH. (sestra)",false
+6ecf63e8-460f-5ac3-9d6b-933fef12eb11,66-36621242-A0003,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+6ecf63e8-460f-5ac3-9d6b-933fef12eb11,66-36621242-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+6ecf63e8-460f-5ac3-9d6b-933fef12eb11,66-36621242-A0003,1d579f19-dfb8-5053-be8e-004687f43846,anna-hulinova-sestra,Anna Hulínová (sestra),false
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,29f4647a-cb59-5ec8-8eb8-eea01ed55263,domaca-osetrovatelska-starostlivost,domáca ošetrovateľská starostlivosť,true
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,04ed96f4-70ff-5b28-9a85-6eeeafc7901e,mgr-jaroslav-straka-sestra,Mgr. Jaroslav Straka (sestra),false
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,7cf1f574-7a32-5453-a715-1b34786adf2b,bc-filip-cerovsky-sestra,Bc.Filip Cerovský (sestra),false
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,cbb7deef-2101-5d28-8fca-c472f8e64115,mgr-katarina-pivkova-sestra,Mgr.Katarína Pivková (sestra),false
+783ac2af-238f-56b9-924e-54dda7284e0a,66-36620505-A0002,65c970e6-af00-57cd-9437-a7bec79f7390,mgr-adriana-filcikova-sestra,Mgr.Adriána Filčíková (sestra),false
+c5436848-8d19-51ad-9550-cb508b6ead20,53-31642314-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+17aff8e3-eed9-56e7-9a12-f6726f1bdf70,53-52883281-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+6ef49226-c230-5085-bd3e-893c4ac30a7e,53-31642438-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+0063e257-d675-5b36-9230-27c4facc9d2d,53-36059706-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+2e452872-e0b2-5a95-aec6-d006c5ef0c7e,53-00165476-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+42f0e944-633e-54cc-b922-dff9a044480f,53-31642713-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+e0905c36-b65d-54df-a503-40e8792af067,53-00165506-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+dc6f08fb-cfea-57b1-85a0-cb43a6b8ca47,53-31642331-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+ceca553a-8939-5058-a563-56ad4260353f,66-46991492-A0004,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+ceca553a-8939-5058-a563-56ad4260353f,66-46991492-A0004,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+6fb734a4-9bab-5fed-85c2-68459b046930,66-56290063-A0002,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+b515deb0-8204-5ffb-a094-9c0f5b6bc108,66-56290063-A0001,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+e16688f6-91d5-5c34-b1ed-9b47f043f093,66-57517771-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+9e8e60c1-0770-5e54-bf2b-82a06d25c2c4,66-57499471-A0001,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+72244b88-ea7b-5177-b290-604970922dce,66-57499471-A0002,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+1a65b2c5-8e1c-58e5-bf47-fde0f8f6fc6f,51-17336210-A0071,3bff53a8-20ae-5489-bea5-01e8ddcccabd,rychla-lekarska-pomoc-v-stretavacom-rezime-rv,rýchla lekárska pomoc v stretávacom režime „RV“,true
+954e6281-342f-53d1-81c5-2787346ef72e,66-31623832-A0048,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+883d1cbf-283a-597b-b865-5974a6107e33,51-17336210-A0073,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+d4189d05-2a83-5943-8483-c30883b8559b,66-57213089-A0001,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+d4189d05-2a83-5943-8483-c30883b8559b,66-57213089-A0001,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+89b42e3a-78b8-5e0f-b871-7f4c06cca45f,66-55563333-A0011,be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,úrazová chirurgia,true
+6f7e73bb-f4b7-5a9c-9d74-00a2291e8cd1,66-55563333-A0012,be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,úrazová chirurgia,true
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,0e3087c3-5fda-584c-bdc4-87e3da871453,magneticka-rezonancia,magnetická rezonancia,false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,756be195-ffe9-5524-b014-8863e4ba4a23,mudr-maros-daxner-lekar,MUDr. Maroš Daxner (lekár),false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,7234267f-d1ab-5e27-93cd-e224e3cfe468,mudr-barbora-suchacova-lekar,MUDr. Barbora Sucháčová (lekár),false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,9ebd2917-4a2f-55a7-845b-cbbea5e3f86b,mudr-radoslav-bielik-lekar,MUDr. Radoslav Bielik (lekár),false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,1b257415-256a-5c6f-864a-625e7761411c,mudr-daniela-chovancova-lekar,MUDr. Daniela Chovancová (lekár),false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,33a0b30b-4526-5456-a8f3-20a5fec5b1f4,mudr-lukas-sojak-lekar,MUDr. Lukáš Soják (lekár),false
+31406a82-8956-5caf-8d96-d23b2b03004c,51-36644331-A0025,55b5580b-43c0-5775-afb0-623bc06c7b82,mgr-natalia-trnkova-holekova-sestra,Mgr. Natália Trnková Holeková (sestra),false
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,0561ac71-0628-57a6-b350-7f4859c64386,phdr-anna-surovcova-csc-psycholog,"PhDr. Anna Surovcová, CSc. (psychológ)",false
+15a77d98-3eb5-5d06-a2c6-43cf3590c0f9,51-42255015-A0005,ece3b36c-b60e-558d-84be-74251435f316,phdr-jana-galatova-psycholog,PhDr. Jana Galátová (psychológ),false
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,db7bddd8-d754-569d-9259-6efe3ab9c3f2,mudr-jana-budinska-velicova-lekar,MUDr. Jana Budinská Veličová (lekár),false
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,8c0059d7-78c0-5e2a-b144-2ce0135799ca,mudr-lenka-obsitnikova-lekar,MUDr. Lenka Obšitníková (lekár),false
+3f04f9be-a89c-5f74-b932-137a261648c5,51-42255015-A0007,31b12e95-ba3c-5e76-b617-246b2ac18a8f,maria-magalova-sestra,Mária Magálová (sestra),false
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,8c0059d7-78c0-5e2a-b144-2ce0135799ca,mudr-lenka-obsitnikova-lekar,MUDr. Lenka Obšitníková (lekár),false
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,db7bddd8-d754-569d-9259-6efe3ab9c3f2,mudr-jana-budinska-velicova-lekar,MUDr. Jana Budinská Veličová (lekár),false
+552049b2-7f2d-58e3-8929-6b2fc47945e9,51-42255015-A0009,31b12e95-ba3c-5e76-b617-246b2ac18a8f,maria-magalova-sestra,Mária Magálová (sestra),false
+b3332ca0-a7df-5648-bf15-0ba6ab29a606,66-52919706-A0001,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+0aac2815-8233-5164-8977-a93eefdeb015,51-17336210-A0069,aab53ac7-02eb-50b5-b363-8714e43e3025,specializovana-preprava-pocas-kalendarnych-dni,špecializovaná preprava počas kalendárnych dní,true
+1ced25a5-97ab-531b-8305-5cf44be99c12,51-17336210-A0072,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+82e6f0a7-3711-5fcd-8619-aba6628ef709,51-17336210-A0074,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+ec7aaf1c-720a-5410-9fe4-3ffedb7ec618,51-17336210-A0076,ea06f5ee-58ae-57e5-b4a1-39a656dbde8f,rychla-zdravotna-pomoc-s,rýchla zdravotná pomoc „S“,true
+9e77fce3-5dd6-58cf-9ad4-e885f2db119c,66-57161348-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+f42f280a-c1cd-53d6-80ec-7dc601b484f5,51-31908969-A0018,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+ca5393f9-24e9-5c0e-85b3-c3cff21d64a0,66-45452245-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+d6cc0df9-1511-5771-8d24-b927de8ac931,66-36618799-A0006,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+d6cc0df9-1511-5771-8d24-b927de8ac931,66-36618799-A0006,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d6cc0df9-1511-5771-8d24-b927de8ac931,66-36618799-A0006,3fc94328-4cef-58ab-b7d5-2a65839f5bf0,mddr-ivana-pollakova-zubny-lekar,MDDr. Ivana Pollaková (zubný lekár),false
+d6cc0df9-1511-5771-8d24-b927de8ac931,66-36618799-A0006,11de72e2-1fbc-52e7-a8a0-501e6c789342,janka-lachka-sestra,Janka Ľachka (sestra),false
+07c34047-3aa5-55ff-a9fa-8cd06b9ecee7,66-57112924-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+07c34047-3aa5-55ff-a9fa-8cd06b9ecee7,66-57112924-A0001,1aa059a8-5bc8-56b7-a8d1-4f7f29b236f0,fyzioterapia-poruch-centralneho-nervoveho-systemu,fyzioterapia porúch centrálneho nervového systému,false
+4f0b6a83-d79e-5d8f-b996-2610a8612e9a,66-57201536-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+80d9679c-b535-5069-8641-c0e751087ed9,66-57106983-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+ccadc560-fab0-5508-a0cb-ab1dc093de7d,66-57188378-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+10595f3c-e673-55c6-9e13-12fb8dacf2c9,66-55168850-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+4ac57932-e5bd-5163-8244-7024c3237d24,66-50727184-A0007,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+76557bbe-3dd9-51a6-8db8-bb12490ea89b,66-50727184-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+ae691587-361d-5c9c-acd4-680291328145,66-50727184-A0004,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+13a18e28-17fb-5178-9ce5-f44e89fd2ec5,66-50727184-A0005,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+9a950271-4dd6-5ea9-b189-6a10b14083fe,66-50727184-A0006,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+362fb461-1bcc-5535-b424-32fb6ab46147,66-56659776-A0001,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+362fb461-1bcc-5535-b424-32fb6ab46147,66-56659776-A0001,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+1a630b15-c027-58ff-9a93-5369f5e0a291,51-00697516-A0008,cb371692-159a-5e10-b4f7-92126297ea57,vrtulnikova-zachranna-zdravotna-sluzba,vrtuľníková záchranná zdravotná služba,true
+56094724-5d3a-5e42-a492-0fb3eb3d49a7,66-35910682-A0001,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+7187ba35-e8e5-5116-9df2-dba9ce84cc02,66-55479251-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+d6cda10c-6040-5c94-9736-f923a546891e,66-56765631-A0003,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+c4aa5e87-2677-51da-8fb3-2aa4c98777ae,66-56765631-A0001,469fcf66-42a6-5bb5-9867-ac24e4255ca2,poradenska-psychologia,poradenská psychológia,true
+c4aa5e87-2677-51da-8fb3-2aa4c98777ae,66-56765631-A0001,127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,dopravná psychológia,false
+0703d0a7-49c5-55cc-b2de-79c919f37a4b,66-56765631-A0002,bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,pracovná a organizačná psychológia,true
+27e34592-ee80-58f9-b1c3-81625f1c04c9,66-56642709-A0002,bda73d65-4d7f-5a0f-8e28-a792ecd28ae0,anesteziologia-a-intenzivna-medicina,anestéziológia a intenzívna medicína,true
+6f4f9b16-d26a-5d9c-848f-47dcbf47443f,66-56547633-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+fd433a88-601f-5884-9215-11118a6363b9,66-56642709-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+c7c9c3a3-cb1e-5bd1-b589-e0ae92d7dab8,66-50557262-A0001,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+c7c9c3a3-cb1e-5bd1-b589-e0ae92d7dab8,66-50557262-A0001,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+e3a7185b-aaca-58a5-929c-10870509a39b,66-50770420-A0002,6247b5eb-08de-56d8-8ad7-61469a734ddf,algeziologia,algeziológia,true
+067fcf11-81fd-5b0a-9a88-f26d52c84592,66-50770420-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+6ef36604-b9f0-5987-8f51-8de61b539d7c,66-36733768-A0004,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+6ef36604-b9f0-5987-8f51-8de61b539d7c,66-36733768-A0004,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+6ef36604-b9f0-5987-8f51-8de61b539d7c,66-36733768-A0004,f937ce8c-aa70-514f-87e0-ad1040a30d93,implantologia,implantológia,false
+e5727f7f-4973-5b61-b1ae-2431adaa188b,66-36733768-A0005,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+e5727f7f-4973-5b61-b1ae-2431adaa188b,66-36733768-A0005,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+e5727f7f-4973-5b61-b1ae-2431adaa188b,66-36733768-A0005,f937ce8c-aa70-514f-87e0-ad1040a30d93,implantologia,implantológia,false
+bf99493e-740c-5a44-9b05-837d9a8c7a77,66-56264887-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+3c372c8d-15b5-5f8c-a29b-6fabb54c59a4,66-44407033-A0002,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+3c372c8d-15b5-5f8c-a29b-6fabb54c59a4,66-44407033-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3c372c8d-15b5-5f8c-a29b-6fabb54c59a4,66-44407033-A0002,5afbbea9-ae04-52a7-b6a6-e9e612756581,mddr-adam-michelcik-lekar,MDDr. Adam Michelčík (lekár),false
+7d5fd530-947c-5f39-92f6-29940d07d19b,66-56652062-A0002,469fcf66-42a6-5bb5-9867-ac24e4255ca2,poradenska-psychologia,poradenská psychológia,true
+7d5fd530-947c-5f39-92f6-29940d07d19b,66-56652062-A0002,127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,dopravná psychológia,false
+e13a49ad-3c2c-5fc4-af85-85114df69848,66-56652062-A0001,bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,pracovná a organizačná psychológia,true
+18acebd1-961f-599e-b294-54a8f30237aa,66-51744422-A0011,4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,"diabetológia, poruchy látkovej premeny a výživy",true
+18acebd1-961f-599e-b294-54a8f30237aa,66-51744422-A0011,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+18acebd1-961f-599e-b294-54a8f30237aa,66-51744422-A0011,578c525f-8f9f-50a3-8e7d-25d6b7863237,mudr-martina-vaganova-lekar,MUDr. Martina Vagáňová (lekár),false
+f9aafde6-f1eb-5e40-9f9d-b0246f494faf,66-51744422-A0012,ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,endokrinológia,true
+f9aafde6-f1eb-5e40-9f9d-b0246f494faf,66-51744422-A0012,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+f9aafde6-f1eb-5e40-9f9d-b0246f494faf,66-51744422-A0012,bd575657-2199-55a3-9e80-53e6509f08f4,mudr-martina-vaganova,MUDr. Martina Vagáňová,false
+b8b6b262-2c21-5d7f-9395-0b65b3fbc4f0,66-56514328-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+5134f057-adc9-5c2d-a7dd-c529b350ac69,66-32027222-A0002,bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,pracovná a organizačná psychológia,true
+8c1b4a00-a9dd-5035-b3f5-c6e3171bc3ba,66-56058632-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+71869de7-efca-55eb-940a-c2252baa6c55,51-00151866-A0060,469fcf66-42a6-5bb5-9867-ac24e4255ca2,poradenska-psychologia,poradenská psychológia,true
+3ec7a748-9eb6-5c75-9127-1ee74075fc3d,51-00151866-A0059,bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,pracovná a organizačná psychológia,true
+3ec7a748-9eb6-5c75-9127-1ee74075fc3d,51-00151866-A0059,127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,dopravná psychológia,false
+4d301be2-7aaf-5506-9b11-8df8476cbc77,66-54623791-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+4d301be2-7aaf-5506-9b11-8df8476cbc77,66-54623791-A0002,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+4679c219-4f0b-5604-be91-f2b84145818a,66-55563333-A0009,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+312c5ac3-c895-5504-b759-ca73c278b4e4,66-55563333-A0006,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+d251e035-3dc6-5eea-99c6-715d14832e82,66-55563333-A0008,73b7dff7-e309-5ae5-9ba6-216a8b6d222d,gastroenterologia,gastroenterológia,true
+7abc5772-cd48-541a-8d2a-1470a971612e,66-55563333-A0010,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+8067ad85-9325-563c-a383-6a720e99087c,66-55563333-A0007,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+7a3c8839-ddc7-5b3f-ad21-5de09f9ca167,66-56291833-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+2b0401a1-8dbd-59da-a6ea-27b13690ae34,51-36644331-A0024,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+5c463df5-a11f-527f-9d35-882508e25a07,66-55917909-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+77b204c1-7c86-538a-8b98-86601a2b1c92,66-51803178-A0001,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+889c5523-abfe-5daa-883d-341a1d8f7cd1,51-00738301-A0112,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+ff4e2359-8b61-5eb6-9ba6-a474d27a7edc,51-00738301-A0113,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+7b7535f0-f98b-5dd6-9ecc-b833ee1a473c,66-46991492-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+7b7535f0-f98b-5dd6-9ecc-b833ee1a473c,66-46991492-A0003,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+40f64977-48ed-591b-ad99-71e5b21bc6b8,66-55917569-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+e175ecf8-d9f6-5204-8927-090137b92368,66-55563333-A0002,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+069b32f3-441c-5189-bd19-c8088e19472a,66-55563333-A0003,73b7dff7-e309-5ae5-9ba6-216a8b6d222d,gastroenterologia,gastroenterológia,true
+202b9117-5cc3-5948-818e-dcde4b701caf,66-55563333-A0004,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+66e44c9a-3821-5a32-a118-f1d3ceeeacf7,66-55563333-A0005,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+23827626-8301-536d-8463-0642b9bdee58,51-37957937-A0057,31c11b44-28c7-5444-9676-bdeae77c9f7c,pediatricka-oftalmologia,pediatrická oftalmológia,true
+efc62d9b-c09b-5012-a55e-138fd8a02c9e,66-45594929-A0096,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+cf94a31e-01d9-58e2-a74c-23bb325accdd,66-47355107-A0002,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+54696369-4c17-50a5-933c-eb96520f1605,66-56017987-A0001,0bb3da45-47d0-51b1-8ed1-5c620262f3be,detska-psychiatria,detská psychiatria,true
+54696369-4c17-50a5-933c-eb96520f1605,66-56017987-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+54696369-4c17-50a5-933c-eb96520f1605,66-56017987-A0001,dda3b72a-4cea-5e72-a5d7-9d7702b229a9,mudr-monika-sestakova-lekar,MUDr. Monika Šestáková (lekár),false
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,8448bd66-86d3-59fd-a798-6325e3ef5766,mudr-ivana-gutzelnig-lekar,MUDr. Ivana Gutzelnig (lekár),false
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,158a636e-9d26-5a9e-a027-9f22749d1dd4,mudr-jan-benda-lekar,MUDr. Ján Benda (lekár),false
+db0aa8b8-b4b0-5281-bc66-313dfe4a2020,51-31936415-A0260,3798d373-dd0b-56f9-b87d-11a5f3fd9389,mudr-vladimir-vachalik-lekar,MUDr. Vladimír Vachalík (lekár),false
+d81eace2-a15d-5a84-8c59-0b7b435cd447,66-55563333-A0001,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+e03ba9f0-f739-5fdb-9ddb-abfb09cb3e78,66-55741134-A0001,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+b181b3a7-8047-52f9-830b-d299383bd3ba,66-55741134-A0002,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+66a6a7eb-00d0-5842-9189-b99c85d9e324,66-31623832-A0047,689f09da-d1e6-5821-93f4-6f1bf9108688,reumatologia,reumatológia,true
+073136a9-1bf4-564e-9922-b45113f8b0be,66-55996558-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+073136a9-1bf4-564e-9922-b45113f8b0be,66-55996558-A0001,0dad4147-c249-5219-aa35-28773f274c50,ergoterapia,ergoterapia,false
+36f10d06-e85f-5fe4-8b97-5a4f32c7f6b7,66-55680801-A0001,a00ec097-db52-5b64-8a2d-d753400a527b,fyzioterapia-v-sporte-a-telovychove,fyzioterapia v športe a telovýchove,true
+467ef271-831c-50a7-b7bc-09d7d62443e7,66-55591515-A0001,6247b5eb-08de-56d8-8ad7-61469a734ddf,algeziologia,algeziológia,true
+b622d8fc-25ab-5902-8b4f-a1bf74a0c901,66-52058239-A0004,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+e00291a3-2722-55b6-b0fe-f87c05a6595f,66-54918375-A0001,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+ec3fe679-de52-52c1-86fd-59cf36d88c56,66-53234626-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+2a4567c2-bfac-5462-a34a-9316a6c1b0fd,51-37957937-A0055,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+ae782a99-2d55-5301-a06a-a376fbb02095,66-46040684-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+b1218356-3356-57f2-be67-eab0837d11d7,66-55478336-A0001,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+3ad810bc-f612-5494-835d-cef163986e1b,66-55793410-A0001,3161b4ee-e436-5978-8f03-bbc0b933da82,fyzioterapeut,fyzioterapeut,true
+3ad810bc-f612-5494-835d-cef163986e1b,66-55793410-A0001,d99293cb-bd6f-546d-abd0-4fd80254355f,reflexna-terapia-podla-vojtu,reflexná terapia podľa Vojtu,false
+28e5444a-2b9d-51a3-b39f-6871c9f4508b,66-55393420-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+3a292ece-0888-5977-94fa-fefd3f37436e,66-55204643-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+b06d79b7-0bde-5250-b7b9-678531cea556,51-37957937-A0053,373a5a87-b4d9-5795-aa80-a4360f623c1f,pediatricka-neurologia,pediatrická neurológia,true
+c5a0b7ba-8654-538c-9aba-95c6bcf0930c,51-37957937-A0054,7a3a72b4-9fa7-547e-a9e0-cfd9fc74a1c1,lekarska-genetika,lekárska genetika,true
+60fd3635-002a-5467-bcb1-123b7c307ac7,66-51744422-A0007,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+60fd3635-002a-5467-bcb1-123b7c307ac7,66-51744422-A0007,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+60fd3635-002a-5467-bcb1-123b7c307ac7,66-51744422-A0007,71b41fad-5ca0-5f97-bd20-6a39b5c816ae,mudr-nikola-brodianska-lekar,MUDr. Nikola Brodianska (lekár),false
+60fd3635-002a-5467-bcb1-123b7c307ac7,66-51744422-A0007,0b3af79b-00d8-5939-86df-b6ee77c0b2ab,debnarikova-emilia-sestra,Debnáriková Emília (sestra),false
+e93de9fa-b746-5e2b-b19c-de519058cc67,66-55342809-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+e93de9fa-b746-5e2b-b19c-de519058cc67,66-55342809-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+e93de9fa-b746-5e2b-b19c-de519058cc67,66-55342809-A0001,fde7145a-eb56-5c7b-a413-4cab84552928,mudr-jana-fabkova-mph-lekar,"MUDr. Jana Fabková, MPH. (lekár)",false
+e93de9fa-b746-5e2b-b19c-de519058cc67,66-55342809-A0001,e5c63db3-79c8-5e7e-8e2f-e15030a6b971,mgr-michaela-zuffova-sestra,Mgr. Michaela Žuffová (sestra),false
+b895c1bc-82cf-5ac4-b0f7-7760172fa164,66-36046582-A0009,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+74353848-5abf-5526-b6b4-e711336b0525,66-55382649-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+c110cb37-63a4-55d4-8a27-5120501907f6,66-36866105-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+37002d9d-bae1-5e2b-8685-37bb1704f7d7,66-55186114-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+6ce16654-6d36-5f8f-9fcc-ae5afa5116cf,66-55186114-A0002,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+6ce16654-6d36-5f8f-9fcc-ae5afa5116cf,66-55186114-A0002,6d9b0c9c-28d7-5733-8b8f-f09a0fc8f196,mikrochirurgia-oka,mikrochirurgia oka,false
+72af7e08-c186-5a8d-8940-56242d9f7c0b,66-55206832-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+f90e8eac-2bc4-51a1-83e1-f75a0d1bce4f,66-53639880-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+f90e8eac-2bc4-51a1-83e1-f75a0d1bce4f,66-53639880-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+f90e8eac-2bc4-51a1-83e1-f75a0d1bce4f,66-53639880-A0001,ebdc1072-d28e-54cd-b1d9-224a180dc39e,mudr-viera-dekretova-lekar,MUDr. Viera Dekrétová (lekár),false
+7b585973-b338-5a16-9a8d-f05f27552a2b,66-55221823-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+f98a9ed3-5003-550f-a4ea-21b10e6beb6e,66-36649601-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+f98a9ed3-5003-550f-a4ea-21b10e6beb6e,66-36649601-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+f98a9ed3-5003-550f-a4ea-21b10e6beb6e,66-36649601-A0002,73d1c1dd-8d10-59f5-9a03-4f949a56c68d,mudr-maria-knapova-lekar,MUDr. Mária Knapová (lekár),false
+9a80585c-9c61-5020-8c4e-526cde920007,66-46889027-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+9a80585c-9c61-5020-8c4e-526cde920007,66-46889027-A0002,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+7415acad-8c10-55b5-857b-bac1c4526748,66-54895120-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+7f978eb1-c288-5fae-905e-39681a6d76a7,51-37957937-A0052,d581061e-ffcf-57a8-81cb-de12dddf91d0,pediatricka-endokrinologia-a-diabetologia-poruchy-latkovej-premeny-a-vyzivy,"pediatrická endokrinológia a diabetológia, poruchy látkovej premeny a výživy",true
+bedd1b49-8578-5428-a3d7-ad0ee4ba7757,66-54993032-A0001,0e973470-8aab-58e2-921a-72a701ae8a4c,klinicka-imunologia-a-alergologia,klinická imunológia a alergológia,true
+bedd1b49-8578-5428-a3d7-ad0ee4ba7757,66-54993032-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+bedd1b49-8578-5428-a3d7-ad0ee4ba7757,66-54993032-A0001,db27ed02-c5ef-53fd-a47b-526823fe7356,mudr-kristina-hornak-lekar,MUDr. Kristína Horňák (lekár),false
+bedd1b49-8578-5428-a3d7-ad0ee4ba7757,66-54993032-A0001,7b6c493a-de0c-59d9-be33-f74c433e11dc,barbora-parickova-sestra,Barbora Páričková (sestra),false
+331c8995-21ba-5860-9081-6d6f563f639d,66-53922352-A0001,03d5fe8c-1888-5802-8581-17115b5c71ec,fyzioterapia-vybranych-ochoreni-pohyboveho-systemu,fyzioterapia vybraných ochorení pohybového systému,true
+68d126a5-db4b-55eb-810c-2bd201e7f731,51-36652725-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,34f39ca1-b0be-523f-bc3e-c25812b3a09d,jaroslav-nikel-lekar,Jaroslav Nikel (lekár),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,e7e80994-7356-5a35-bf28-dbeacfb9ab8d,maria-mesarosova-lekar,Mária Mesarošová (lekár),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,4392ca42-8dc2-5a55-bcc8-deb26e75c964,zuzana-hurajova-lekar,Zuzana Hurajová (lekár),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,6f36d76d-4d15-5a75-be26-3e2cd83786fd,demsky-peter-lekar,Demský Peter (lekár),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,71b6d451-f156-5bca-8638-80e27a90e70f,miroslava-habodaszova-sestra,Miroslava Habodaszová (sestra),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,a283b483-6d55-5c19-9f46-11965b99183a,ivana-lingorova-sestra,Ivana Lingorová (sestra),false
+7e5a29ca-aceb-5699-9163-a9fe2ce1977d,51-36652725-A0003,1f41cf44-a231-59db-9214-44f6aa1f0429,andrea-patrasova-sestra,Andrea Patrášová (sestra),false
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,bc5a9388-b72c-5e4a-83a1-cf21019a0f2f,mudr-zuzana-vitovska-lekar,MUDr. Zuzana Vitovská (lekár),false
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,c30f7d4c-a92a-58b6-943c-f97fbb6a6177,mudr-ivana-sanderova-lekar,MUDr. Ivana Šanderová (lekár),false
+c59e3757-73a5-58df-abe4-977cb36414e7,66-36862606-A0002,62f6892a-124e-558e-9623-62684d3d9e22,monika-tomaskova-sestra,Monika Tomašková (sestra),false
+a2e5109e-847d-5c9a-8a54-b143084f5042,66-36862606-A0003,62ec1a51-19d0-5ad9-a8be-883da4b081cf,akupunktura,akupunktúra,true
+a2e5109e-847d-5c9a-8a54-b143084f5042,66-36862606-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+a2e5109e-847d-5c9a-8a54-b143084f5042,66-36862606-A0003,c30f7d4c-a92a-58b6-943c-f97fbb6a6177,mudr-ivana-sanderova-lekar,MUDr. Ivana Šanderová (lekár),false
+c5de1df1-b88d-5ae3-b57b-d4741d1d9ad6,66-54712343-A0001,5bee7bfc-708d-5640-8146-b2e0a4017804,radiacna-onkologia,radiačná onkológia,true
+c5de1df1-b88d-5ae3-b57b-d4741d1d9ad6,66-54712343-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+c5de1df1-b88d-5ae3-b57b-d4741d1d9ad6,66-54712343-A0001,8213dd40-d392-540c-984b-95041dfe8071,mudr-peter-vanek-lekar,MUDr.Peter Vaněk (lekár),false
+4f9078aa-5ef7-5801-8f65-7db2a22aacc6,51-36869139-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+c513cea2-0503-510c-b238-838a4fb9f76e,51-36869139-A0002,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+1ff2cdd9-3409-553f-858f-beb21ef69da5,66-54623791-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+1ff2cdd9-3409-553f-858f-beb21ef69da5,66-54623791-A0001,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+83e34136-cea6-51cb-944d-6d624f70c743,66-54436214-A0001,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,b5f5e70f-c73f-586f-879d-c3d886b4cef0,mudr-badinska-necpalova-martina-lekar,MUDr. Badinská Necpálová Martina (lekár),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,3c686dff-08a7-5287-9c7d-4cf2d6ca2dc4,mudr-laurincova-silvia-lekar,MUDr. Laurincová Silvia (lekár),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,d5dfcbad-2380-5f91-8f93-116e034276b2,mudr-martinikova-martina-lekar,MUDr. Martiníková Martina (lekár),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,e7d25a90-cb4a-5b61-843d-b90bbfa8f16b,mudr-kracunova-jana-lekar,MUDr. Kračúnová Jana (lekár),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,cf7e5fb2-10d6-582d-ace0-8ec45207c86c,mudr-stankovicova-zuzana-lekar,MUDr. Stankovičová Zuzana (lekár),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,62100655-5ed6-5a68-b0c8-7315ea4d691d,magda-kapusnakova-sestra,Magda Kapusňáková (sestra),false
+d5cde3aa-3ba5-5021-a1c0-8fee52fe8ff4,51-00165549-A0130,d39bdd7d-3f93-595f-becd-32f367a83e05,silvia-petrova-sestra,Silvia Petrová (sestra),false
+69aea62d-788e-55c1-a2c7-de23ad0fb7fa,66-50882864-A0002,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+ea537f94-006f-5257-b2ef-e4a62e183f18,66-45594929-A0067,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+d065a7c2-dfc6-5dde-b767-ddc337d243a4,66-45594929-A0065,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+0e05ea4b-59d0-5245-ac21-3508186eb539,66-45594929-A0066,53308120-a9b8-57ff-91f7-c6fae1c467d7,plasticka-chirurgia,plastická chirurgia,true
+bdd963d2-db57-5cf9-b1b2-3ecf3b2e1bb0,66-54537100-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+d55bb009-cbae-5f33-8077-97706b2c698b,66-54224403-A0001,527273c7-56f1-5228-be74-83c4b11c38ef,liecebna-pedagogika,liečebná pedagogika,true
+d55bb009-cbae-5f33-8077-97706b2c698b,66-54224403-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d55bb009-cbae-5f33-8077-97706b2c698b,66-54224403-A0001,762e5d9e-dc6c-5fc2-81d0-300ce2c4e5a4,paeddr-michal-mikula-liecebny-pedagog,PaedDr. Michal Mikula (liečebný pedagóg),false
+d55bb009-cbae-5f33-8077-97706b2c698b,66-54224403-A0001,e705e197-3fcb-5f39-9512-77fb3ebf2891,mgr-bc-petra-fekiacova-liecebny-pedagog,"Mgr., Bc. Petra Fekiačová (liečebný pedagóg)",false
+893b1b45-08d3-57c1-8f68-f51d416867a7,51-37957937-A0051,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+ced76aae-85d2-5049-bccc-4a6bd9fcfd4e,66-54037760-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+ced76aae-85d2-5049-bccc-4a6bd9fcfd4e,66-54037760-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+ced76aae-85d2-5049-bccc-4a6bd9fcfd4e,66-54037760-A0001,30bf693c-4fce-53f2-bdb3-3257e4e3a935,mudr-dusan-pallay-lekar,MUDr. Dušan Pallay (lekár),false
+ced76aae-85d2-5049-bccc-4a6bd9fcfd4e,66-54037760-A0001,800cd2b9-f08c-5f6a-a886-5e665c10baaf,daniela-tokarova-sestra,Daniela Tokárová (sestra),false
+9d164962-24bd-5a5b-8f16-946377301745,66-54252733-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+d55e970d-fe17-5b00-81d6-9ff0337a362b,66-52384675-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+f23cfa1b-f6c6-507f-8bc9-9a9750b01169,66-53780825-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+0f4a8dd5-f5da-580c-9192-9704b4c4f2d2,66-54100976-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+0f4a8dd5-f5da-580c-9192-9704b4c4f2d2,66-54100976-A0001,b7decc09-dc6d-584c-9e44-d6a5a49f4d3b,dorastove-lekarstvo,dorastové lekárstvo,false
+0f4a8dd5-f5da-580c-9192-9704b4c4f2d2,66-54100976-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+0f4a8dd5-f5da-580c-9192-9704b4c4f2d2,66-54100976-A0001,9e91df05-310d-5bf3-96fc-21be72b33965,mudr-jana-kovacova-lekar,MUDr. Jana Kováčová (lekár),false
+81e3cd83-996e-5446-8440-bdd1f9140fb2,66-47653671-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+60a7095c-177f-56cf-ae69-2ad831c64659,66-50056701-A0002,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+60a7095c-177f-56cf-ae69-2ad831c64659,66-50056701-A0002,8edfa0f4-8806-55ca-80c6-8d129f30e4ce,fyzioterapia-funkcnych-a-strukturalnych-poruch-pohyboveho-systemu,fyzioterapia funkčných a štrukturálnych porúch pohybového systému,false
+60a7095c-177f-56cf-ae69-2ad831c64659,66-50056701-A0002,3b6b2ed7-09d3-5fa7-921c-32b8cabe78e6,mobilizacne-techniky,mobilizačné techniky,false
+d4114042-c2ab-51f1-bbb0-df3324799f20,51-42012295-A0001,f2b9dc73-3eca-57c5-86e8-af24ce646173,klinicka-logopedia,klinická logopédia,true
+d4114042-c2ab-51f1-bbb0-df3324799f20,51-42012295-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d4114042-c2ab-51f1-bbb0-df3324799f20,51-42012295-A0001,90908f84-740c-5b02-9404-405e314a957f,mgr-blanka-kolenova-logoped,Mgr Blanka Kolenová (logopéd),false
+7bc60e13-eb26-52d5-8e30-253dacede66b,66-53931009-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+7bc60e13-eb26-52d5-8e30-253dacede66b,66-53931009-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+7bc60e13-eb26-52d5-8e30-253dacede66b,66-53931009-A0001,307f31d8-d8b4-5e24-b847-3932b601a398,mddr-karina-jancekova-lekar,MDDr. Karina Jančeková (lekár),false
+a41ed53d-aa76-5af2-83af-b0ca66815c2b,66-53981367-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+a41ed53d-aa76-5af2-83af-b0ca66815c2b,66-53981367-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+a41ed53d-aa76-5af2-83af-b0ca66815c2b,66-53981367-A0001,18b1fc61-6ef8-5de2-a594-e4588305ae00,mudr-petra-kapuscinska-lekar,MUDr. Petra Kapuscinská (lekár),false
+2bca19a7-3719-51f4-855d-abbb63ad75a7,66-46991492-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+2bca19a7-3719-51f4-855d-abbb63ad75a7,66-46991492-A0002,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+715c02a1-441a-510d-8587-bb74821349f0,66-36869139-A0003,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+9e33f7d1-6266-51bf-b87d-f4c045768a72,51-17336210-A0078,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+6dc3318e-bb99-509f-bce7-526a25f189db,66-36637190-A0005,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+c0d294e3-9197-50a7-a6ee-f9a3e79305ef,51-17336210-A0077,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+34f0610c-baeb-5234-aea6-10380a6bed40,66-51744422-A0014,d3ceb7ca-ffc6-5044-907a-b16393962c60,pediatricka-nefrologia,pediatrická nefrológia,true
+d7cdc8c5-7d71-543e-aa17-c6e52668dc3f,51-50347225-A0001,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+097c0249-87cc-5d15-83ca-542818e3e5a2,66-51744422-A0010,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+097c0249-87cc-5d15-83ca-542818e3e5a2,66-51744422-A0010,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+097c0249-87cc-5d15-83ca-542818e3e5a2,66-51744422-A0010,7627050b-28fc-54b5-9b2c-c0bd1d2f7fa9,mudr-alena-veselenyiova-lekar,MUDr. Alena Veselényiová (lekár),false
+097c0249-87cc-5d15-83ca-542818e3e5a2,66-51744422-A0010,4f7e4b3b-bd48-57b3-8234-a2509e55ea04,bc-miriam-luptakova-sestra,Bc.Miriam Luptáková (sestra),false
+d98887c4-9fbe-5ad8-9bb7-0246edca7ba5,66-54588952-A0102,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+64144bec-da5a-5516-b158-36f822839b2a,66-54588952-A0088,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+877f3108-fe4a-58c6-aef0-6d484dc15e0b,66-54588952-A0042,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+3f9f4c36-fa86-5408-b173-e6d3d12ca192,66-54588952-A0036,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+e9c0e8b8-fea4-5a07-9560-c373ab830046,66-54588952-A0031,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+af3e3cfb-f918-5696-bc35-191bc56fb4ed,66-54588952-A0016,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+6bfd4832-d5dd-53d8-b43c-9657a73ec2a4,51-36339865-A0009,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+6bfd4832-d5dd-53d8-b43c-9657a73ec2a4,51-36339865-A0009,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+6bfd4832-d5dd-53d8-b43c-9657a73ec2a4,51-36339865-A0009,cc4ca650-d84b-5fe8-9e55-e095d340087a,mudr-vladimir-vyrostko-lekar,MUDr. VLadimír Výrostko (lekár),false
+6bfd4832-d5dd-53d8-b43c-9657a73ec2a4,51-36339865-A0009,de118095-95dc-5b9d-a11c-09a8eaaec3d1,alena-knezelova-sestra,Alena Knezelová (sestra),false
+b32650ed-32a1-5c5b-b8b4-2e8a1eb526d0,66-53897692-A0001,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+308df174-fd42-5ab5-9dad-92120ff3d81b,66-36836184-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+308df174-fd42-5ab5-9dad-92120ff3d81b,66-36836184-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+308df174-fd42-5ab5-9dad-92120ff3d81b,66-36836184-A0001,31bf469d-fe5a-510c-b481-fbfea7249b46,mudr-diana-berlanska-lekar,MUDr. Diana Berlanská (lekár),false
+308df174-fd42-5ab5-9dad-92120ff3d81b,66-36836184-A0001,094d8763-cf2b-55bc-b51e-718c2ea9df85,vazanova-sofia-prakticka-sestra-asistent,Vazanová Sofia (praktická sestra – asistent),false
+b7cf648b-5172-5d94-92bb-6f8d2e413cf9,72-17336210-A0268,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+999a14ae-4024-516b-b533-57361c4077a4,72-17336210-A0064,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+802231e9-7655-5a3d-9454-e6bce4e50607,66-52419061-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+032ec88a-0575-5788-84b2-a00569d4697b,66-50592327-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+032ec88a-0575-5788-84b2-a00569d4697b,66-50592327-A0002,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+f9fb780d-173c-5ae4-bfca-dcaf6755d5a8,66-36650498-A0003,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+431e57f4-0d48-50a7-8c0a-4e1cc215d398,66-50146009-A0003,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+391c9218-adc2-562b-9ba4-461e0c2d2dbb,66-50876376-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+b229e667-6b21-5c2f-bbd4-397cf012c0ec,51-48006564-A0009,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+0a627ea9-a853-5c51-9f7f-62004b26484e,51-48006564-A0007,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+b25195bf-f17b-53c3-aa42-8088375695d6,51-48006564-A0008,be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,úrazová chirurgia,true
+1f753d08-a6c5-5a24-9f40-806408fe28be,66-50146009-A0002,7e671f6b-3f8b-5c61-8303-5cad8fb7ae46,nefrologia,nefrológia,true
+ec68444e-d3db-57b4-b0db-c7fce3cec009,66-50041258-A0001,bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,všeobecná starostlivosť o deti a dorast,true
+4cf292bf-2890-5cc9-bb4c-4d1c40fcf7c5,66-47953055-A0001,bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,všeobecná starostlivosť o deti a dorast,true
+4cf292bf-2890-5cc9-bb4c-4d1c40fcf7c5,66-47953055-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+4cf292bf-2890-5cc9-bb4c-4d1c40fcf7c5,66-47953055-A0001,63bd57b3-6de6-533d-93a0-3759a61cf2c9,mudr-alica-kubinska-lekar,MUDr. Alica Kubinská (lekár),false
+eb027997-9d3b-5453-be87-80823f5878b6,66-50592327-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+eb027997-9d3b-5453-be87-80823f5878b6,66-50592327-A0001,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+021e2ab3-b19e-533d-b03c-be385c4c5668,66-35960884-A0102,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+8d4cd697-f9e4-5ae9-810e-943b735265f4,66-45890226-A0002,bb20f6c3-405e-5653-b6d2-18d16713b4d6,pracovna-a-organizacna-psychologia,pracovná a organizačná psychológia,true
+8d4cd697-f9e4-5ae9-810e-943b735265f4,66-45890226-A0002,127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,dopravná psychológia,false
+b6efdca5-1ef3-5bf6-b647-8da1a9b502d1,66-50347225-A0002,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+f74c4b67-06a8-5e90-9b69-ac48179f9769,66-50347225-A0001,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+299fdf40-aafc-557a-84f6-2034896e1f21,66-48255891-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+5a5611f3-6cfe-53fa-9f74-d6f36c72a0b7,66-50449281-A0001,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+d5343623-0a13-5e92-8c7d-03cc28370429,66-48045233-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+d5343623-0a13-5e92-8c7d-03cc28370429,66-48045233-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d5343623-0a13-5e92-8c7d-03cc28370429,66-48045233-A0001,a472f475-f538-52d9-a909-cbc482dcc94a,mudr-martina-broskova-lekar,MUDr. Martina Brosková (lekár),false
+d5343623-0a13-5e92-8c7d-03cc28370429,66-48045233-A0001,c775eae2-4bca-500a-8ca9-40401d203640,bc-miroslava-golecka-porodna-asistentka,Bc. Miroslava Golecká (pôrodná asistentka),false
+be4a16f3-0e93-5033-86cb-b42450709796,66-36864285-A0002,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+be4a16f3-0e93-5033-86cb-b42450709796,66-36864285-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+be4a16f3-0e93-5033-86cb-b42450709796,66-36864285-A0002,0e60e8dc-702f-5af0-b866-65878a3c9e99,mudr-renata-podobenova-lekar,MUDr. Renáta Podobenová (lekár),false
+718b7276-ce90-5c27-baf9-f5720e13add7,66-36833916-A0001,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+239e2963-b2ee-5668-a8eb-7566e4d987df,66-35960884-A0088,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+2f43a124-f978-51a6-92d8-7d967e1d8855,66-35960884-A0042,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+2f43a124-f978-51a6-92d8-7d967e1d8855,66-35960884-A0042,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+2f43a124-f978-51a6-92d8-7d967e1d8855,66-35960884-A0042,7c70dbb2-280e-587c-8d87-49023bcf52ed,mudr-ivan-vojtas-lekar,MUDr. Ivan Vojtáš (lekár),false
+a7eeab84-7250-5ab0-a61b-4344a33a7913,66-35960884-A0036,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+a7eeab84-7250-5ab0-a61b-4344a33a7913,66-35960884-A0036,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+a7eeab84-7250-5ab0-a61b-4344a33a7913,66-35960884-A0036,c2904cf0-24be-54e3-a46d-aa20b53d09ab,mudr-martin-macaj-lekar,MUDr. Martin Máčaj (lekár),false
+c772ba94-c85d-5a66-809f-8785515b0e36,66-35960884-A0031,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+c772ba94-c85d-5a66-809f-8785515b0e36,66-35960884-A0031,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+c772ba94-c85d-5a66-809f-8785515b0e36,66-35960884-A0031,0ce48165-8efa-50f6-9b74-72385eccc44d,mudr-dusan-gregor-lekar,MUDr. Dušan Gregor (lekár),false
+bf6f32b6-a871-5dd7-9c79-92482bdb3c96,66-35960884-A0016,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+bf6f32b6-a871-5dd7-9c79-92482bdb3c96,66-35960884-A0016,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+bf6f32b6-a871-5dd7-9c79-92482bdb3c96,66-35960884-A0016,c6639378-fe42-5ac5-a8e7-6ee7e7bb1be0,mudr-mikulas-nagy-lekar,MUDr. Mikuláš Nagy (lekár),false
+7d46e832-a79c-5252-98e2-c283ac280c2f,66-45890226-A0001,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+7d46e832-a79c-5252-98e2-c283ac280c2f,66-45890226-A0001,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+ef98c42e-f719-53a5-885a-366f800a3785,66-36704164-A0001,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+e9728183-6a66-552f-8138-391f21145363,66-44524153-A0002,73b7dff7-e309-5ae5-9ba6-216a8b6d222d,gastroenterologia,gastroenterológia,true
+cb9a96cf-afa1-57c5-a254-8a80018f43e1,66-31898335-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+78ccd0ab-1865-532d-86f9-28e86b55be6a,66-36637190-A0004,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,0edc27c5-4018-5143-897d-981833b83683,slavka-urbancekova-lekar,Slávka Urbančeková (lekár),false
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,03464ed4-a525-5218-9358-5dba5829adbf,janka-urblikova-sestra,Janka Urblíková (sestra),false
+f0d4ca2e-06fd-5d11-a583-179569f7203f,51-36789437-A0002,950e063f-59c3-55a5-b898-e09ea7c3809b,livia-maruniakova-sestra,Lívia Maruniaková (sestra),false
+206b7958-fb81-5712-8d51-f2c11dadbc62,66-42309760-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,fc7ee531-d7d7-5413-b0ac-65773fdd41b2,mudr-anna-hana-gubricova-lekar,MUDr. Anna Hana Gubricová (lekár),false
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,96e20426-9838-5b43-984d-fa6838075520,bc-michaela-charvatova-sestra,Bc. Michaela Charvátová (sestra),false
+8cf39758-34ea-5b91-90ad-ebce28177ef7,66-46598120-A0001,675b38f4-445b-5463-940b-797774ba5349,michaela-henzelova-sestra,Michaela Henželová (sestra),false
+b9d1dd68-2cae-5e97-81a7-43abef5a34a3,66-46598120-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+ae171ea5-d2e9-5a3c-ba92-630c7af22a8a,66-48059099-A0001,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+82505487-5df0-511f-bb43-3e8d20d08972,66-46734023-A0001,79cfb43a-7424-56d3-8486-84fea70e1000,dermatovenerologia,dermatovenerológia,true
+5a0bd0a1-4da5-5e2e-b52b-afcca858f7dd,66-46734023-A0002,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+1c35e8a4-d985-517e-8597-2f4f51f4b94c,66-36650498-A0002,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+f67a4ca9-b368-59a5-a8c8-41c547e8a993,66-36650498-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+f67a4ca9-b368-59a5-a8c8-41c547e8a993,66-36650498-A0001,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+7adda8d7-c62c-5e35-bbb3-cbec4ce338e0,66-36649724-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+7cecab71-2c36-5534-9516-01cc59ef52d2,66-36641898-A0001,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+f9372caa-350f-59d9-bbc2-66efa8eaaa69,51-31647758-A0019,7593601d-68be-5e36-870f-00cefe21d1fb,klinicka-biochemia,klinická biochémia,true
+6627f91a-db55-5be6-8742-23814ffaa528,66-36053155-A0002,0e973470-8aab-58e2-921a-72a701ae8a4c,klinicka-imunologia-a-alergologia,klinická imunológia a alergológia,true
+456e47ae-35a6-597a-bb5b-89667d1b71c8,66-43815316-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+456e47ae-35a6-597a-bb5b-89667d1b71c8,66-43815316-A0001,7a6191b2-766d-500b-a155-930e39d5893f,ultrazvuk-v-gynekologii-a-porodnictve,ultrazvuk v gynekológii a pôrodníctve,false
+f2dcd71e-4080-56e0-9e95-3c11b59693aa,66-45447349-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+f2dcd71e-4080-56e0-9e95-3c11b59693aa,66-45447349-A0001,b7decc09-dc6d-584c-9e44-d6a5a49f4d3b,dorastove-lekarstvo,dorastové lekárstvo,false
+0fccbd16-b636-5604-85c5-a92a8c2c6a56,66-52820483-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+9affc5b5-b8f4-5f5b-888f-8ab51fb934be,66-57351651-A0002,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+bd375da1-b8b1-5a8c-845b-bde32ee4ad35,66-55944183-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+bd375da1-b8b1-5a8c-845b-bde32ee4ad35,66-55944183-A0001,a00ec097-db52-5b64-8a2d-d753400a527b,fyzioterapia-v-sporte-a-telovychove,fyzioterapia v športe a telovýchove,false
+7a757818-a142-5dcb-847d-3404aaf69a18,66-56646780-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+4588cedf-c3af-5371-8ac4-c1beeb4d0611,51-31908969-A0015,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+8abf2047-ee97-5d9d-a1e6-7613d691b8bf,51-31908969-A0020,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+810a050c-d76f-5007-a042-1cb75247110a,66-57264716-A0001,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+810a050c-d76f-5007-a042-1cb75247110a,66-57264716-A0001,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+3b8f1298-6fbe-54d2-a629-d9506111b3d8,66-57267677-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+47a200e8-9072-50e6-8068-f922a425bfdf,66-31908969-A0057,0b7466d4-1fff-5e14-b125-810e2cb3b601,pediatricka-pneumologia-a-ftizeologia,pediatrická pneumológia a ftizeológia,true
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,8d95fc9f-37b9-5b6f-a887-30bf7a7fb918,mudr-marcel-hrebenar-lekar,MUDr. Marcel Hrebenár (lekár),false
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,0d9b1e64-9971-55a6-873e-1a1964de5f9f,mudr-matus-rutkay-lekar,MUDr. Matúš Rutkay (lekár),false
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,01004b4f-8994-50c1-aa7c-9bee734ce8a2,vierka-mesarcikova-sestra,Vierka Mesarčíková (sestra),false
+8c32b95a-ecda-598a-83a3-4207dd2c0e3f,66-57351651-A0001,695fd3c4-bbad-5990-9390-e1c1e3dc33a2,alica-krizianova-sestra,Alica Križianová (sestra),false
+0b859ef5-36ea-523d-8a31-2fd0b1c32d68,51-31908969-A0016,51d14893-b043-5e4f-83c0-c3a00d0fb673,specializovana-preprava-pocas-pracovnych-dni,špecializovaná preprava počas pracovných dní,true
+3d4b4e81-ffa8-51f7-8005-ed7116830b3c,51-31908969-A0017,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+62cf7e63-17e9-5886-843e-db35f9ab7a9c,66-36627089-A0005,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+62cf7e63-17e9-5886-843e-db35f9ab7a9c,66-36627089-A0005,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+62cf7e63-17e9-5886-843e-db35f9ab7a9c,66-36627089-A0005,6c8d8122-6e6e-5373-9274-247a92021a11,diana-sofilkanych-zubny-lekar,Diana Sofilkanych (zubný lekár),false
+62cf7e63-17e9-5886-843e-db35f9ab7a9c,66-36627089-A0005,556351ba-3d23-5f6c-b420-11c19156718e,markova-dana-sestra,Marková Dana (sestra),false
+8d8a1735-5081-5c64-9d8a-f301525c26e5,66-51744422-A0016,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+8d8a1735-5081-5c64-9d8a-f301525c26e5,66-51744422-A0016,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+8d8a1735-5081-5c64-9d8a-f301525c26e5,66-51744422-A0016,b40c92cb-6c89-5a40-af95-ef3412dde5ae,mgr-miroslava-malikova,Mgr. Miroslava Máliková,false
+8d8a1735-5081-5c64-9d8a-f301525c26e5,66-51744422-A0016,9d33cf06-714e-5296-9437-4b2c65260884,mudr-petra-sopkova-lekar,MUDr. Petra Sopková (lekár),false
+cea59d5e-e58f-5bc0-8556-16635205672a,66-48165352-A0002,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+215a14d5-3f64-52fa-ae42-73232e5d4b80,66-46326227-A0001,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+e6c48c1c-dc28-552f-8ac7-9820062d32eb,66-52465233-A0001,4f600d38-05aa-55dd-8b25-a88f187a450e,fyzioterapia-zdravotnicke-vedy,fyzioterapia - zdravotnícke vedy,true
+5ee19641-c3df-51e7-9b4d-f92cedf2deab,66-31908969-A0056,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+baf62bdc-c47e-5ce0-bb1d-a9a7113da98c,66-51744422-A0013,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+baf62bdc-c47e-5ce0-bb1d-a9a7113da98c,66-51744422-A0013,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+baf62bdc-c47e-5ce0-bb1d-a9a7113da98c,66-51744422-A0013,7cf03ae1-0b26-5e60-9ee4-828d64ceafcc,mudr-katarina-juhaniakova-lekar,MUDr. Katarína Juhaniaková (lekár),false
+baf62bdc-c47e-5ce0-bb1d-a9a7113da98c,66-51744422-A0013,735dc88a-38a1-5ef3-b2db-c8d09a042aec,mgr-michaela-longauerova-sestra,Mgr. Michaela Longauerová (sestra),false
+14dab023-d641-5d61-a684-b40d66e987f8,66-45746800-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+6ecfafbd-58cb-5582-b0d6-c62df15f342f,66-45746800-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+948ce46f-95ae-5089-baa0-d1ef08e04818,66-50596187-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+c5d74e15-2745-5e31-b509-c265c0902aa5,51-35875704-A0119,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+93885f4f-0f64-52f4-a2be-a4876630484c,51-55335926-A0003,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+50dc4abe-f521-576e-90bc-77370e5a71e2,66-56001509-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,c3598642-7320-5090-8d05-045a16af6421,mudr-peter-biensky-lekar,MUDr. Peter Biensky (lekár),false
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,43083152-2470-5e6b-be4e-ca3bcffda369,mudr-jozef-breznicky-lekar,MUDr. Jozef Breznický (lekár),false
+ab0efa46-b42f-5c6e-b4a4-9d297e3e382f,66-31908969-A0055,96d5354b-c12f-556c-a0ed-9307766927c4,mgr-anna-chrapciakova-sestra,Mgr. Anna Chrapčiaková (sestra),false
+6355d967-9405-5108-9d9a-76fa6ece39d9,66-54703883-A0002,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+eea3e307-d174-5063-aa65-d4015f8e577f,66-31908969-A0054,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+eea3e307-d174-5063-aa65-d4015f8e577f,66-31908969-A0054,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+eea3e307-d174-5063-aa65-d4015f8e577f,66-31908969-A0054,1215061a-bf24-50f0-9624-6923aa1c3c22,mudr-elena-snarska-lekar,MUDr. Elena Snarska (lekár),false
+eea3e307-d174-5063-aa65-d4015f8e577f,66-31908969-A0054,67a3e130-e75e-51b6-99c8-c435e9d562fe,janka-siposova-sestra,Janka Šipošová (sestra),false
+472844b9-ebaa-5d61-9020-c1ae3efde66f,66-55767885-A0001,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+99f4fd6f-85fc-5784-8ab7-9cf139956604,66-55726798-A0001,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+43420c46-60e1-57c6-9f4d-dc3539f5491b,66-31908969-A0053,0e973470-8aab-58e2-921a-72a701ae8a4c,klinicka-imunologia-a-alergologia,klinická imunológia a alergológia,true
+43420c46-60e1-57c6-9f4d-dc3539f5491b,66-31908969-A0053,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+43420c46-60e1-57c6-9f4d-dc3539f5491b,66-31908969-A0053,673ee890-5d10-5878-ae12-493306a05293,mudr-jana-tkacikova-lekar,MUDr. Jana Tkáčiková (lekár),false
+43420c46-60e1-57c6-9f4d-dc3539f5491b,66-31908969-A0053,c90bc518-94e7-5c6e-a346-afcbed9ac94c,bc-petra-kobelova-sestra,Bc. Petra Kobelová (sestra),false
+c93e4e14-d59f-585c-a036-a5cb07dccdaa,66-55343091-A0001,86a7ca65-5090-5207-8f3e-5903710ed8f5,fyzioterapia,fyzioterapia,true
+94b38d57-f2bd-532a-95fc-bc7816b88a8a,66-54790930-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+8398590a-c48e-5f96-be0c-409fd755535e,66-54703883-A0001,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+05214e55-b3a1-539b-9fab-f15314a1e75a,66-36848760-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+67f9cac5-0c3a-59fb-b83f-49f1fe8b5ed9,66-48243744-A0002,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+d5aaccd2-b7a3-54ed-92a2-4ae917816df2,51-50191471-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+fffebf8d-78bb-5a7d-90eb-501ecba7cba0,51-50191471-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+5c16dfd0-e42e-5533-8f93-e9c03719d81c,66-54195152-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+5c16dfd0-e42e-5533-8f93-e9c03719d81c,66-54195152-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5c16dfd0-e42e-5533-8f93-e9c03719d81c,66-54195152-A0001,e2aac48b-4dcc-5108-8ad5-2510ba5e73a8,mddr-kristina-kovacikova-zubny-lekar,MDDr. Kristína Kováčiková (zubný lekár),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,8110db04-cb5e-5d31-83ed-5de9694cfe5f,mudr-kosik-miroslav-lekar,MUDr.Košík Miroslav (lekár),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,19971b07-de06-544d-9ed6-50bdc3b94959,mudr-kulaviak-richard-mph-lekar,"MUDr.Kulaviak Richard, MPH (lekár)",false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,ee9101d2-cd27-5786-958c-b6ff6dc98ffd,mudr-muchova-julia-silvia-lekar,MUDr.Muchová Júlia Silvia (lekár),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,dec2684d-c7a8-5199-a415-e06bc8cbb6f3,mudr-balcercik-milos-lekar,MUDr.Balcerčík Miloš (lekár),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,2282aabf-1008-577f-ac91-dd1183f65ca8,phdr-kosikova-katarina-sestra,PhDr.Košíková Katarína (sestra),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,5e8cc2a8-1bad-5478-85ec-0ce287e3bd9e,bc-caban-matus-radiologicky-technik,Bc.Caban Matúš (rádiologický technik),false
+b9ea2b88-499d-5b96-bb6c-b989b8cc9287,66-54237025-A0001,84053c76-1d64-5a4b-a57f-bd9a8df3e4f0,bc-lasutova-michaela-radiologicky-technik,Bc.Lašutová Michaela (rádiologický technik),false
+015baa77-4b44-563a-828e-79ee8c9e9ec2,66-52293882-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+2d9a26de-32e2-5066-9435-95df1f476055,66-52293882-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+735484bd-8991-58eb-8d1c-6d39375dac0c,66-52293882-A0003,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,cff008b9-4438-540a-88b9-ff752ded3393,mudr-roman-gal-lekar,MUDr. Roman Gál (lekár),false
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,e8d1f90d-48fa-5b18-91af-c0c533fea6bd,mgr-bianka-skalosova-sestra,Mgr. Bianka Skalošová (sestra),false
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,1435654a-19da-551f-82f2-a1e8f7d2a23f,michaela-vozarova-prakticka-sestra-asistent,Michaela Vozárová (praktická sestra – asistent),false
+b8d4a127-671d-5602-8384-3a3629ecec7f,66-53508432-A0001,488234bd-162c-5dcb-bdeb-c948c6df647c,mudr-purgatova-kristina-student-vseobecneho-lekarstva,MUDr. Purgátová Kristína (študent všeobecného lekárstva),false
+1568eac6-a3ca-52ca-bcaf-ed64dd5fa7a7,72-31908969-A0328,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+018a4ec2-68b2-55db-950b-2d9cff15af43,66-31908969-A0052,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+018a4ec2-68b2-55db-950b-2d9cff15af43,66-31908969-A0052,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+018a4ec2-68b2-55db-950b-2d9cff15af43,66-31908969-A0052,f47be4ca-d3cc-5c59-8873-9e084dfae583,mudr-radoslav-kminiak,MUDr. Radoslav Kminiak,false
+d2c0ca57-dc7a-543e-b1a3-06e60e8d8783,72-31908969-A0216,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+5dd336be-8420-566a-8fee-3d2ab7d9cbd5,66-36744859-A0002,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+5dd336be-8420-566a-8fee-3d2ab7d9cbd5,66-36744859-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5dd336be-8420-566a-8fee-3d2ab7d9cbd5,66-36744859-A0002,6befe0b8-442e-5950-8ac6-0950816cb23d,mudr-erik-richter-lekar,MUDr. Erik Richter (lekár),false
+5dd336be-8420-566a-8fee-3d2ab7d9cbd5,66-36744859-A0002,f6efc7ba-96a2-56a8-9f48-d588cf026e1b,marta-turnova-sestra,Marta Turňová (sestra),false
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,7a6191b2-766d-500b-a155-930e39d5893f,ultrazvuk-v-gynekologii-a-porodnictve,ultrazvuk v gynekológii a pôrodníctve,false
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,441abeee-6bc3-56b7-949a-fb181872771c,mudr-miroslav-sestina-lekar,MUDr. Miroslav Šestina (lekár),false
+ec7153d5-92c1-5e9d-9d56-5a7295a9c8a5,51-36618284-A0005,fce1f7d1-b186-5ae6-932a-f8dea93bf37f,katarina-veverkova-porodna-asistentka,Katarína Veverková (pôrodná asistentka),false
+7d677df1-e64f-51ae-8610-ec869f1f88ee,51-36618284-A0006,b322aa50-f135-5212-a8cc-10a9e0871a58,pediatricka-gynekologia,pediatrická gynekológia,true
+7d677df1-e64f-51ae-8610-ec869f1f88ee,51-36618284-A0006,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+7d677df1-e64f-51ae-8610-ec869f1f88ee,51-36618284-A0006,441abeee-6bc3-56b7-949a-fb181872771c,mudr-miroslav-sestina-lekar,MUDr. Miroslav Šestina (lekár),false
+7d677df1-e64f-51ae-8610-ec869f1f88ee,51-36618284-A0006,fce1f7d1-b186-5ae6-932a-f8dea93bf37f,katarina-veverkova-porodna-asistentka,Katarína Veverková (pôrodná asistentka),false
+79f1335c-f1ec-50d9-a0fa-a679fe30b10e,72-31908969-A0095,ea06f5ee-58ae-57e5-b4a1-39a656dbde8f,rychla-zdravotna-pomoc-s,rýchla zdravotná pomoc „S“,true
+6606e27e-770d-5159-b804-9a014c967d15,72-31908969-A0042,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+c3832db6-ffc2-52b5-a3a3-c46d82719e4d,66-31929486-A0003,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,7850865f-5cc8-55ea-acae-43eb62f99372,mudr-pavel-chovanec-lekar,MUDr. Pavel Chovanec (lekár),false
+497a2db3-d71d-5a87-9705-82952fdeb4ea,66-31908969-A0051,06ff959c-4a12-55e7-b496-0d2cb5b01f8f,veronika-nemcokova-sestra,Veronika Nemčoková (sestra),false
+fdc47ded-b945-5735-af12-0569b3de74f5,66-50191471-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+dba3532e-bce6-5b05-a7b1-eda87c3bfe32,66-51647877-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+dba3532e-bce6-5b05-a7b1-eda87c3bfe32,66-51647877-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+dba3532e-bce6-5b05-a7b1-eda87c3bfe32,66-51647877-A0001,ee387625-beea-5aae-a5f3-b1eef844bab7,mudr-andrea-sramkova-kvietkova-zubny-lekar,MUDr. Andrea Šrámková Kvietková (zubný lekár),false
+3baa6189-518d-5920-8e74-62f7ecc56e58,66-46857044-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+3baa6189-518d-5920-8e74-62f7ecc56e58,66-46857044-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3baa6189-518d-5920-8e74-62f7ecc56e58,66-46857044-A0001,4755ccc5-c277-5a85-9549-c9aac71a5775,mudr-beata-dikaszova-lekar,MUDr. Beata Dikaszová (lekár),false
+3baa6189-518d-5920-8e74-62f7ecc56e58,66-46857044-A0001,947ba13b-aafc-5f27-ae3f-61aa40d6e5a2,mudr-miroslava-babicova-lekar,MUDr. Miroslava Babicová (lekár),false
+fd9a49ef-780b-5439-ad63-340d6dcabde1,66-50191471-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+a6e8b445-f47f-5b3d-89de-bd3a835e9aa8,66-51261791-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+a6e8b445-f47f-5b3d-89de-bd3a835e9aa8,66-51261791-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+a6e8b445-f47f-5b3d-89de-bd3a835e9aa8,66-51261791-A0001,5c96f59b-5fe2-56da-ab5a-a5c63b6cb9d7,mudr-janka-adamcakova-lekar,MUDr. Janka Adamčáková (lekár),false
+6325161b-6e3c-5665-8c7a-718c6262901f,66-45295573-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+5d9143a0-debc-5fa4-b3d7-6a89313288a7,66-45295573-A0004,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+ae374d8a-4cd4-5815-b3cb-9f484f8e1197,66-44341181-A0004,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+55e248af-166d-5ace-b7a8-36e87cade0d1,66-44341181-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+2f5bbb9b-85e1-5078-bcdb-daa4c525b9ad,66-48165352-A0001,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+4279a4c7-6f5d-57c5-bd72-e7558190a131,51-45597669-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+4862dfbd-1287-569c-a097-dee4c4746377,66-50596187-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+4862dfbd-1287-569c-a097-dee4c4746377,66-50596187-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+4862dfbd-1287-569c-a097-dee4c4746377,66-50596187-A0001,775cf52b-49ad-544c-ae7a-aa7fa01d14e1,mddr-simona-varholakova-zubny-lekar,MDDr. Simona Varholáková (zubný lekár),false
+de873bee-1450-53cd-9fe2-5068672999c0,66-47448164-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+de873bee-1450-53cd-9fe2-5068672999c0,66-47448164-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+de873bee-1450-53cd-9fe2-5068672999c0,66-47448164-A0002,4e9283ed-4670-5d76-97ba-099b8f658394,mddr-miroslava-kosikova-zubny-lekar,MDDr. Miroslava Košíková (zubný lekár),false
+512c083e-e418-5a99-8ddf-3d8351f4f6b6,66-31908969-A0050,4ddf53fa-7320-5066-a117-93debbc93bff,kardiologia,kardiológia,true
+512c083e-e418-5a99-8ddf-3d8351f4f6b6,66-31908969-A0050,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+512c083e-e418-5a99-8ddf-3d8351f4f6b6,66-31908969-A0050,452ada2a-23c7-5407-a26e-3dcef7a5e41c,mudr-jaroslav-podmanicky-lekar,MUDr. Jaroslav Podmanický (lekár),false
+512c083e-e418-5a99-8ddf-3d8351f4f6b6,66-31908969-A0050,7eb51623-c82a-5c98-b1c4-f349f7a70c49,magdalena-slobodnikova-sestra,Magdaléna Slobodníková (sestra),false
+5041de8f-ff84-5947-afd3-b9866fec40ae,66-31908969-A0049,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+0327f9d9-a4e9-579a-bfb9-3903ee95ddcd,66-36627089-A0004,a51ee7b2-58e5-578d-a5d6-c1039189da0f,celustna-ortopedia,čeľustná ortopédia,true
+5ae3484e-f5b3-5e2c-a9d5-d66bcbec7ab5,66-31908969-A0047,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+d52b92e2-d73c-55b9-86eb-5afd3688fee8,66-31908969-A0046,d08ea85f-4b95-59ab-a5ef-f9dd11a1bbd8,klinicka-mikrobiologia,klinická mikrobiológia,true
+d52b92e2-d73c-55b9-86eb-5afd3688fee8,66-31908969-A0046,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d52b92e2-d73c-55b9-86eb-5afd3688fee8,66-31908969-A0046,baa7782e-7cce-5421-baea-0f5d8b633fc8,mudr-zuzana-konyova,MUDr. Zuzana Kónyová,false
+cf38b6b1-9998-52cf-a404-b71e806c71b9,66-31908969-A0042,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+cf38b6b1-9998-52cf-a404-b71e806c71b9,66-31908969-A0042,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+cf38b6b1-9998-52cf-a404-b71e806c71b9,66-31908969-A0042,4700fc0a-870e-50de-bdaa-b1c4de838d1b,mudr-miroslav-kosik,MUDr. Miroslav Košík,false
+cdaab59a-519b-51c1-a824-b4e71335ade6,66-31908969-A0043,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+cdaab59a-519b-51c1-a824-b4e71335ade6,66-31908969-A0043,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+cdaab59a-519b-51c1-a824-b4e71335ade6,66-31908969-A0043,4700fc0a-870e-50de-bdaa-b1c4de838d1b,mudr-miroslav-kosik,MUDr. Miroslav Košík,false
+9fbdb95a-bf2c-5064-9d47-f99ea4b6fc04,66-31908969-A0044,7593601d-68be-5e36-870f-00cefe21d1fb,klinicka-biochemia,klinická biochémia,true
+9fbdb95a-bf2c-5064-9d47-f99ea4b6fc04,66-31908969-A0044,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+9fbdb95a-bf2c-5064-9d47-f99ea4b6fc04,66-31908969-A0044,9e9c4858-73f3-51ac-a4e5-7aa89dbfc84c,mudr-lubomir-konya,MUDr. Ľubomír Kónya,false
+d83d381d-fe19-5fa0-b1b1-24b5699a1783,66-31908969-A0045,f7082d56-9be6-510d-babe-8c9a163a912b,patologicka-anatomia,patologická anatómia,true
+d83d381d-fe19-5fa0-b1b1-24b5699a1783,66-31908969-A0045,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d83d381d-fe19-5fa0-b1b1-24b5699a1783,66-31908969-A0045,130351d9-99a2-58c6-b129-5fe1172638c6,mudr-jaroslav-jackuliak,MUDr. Jaroslav Jackuliak,false
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,96f5383b-d73f-5d8b-9a5e-c1f6fecc197b,mudr-daniela-stellerova-lekar,MUDr. Daniela Štellerová (lekár),false
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,06e5a442-8a61-55de-8861-61ee1d33c806,mudr-emilia-zlevska-lekar,MUDr. Emília Zlevská (lekár),false
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,ae39e9a4-86b0-5796-bef7-b4da40e83a82,mudr-monika-marcokova-lekar,MUDr. Monika Marčoková (lekár),false
+4b1193f9-2d6b-51d8-b25b-6560799e6895,66-31908969-A0041,2c69c467-2e98-5714-9e7f-ff6bfc19cbf4,zuzana-petrikova-sestra,Zuzana Petríková (sestra),false
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,127c9296-d949-57fd-aa7c-febc99de0b52,dopravna-psychologia,dopravná psychológia,false
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+d3e77976-1be8-5abf-9180-577a91b44f3c,66-47473215-A0002,4fa02ce1-16ec-5655-a5ee-82305b9b4211,mgr-frantisek-nociar-psycholog,Mgr.František Nociar (psychológ),false
+3b6beb3b-4ce6-50dd-8479-7840afc9e843,66-32591594-A0002,689f09da-d1e6-5821-93f4-6f1bf9108688,reumatologia,reumatológia,true
+520a45c8-00b4-5944-ba8d-0e79b4a626db,66-36647306-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+520a45c8-00b4-5944-ba8d-0e79b4a626db,66-36647306-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+520a45c8-00b4-5944-ba8d-0e79b4a626db,66-36647306-A0001,679d4dab-99f0-5ff2-b059-098126ed3c15,mudr-martina-becova-lekar,MUDr. Martina Becová (lekár),false
+049fc062-af6b-529b-99d3-20b73488bed6,51-46453458-A0001,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+be366f4f-26d8-53a0-86c8-582f7d990449,51-46453458-A0003,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+f2d973fc-db0c-5070-b24b-bceb9a586988,66-36642711-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+7ac5d67b-f635-5eab-9b5c-bef90a208cd2,66-36642711-A0005,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+9b8772d5-08cf-55f9-936f-90a873cdc60a,66-36642711-A0006,d78cb074-8bdf-5e8a-a406-0a391dcda104,geriatria,geriatria,true
+04506f8c-0168-5585-808b-4864fd8a26fc,66-36642711-A0002,d78cb074-8bdf-5e8a-a406-0a391dcda104,geriatria,geriatria,true
+04506f8c-0168-5585-808b-4864fd8a26fc,66-36642711-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+04506f8c-0168-5585-808b-4864fd8a26fc,66-36642711-A0002,ba4313ad-e810-57d7-a663-d067b91ba3ad,dr-vladimir-hudec-lekar,Dr.Vladimír Hudec (lekár),false
+04506f8c-0168-5585-808b-4864fd8a26fc,66-36642711-A0002,f8f78562-8418-5019-bf20-8ae6fdc80642,mgr-zuzana-rapcanova-sestra,Mgr.Zuzana Rapčanová (sestra),false
+67a192db-3726-512b-ab89-97a86a0fddab,66-36647969-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+67a192db-3726-512b-ab89-97a86a0fddab,66-36647969-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+67a192db-3726-512b-ab89-97a86a0fddab,66-36647969-A0001,e624aa52-07ab-5213-bad7-fabd9798e61a,ruzinska-mariana-prakticka-sestra-asistent,Ružinská Mariana (praktická sestra – asistent),false
+f393f930-67cb-59f0-8a96-4ba288737670,66-30224781-A0001,bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,všeobecná starostlivosť o deti a dorast,true
+229bbbef-d973-55f7-a64a-0ad1be7b1cec,66-44885296-A0002,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+eb8ab3dc-05d2-5fce-9c49-c79c67a7aae0,66-36643131-A0004,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+068037d0-783d-56e5-a976-cf9e1676f51c,66-36643131-A0003,4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,"diabetológia, poruchy látkovej premeny a výživy",true
+77e58e0c-effa-562a-805a-43cf48dcef75,66-36643131-A0002,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+020fcd2b-f00a-5387-90f4-3bbd5117fbdd,66-36643131-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+020fcd2b-f00a-5387-90f4-3bbd5117fbdd,66-36643131-A0001,7a6191b2-766d-500b-a155-930e39d5893f,ultrazvuk-v-gynekologii-a-porodnictve,ultrazvuk v gynekológii a pôrodníctve,false
+00285dd4-c592-588a-9998-95c1e4f8f285,66-36040541-A0001,62f718ed-131a-5845-864a-956254641d37,diplomovany-fyzioterapeut,diplomovaný fyzioterapeut,true
+0fe251c7-4115-58c1-8a12-427c603287fd,66-46215743-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+914b8edb-417c-5c21-b8b4-c7c60517286f,66-46215743-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+0d5c3f99-562d-566a-882e-0fcdc2037ef9,66-47448164-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+0d5c3f99-562d-566a-882e-0fcdc2037ef9,66-47448164-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+0d5c3f99-562d-566a-882e-0fcdc2037ef9,66-47448164-A0001,eacf6802-85a4-5de2-bc20-d8744e357208,mddr-miroslava-simanova-zubny-lekar,MDDr. Miroslava Simanová (zubný lekár),false
+ad50cbff-07fc-5f25-a795-24cac29ce711,66-37817906-A0001,f2b9dc73-3eca-57c5-86e8-af24ce646173,klinicka-logopedia,klinická logopédia,true
+43c6d447-f9a9-59cd-8cb0-7c20190a2f0d,66-36636801-A0002,ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,endokrinológia,true
+a9138179-0be0-5bfd-816a-4ca1f02a4468,66-36636801-A0003,4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,"diabetológia, poruchy látkovej premeny a výživy",true
+fb461730-1aec-5ea1-8469-cd959e51721c,66-36636801-A0004,ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,endokrinológia,true
+c32c8928-09c7-5f26-b8cd-2984ed4c3f5d,66-48243744-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+d75a50c8-68c6-5720-9b0d-a108632053ea,66-36636801-A0001,4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,"diabetológia, poruchy látkovej premeny a výživy",true
+2ceda739-f728-57cb-8a34-525b01050eb0,66-43856691-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+218c5280-6961-5291-adb0-d93e560672ee,51-36626406-A0006,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+3a218713-d6e6-5e4e-ab4a-b6366da78d9f,51-35768568-A0071,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+3a218713-d6e6-5e4e-ab4a-b6366da78d9f,51-35768568-A0071,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3a218713-d6e6-5e4e-ab4a-b6366da78d9f,51-35768568-A0071,3184e2a8-e4f2-54b5-bf49-0d1b8936d572,mudr-jan-pancik-lekar,MUDr. Ján Pančík (lekár),false
+8ffca32c-5bf7-5e87-8086-e73dc1822756,66-31908969-A0037,be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,úrazová chirurgia,true
+8ffca32c-5bf7-5e87-8086-e73dc1822756,66-31908969-A0037,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+8ffca32c-5bf7-5e87-8086-e73dc1822756,66-31908969-A0037,5cc05c23-266d-5617-a259-971a1821ca5a,mudr-vladimir-vanik,MUDr. Vladimír Vaník,false
+403a2d97-aa3b-51d9-ab20-1e4366166557,66-31908969-A0002,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+403a2d97-aa3b-51d9-ab20-1e4366166557,66-31908969-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+403a2d97-aa3b-51d9-ab20-1e4366166557,66-31908969-A0002,93f2c0e6-308b-566b-9882-6ea11216ed50,mudr-norbert-surovy,MUDr. Norbert Surový,false
+403a2d97-aa3b-51d9-ab20-1e4366166557,66-31908969-A0002,51b72ee6-8681-5d4d-82b1-0486d2573cc1,mudr-vladimir-holec,MUDr. Vladimír Holec,false
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,d8ff3ad2-ddeb-58f2-b6f4-9c99fb1ee83f,mudr-daniela-simanova-lekar,MUDr. Daniela Simanová (lekár),false
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,345b0d39-54a5-545f-b378-6a28eb54247f,marjena-dakic-lekar,Marjena Dakić (lekár),false
+7b6b6704-ddff-5b85-85c7-2613df0f67b8,66-31908969-A0003,381ba93a-97e0-57b8-af60-44e294c23415,miroslava-molnarova-sestra,Miroslava Molnárová (sestra),false
+a21a7514-27bd-534f-bcbd-830bc8031b65,66-31908969-A0040,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+a21a7514-27bd-534f-bcbd-830bc8031b65,66-31908969-A0040,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+a21a7514-27bd-534f-bcbd-830bc8031b65,66-31908969-A0040,5d75dcbc-21d7-5828-be10-06203f0849d6,mudr-martin-micej,MUDr. Martin Mičej,false
+aa023479-88af-5543-8192-a1cb60aaa503,66-31908969-A0039,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+aa023479-88af-5543-8192-a1cb60aaa503,66-31908969-A0039,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+aa023479-88af-5543-8192-a1cb60aaa503,66-31908969-A0039,c83e4603-7254-5746-b0e4-5c1c8825554e,mudr-erik-wagner,MUDr. Erik Wágner,false
+aa023479-88af-5543-8192-a1cb60aaa503,66-31908969-A0039,1c0c496e-df0a-52c8-9a8f-38572c512481,mudr-arin-stefan-ianecsko,MUDr. Arin Stefan Ianecsko,false
+aef0a828-6a1d-5518-91e3-99a9f5c6c08d,66-31908969-A0038,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+aef0a828-6a1d-5518-91e3-99a9f5c6c08d,66-31908969-A0038,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+aef0a828-6a1d-5518-91e3-99a9f5c6c08d,66-31908969-A0038,7d9fcb0e-9be1-53a0-91aa-cdb794a0e6d8,mudr-ondrej-antal,MUDr. Ondrej Antal,false
+8332ecb4-884d-55b6-946e-89ebcef073b9,66-31908969-A0033,3c786fc3-04b5-50ac-852f-d11859222c5c,psychiatria,psychiatria,true
+3499cb27-ef4d-59c1-a81d-b76873c683c8,66-31908969-A0035,7e671f6b-3f8b-5c61-8303-5cad8fb7ae46,nefrologia,nefrológia,true
+3499cb27-ef4d-59c1-a81d-b76873c683c8,66-31908969-A0035,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+3499cb27-ef4d-59c1-a81d-b76873c683c8,66-31908969-A0035,ae39e9a4-86b0-5796-bef7-b4da40e83a82,mudr-monika-marcokova-lekar,MUDr. Monika Marčoková (lekár),false
+3499cb27-ef4d-59c1-a81d-b76873c683c8,66-31908969-A0035,bd7a9ab6-ad31-5e71-9d85-68ca59efedef,tetiana-vakulenko-lekar,Tetiana Vakulenko (lekár),false
+225928b8-3164-57cf-92b8-dd382f729724,66-31908969-A0036,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+225928b8-3164-57cf-92b8-dd382f729724,66-31908969-A0036,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+225928b8-3164-57cf-92b8-dd382f729724,66-31908969-A0036,43c4c354-c926-5d50-a20d-c9a54ae2106c,mudr-juraj-gemes-lekar,MUDr. Juraj Gémeš (lekár),false
+225928b8-3164-57cf-92b8-dd382f729724,66-31908969-A0036,fb9c3516-7f95-5e50-bceb-42c710ccbb8b,alena-dankova-sestra,Alena Danková (sestra),false
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,cae162c4-6ce4-5c70-858a-8913635bcc95,mudr-ivan-droppa-lekar,MUDr. Ivan Droppa (lekár),false
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,9abb1a88-d6ee-5d52-a483-1b9e776a35c9,mudr-bronislav-zlevsky-lekar,MUDr. Bronislav Zlevský (lekár),false
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,d5bf8a01-a941-5f88-9766-92870492511a,mudr-miriama-chovancova-lekar,MUDr. Miriama Chovancová (lekár),false
+98ab2546-dc0d-5078-8f45-a9e0657af4b5,66-31908969-A0030,0c1a0366-6c19-544d-b569-1c2e3036b07f,bc-anna-korenova-sestra,Bc. Anna Koreňová (sestra),false
+eb857f71-6f36-5938-9173-8297a3f37652,66-31908969-A0029,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+06e0c12b-6b21-544c-bf3d-a8a379ed5a5e,66-31908969-A0031,93197836-5b36-50e3-b1b7-7b714b36261c,pneumologia-a-ftizeologia,pneumológia a ftizeológia,true
+06e0c12b-6b21-544c-bf3d-a8a379ed5a5e,66-31908969-A0031,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+06e0c12b-6b21-544c-bf3d-a8a379ed5a5e,66-31908969-A0031,bc903592-5894-524d-87a1-0c29be93845c,mudr-zdena-volentierova-lekar,MUDr. Zdena Volentierová (lekár),false
+06e0c12b-6b21-544c-bf3d-a8a379ed5a5e,66-31908969-A0031,80361199-d54f-58bd-9dcd-d00bb9236ff4,blazena-luptovciakova-sestra,Blažena Ľuptovčiaková (sestra),false
+21714a2f-740c-503a-832b-eb9f1c84ebab,66-31908969-A0024,9d180982-b02d-5c91-8122-63473459f633,hematologia-a-transfuziologia,hematológia a transfuziológia,true
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,9d180982-b02d-5c91-8122-63473459f633,hematologia-a-transfuziologia,hematológia a transfuziológia,true
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,864c70a1-3cd3-59ba-ab9a-26f8630391f2,mudr-anna-latinakova-lekar,MUDr. Anna Latináková (lekár),false
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,c94739dc-69ce-555a-a8a2-ccd3c4623975,mudr-anna-maruskova-lekar,MUDr. Anna Marušková (lekár),false
+5d95285f-4e76-5a6c-960e-36e8f995253c,66-31908969-A0023,c08bac5d-4ed3-5965-9aaf-55b7369599f2,sidonia-sandorova-sestra,Sidónia Šándorová (sestra),false
+e2f402c3-d24e-550c-ab48-1fa3c96b81e1,66-31908969-A0025,4ddf53fa-7320-5066-a117-93debbc93bff,kardiologia,kardiológia,true
+e2f402c3-d24e-550c-ab48-1fa3c96b81e1,66-31908969-A0025,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+e2f402c3-d24e-550c-ab48-1fa3c96b81e1,66-31908969-A0025,d623dd6e-e00e-5566-96a7-ab0c17f9ed5b,mudr-lubomir-antalik-lekar,MUDr. Ľubomír Antalík (lekár),false
+e2f402c3-d24e-550c-ab48-1fa3c96b81e1,66-31908969-A0025,87dcd118-2598-5d6c-81a6-ebcd35072e00,mgr-zuzana-kockova-sestra,Mgr. Zuzana Kocková (sestra),false
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,7e671f6b-3f8b-5c61-8303-5cad8fb7ae46,nefrologia,nefrológia,true
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,ae39e9a4-86b0-5796-bef7-b4da40e83a82,mudr-monika-marcokova-lekar,MUDr. Monika Marčoková (lekár),false
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,bd7a9ab6-ad31-5e71-9d85-68ca59efedef,tetiana-vakulenko-lekar,Tetiana Vakulenko (lekár),false
+fe814ecd-92f4-5795-bc28-52b9c8d4e85a,66-31908969-A0028,a6901be7-6119-5faa-98cc-2ebc47e199bb,andrea-beraxova-sestra,Andrea Beraxová (sestra),false
+482e07c6-4295-5e17-8c42-ca83db8373af,66-31908969-A0019,73b7dff7-e309-5ae5-9ba6-216a8b6d222d,gastroenterologia,gastroenterológia,true
+482e07c6-4295-5e17-8c42-ca83db8373af,66-31908969-A0019,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+482e07c6-4295-5e17-8c42-ca83db8373af,66-31908969-A0019,98d3c7d5-2ad0-5b81-a85c-8b08d072e942,mudr-martin-tkacik-lekar,MUDr. Martin Tkáčik (lekár),false
+482e07c6-4295-5e17-8c42-ca83db8373af,66-31908969-A0019,96780b7c-3fa6-55da-ab1c-5b92ecc515b1,anna-giertlova-sestra,Anna Giertlová (sestra),false
+20b12411-7bd5-5ff1-b433-6613dd4ebe56,66-31908969-A0020,d78cb074-8bdf-5e8a-a406-0a391dcda104,geriatria,geriatria,true
+20b12411-7bd5-5ff1-b433-6613dd4ebe56,66-31908969-A0020,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+20b12411-7bd5-5ff1-b433-6613dd4ebe56,66-31908969-A0020,16cedeee-8f35-52b0-9f07-bd9f6b9ac6b7,mudr-emilia-buckova-lekar,MUDr. Emília Bučková (lekár),false
+20b12411-7bd5-5ff1-b433-6613dd4ebe56,66-31908969-A0020,fb9c3516-7f95-5e50-bceb-42c710ccbb8b,alena-dankova-sestra,Alena Danková (sestra),false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,1e473731-0b39-597c-b3d2-8d7a8b8907f0,gynekologicka-urologia,gynekologická urológia,false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,d2e59b22-f357-5520-94a1-afddabaeb852,mudr-ivan-dubiny-lekar,MUDr. Ivan Dubíny (lekár),false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,ec52ef94-dc50-53fe-8c15-2f80d72aa1fd,mudr-peter-molitoris-lekar,MUDr. Peter Molitoris (lekár),false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,b376040d-6a0e-559a-abe9-fb2a5bd89616,mudr-silvia-svinciakova-lekar,MUDr. Silvia Svinčiaková (lekár),false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,02a4a5db-9b07-5be5-8f15-57f5569f5fbf,mudr-martin-micej-lekar,MUDr. Martin Mičej (lekár),false
+248c011e-93f9-5652-a9c3-b93c1b9925a6,66-31908969-A0022,01f53eae-ae3a-5664-a1dd-870d5e96bbba,renata-kovacova-sestra,Renata Kováčová (sestra),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,d2e59b22-f357-5520-94a1-afddabaeb852,mudr-ivan-dubiny-lekar,MUDr. Ivan Dubíny (lekár),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,9b64227f-a3e0-50cc-90b6-1b371ab0b92e,mudr-dagmar-kresakova-lekar,MUDr. Dagmar Krešáková (lekár),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,02a4a5db-9b07-5be5-8f15-57f5569f5fbf,mudr-martin-micej-lekar,MUDr. Martin Mičej (lekár),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,ec52ef94-dc50-53fe-8c15-2f80d72aa1fd,mudr-peter-molitoris-lekar,MUDr. Peter Molitoris (lekár),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,b376040d-6a0e-559a-abe9-fb2a5bd89616,mudr-silvia-svinciakova-lekar,MUDr. Silvia Svinčiaková (lekár),false
+0ab04545-df08-5119-823f-7c668b8c29bf,66-31908969-A0021,cb9901a4-0a5d-569b-b6a8-12027beca6ac,lubomira-novotna-sestra,Ľubomíra Novotná (sestra),false
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,be2856c4-9f82-5edf-9e9e-c551fdaf4435,urazova-chirurgia,úrazová chirurgia,true
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,0ec1eb1c-912a-5947-a16e-da157c44aa44,mudr-vladimir-vanik-lekar,MUDr. Vladimír Vaník (lekár),false
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,4a96659b-a6b6-5b9e-8153-ed142c939b98,mariana-daxnerova-sestra,Mariana Daxnerová (sestra),false
+05e64339-b3ec-501b-921c-b9c1852a2c18,66-31908969-A0016,160de991-7509-53bd-aa80-7461767c8592,alena-chabadova-sestra,Alena Chabadová (sestra),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,135ff02e-11c1-5c80-a759-fc0959aa13f5,mudr-jana-mundierova-lekar,MUDr. Jana Mundierová (lekár),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,0d117593-d52b-5e33-be2d-b6c1a57d7a0c,mudr-milan-darmo-lekar,MUDr. Milan Darmo (lekár),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,02b45062-6076-5e90-9493-b110f9a8e483,mudr-pavel-mraz-lekar,MUDr. Pavel Mráz (lekár),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,1242e8f2-03f7-58f4-8666-26490f9d9c0b,mudr-erik-wagner-lekar,MUDr. Erik Wágner (lekár),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,769d7789-67bb-5c8a-945c-51e510d5f9ec,viktor-poliakhov-lekar,Viktor Poliakhov (lekár),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,6bb3cce4-974b-5e0a-acce-a0a58bd18e7b,katarina-kvoriakova-sestra,Katarína Kvoriaková (sestra),false
+6d617845-c568-5767-b6b9-c06267efc049,66-31908969-A0017,4201692e-df25-5578-a11c-47e78559b7d9,katarina-kmecova-sestra,Katarína Kmecová (sestra),false
+73bac8d1-1d95-538e-a5b9-dec3b44d3edd,66-31908969-A0018,ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,endokrinológia,true
+73bac8d1-1d95-538e-a5b9-dec3b44d3edd,66-31908969-A0018,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+73bac8d1-1d95-538e-a5b9-dec3b44d3edd,66-31908969-A0018,1f4f711d-06c0-5523-8916-58bf61e818f6,mudr-valeria-kelemenova-lekar,MUDr. Valeria Kelemenová (lekár),false
+73bac8d1-1d95-538e-a5b9-dec3b44d3edd,66-31908969-A0018,465c5260-4cf8-5b41-8568-6b07a9ecb097,iveta-hudecova-sestra,Iveta Hudecová (sestra),false
+670d4a00-d3ae-53d0-a487-6bfb532db558,66-31908969-A0010,b13e5d49-4152-5280-aa69-2a4eb164e980,klinicka-onkologia,klinická onkológia,true
+670d4a00-d3ae-53d0-a487-6bfb532db558,66-31908969-A0010,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+670d4a00-d3ae-53d0-a487-6bfb532db558,66-31908969-A0010,9b64227f-a3e0-50cc-90b6-1b371ab0b92e,mudr-dagmar-kresakova-lekar,MUDr. Dagmar Krešáková (lekár),false
+670d4a00-d3ae-53d0-a487-6bfb532db558,66-31908969-A0010,6f9dcb43-a8b4-5c9e-9d3a-988425292de5,mgr-zuzana-sarikova-sestra,Mgr. Zuzana Šáriková (sestra),false
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,c6521d61-dc2e-5bd8-95ad-29132d0fe348,klinicka-psychologia,klinická psychológia,true
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,6bdc8a9a-a6cd-5976-ae67-e003f089e8fa,psychoterapia,psychoterapia,false
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,0d193446-58b7-5bad-bd0e-5663e3ea1850,mgr-jana-messerschmidtova,Mgr. Jana Messerschmidtová,false
+9f69ae66-7571-55cc-9f79-8b98cebfa21c,66-31908969-A0011,c967ba23-0d5c-5e56-8514-48334a7a04ed,phdr-renata-melicherikova,PhDr. Renata Melicheríková,false
+961c7764-259e-5be4-b81f-fb367f442bec,66-31908969-A0006,bda73d65-4d7f-5a0f-8e28-a792ecd28ae0,anesteziologia-a-intenzivna-medicina,anestéziológia a intenzívna medicína,true
+961c7764-259e-5be4-b81f-fb367f442bec,66-31908969-A0006,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+961c7764-259e-5be4-b81f-fb367f442bec,66-31908969-A0006,a08f1559-d69d-57dd-ac93-1f6d79aa8b95,mudr-lucia-gordulicova-lekar,MUDr. Lucia Gorduličová (lekár),false
+961c7764-259e-5be4-b81f-fb367f442bec,66-31908969-A0006,96d5354b-c12f-556c-a0ed-9307766927c4,mgr-anna-chrapciakova-sestra,Mgr. Anna Chrapčiaková (sestra),false
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,91ca6951-d4bc-5353-923e-992337854155,cievna-chirurgia,cievna chirurgia,true
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,1e0dd86c-68e3-5907-b014-2816adee416e,mudr-radoslav-kminiak-lekar,MUDr. Radoslav Kminiak (lekár),false
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,a846fb4f-ef56-5b4d-98a5-5a8bb4b88e47,mudr-roman-necpal-lekar,MUDr. Roman Necpal (lekár),false
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,a953e0e4-d06c-5768-9ece-15825ce75478,mudr-ludovit-horvath-lekar,MUDr. Ľudovít Horváth (lekár),false
+60112f7c-6bd5-5e2e-847a-cff40277742a,66-31908969-A0007,96d5354b-c12f-556c-a0ed-9307766927c4,mgr-anna-chrapciakova-sestra,Mgr. Anna Chrapčiaková (sestra),false
+a9a54820-027d-5b4b-b060-bdd38484cbde,66-31908969-A0009,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+15105d53-714a-5ca4-aef6-17a79421f457,66-31908969-A0008,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+15105d53-714a-5ca4-aef6-17a79421f457,66-31908969-A0008,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+15105d53-714a-5ca4-aef6-17a79421f457,66-31908969-A0008,d10b7791-e93c-5e82-b898-6e29f0a900b3,mudr-ivana-mojzisova-lekar,MUDr. Ivana Mojžišová (lekár),false
+15105d53-714a-5ca4-aef6-17a79421f457,66-31908969-A0008,66690a2b-d59d-5927-a96f-702141412772,bc-renata-koristova-sestra,Bc. Renáta Koristová (sestra),false
+1187ab62-2648-57da-9a58-8d19fa8c8c47,66-31908969-A0004,6247b5eb-08de-56d8-8ad7-61469a734ddf,algeziologia,algeziológia,true
+1187ab62-2648-57da-9a58-8d19fa8c8c47,66-31908969-A0004,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+1187ab62-2648-57da-9a58-8d19fa8c8c47,66-31908969-A0004,4b6966bf-754a-5db1-ad8e-15fabd57ad5b,mudr-zuzana-bencova-lekar,MUDr. Zuzana Benčová (lekár),false
+1187ab62-2648-57da-9a58-8d19fa8c8c47,66-31908969-A0004,366c4040-23b0-5d82-8413-79de85d0f458,zuzana-kochanova-sestra,Zuzana Kochanová (sestra),false
+6c1bbb11-267f-52b8-99d8-c47499ec4096,66-46776656-A0001,bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,všeobecná starostlivosť o deti a dorast,true
+42a12e59-62a9-56c3-b827-6775b3b0dcd0,66-31898572-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+5b137585-4b2f-5ee6-9f5c-7a8808d34cdc,66-31898572-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+1a7b9a3f-94a3-5767-b806-3502e99c7539,66-32591594-A0001,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+90d7ad15-2b2f-514c-9bfa-946fcaf53bb6,66-31912699-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+0e8d5dc0-b654-5c93-987e-f006b28a37f5,66-35663731-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+dac9a6e2-ae9c-591c-b661-501d852a8e0d,66-35996625-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+d1cefd92-e27f-54f6-841d-23e726d793e4,66-47416050-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+0c74632b-6cce-5762-9a54-7dbc1f354642,66-45613711-A0005,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+126b8c18-c655-566e-b4e8-bea6cf7f2400,51-35877618-A0072,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+9c004aa8-d054-53b9-bc02-91b66e504cf9,51-35877618-A0058,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+2850bdcd-3538-5057-b085-1ed4788f101b,51-44571747-A0086,72af3882-0adc-5a64-ae7f-b13b2a72f93b,pracovne-lekarstvo,pracovné lekárstvo,true
+4fbf4acc-66f3-5493-8f4c-8de7be2cbcf9,66-54675936-A0001,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+fc958501-c388-5ada-9716-b1ef670ce2dd,66-36644536-A0002,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
+2ba1f406-2c36-55c7-adce-be7265a1292a,66-56085109-A0001,f2b9dc73-3eca-57c5-86e8-af24ce646173,klinicka-logopedia,klinická logopédia,true
+2ba1f406-2c36-55c7-adce-be7265a1292a,66-56085109-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+2ba1f406-2c36-55c7-adce-be7265a1292a,66-56085109-A0001,de51eeb5-d842-5ea3-bded-d25178fb709e,zuzana-maslejova-logoped,Zuzana Mašlejová (logopéd),false
+b44e8517-6fe6-51ac-929c-f906a60a48ee,66-35984082-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+87ad136f-3b22-59bf-9aeb-6fe170f88299,66-51744422-A0008,8de3b18f-6c8a-570c-9530-10214e8d4025,pediatricka-gastroenterologia-hepatologia-a-vyziva,"pediatrická gastroenterológia, hepatológia a výživa",true
+87ad136f-3b22-59bf-9aeb-6fe170f88299,66-51744422-A0008,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+87ad136f-3b22-59bf-9aeb-6fe170f88299,66-51744422-A0008,16b623e8-b9fb-5b6c-811e-e27052bee254,midr-kristina-vaganova,MIDr. Kristína Vagáňová,false
+38a14e89-e7a2-5a6b-b09f-04ea64cd2125,66-36870501-A0001,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+5d61659a-64ce-535c-aff7-394ef198d10c,66-50087223-A0003,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+5d61659a-64ce-535c-aff7-394ef198d10c,66-50087223-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5d61659a-64ce-535c-aff7-394ef198d10c,66-50087223-A0003,32ddc7cc-dc31-5611-b651-39c50228c920,mddr-monika-krnacova-zubny-lekar,MDDr. Monika Krnáčová (zubný lekár),false
+143cb503-c58c-5959-aa03-d18634b25e34,66-54693411-A0001,f2b9dc73-3eca-57c5-86e8-af24ce646173,klinicka-logopedia,klinická logopédia,true
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,fd6032d9-518e-5db3-b559-8de5225e4ccf,mudr-alena-kankova-lekar,MUDr.Alena Kanková (lekár),false
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,0991a2bf-1955-5c0e-a562-25327c15b53f,mudr-juraj-hrasko-lekar,MUDr.Juraj Hraško (lekár),false
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,5487398d-8fc1-5c5d-bea8-3fbd5fc43712,mudr-andrea-francistyova-lekar,MUDr.Andrea Francistyová (lekár),false
+5193efc6-7ab2-5af1-9b40-d4775b49d3c7,66-36620505-A0004,432c4dc3-0a15-52af-95f8-c0bc53cb4b9e,bc-lenka-vybostokova-sestra,Bc.Lenka Výbošťoková (sestra),false
+cd47ba4d-f351-5e76-8e9a-c1b477a0b3cb,66-45594929-A0062,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+13fac83a-b85c-507e-a04d-325a5e30efc5,66-44731086-A0001,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+f676a71f-c0c3-55ce-b5de-b036c0bed72d,66-53068769-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+6865d138-3313-5663-b52b-86cc0727799f,66-53972503-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,d5ab7a9d-611d-51bd-ad68-2a4eb1690fdf,dentoalveolarna-chirurgia,dentoalveolárna chirurgia,false
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,f280608a-1577-5cde-9527-8c58c92d1406,mddr-valeriu-anghileanu-zubny-lekar,MDDr. Valeriu Anghileanu (zubný lekár),false
+ae5fe7fb-1d30-54cd-8e65-0a21a82cc638,66-47216034-A0002,2a01d962-0921-5901-be49-fe939450e8ba,mgr-bolcova-andrea-dentalna-hygienicka,Mgr. Bolčova Andrea (dentálna hygienička),false
+2aa91086-76a0-5b8a-be3b-583c52fe4eb1,66-51744422-A0002,93197836-5b36-50e3-b1b7-7b714b36261c,pneumologia-a-ftizeologia,pneumológia a ftizeológia,true
+2aa91086-76a0-5b8a-be3b-583c52fe4eb1,66-51744422-A0002,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+2aa91086-76a0-5b8a-be3b-583c52fe4eb1,66-51744422-A0002,774463c4-df84-5bc2-85ab-195a312b3ad5,mudr-jana-makasova-lekar,MUDr. Jana Makasová (lekár),false
+2aa91086-76a0-5b8a-be3b-583c52fe4eb1,66-51744422-A0002,5bfb32a0-cf04-533b-ba05-0757067eec58,bc-jana-hakelova-lekar,Bc. Jana Hakelová (lekár),false
+29119f50-b122-5ac4-88cc-eb31a4253d9c,66-51178036-A0002,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+c09e0896-44e8-52ae-b779-f2b1ed014851,66-51178036-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+0bad3365-1f05-5a19-a981-5bd626a646e4,66-46958274-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+d4f51f9e-3199-55fe-b8ff-bac234173126,66-53068769-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+e7896ea6-a094-5550-88b4-2f0427a3aca4,72-35877618-A0169,cd64d959-e709-594e-a252-892ba682f79b,rychla-zdravotna-pomoc,rýchla zdravotná pomoc,true
+9f01ab9b-d337-55a8-9fc5-5cdc41d7951b,66-52227278-A0001,0e96bc54-d0d8-55c1-b756-84edd85894c3,urologia,urológia,true
+9f01ab9b-d337-55a8-9fc5-5cdc41d7951b,66-52227278-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+9f01ab9b-d337-55a8-9fc5-5cdc41d7951b,66-52227278-A0001,d59af0b5-7236-5b7b-8890-5ef156e5ab63,mudr-jan-farkas-lekar,MUDr. Ján Farkas (lekár),false
+9f01ab9b-d337-55a8-9fc5-5cdc41d7951b,66-52227278-A0001,5f847497-72d5-52e3-a77a-7e5328253569,kelementova-dana-sestra,Kelementova Dana (sestra),false
+14e6e88b-47a6-5775-bd42-f55cdbb9ecaa,72-35877618-A0059,1e09c497-70dc-585b-aa38-4552bcd41c9a,rychla-lekarska-pomoc,rýchla lekárska pomoc,true
+e73db742-fbff-5b63-bd43-618fc0c58b41,66-52549101-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,cd65def4-aabd-5a20-b17f-36e7dec4b1e7,pediatria,pediatria,true
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,ebdcf908-dc88-59eb-b512-87231d15e3bc,mudr-kristina-vaganova-lekar,MUDr. Kristína Vagáňová (lekár),false
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,d190534f-6d94-5a82-8827-e8ff84b2abc1,mgr-martina-kulichova-sestra,Mgr. Martina Kulichová (sestra),false
+0e13e35a-7b45-5853-85f9-4bae7842c852,66-51744422-A0001,b3316e00-3a50-5fc2-887c-bb2c3d4a881f,zuzana-slovakova-sestra,Zuzana Slováková (sestra),false
+e2ce386a-996a-5ecb-bb0c-75f941f6ed9a,66-52525368-A0001,7afa20f7-8e22-5137-8c51-b14e9ea55c77,dentalna-hygiena,dentálna hygiena,true
+3e6cda97-2085-57d6-8699-776bdc4dd5e7,66-51480328-A0001,93197836-5b36-50e3-b1b7-7b714b36261c,pneumologia-a-ftizeologia,pneumológia a ftizeológia,true
+d0a4bd15-81e2-5cb7-babe-f59a03af4451,51-44571747-A0064,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+65fafc1b-ba65-5f16-b79c-4ee6d08b76c4,66-45965501-A0002,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,7e671f6b-3f8b-5c61-8303-5cad8fb7ae46,nefrologia,nefrológia,true
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,4f2c172a-c2d0-5df9-b02a-4b60d9591808,mudr-dasa-flochova-lekar,MUDr. Dáša Flochová (lekár),false
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,6b2400b4-ee59-5612-b897-1d3560d8139e,mudr-gabika-berlecka-lekar,MUDr. Gabika Berlecká (lekár),false
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,8b72a4f8-f092-5442-b855-2b9d39c2e2d3,mudr-marcela-bielekova-lekar,MUDr. Marcela Bieleková (lekár),false
+bc345e13-39fa-588c-81d2-b5059491c3aa,51-31383963-A0028,663bd74c-3961-5a21-808e-99dcb9675c31,bc-slavka-siekela-sestra,Bc. Slávka Siekela (sestra),false
+2f35c017-34ba-55e4-a08b-a4c5ba61e381,66-47251867-A0003,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+2f35c017-34ba-55e4-a08b-a4c5ba61e381,66-47251867-A0003,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+2f35c017-34ba-55e4-a08b-a4c5ba61e381,66-47251867-A0003,da937c27-6f5a-5964-be8b-08ca28ad439d,mudr-jozef-golian-lekar,MUDr. Jozef Golian (lekár),false
+2f35c017-34ba-55e4-a08b-a4c5ba61e381,66-47251867-A0003,0db0f3a3-c3f0-5691-a9ed-1a9b71924bcc,bc-katarina-bohusova-sestra,Bc. Katarína Bohušová (sestra),false
+1df35369-0210-5555-91b4-84fd714dc5be,66-45613711-A0004,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+900f7868-3fd5-5d42-a0b9-f6d1592693b2,66-36621242-A0015,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+e9f5a76c-47a6-5dc6-8542-7bc02df12540,66-36646741-A0001,702a07c6-a79c-5dbe-9358-48e9f166169d,chirurgia,chirurgia,true
+51f15782-7396-5cb4-91e4-8e4a4864d616,66-36628174-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+9f508942-c4d3-5def-bed2-35a237710587,66-36853305-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+830d9d30-6c58-5bc0-8769-f85b67f36bf9,66-45341095-A0001,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+b48cec9e-2dbe-5b2c-bdca-0f5c330f9d29,66-45615454-A0001,d41e52e2-8f83-539f-82eb-57f1f79c5621,gynekologia-a-porodnictvo,gynekológia a pôrodníctvo,true
+b48cec9e-2dbe-5b2c-bdca-0f5c330f9d29,66-45615454-A0001,7a6191b2-766d-500b-a155-930e39d5893f,ultrazvuk-v-gynekologii-a-porodnictve,ultrazvuk v gynekológii a pôrodníctve,false
+34ae3c39-30ce-55b3-8d3b-4c41fa12d3e6,66-36706434-A0001,092a94a2-2374-58c5-b311-589372e1a584,ortopedia,ortopédia,true
+9d6b8042-1ee5-57a3-9a52-9c869a76f30f,66-36648370-A0001,bdb3ad3d-9957-5b0a-8faf-9c2440432075,vseobecna-starostlivost-o-deti-a-dorast,všeobecná starostlivosť o deti a dorast,true
+9d6b8042-1ee5-57a3-9a52-9c869a76f30f,66-36648370-A0001,bdb71984-dd2c-595f-a7b1-4b7db9c6cb9d,lekari-sestry,"Lekári, sestry:",false
+9d6b8042-1ee5-57a3-9a52-9c869a76f30f,66-36648370-A0001,90cd8297-12bc-5b06-a026-056d33248872,mudr-anna-pivoluskova-lekar,MUDr. Anna Pivolusková (lekár),false
+9d6b8042-1ee5-57a3-9a52-9c869a76f30f,66-36648370-A0001,683f6e8d-0c79-5484-b30b-3af38db0dbe6,viera-uhrinova-sestra,Viera Uhrínová (sestra),false
+0b7b367a-ce0b-52ed-950a-e576c1ea341f,66-36640719-A0001,48b42f7a-c1cd-59c4-a38d-7f40fa343938,zubne-lekarstvo,zubné lekárstvo,true
+538925c9-1063-5abb-8d37-254317be63bc,66-43827071-A0001,99ab4347-a4ba-5515-b2fc-1f817926ab69,otorinolaryngologia,otorinolaryngológia,true
+b23135a2-75ee-54e0-bfe7-a48aa7d6e200,66-44748060-A0001,744dbe93-db92-580c-93f9-f88cc6ce6152,klinicke-pracovne-lekarstvo-a-klinicka-toxikologia,klinické pracovné lekárstvo a klinická toxikológia,true
+d0a86761-67b1-5d0c-a6ef-f6d2e6033993,66-36621242-A0012,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+2bca2dee-195d-5ae7-b630-dd1e9aaed7d7,66-36621242-A0013,bdf2ec71-9af9-51d3-a328-9f2949c40c82,funkcna-diagnostika,funkčná diagnostika,true
+2bca2dee-195d-5ae7-b630-dd1e9aaed7d7,66-36621242-A0013,2559b9e7-baae-579a-a0be-e3004ef32f41,echokardiografia,echokardiografia,false
+5a793457-4c03-533b-a321-6dedc8d036f6,66-36621242-A0014,7593601d-68be-5e36-870f-00cefe21d1fb,klinicka-biochemia,klinická biochémia,true
+5a793457-4c03-533b-a321-6dedc8d036f6,66-36621242-A0014,9d180982-b02d-5c91-8122-63473459f633,hematologia-a-transfuziologia,hematológia a transfuziológia,false
+7ca97aa8-829c-5b94-b2a3-57eb660969cf,66-36621242-A0010,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+56e4969b-7e33-524d-afaa-481b4adb6d25,66-36621242-A0006,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+10aed0ec-a2f0-5375-b5a7-a3fcd2ac48c0,66-36621242-A0008,ce28810c-d195-5bc0-ae2a-3c41906a045e,endokrinologia,endokrinológia,true
+111b1966-18b9-5489-a9df-881c15e0fca9,66-36621242-A0009,d78cb074-8bdf-5e8a-a406-0a391dcda104,geriatria,geriatria,true
+857d25a3-470c-54ba-ad9c-f37d3e78e2af,66-36621242-A0011,17932682-ec13-5f2f-bfc4-54d478fe5ba0,radiologia,rádiológia,true
+10e0512c-8f07-5e56-828c-53af650b6fd2,66-36621242-A0005,f6243765-dbb3-5fc8-be9d-64469c2dda6a,fyziatria-balneologia-a-liecebna-rehabilitacia,"fyziatria, balneológia a liečebná rehabilitácia",true
+2cf711c7-382c-5f61-96e1-4d5468d6a4b8,66-36621242-A0004,4c49d11c-fc53-5b02-9549-d7d6fe55d6be,diabetologia-poruchy-latkovej-premeny-a-vyzivy,"diabetológia, poruchy látkovej premeny a výživy",true
+92bd8ea6-3e12-5289-80bb-37ff7fc6b0cd,66-36618250-A0001,361dfd18-2269-5687-95c0-9ef648530d47,oftalmologia,oftalmológia,true
+0f27b6b7-10c9-5ae5-b405-b51baeb53330,66-36651648-A0004,4ddf53fa-7320-5066-a117-93debbc93bff,kardiologia,kardiológia,true
+b8c12388-650d-529c-9562-a4b6e5dae906,66-36651648-A0003,f97990e5-c924-5ec7-b70f-59a33c4424dc,vnutorne-lekarstvo,vnútorné lekárstvo,true
+c4ec8232-6fbb-578e-b2ab-bdfcffa366f6,66-36697249-A0002,18399a21-359c-51f7-b91b-3e4b89109c37,vseobecne-lekarstvo,všeobecné lekárstvo,true
+1496f446-11d6-54cf-922d-2dea6042f4ee,66-37892126-A0002,60e8afe9-8725-555a-83e9-e64f73f13b90,neurologia,neurológia,true
