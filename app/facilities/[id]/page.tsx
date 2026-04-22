@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSingleRelation } from "@/lib/relations";
+import { ReportReviewButton } from "@/components/reports/ReportReviewButton";
 import {
   getDataQualityStatusLabel,
   getVisitTypeLabel,
@@ -435,22 +436,26 @@ export default async function FacilityDetailPage({
                   )}
 
                   <div className="grid gap-2 md:grid-cols-2">
-                    {getRatingRow(
-                      "Komunikácia personálu",
-                      review.rating_communication
-                    )}
-                    {getRatingRow(
-                      "Čakanie a vybavenie",
-                      review.rating_waiting_time
-                    )}
-                    {getRatingRow("Organizácia", review.rating_organization)}
-                    {getRatingRow("Čistota", review.rating_cleanliness)}
-                    {getRatingRow("Prostredie", review.rating_environment)}
-                    {getRatingRow("Vybavenie", review.rating_equipment)}
-                    {getRatingRow("Dostupnosť", review.rating_accessibility)}
-                    {getRatingRow("Súkromie", review.rating_privacy)}
-                    {getRatingRow("Odporúčanie", review.rating_recommendation)}
-                  </div>
+                  {getRatingRow(
+                    "Komunikácia personálu",
+                    review.rating_communication
+                  )}
+                  {getRatingRow(
+                    "Čakanie a vybavenie",
+                    review.rating_waiting_time
+                  )}
+                  {getRatingRow("Organizácia", review.rating_organization)}
+                  {getRatingRow("Čistota", review.rating_cleanliness)}
+                  {getRatingRow("Prostredie", review.rating_environment)}
+                  {getRatingRow("Vybavenie", review.rating_equipment)}
+                  {getRatingRow("Dostupnosť", review.rating_accessibility)}
+                  {getRatingRow("Súkromie", review.rating_privacy)}
+                  {getRatingRow("Odporúčanie", review.rating_recommendation)}
+                </div>
+
+                <div className="flex justify-end border-t pt-3">
+                  <ReportReviewButton reviewId={review.id} />
+                </div>
                 </CardContent>
               </Card>
             ))}

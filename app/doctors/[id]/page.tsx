@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSingleRelation } from "@/lib/relations";
+import { ReportReviewButton } from "@/components/reports/ReportReviewButton";
 import {
   getDataQualityStatusLabel,
   getVisitTypeLabel,
@@ -392,18 +393,22 @@ export default async function DoctorDetailPage({
                   )}
 
                   <div className="grid gap-2 md:grid-cols-2">
-                    {getRatingRow("Komunikácia", review.rating_communication)}
-                    {getRatingRow(
-                      "Vysvetlenie postupu",
-                      review.rating_explanation
-                    )}
-                    {getRatingRow("Čakanie", review.rating_waiting_time)}
-                    {getRatingRow("Organizácia", review.rating_organization)}
-                    {getRatingRow("Prístup", review.rating_approach)}
-                    {getRatingRow("Odbornosť", review.rating_professionalism)}
-                    {getRatingRow("Súkromie", review.rating_privacy)}
-                    {getRatingRow("Odporúčanie", review.rating_recommendation)}
-                  </div>
+                  {getRatingRow("Komunikácia", review.rating_communication)}
+                  {getRatingRow(
+                    "Vysvetlenie postupu",
+                    review.rating_explanation
+                  )}
+                  {getRatingRow("Čakanie", review.rating_waiting_time)}
+                  {getRatingRow("Organizácia", review.rating_organization)}
+                  {getRatingRow("Prístup", review.rating_approach)}
+                  {getRatingRow("Odbornosť", review.rating_professionalism)}
+                  {getRatingRow("Súkromie", review.rating_privacy)}
+                  {getRatingRow("Odporúčanie", review.rating_recommendation)}
+                </div>
+
+                <div className="flex justify-end border-t pt-3">
+                  <ReportReviewButton reviewId={review.id} />
+                </div>
                 </CardContent>
               </Card>
             ))}
