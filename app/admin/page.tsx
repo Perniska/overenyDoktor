@@ -68,7 +68,7 @@ const cards: AdminCard[] = [
     helper:
       "Použi pri žiadosti používateľa o prístup, export, opravu alebo výmaz údajov.",
     icon: FileText,
-    enabled: false,
+    enabled: true,
   },
   {
     href: "/admin/audit",

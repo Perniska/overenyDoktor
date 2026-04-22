@@ -198,6 +198,13 @@ export default function Navbar() {
                   >
                     Profil
                   </Link>
+
+                  <Link
+                    href="/gdpr"
+                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    GDPR a údaje
+                  </Link>
                 </div>
 
                 <div className="mt-3 border-t pt-3">
@@ -283,6 +290,14 @@ export default function Navbar() {
                       className={getMobileLinkClassName("/profile")}
                     >
                       Profil
+                    </Link>
+
+                    <Link
+                      href="/gdpr"
+                      onClick={closeMobileMenu}
+                      className={getMobileLinkClassName("/gdpr")}
+                    >
+                      GDPR a údaje
                     </Link>
 
                     <LogoutButton />
