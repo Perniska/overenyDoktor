@@ -13,10 +13,6 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireModeratorOrAdmin } from "@/lib/authz";
 import { getSingleRelation } from "@/lib/relations";
 import { NumberedPagination } from "@/components/common/NumberedPagination";
-import {
-  AdminForumCommentActions,
-  AdminForumTopicActions,
-} from "@/components/admin/AdminForumActions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
@@ -214,9 +210,7 @@ export default async function AdminForumPage({
 
                       <span className="inline-flex items-center gap-1">
                         <CalendarDays className="size-4" />
-                        {new Date(topic.created_at).toLocaleDateString(
-                          "sk-SK"
-                        )}
+                        {new Date(topic.created_at).toLocaleDateString("sk-SK")}
                       </span>
 
                       <span>{category?.name ?? "Bez kategórie"}</span>
@@ -254,9 +248,9 @@ export default async function AdminForumPage({
 
               <CardContent className="space-y-4">
                 {topic.description ? (
-                  <div className="whitespace-pre-wrap rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
+                  <p className="line-clamp-3 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
                     {topic.description}
-                  </div>
+                  </p>
                 ) : (
                   <p className="text-sm text-slate-500">
                     Téma nemá textový popis.
@@ -265,19 +259,19 @@ export default async function AdminForumPage({
 
                 <div className="flex flex-wrap gap-2">
                   <Link
-                    href={`/forum/${topic.id}`}
-                    className="inline-flex min-h-10 items-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    href={`/admin/forum/topics/${topic.id}`}
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
                   >
-                    Otvoriť tému
+                    Spravovať tému
+                  </Link>
+
+                  <Link
+                    href={`/forum/${topic.id}`}
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  >
+                    Otvoriť verejnú tému
                   </Link>
                 </div>
-
-                <AdminForumTopicActions
-                  topicId={topic.id}
-                  isHidden={isHidden}
-                  isLocked={topic.is_locked}
-                  isPinned={topic.is_pinned}
-                />
               </CardContent>
             </Card>
           );
@@ -421,14 +415,27 @@ export default async function AdminForumPage({
                   )}
                 </div>
 
-                <div className="whitespace-pre-wrap rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
+                <p className="line-clamp-4 whitespace-pre-wrap rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
                   {comment.content}
-                </div>
+                </p>
 
-                <AdminForumCommentActions
-                  commentId={comment.id}
-                  isHidden={isHidden}
-                />
+                <div className="flex flex-wrap gap-2">
+                  <Link
+                    href={`/admin/forum/comments/${comment.id}`}
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                  >
+                    Spravovať komentár
+                  </Link>
+
+                  {topic?.id ? (
+                    <Link
+                      href={`/forum/${topic.id}`}
+                      className="inline-flex min-h-11 items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    >
+                      Otvoriť tému
+                    </Link>
+                  ) : null}
+                </div>
               </CardContent>
             </Card>
           );
@@ -449,17 +456,8 @@ export default async function AdminForumPage({
         </h1>
 
         <p className="mt-2 max-w-3xl text-slate-600">
-          Táto časť slúži na moderovanie tém a komentárov vo fóre. Obsah môžeš
-          skryť, obnoviť, uzamknúť alebo pripnúť podľa pravidiel platformy.
-        </p>
-      </section>
-
-      <section className="rounded-2xl border bg-sky-50 p-4 text-sm text-sky-900">
-        <p className="font-semibold">Kedy používať moderovanie fóra</p>
-        <p className="mt-1">
-          Skrytie používaj pri citlivých osobných údajoch, zdravotných údajoch,
-          urážkach alebo spame. Uzamknutie témy je vhodné vtedy, keď chceš
-          zabrániť ďalšej diskusii, ale ponechať tému čitateľnú.
+          Prehľad slúži na vyhľadanie témy alebo komentára. Samotná úprava sa
+          robí až na detailnej stránke konkrétneho záznamu.
         </p>
       </section>
 
@@ -469,7 +467,7 @@ export default async function AdminForumPage({
             <CardContent className="py-4">
               <p className="font-semibold">Témy fóra</p>
               <p className="mt-1 text-sm text-slate-600">
-                Moderovanie tém, uzamknutie, pripnutie alebo skrytie.
+                Vyhľadanie, kontrola a otvorenie detailu témy.
               </p>
             </CardContent>
           </Card>
@@ -482,7 +480,7 @@ export default async function AdminForumPage({
             <CardContent className="py-4">
               <p className="font-semibold">Komentáre</p>
               <p className="mt-1 text-sm text-slate-600">
-                Kontrola, skrytie alebo obnovenie komentárov.
+                Vyhľadanie, kontrola a otvorenie detailu komentára.
               </p>
             </CardContent>
           </Card>
@@ -499,8 +497,6 @@ export default async function AdminForumPage({
           action="/admin/forum"
           className="grid gap-3 md:grid-cols-[1fr_1fr_2fr_auto]"
         >
-          <input type="hidden" name="tab" value={tab} />
-
           <div>
             <label className="mb-1 block text-sm font-medium text-slate-700">
               Typ obsahu
@@ -571,47 +567,6 @@ export default async function AdminForumPage({
             </Link>
           </div>
         </form>
-
-        <div className="mt-4 flex flex-wrap gap-2 text-sm">
-          <Link
-            href={createForumAdminHref({ tab, status: "visible", q })}
-            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
-          >
-            Viditeľné
-          </Link>
-
-          <Link
-            href={createForumAdminHref({ tab, status: "hidden", q })}
-            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
-          >
-            Skryté
-          </Link>
-
-          {tab === "topics" ? (
-            <>
-              <Link
-                href={createForumAdminHref({ tab, status: "locked", q })}
-                className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
-              >
-                Uzamknuté
-              </Link>
-
-              <Link
-                href={createForumAdminHref({ tab, status: "pinned", q })}
-                className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
-              >
-                Pripnuté
-              </Link>
-            </>
-          ) : null}
-
-          <Link
-            href={createForumAdminHref({ tab })}
-            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
-          >
-            Reset filtrov
-          </Link>
-        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2">

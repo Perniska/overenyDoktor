@@ -46,15 +46,16 @@ export default async function GdprPage() {
     ? await supabase
         .from("gdpr_export_requests")
         .select(
-          `
-          id,
-          requested_at,
-          status,
-          completed_at,
-          expires_at,
-          notes
         `
-        )
+        id,
+        requested_at,
+        status,
+        completed_at,
+        expires_at,
+        download_url,
+        notes
+      `
+      )
         .eq("id_user", user.id)
         .order("requested_at", { ascending: false })
         .limit(10)
@@ -243,6 +244,15 @@ export default async function GdprPage() {
                         )}
                       </p>
                     ) : null}
+
+                    {request.status === "completed" && request.download_url ? (
+                    <a
+                      href={request.download_url}
+                      className="mt-3 inline-flex min-h-10 items-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                    >
+                      Stiahnuť export údajov
+                    </a>
+                  ) : null}
                   </div>
                 ))
               )}

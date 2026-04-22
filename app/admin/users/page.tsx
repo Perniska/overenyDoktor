@@ -5,7 +5,6 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/authz";
 import { getSingleRelation } from "@/lib/relations";
 import { NumberedPagination } from "@/components/common/NumberedPagination";
-import { AdminUserActions } from "@/components/admin/AdminUserActions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
@@ -61,7 +60,6 @@ function createUsersHref(filters: {
   }
 
   const query = params.toString();
-
   return query ? `/admin/users?${query}` : "/admin/users";
 }
 
@@ -112,6 +110,7 @@ export default async function AdminUsersPage({
       role_id,
       deleted_at,
       anonymized_at,
+      avatar_key,
       role:roles!profiles_role_id_fkey (
         id,
         name,
@@ -161,8 +160,9 @@ export default async function AdminUsersPage({
       !profile.is_banned && !profile.deleted_at && !profile.anonymized_at
   ).length;
 
-  const bannedOnPage = profiles.filter((profile: any) => profile.is_banned)
-    .length;
+  const bannedOnPage = profiles.filter(
+    (profile: any) => profile.is_banned
+  ).length;
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-8">
@@ -176,18 +176,17 @@ export default async function AdminUsersPage({
         </h1>
 
         <p className="mt-2 max-w-3xl text-slate-600">
-          Táto časť je dostupná iba administrátorovi. Slúži na správu rolí,
-          blokovanie používateľov a kontrolu stavu účtov. E-mailové adresy sa
-          tu nezobrazujú, pretože sú súčasťou autentifikačnej vrstvy.
+          Prehľad slúži na vyhľadanie používateľa. Zmena roly alebo blokovanie
+          sa robí až na detailnej stránke konkrétneho používateľa.
         </p>
       </section>
 
       <section className="rounded-2xl border bg-sky-50 p-4 text-sm text-sky-900">
         <p className="font-semibold">Rozdelenie rolí</p>
         <p className="mt-1">
-          Bežný používateľ môže pridávať recenzie a komentáre. Moderátor rieši
-          nahlásenia, recenzie a fórum. Administrátor má navyše prístup k
-          používateľom, rolám, GDPR procesom, auditu a referenčným údajom.
+          Bežný používateľ môže používať recenzie a fórum. Moderátor rieši
+          obsah a nahlásenia. Administrátor má navyše správu používateľov,
+          audit, GDPR a referenčné údaje.
         </p>
       </section>
 
@@ -314,11 +313,6 @@ export default async function AdminUsersPage({
         <section className="space-y-4">
           {profiles.map((profile: any) => {
             const profileRole = getSingleRelation(profile.role);
-            const roleId = profile.role_id;
-            const roleSlug = profileRole?.slug ?? "unknown";
-
-            const isDeleted = Boolean(profile.deleted_at);
-            const isAnonymized = Boolean(profile.anonymized_at);
 
             return (
               <Card
@@ -326,7 +320,7 @@ export default async function AdminUsersPage({
                 className={
                   profile.is_banned
                     ? "border-red-200 bg-red-50/30"
-                    : isDeleted || isAnonymized
+                    : profile.deleted_at || profile.anonymized_at
                       ? "opacity-75"
                       : ""
                 }
@@ -344,7 +338,10 @@ export default async function AdminUsersPage({
                       </CardTitle>
 
                       <p className="mt-1 text-sm text-slate-500">
-                        ID používateľa: {profile.id}
+                        Vytvorený:{" "}
+                        {new Date(profile.created_at).toLocaleDateString(
+                          "sk-SK"
+                        )}
                       </p>
                     </div>
 
@@ -367,43 +364,13 @@ export default async function AdminUsersPage({
                   </div>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
-                  <div className="grid gap-3 md:grid-cols-3">
-                    <div className="rounded-xl border bg-white p-3">
-                      <p className="text-sm text-slate-500">Vytvorený účet</p>
-                      <p className="mt-1 font-semibold">
-                        {new Date(profile.created_at).toLocaleDateString(
-                          "sk-SK"
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="rounded-xl border bg-white p-3">
-                      <p className="text-sm text-slate-500">Rola</p>
-                      <p className="mt-1 font-semibold">
-                        {profileRole?.name ?? "Neznáma rola"}
-                      </p>
-                    </div>
-
-                    <div className="rounded-xl border bg-white p-3">
-                      <p className="text-sm text-slate-500">Stav</p>
-                      <p className="mt-1 font-semibold">
-                        {getProfileStatusLabel(profile)}
-                      </p>
-                    </div>
-                  </div>
-
-                  <AdminUserActions
-                    profileId={profile.id}
-                    currentUserId={auth.user.id}
-                    username={profile.username}
-                    currentRoleId={roleId}
-                    currentRoleSlug={roleSlug}
-                    isBanned={profile.is_banned}
-                    isDeleted={isDeleted}
-                    isAnonymized={isAnonymized}
-                    roles={roles}
-                  />
+                <CardContent>
+                  <Link
+                    href={`/admin/users/${profile.id}`}
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                  >
+                    Spravovať používateľa
+                  </Link>
                 </CardContent>
               </Card>
             );

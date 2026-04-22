@@ -26,79 +26,9 @@ export default function Navbar() {
   const accountDetailsRef = useRef<HTMLDetailsElement | null>(null);
   const mobileAccountDetailsRef = useRef<HTMLDetailsElement | null>(null);
 
-  async function getUserWithRole() {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      return null;
-    }
-
-    const { data: isStaff, error } = await supabase.rpc(
-      "current_user_has_role",
-      {
-        p_allowed_slugs: ["admin", "moderator"],
-      }
-    );
-
-    return {
-      email: user.email ?? undefined,
-      isStaff: !error && Boolean(isStaff),
-    };
-  }
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadUser() {
-      const userWithRole = await getUserWithRole();
-
-      if (isMounted) {
-        setUser(userWithRole);
-      }
-    }
-
-    loadUser();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      if (!session?.user) {
-        setUser(null);
-        return;
-      }
-
-      const { data: isStaff, error } = await supabase.rpc(
-        "current_user_has_role",
-        {
-          p_allowed_slugs: ["admin", "moderator"],
-        }
-      );
-
-      setUser({
-        email: session.user.email ?? undefined,
-        isStaff: !error && Boolean(isStaff),
-      });
-    });
-
-    return () => {
-      isMounted = false;
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  useEffect(() => {
-    closeMobileMenu();
-
-    if (accountDetailsRef.current) {
-      accountDetailsRef.current.open = false;
-    }
-
-    if (mobileAccountDetailsRef.current) {
-      mobileAccountDetailsRef.current.open = false;
-    }
-  }, [pathname]);
+  const roleRequestIdRef = useRef(0);
+  const roleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isMountedRef = useRef(false);
 
   const publicLinks: NavLink[] = [
     { href: "/", label: "Domov" },
@@ -135,6 +65,90 @@ export default function Navbar() {
         : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
     );
   }
+
+  function handleSessionChange(session: any) {
+    roleRequestIdRef.current += 1;
+    const requestId = roleRequestIdRef.current;
+
+    if (roleTimerRef.current) {
+      clearTimeout(roleTimerRef.current);
+      roleTimerRef.current = null;
+    }
+
+    if (!session?.user) {
+      setUser(null);
+      return;
+    }
+
+    const email = session.user.email ?? undefined;
+
+    setUser({
+      email,
+      isStaff: false,
+    });
+
+    roleTimerRef.current = setTimeout(async () => {
+      try {
+        const { data: isStaff, error } = await supabase.rpc(
+          "current_user_has_role",
+          {
+            p_allowed_slugs: ["admin", "moderator"],
+          }
+        );
+
+        if (!isMountedRef.current || roleRequestIdRef.current !== requestId) {
+          return;
+        }
+
+        setUser({
+          email,
+          isStaff: !error && Boolean(isStaff),
+        });
+      } catch {
+        if (!isMountedRef.current || roleRequestIdRef.current !== requestId) {
+          return;
+        }
+
+        setUser({
+          email,
+          isStaff: false,
+        });
+      }
+    }, 0);
+  }
+
+  useEffect(() => {
+    isMountedRef.current = true;
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      handleSessionChange(session);
+    });
+
+    return () => {
+      isMountedRef.current = false;
+
+      if (roleTimerRef.current) {
+        clearTimeout(roleTimerRef.current);
+        roleTimerRef.current = null;
+      }
+
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    closeMobileMenu();
+
+    if (accountDetailsRef.current) {
+      accountDetailsRef.current.open = false;
+    }
+
+    if (mobileAccountDetailsRef.current) {
+      mobileAccountDetailsRef.current.open = false;
+    }
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur">

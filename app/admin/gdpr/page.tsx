@@ -1,11 +1,17 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { CalendarDays, FileText, Filter, Shield, Trash2, User } from "lucide-react";
+import {
+  CalendarDays,
+  FileText,
+  Filter,
+  Shield,
+  Trash2,
+  User,
+} from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/authz";
 import { getSingleRelation } from "@/lib/relations";
 import { NumberedPagination } from "@/components/common/NumberedPagination";
-import { AdminGdprActions } from "@/components/admin/AdminGdprActions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
@@ -44,6 +50,22 @@ function getTriggerLabel(trigger?: string | null) {
   };
 
   return labels[trigger ?? ""] ?? "Neuvedené";
+}
+
+function getStatusClassName(status?: string | null) {
+  if (status === "completed") {
+    return "bg-emerald-100 text-emerald-800";
+  }
+
+  if (status === "processing") {
+    return "bg-sky-100 text-sky-800";
+  }
+
+  if (status === "rejected" || status === "failed" || status === "expired") {
+    return "bg-red-100 text-red-800";
+  }
+
+  return "bg-amber-100 text-amber-800";
 }
 
 function createGdprHref(filters: {
@@ -163,10 +185,27 @@ export default async function AdminGdprPage({
         {requests.map((request: any) => (
           <Card key={request.id}>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="size-5" />
-                Žiadosť o export údajov
-              </CardTitle>
+              <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="size-5" />
+                    Žiadosť o export údajov
+                  </CardTitle>
+
+                  <p className="mt-1 text-sm text-slate-500">
+                    Vytvorené:{" "}
+                    {new Date(request.requested_at).toLocaleString("sk-SK")}
+                  </p>
+                </div>
+
+                <span
+                  className={`rounded-full px-3 py-1 text-sm font-medium ${getStatusClassName(
+                    request.status
+                  )}`}
+                >
+                  {getRequestStatusLabel(request.status)}
+                </span>
+              </div>
             </CardHeader>
 
             <CardContent className="space-y-4">
@@ -180,17 +219,20 @@ export default async function AdminGdprPage({
                 </div>
 
                 <div className="rounded-xl border bg-white p-3">
-                  <p className="text-sm text-slate-500">Stav</p>
+                  <p className="text-sm text-slate-500">Dokončené</p>
                   <p className="mt-1 font-semibold">
-                    {getRequestStatusLabel(request.status)}
+                    {request.completed_at
+                      ? new Date(request.completed_at).toLocaleString("sk-SK")
+                      : "Nie"}
                   </p>
                 </div>
 
                 <div className="rounded-xl border bg-white p-3">
-                  <p className="text-sm text-slate-500">Vytvorené</p>
-                  <p className="mt-1 flex items-center gap-1.5 font-semibold">
-                    <CalendarDays className="size-4" />
-                    {new Date(request.requested_at).toLocaleDateString("sk-SK")}
+                  <p className="text-sm text-slate-500">Platnosť exportu</p>
+                  <p className="mt-1 font-semibold">
+                    {request.expires_at
+                      ? new Date(request.expires_at).toLocaleString("sk-SK")
+                      : "Neuvedené"}
                   </p>
                 </div>
               </div>
@@ -201,11 +243,12 @@ export default async function AdminGdprPage({
                 </div>
               ) : null}
 
-              <AdminGdprActions
-                type="export"
-                requestId={request.id}
-                currentStatus={request.status}
-              />
+              <Link
+                href={`/admin/gdpr/export/${request.id}`}
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                Otvoriť detail žiadosti
+              </Link>
             </CardContent>
           </Card>
         ))}
@@ -266,63 +309,79 @@ export default async function AdminGdprPage({
       </Card>
     ) : (
       <section className="space-y-4">
-        {requests.map((request: any) => (
-          <Card key={request.id}>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Trash2 className="size-5" />
-                Žiadosť o výmaz alebo anonymizáciu
-              </CardTitle>
-            </CardHeader>
+        {requests.map((request: any) => {
+          const processor = getSingleRelation(request.processor);
 
-            <CardContent className="space-y-4">
-              <div className="grid gap-3 md:grid-cols-3">
-                <div className="rounded-xl border bg-white p-3">
-                  <p className="text-sm text-slate-500">Používateľ</p>
-                  <p className="mt-1 flex items-center gap-1.5 font-semibold">
-                    <User className="size-4" />
-                    {getProfileLabel(request.profile)}
-                  </p>
-                </div>
+          return (
+            <Card key={request.id}>
+              <CardHeader>
+                <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      <Trash2 className="size-5" />
+                      Žiadosť o výmaz alebo anonymizáciu
+                    </CardTitle>
 
-                <div className="rounded-xl border bg-white p-3">
-                  <p className="text-sm text-slate-500">Stav</p>
-                  <p className="mt-1 font-semibold">
+                    <p className="mt-1 text-sm text-slate-500">
+                      Vytvorené:{" "}
+                      {new Date(request.requested_at).toLocaleString("sk-SK")}
+                    </p>
+                  </div>
+
+                  <span
+                    className={`rounded-full px-3 py-1 text-sm font-medium ${getStatusClassName(
+                      request.status
+                    )}`}
+                  >
                     {getRequestStatusLabel(request.status)}
-                  </p>
+                  </span>
+                </div>
+              </CardHeader>
+
+              <CardContent className="space-y-4">
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-xl border bg-white p-3">
+                    <p className="text-sm text-slate-500">Používateľ</p>
+                    <p className="mt-1 flex items-center gap-1.5 font-semibold">
+                      <User className="size-4" />
+                      {getProfileLabel(request.profile)}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border bg-white p-3">
+                    <p className="text-sm text-slate-500">Spracoval</p>
+                    <p className="mt-1 font-semibold">
+                      {processor?.username ?? "Zatiaľ nikto"}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border bg-white p-3">
+                    <p className="text-sm text-slate-500">Spracované</p>
+                    <p className="mt-1 font-semibold">
+                      {request.processed_at
+                        ? new Date(request.processed_at).toLocaleString("sk-SK")
+                        : "Nie"}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="rounded-xl border bg-white p-3">
-                  <p className="text-sm text-slate-500">Vytvorené</p>
-                  <p className="mt-1 flex items-center gap-1.5 font-semibold">
-                    <CalendarDays className="size-4" />
-                    {new Date(request.requested_at).toLocaleDateString("sk-SK")}
-                  </p>
-                </div>
-              </div>
+                {request.reason ? (
+                  <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
+                    <p className="font-medium text-slate-900">Dôvod žiadosti</p>
+                    <p className="mt-1">{request.reason}</p>
+                  </div>
+                ) : null}
 
-              {request.reason ? (
-                <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
-                  <p className="font-medium text-slate-900">Dôvod žiadosti</p>
-                  <p className="mt-1">{request.reason}</p>
-                </div>
-              ) : null}
-
-              {request.notes ? (
-                <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
-                  <p className="font-medium text-slate-900">Poznámka</p>
-                  <p className="mt-1">{request.notes}</p>
-                </div>
-              ) : null}
-
-              <AdminGdprActions
-                type="deletion"
-                requestId={request.id}
-                currentStatus={request.status}
-              />
-            </CardContent>
-          </Card>
-        ))}
+                <Link
+                  href={`/admin/gdpr/deletion/${request.id}`}
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                >
+                  Otvoriť detail žiadosti
+                </Link>
+              </CardContent>
+            </Card>
+          );
+        })}
       </section>
     );
   }
@@ -371,24 +430,38 @@ export default async function AdminGdprPage({
               </CardTitle>
             </CardHeader>
 
-            <CardContent className="space-y-3">
-              <p className="text-sm text-slate-600">
-                Anonymizované:{" "}
-                {new Date(log.anonymized_at).toLocaleString("sk-SK")}
-              </p>
+            <CardContent className="space-y-4">
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-xl border bg-white p-3">
+                  <p className="text-sm text-slate-500">Anonymizované</p>
+                  <p className="mt-1 font-semibold">
+                    {new Date(log.anonymized_at).toLocaleString("sk-SK")}
+                  </p>
+                </div>
 
-              <p className="text-sm text-slate-600">
-                Spúšťač: {getTriggerLabel(log.triggered_by)}
-              </p>
+                <div className="rounded-xl border bg-white p-3">
+                  <p className="text-sm text-slate-500">Spúšťač</p>
+                  <p className="mt-1 font-semibold">
+                    {getTriggerLabel(log.triggered_by)}
+                  </p>
+                </div>
 
-              <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
-                <p className="font-medium text-slate-900">Dotknuté tabuľky</p>
-                <p className="mt-1">
-                  {Array.isArray(log.tables_affected)
-                    ? log.tables_affected.join(", ")
-                    : "Neuvedené"}
-                </p>
+                <div className="rounded-xl border bg-white p-3">
+                  <p className="text-sm text-slate-500">Počet tabuliek</p>
+                  <p className="mt-1 font-semibold">
+                    {Array.isArray(log.tables_affected)
+                      ? log.tables_affected.length
+                      : 0}
+                  </p>
+                </div>
               </div>
+
+              <Link
+                href={`/admin/gdpr/anonymization/${log.id}`}
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                Otvoriť detail logu
+              </Link>
             </CardContent>
           </Card>
         ))}
@@ -408,20 +481,18 @@ export default async function AdminGdprPage({
         </h1>
 
         <p className="mt-2 max-w-3xl text-slate-600">
-          Táto časť slúži na spracovanie žiadostí o export údajov, výmaz alebo
-          anonymizáciu účtu. Prístup má iba administrátor.
+          Prehľad slúži na vyhľadanie konkrétnej GDPR žiadosti alebo záznamu
+          anonymizácie. Samotné spracovanie sa robí až na detaile záznamu.
         </p>
       </section>
 
       <section className="rounded-2xl border bg-sky-50 p-4 text-sm text-sky-900">
-        <p className="font-semibold">Poznámka k implementácii</p>
+        <p className="font-semibold">Poznámka k spracovaniu údajov</p>
         <p className="mt-1">
           Pri spracovaní žiadosti o výmaz sa používa kombinácia anonymizácie a
-          obmedzeného uchovania nevyhnutných auditných záznamov. Používateľský profil
-          sa anonymizuje a väzby na recenzie, fórum a nahlásenia sa odpoja. Auditné a
+          obmedzeného uchovania nevyhnutných auditných záznamov. Auditné a
           anonymizačné logy ostávajú zachované iba v nevyhnutnom rozsahu a počas
-          stanovenej retenčnej doby pre bezpečnostnú, právnu a administratívnu
-          dohľadateľnosť.
+          stanovenej retenčnej doby.
         </p>
       </section>
 
@@ -471,7 +542,10 @@ export default async function AdminGdprPage({
             <h2 className="font-semibold text-slate-900">Filtre</h2>
           </div>
 
-          <form action="/admin/gdpr" className="grid gap-3 md:grid-cols-[1fr_1fr_auto]">
+          <form
+            action="/admin/gdpr"
+            className="grid gap-3 md:grid-cols-[1fr_auto]"
+          >
             <input type="hidden" name="tab" value={tab} />
 
             <div>

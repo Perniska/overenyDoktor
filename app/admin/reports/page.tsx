@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import {
   AlertTriangle,
-  ExternalLink,
+  EyeOff,
   Filter,
   MessageSquare,
   Star,
@@ -10,7 +10,6 @@ import {
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireModeratorOrAdmin } from "@/lib/authz";
 import { getSingleRelation } from "@/lib/relations";
-import { AdminReportActions } from "@/components/admin/AdminReportActions";
 import { NumberedPagination } from "@/components/common/NumberedPagination";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -48,6 +47,16 @@ function getDoctorName(doctor: any) {
     .join(" ");
 }
 
+function getTargetTypeLabel(type: string) {
+  const labels: Record<string, string> = {
+    review: "Recenzia",
+    forum_comment: "Komentár vo fóre",
+    forum_topic: "Téma vo fóre",
+  };
+
+  return labels[type] ?? "Iný obsah";
+}
+
 function getResolutionActionLabel(action?: string | null) {
   const labels: Record<string, string> = {
     no_action: "Bez zásahu do obsahu",
@@ -60,21 +69,10 @@ function getResolutionActionLabel(action?: string | null) {
   return labels[action ?? ""] ?? "Neuvedené";
 }
 
-function getTargetTypeLabel(type: string) {
-  const labels: Record<string, string> = {
-    review: "Recenzia",
-    forum_comment: "Komentár vo fóre",
-    forum_topic: "Téma vo fóre",
-  };
-
-  return labels[type] ?? "Iný obsah";
-}
-
 function getReviewTargetInfo(review: any) {
   if (!review) {
     return {
       title: "Recenzia sa nepodarila načítať",
-      href: "#",
       description: "Recenzia už môže byť odstránená alebo nedostupná.",
       preview: null as string | null,
       rating: null as number | null,
@@ -88,7 +86,6 @@ function getReviewTargetInfo(review: any) {
   if (doctor) {
     return {
       title: getDoctorName(doctor) || "Lekár",
-      href: `/doctors/${doctor.id}`,
       description: "Nahlásená recenzia lekára",
       preview: review.comment,
       rating: review.rating,
@@ -99,7 +96,6 @@ function getReviewTargetInfo(review: any) {
   if (facility) {
     return {
       title: facility.name ?? "Zdravotnícke zariadenie",
-      href: `/facilities/${facility.id}`,
       description: "Nahlásená recenzia zariadenia",
       preview: review.comment,
       rating: review.rating,
@@ -109,7 +105,6 @@ function getReviewTargetInfo(review: any) {
 
   return {
     title: "Recenzia bez cieľa",
-    href: "#",
     description: "Recenzia nemá priradeného lekára ani zariadenie.",
     preview: review.comment,
     rating: review.rating,
@@ -121,18 +116,18 @@ function getTopicTargetInfo(topic: any) {
   if (!topic) {
     return {
       title: "Tému sa nepodarilo načítať",
-      href: "#",
       description: "Téma už môže byť odstránená alebo nedostupná.",
       preview: null as string | null,
+      rating: null as number | null,
       isHidden: false,
     };
   }
 
   return {
     title: topic.title ?? "Téma vo fóre",
-    href: `/forum/${topic.id}`,
     description: "Nahlásená téma vo fóre",
     preview: topic.description,
+    rating: null as number | null,
     isHidden: Boolean(topic.deleted_at),
   };
 }
@@ -141,9 +136,9 @@ function getCommentTargetInfo(comment: any) {
   if (!comment) {
     return {
       title: "Komentár sa nepodarilo načítať",
-      href: "#",
       description: "Komentár už môže byť odstránený alebo nedostupný.",
       preview: null as string | null,
+      rating: null as number | null,
       isHidden: false,
     };
   }
@@ -152,9 +147,9 @@ function getCommentTargetInfo(comment: any) {
 
   return {
     title: topic?.title ?? "Komentár vo fóre",
-    href: topic?.id ? `/forum/${topic.id}` : "#",
     description: "Nahlásený komentár vo fóre",
     preview: comment.content,
+    rating: null as number | null,
     isHidden: Boolean(comment.deleted_at),
   };
 }
@@ -287,7 +282,6 @@ export default async function AdminReportsPage({
             id,
             rating,
             comment,
-            created_at,
             deleted_at,
             id_doctor,
             id_facility,
@@ -315,7 +309,6 @@ export default async function AdminReportsPage({
             id,
             title,
             description,
-            created_at,
             deleted_at
           `
           )
@@ -330,7 +323,6 @@ export default async function AdminReportsPage({
             `
             id,
             content,
-            created_at,
             deleted_at,
             id_topic,
             topic:forum_topics!forum_comments_id_topic_fkey (
@@ -367,9 +359,8 @@ export default async function AdminReportsPage({
         </h1>
 
         <p className="mt-2 max-w-3xl text-slate-600">
-          Tu sa zobrazujú používateľské nahlásenia. Moderátor môže nahlásenie
-          vyriešiť bez zásahu, označiť ho ako neopodstatnené alebo skryť
-          problematický obsah z verejného zobrazenia.
+          Prehľad slúži na vyhľadanie nahlásenia. Samotné rozhodnutie
+          moderátora sa robí až na detailnej stránke konkrétneho nahlásenia.
         </p>
       </section>
 
@@ -547,9 +538,9 @@ export default async function AdminReportsPage({
             } else {
               targetInfo = {
                 title: getTargetTypeLabel(report.target_type),
-                href: "#",
                 description: "Tento typ obsahu zatiaľ nie je podporovaný.",
                 preview: null,
+                rating: null,
                 isHidden: false,
               };
             }
@@ -594,6 +585,7 @@ export default async function AdminReportsPage({
                     <p className="text-sm font-medium text-slate-500">
                       Dôvod nahlásenia
                     </p>
+
                     <p className="mt-1 text-slate-800">{report.reason}</p>
                   </div>
 
@@ -602,26 +594,16 @@ export default async function AdminReportsPage({
                       Cieľ nahlásenia
                     </p>
 
-                    {targetInfo.href !== "#" ? (
-                      <Link
-                        href={targetInfo.href}
-                        className="mt-1 inline-flex items-center gap-1.5 font-semibold text-sky-700 hover:underline"
-                      >
-                        {targetInfo.title}
-                        <ExternalLink className="size-4" />
-                      </Link>
-                    ) : (
-                      <p className="mt-1 font-semibold text-slate-900">
-                        {targetInfo.title}
-                      </p>
-                    )}
+                    <p className="mt-1 font-semibold text-slate-900">
+                      {targetInfo.title}
+                    </p>
 
                     <p className="mt-1 text-sm text-slate-600">
                       {targetInfo.description}
                     </p>
 
                     <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3">
-                      {"rating" in targetInfo && targetInfo.rating ? (
+                      {targetInfo.rating ? (
                         <p className="flex items-center gap-1.5 text-sm font-semibold">
                           <Star className="size-4" />
                           {targetInfo.rating}/5
@@ -629,12 +611,12 @@ export default async function AdminReportsPage({
                       ) : (
                         <p className="flex items-center gap-1.5 text-sm font-semibold">
                           <MessageSquare className="size-4" />
-                          Fórum
+                          Obsah
                         </p>
                       )}
 
                       {targetInfo.preview ? (
-                        <p className="whitespace-pre-wrap text-sm text-slate-700">
+                        <p className="line-clamp-3 whitespace-pre-wrap text-sm text-slate-700">
                           {targetInfo.preview}
                         </p>
                       ) : (
@@ -644,8 +626,9 @@ export default async function AdminReportsPage({
                       )}
 
                       {targetInfo.isHidden ? (
-                        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-                          Tento obsah je skrytý z verejného zobrazenia.
+                        <p className="inline-flex items-center gap-1 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+                          <EyeOff className="size-4" />
+                          Tento obsah je skrytý.
                         </p>
                       ) : null}
                     </div>
@@ -677,12 +660,12 @@ export default async function AdminReportsPage({
                     </div>
                   ) : null}
 
-                  <AdminReportActions
-                    reportId={report.id}
-                    targetType={report.target_type}
-                    targetId={report.id_target}
-                    isResolved={report.is_resolved}
-                  />
+                  <Link
+                    href={`/admin/reports/${report.id}`}
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                  >
+                    Spravovať nahlásenie
+                  </Link>
                 </CardContent>
               </Card>
             );

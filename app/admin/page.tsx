@@ -86,7 +86,7 @@ const cards: AdminCard[] = [
     helper:
       "Použi pri úprave alebo kontrole importovaných údajov z EVÚC.",
     icon: Database,
-    enabled: false,
+    enabled: true,
   },
   {
     href: "/analytics",
