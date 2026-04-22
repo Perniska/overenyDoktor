@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Shield, UserCircle, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import LogoutButton from "@/components/auth/LogoutButton";
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 type UserInfo = {
   email?: string;
+  isStaff: boolean;
 } | null;
 
 type NavLink = {
@@ -20,32 +21,83 @@ type NavLink = {
 export default function Navbar() {
   const [user, setUser] = useState<UserInfo>(null);
   const pathname = usePathname();
+
   const mobileDetailsRef = useRef<HTMLDetailsElement | null>(null);
+  const accountDetailsRef = useRef<HTMLDetailsElement | null>(null);
+  const mobileAccountDetailsRef = useRef<HTMLDetailsElement | null>(null);
+
+  async function getUserWithRole() {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return null;
+    }
+
+    const { data: isStaff, error } = await supabase.rpc(
+      "current_user_has_role",
+      {
+        p_allowed_slugs: ["admin", "moderator"],
+      }
+    );
+
+    return {
+      email: user.email ?? undefined,
+      isStaff: !error && Boolean(isStaff),
+    };
+  }
 
   useEffect(() => {
-    const getCurrentUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+    let isMounted = true;
 
-      setUser(user ? { email: user.email ?? undefined } : null);
-    };
+    async function loadUser() {
+      const userWithRole = await getUserWithRole();
 
-    getCurrentUser();
+      if (isMounted) {
+        setUser(userWithRole);
+      }
+    }
+
+    loadUser();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ? { email: session.user.email ?? undefined } : null);
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (!session?.user) {
+        setUser(null);
+        return;
+      }
+
+      const { data: isStaff, error } = await supabase.rpc(
+        "current_user_has_role",
+        {
+          p_allowed_slugs: ["admin", "moderator"],
+        }
+      );
+
+      setUser({
+        email: session.user.email ?? undefined,
+        isStaff: !error && Boolean(isStaff),
+      });
     });
 
     return () => {
+      isMounted = false;
       subscription.unsubscribe();
     };
   }, []);
 
   useEffect(() => {
     closeMobileMenu();
+
+    if (accountDetailsRef.current) {
+      accountDetailsRef.current.open = false;
+    }
+
+    if (mobileAccountDetailsRef.current) {
+      mobileAccountDetailsRef.current.open = false;
+    }
   }, [pathname]);
 
   const publicLinks: NavLink[] = [
@@ -56,23 +108,20 @@ export default function Navbar() {
     { href: "/analytics", label: "Analytika" },
   ];
 
-  const privateLinks: NavLink[] = [
-    { href: "/reviews/mine", label: "Moje recenzie" },
-    { href: "/profile", label: "Profil" },
-  ];
-
-  const links = user ? [...publicLinks, ...privateLinks] : publicLinks;
-
   function closeMobileMenu() {
     if (mobileDetailsRef.current) {
       mobileDetailsRef.current.open = false;
     }
   }
 
+  function isActive(href: string) {
+    return pathname === href || (href !== "/" && pathname.startsWith(href));
+  }
+
   function getLinkClassName(href: string) {
     return cn(
       "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-      pathname === href
+      isActive(href)
         ? "bg-sky-100 text-sky-700"
         : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
     );
@@ -81,7 +130,7 @@ export default function Navbar() {
   function getMobileLinkClassName(href: string) {
     return cn(
       "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
-      pathname === href
+      isActive(href)
         ? "bg-sky-100 text-sky-700"
         : "text-slate-700 hover:bg-slate-100 hover:text-sky-600"
     );
@@ -95,21 +144,67 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className={getLinkClassName(link.href)}>
+          {publicLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={getLinkClassName(link.href)}
+            >
               {link.label}
             </Link>
           ))}
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
+          {user?.isStaff ? (
+            <Link
+              href="/admin"
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold shadow-sm transition",
+                isActive("/admin")
+                  ? "bg-slate-950 text-white"
+                  : "bg-slate-900 text-white hover:bg-slate-800"
+              )}
+            >
+              <Shield className="size-4" />
+              Správa
+            </Link>
+          ) : null}
+
           {user ? (
-            <>
-              <span className="max-w-55 truncate text-sm text-slate-600">
-                {user.email}
-              </span>
-              <LogoutButton />
-            </>
+            <details ref={accountDetailsRef} className="relative">
+              <summary className="flex cursor-pointer list-none items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+                <UserCircle className="size-4" />
+                Môj účet
+                <ChevronDown className="size-4" />
+              </summary>
+
+              <div className="absolute right-0 mt-3 w-72 rounded-2xl border bg-white p-3 shadow-xl">
+                <p className="truncate rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-600">
+                  {user.email}
+                </p>
+
+                <div className="mt-3 space-y-1">
+                  <Link
+                    href="/reviews/mine"
+                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    Moje recenzie
+                  </Link>
+
+                  <Link
+                    href="/profile"
+                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    Profil
+                  </Link>
+                </div>
+
+                <div className="mt-3 border-t pt-3">
+                  <LogoutButton />
+                </div>
+              </div>
+            </details>
           ) : (
             <>
               <Link
@@ -138,7 +233,7 @@ export default function Navbar() {
 
           <div className="absolute right-0 mt-3 w-[calc(100vw-2rem)] max-w-sm rounded-2xl border bg-white p-4 shadow-xl">
             <div className="space-y-1">
-              {links.map((link) => (
+              {publicLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -150,14 +245,49 @@ export default function Navbar() {
               ))}
             </div>
 
+            {user?.isStaff ? (
+              <Link
+                href="/admin"
+                onClick={closeMobileMenu}
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-slate-800"
+              >
+                <Shield className="size-4" />
+                Správa systému
+              </Link>
+            ) : null}
+
             <div className="mt-4 border-t pt-4">
               {user ? (
-                <div className="space-y-3">
-                  <p className="truncate rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
-                    {user.email}
-                  </p>
-                  <LogoutButton />
-                </div>
+                <details ref={mobileAccountDetailsRef}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between rounded-xl bg-slate-50 px-4 py-3 text-base font-semibold text-slate-800">
+                    <span className="truncate">Môj účet</span>
+                    <ChevronDown className="size-4" />
+                  </summary>
+
+                  <div className="mt-3 space-y-2">
+                    <p className="truncate rounded-xl border px-4 py-3 text-sm text-slate-600">
+                      {user.email}
+                    </p>
+
+                    <Link
+                      href="/reviews/mine"
+                      onClick={closeMobileMenu}
+                      className={getMobileLinkClassName("/reviews/mine")}
+                    >
+                      Moje recenzie
+                    </Link>
+
+                    <Link
+                      href="/profile"
+                      onClick={closeMobileMenu}
+                      className={getMobileLinkClassName("/profile")}
+                    >
+                      Profil
+                    </Link>
+
+                    <LogoutButton />
+                  </div>
+                </details>
               ) : (
                 <div className="space-y-2">
                   <Link
