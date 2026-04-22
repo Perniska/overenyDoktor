@@ -50,7 +50,7 @@ const cards: AdminCard[] = [
     helper:
       "Použi pri diskusných témach alebo komentároch, ktoré porušujú pravidlá platformy.",
     icon: MessageSquare,
-    enabled: false,
+    enabled: true,
   },
   {
     href: "/admin/users",

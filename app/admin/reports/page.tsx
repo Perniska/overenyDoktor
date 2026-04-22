@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { AlertTriangle, ExternalLink, Filter, Star } from "lucide-react";
+import {
+  AlertTriangle,
+  ExternalLink,
+  Filter,
+  MessageSquare,
+  Star,
+} from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireModeratorOrAdmin } from "@/lib/authz";
 import { getSingleRelation } from "@/lib/relations";
@@ -64,12 +70,15 @@ function getTargetTypeLabel(type: string) {
   return labels[type] ?? "Iný obsah";
 }
 
-function getTargetInfo(review: any) {
+function getReviewTargetInfo(review: any) {
   if (!review) {
     return {
-      title: "Cieľ sa nepodarilo načítať",
+      title: "Recenzia sa nepodarila načítať",
       href: "#",
-      description: "Obsah už môže byť odstránený alebo nedostupný.",
+      description: "Recenzia už môže byť odstránená alebo nedostupná.",
+      preview: null as string | null,
+      rating: null as number | null,
+      isHidden: false,
     };
   }
 
@@ -81,6 +90,9 @@ function getTargetInfo(review: any) {
       title: getDoctorName(doctor) || "Lekár",
       href: `/doctors/${doctor.id}`,
       description: "Nahlásená recenzia lekára",
+      preview: review.comment,
+      rating: review.rating,
+      isHidden: Boolean(review.deleted_at),
     };
   }
 
@@ -89,6 +101,9 @@ function getTargetInfo(review: any) {
       title: facility.name ?? "Zdravotnícke zariadenie",
       href: `/facilities/${facility.id}`,
       description: "Nahlásená recenzia zariadenia",
+      preview: review.comment,
+      rating: review.rating,
+      isHidden: Boolean(review.deleted_at),
     };
   }
 
@@ -96,6 +111,51 @@ function getTargetInfo(review: any) {
     title: "Recenzia bez cieľa",
     href: "#",
     description: "Recenzia nemá priradeného lekára ani zariadenie.",
+    preview: review.comment,
+    rating: review.rating,
+    isHidden: Boolean(review.deleted_at),
+  };
+}
+
+function getTopicTargetInfo(topic: any) {
+  if (!topic) {
+    return {
+      title: "Tému sa nepodarilo načítať",
+      href: "#",
+      description: "Téma už môže byť odstránená alebo nedostupná.",
+      preview: null as string | null,
+      isHidden: false,
+    };
+  }
+
+  return {
+    title: topic.title ?? "Téma vo fóre",
+    href: `/forum/${topic.id}`,
+    description: "Nahlásená téma vo fóre",
+    preview: topic.description,
+    isHidden: Boolean(topic.deleted_at),
+  };
+}
+
+function getCommentTargetInfo(comment: any) {
+  if (!comment) {
+    return {
+      title: "Komentár sa nepodarilo načítať",
+      href: "#",
+      description: "Komentár už môže byť odstránený alebo nedostupný.",
+      preview: null as string | null,
+      isHidden: false,
+    };
+  }
+
+  const topic = getSingleRelation(comment.topic);
+
+  return {
+    title: topic?.title ?? "Komentár vo fóre",
+    href: topic?.id ? `/forum/${topic.id}` : "#",
+    description: "Nahlásený komentár vo fóre",
+    preview: comment.content,
+    isHidden: Boolean(comment.deleted_at),
   };
 }
 
@@ -210,6 +270,14 @@ export default async function AdminReportsPage({
     .filter((report) => report.target_type === "review")
     .map((report) => report.id_target);
 
+  const topicIds = reports
+    .filter((report) => report.target_type === "forum_topic")
+    .map((report) => report.id_target);
+
+  const commentIds = reports
+    .filter((report) => report.target_type === "forum_comment")
+    .map((report) => report.id_target);
+
   const { data: reviewsData } =
     reviewIds.length > 0
       ? await supabase
@@ -238,8 +306,53 @@ export default async function AdminReportsPage({
           .in("id", reviewIds)
       : { data: [] };
 
+  const { data: topicsData } =
+    topicIds.length > 0
+      ? await supabase
+          .from("forum_topics")
+          .select(
+            `
+            id,
+            title,
+            description,
+            created_at,
+            deleted_at
+          `
+          )
+          .in("id", topicIds)
+      : { data: [] };
+
+  const { data: commentsData } =
+    commentIds.length > 0
+      ? await supabase
+          .from("forum_comments")
+          .select(
+            `
+            id,
+            content,
+            created_at,
+            deleted_at,
+            id_topic,
+            topic:forum_topics!forum_comments_id_topic_fkey (
+              id,
+              title,
+              deleted_at
+            )
+          `
+          )
+          .in("id", commentIds)
+      : { data: [] };
+
   const reviewsById = new Map(
     (reviewsData ?? []).map((review: any) => [review.id, review])
+  );
+
+  const topicsById = new Map(
+    (topicsData ?? []).map((topic: any) => [topic.id, topic])
+  );
+
+  const commentsById = new Map(
+    (commentsData ?? []).map((comment: any) => [comment.id, comment])
   );
 
   return (
@@ -256,7 +369,7 @@ export default async function AdminReportsPage({
         <p className="mt-2 max-w-3xl text-slate-600">
           Tu sa zobrazujú používateľské nahlásenia. Moderátor môže nahlásenie
           vyriešiť bez zásahu, označiť ho ako neopodstatnené alebo skryť
-          problematickú recenziu z verejného zobrazenia.
+          problematický obsah z verejného zobrazenia.
         </p>
       </section>
 
@@ -381,6 +494,20 @@ export default async function AdminReportsPage({
           </Link>
 
           <Link
+            href={createReportsHref({ status, target: "forum_topic", q })}
+            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+          >
+            Témy fóra
+          </Link>
+
+          <Link
+            href={createReportsHref({ status, target: "forum_comment", q })}
+            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+          >
+            Komentáre fóra
+          </Link>
+
+          <Link
             href="/admin/reports"
             className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
           >
@@ -404,18 +531,28 @@ export default async function AdminReportsPage({
       ) : (
         <section className="space-y-4">
           {reports.map((report) => {
-            const review = reviewsById.get(report.id_target);
-            const targetInfo =
-              report.target_type === "review"
-                ? getTargetInfo(review)
-                : {
-                    title: getTargetTypeLabel(report.target_type),
-                    href: "#",
-                    description:
-                      "Tento typ nahlásenia bude napojený v ďalšej fáze.",
-                  };
+            let targetInfo:
+              | ReturnType<typeof getReviewTargetInfo>
+              | ReturnType<typeof getTopicTargetInfo>
+              | ReturnType<typeof getCommentTargetInfo>;
 
-            const isHidden = Boolean(review?.deleted_at);
+            if (report.target_type === "review") {
+              targetInfo = getReviewTargetInfo(reviewsById.get(report.id_target));
+            } else if (report.target_type === "forum_topic") {
+              targetInfo = getTopicTargetInfo(topicsById.get(report.id_target));
+            } else if (report.target_type === "forum_comment") {
+              targetInfo = getCommentTargetInfo(
+                commentsById.get(report.id_target)
+              );
+            } else {
+              targetInfo = {
+                title: getTargetTypeLabel(report.target_type),
+                href: "#",
+                description: "Tento typ obsahu zatiaľ nie je podporovaný.",
+                preview: null,
+                isHidden: false,
+              };
+            }
 
             return (
               <Card
@@ -483,30 +620,35 @@ export default async function AdminReportsPage({
                       {targetInfo.description}
                     </p>
 
-                    {review ? (
-                      <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3">
+                    <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3">
+                      {"rating" in targetInfo && targetInfo.rating ? (
                         <p className="flex items-center gap-1.5 text-sm font-semibold">
                           <Star className="size-4" />
-                          {review.rating}/5
+                          {targetInfo.rating}/5
                         </p>
+                      ) : (
+                        <p className="flex items-center gap-1.5 text-sm font-semibold">
+                          <MessageSquare className="size-4" />
+                          Fórum
+                        </p>
+                      )}
 
-                        {review.comment ? (
-                          <p className="text-sm text-slate-700">
-                            {review.comment}
-                          </p>
-                        ) : (
-                          <p className="text-sm text-slate-500">
-                            Recenzia neobsahuje textový komentár.
-                          </p>
-                        )}
+                      {targetInfo.preview ? (
+                        <p className="whitespace-pre-wrap text-sm text-slate-700">
+                          {targetInfo.preview}
+                        </p>
+                      ) : (
+                        <p className="text-sm text-slate-500">
+                          Obsah nemá textový náhľad alebo už nie je dostupný.
+                        </p>
+                      )}
 
-                        {isHidden ? (
-                          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-                            Táto recenzia je skrytá z verejného zobrazenia.
-                          </p>
-                        ) : null}
-                      </div>
-                    ) : null}
+                      {targetInfo.isHidden ? (
+                        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+                          Tento obsah je skrytý z verejného zobrazenia.
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
 
                   {report.is_resolved ? (

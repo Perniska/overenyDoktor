@@ -4,14 +4,29 @@ import { useState } from "react";
 import { CheckCircle, CopyCheck, EyeOff, XCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
+
+type ReportTargetType = "review" | "forum_topic" | "forum_comment" | string;
 
 type AdminReportActionsProps = {
   reportId: string;
-  targetType: string;
+  targetType: ReportTargetType;
   targetId: string;
   isResolved: boolean;
 };
+
+function getTargetLabel(targetType: ReportTargetType) {
+  if (targetType === "review") return "recenziu";
+  if (targetType === "forum_topic") return "tému vo fóre";
+  if (targetType === "forum_comment") return "komentár vo fóre";
+  return "obsah";
+}
+
+function getTableName(targetType: ReportTargetType) {
+  if (targetType === "review") return "reviews";
+  if (targetType === "forum_topic") return "forum_topics";
+  if (targetType === "forum_comment") return "forum_comments";
+  return null;
+}
 
 export function AdminReportActions({
   reportId,
@@ -69,13 +84,17 @@ export function AdminReportActions({
   }
 
   async function hideReportedContent() {
-    if (targetType !== "review") {
-      setMessage("Zatiaľ je podporované skrývanie iba pri recenziách.");
+    const tableName = getTableName(targetType);
+
+    if (!tableName) {
+      setMessage("Tento typ obsahu zatiaľ nie je možné skryť.");
       return;
     }
 
     const confirmed = window.confirm(
-      "Naozaj chceš skryť túto recenziu z verejného zobrazenia? Recenzia sa nezmaže natvrdo, iba sa označí ako skrytá."
+      `Naozaj chceš skryť ${getTargetLabel(
+        targetType
+      )} z verejného zobrazenia? Obsah sa nezmaže natrvalo, iba sa označí ako skrytý.`
     );
 
     if (!confirmed) return;
@@ -93,17 +112,17 @@ export function AdminReportActions({
       return;
     }
 
-    const { error: reviewError } = await supabase
-      .from("reviews")
+    const { error: contentError } = await supabase
+      .from(tableName)
       .update({
         deleted_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       })
       .eq("id", targetId);
 
-    if (reviewError) {
+    if (contentError) {
       setSaving(false);
-      setMessage(`Recenziu sa nepodarilo skryť: ${reviewError.message}`);
+      setMessage(`Obsah sa nepodarilo skryť: ${contentError.message}`);
       return;
     }
 
@@ -114,8 +133,7 @@ export function AdminReportActions({
         resolved_at: new Date().toISOString(),
         resolved_by: user.id,
         resolution_action: "content_hidden",
-        resolution_note:
-          "Nahlásená recenzia bola skrytá z verejného zobrazenia.",
+        resolution_note: `Nahlásený obsah typu ${targetType} bol skrytý z verejného zobrazenia.`,
         updated_at: new Date().toISOString(),
       })
       .eq("id", reportId);
@@ -124,7 +142,7 @@ export function AdminReportActions({
 
     if (reportError) {
       setMessage(
-        `Recenzia bola skrytá, ale nahlásenie sa nepodarilo uzavrieť: ${reportError.message}`
+        `Obsah bol skrytý, ale nahlásenie sa nepodarilo uzavrieť: ${reportError.message}`
       );
       return;
     }
@@ -138,7 +156,7 @@ export function AdminReportActions({
         <p className="font-semibold">Nahlásenie je vyriešené.</p>
         <p className="mt-1">
           Ďalšia akcia nie je potrebná. Rozhodnutie je uložené v databáze a
-          auditované triggerom.
+          auditované systémovým triggerom.
         </p>
       </div>
     );
@@ -150,8 +168,8 @@ export function AdminReportActions({
         <p className="font-semibold text-slate-900">Moderátorské rozhodnutie</p>
         <p className="mt-1 text-sm text-slate-600">
           Vyber akciu podľa toho, či nahlásenie vyžaduje zásah do obsahu.
-          Skrytie recenzie používaj len vtedy, keď obsah porušuje pravidlá,
-          obsahuje osobné/citlivé údaje alebo je zjavne nevhodný.
+          Skrytie použi najmä pri osobných údajoch, citlivých zdravotných
+          údajoch, urážlivom obsahu, spame alebo obsahu mimo pravidiel.
         </p>
       </div>
 
@@ -167,8 +185,7 @@ export function AdminReportActions({
             Vyriešiť bez zásahu
           </span>
           <span className="mt-1 block text-sm text-slate-600">
-            Použi, keď je recenzia vecná, neobsahuje citlivé údaje a netreba ju
-            skrývať.
+            Použi, keď obsah neporušuje pravidlá a netreba ho skrývať.
           </span>
         </button>
 
@@ -180,11 +197,11 @@ export function AdminReportActions({
         >
           <span className="flex items-center gap-2 font-semibold text-red-800">
             <EyeOff className="size-4" />
-            Skryť recenziu
+            Skryť obsah
           </span>
           <span className="mt-1 block text-sm text-red-700">
-            Použi, keď recenzia obsahuje osobné údaje, zdravotné údaje,
-            urážlivý alebo zjavne problémový obsah.
+            Použi, keď obsah obsahuje citlivé údaje, urážky, spam alebo iný
+            problematický obsah.
           </span>
         </button>
 
@@ -199,8 +216,8 @@ export function AdminReportActions({
             Neopodstatnené
           </span>
           <span className="mt-1 block text-sm text-slate-600">
-            Použi, keď nahlásenie nesúvisí s porušením pravidiel alebo je
-            zjavne nesprávne.
+            Použi, keď nahlásenie nie je dôvodné alebo nesúvisí s porušením
+            pravidiel.
           </span>
         </button>
 
@@ -215,7 +232,7 @@ export function AdminReportActions({
             Duplicitné
           </span>
           <span className="mt-1 block text-sm text-slate-600">
-            Použi, keď rovnaký obsah už bol nahlásený a riešený v inom podnete.
+            Použi, keď rovnaký obsah už bol nahlásený a riešený.
           </span>
         </button>
       </div>
@@ -223,9 +240,8 @@ export function AdminReportActions({
       <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-600">
         <p className="font-medium text-slate-800">Poznámka ku GDPR</p>
         <p className="mt-1">
-          Pri obsahu, ktorý obsahuje osobné údaje pacienta, lekára alebo
-          zdravotné údaje, je bezpečnejšie recenziu skryť a ponechať
-          dohľadateľný auditný záznam.
+          Pri obsahu s osobnými alebo zdravotnými údajmi je bezpečnejšie obsah
+          skryť a ponechať len minimalizovaný auditný záznam.
         </p>
       </div>
 
