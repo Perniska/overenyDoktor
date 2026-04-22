@@ -59,7 +59,7 @@ const cards: AdminCard[] = [
     helper:
       "Použi len pri zmene oprávnení alebo riešení problémového účtu.",
     icon: UserCog,
-    enabled: false,
+    enabled: true,
   },
   {
     href: "/admin/gdpr",
@@ -77,7 +77,7 @@ const cards: AdminCard[] = [
     helper:
       "Použi pri spätnej kontrole zásahov do recenzií, nahlásení alebo používateľských údajov.",
     icon: Shield,
-    enabled: false,
+    enabled: true,
   },
   {
     href: "/admin/data",

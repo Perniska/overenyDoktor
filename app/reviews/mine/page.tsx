@@ -6,10 +6,21 @@ import {
   MyReviewCard,
   type MyReviewItem,
 } from "@/components/reviews/MyReviewCard";
+import { NumberedPagination } from "@/components/common/NumberedPagination";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
+
+type MyReviewsPageProps = {
+  searchParams: Promise<{
+    page?: string | string[];
+  }>;
+};
+
+function getSingleParam(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
 
 function getDoctorName(doctor: any) {
   return [doctor.title, doctor.first_name, doctor.last_name]
@@ -17,7 +28,29 @@ function getDoctorName(doctor: any) {
     .join(" ");
 }
 
-export default async function MyReviewsPage() {
+function createPageHref(page: number) {
+  const params = new URLSearchParams();
+
+  if (page > 1) {
+    params.set("page", String(page));
+  }
+
+  const query = params.toString();
+  return query ? `/reviews/mine?${query}` : "/reviews/mine";
+}
+
+export default async function MyReviewsPage({
+  searchParams,
+}: MyReviewsPageProps) {
+  const params = await searchParams;
+
+  const pageParam = Number(getSingleParam(params.page) ?? "1");
+  const page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
+
+  const pageSize = 10;
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
   const supabase = await createSupabaseServerClient();
 
   const {
@@ -28,7 +61,7 @@ export default async function MyReviewsPage() {
     redirect("/auth/login");
   }
 
-  const { data, error } = await supabase
+  const { data, error, count } = await supabase
     .from("reviews")
     .select(
       `
@@ -51,11 +84,16 @@ export default async function MyReviewsPage() {
         id,
         name
       )
-    `
+    `,
+      { count: "exact" }
     )
     .eq("id_user", user.id)
     .is("deleted_at", null)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .range(from, to);
+
+  const totalCount = count ?? 0;
+  const totalPages = Math.max(Math.ceil(totalCount / pageSize), 1);
 
   const reviews: MyReviewItem[] =
     data?.map((item: any) => {
@@ -104,7 +142,7 @@ export default async function MyReviewsPage() {
           </h1>
 
           <p className="mt-2 max-w-2xl text-slate-600">
-            Tu nájdeš všetky svoje zverejnené recenzie. Recenziu môžeš otvoriť,
+            Tu nájdeš svoje zverejnené recenzie. Recenziu môžeš otvoriť,
             upraviť alebo odstrániť z verejného profilu.
           </p>
         </div>
@@ -142,11 +180,23 @@ export default async function MyReviewsPage() {
           </CardContent>
         </Card>
       ) : (
-        <section className="space-y-4">
-          {reviews.map((review) => (
-            <MyReviewCard key={review.id} review={review} />
-          ))}
-        </section>
+        <>
+          <section className="space-y-4">
+            <p className="text-sm text-slate-600">
+              Zobrazuje sa {reviews.length} z {totalCount} recenzií.
+            </p>
+
+            {reviews.map((review) => (
+              <MyReviewCard key={review.id} review={review} />
+            ))}
+          </section>
+
+          <NumberedPagination
+            currentPage={page}
+            totalPages={totalPages}
+            createHref={createPageHref}
+          />
+        </>
       )}
     </main>
   );

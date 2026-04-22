@@ -17,6 +17,7 @@ import {
   getVisitTypeLabel,
 } from "@/lib/labels";
 import { AdminReviewActions } from "@/components/admin/AdminReviewActions";
+import { NumberedPagination } from "@/components/common/NumberedPagination";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
@@ -70,7 +71,7 @@ function getTargetInfo(review: any) {
   };
 }
 
-function createFilterHref(filters: {
+function createReviewsHref(filters: {
   visibility?: string;
   target?: string;
   q?: string;
@@ -127,48 +128,46 @@ export default async function AdminReviewsPage({
 
   const supabase = await createSupabaseServerClient();
 
-  let query = supabase
-    .from("reviews")
-    .select(
-      `
+  let query = supabase.from("reviews").select(
+    `
+    id,
+    id_user,
+    id_doctor,
+    id_facility,
+    rating,
+    comment,
+    status,
+    created_at,
+    updated_at,
+    deleted_at,
+    is_anonymous,
+    visit_type,
+    review_source,
+    rating_communication,
+    rating_explanation,
+    rating_waiting_time,
+    rating_organization,
+    rating_approach,
+    rating_professionalism,
+    rating_cleanliness,
+    rating_environment,
+    rating_equipment,
+    rating_accessibility,
+    rating_privacy,
+    rating_recommendation,
+    doctor:doctors!reviews_id_doctor_fkey (
       id,
-      id_user,
-      id_doctor,
-      id_facility,
-      rating,
-      comment,
-      status,
-      created_at,
-      updated_at,
-      deleted_at,
-      is_anonymous,
-      visit_type,
-      review_source,
-      rating_communication,
-      rating_explanation,
-      rating_waiting_time,
-      rating_organization,
-      rating_approach,
-      rating_professionalism,
-      rating_cleanliness,
-      rating_environment,
-      rating_equipment,
-      rating_accessibility,
-      rating_privacy,
-      rating_recommendation,
-      doctor:doctors!reviews_id_doctor_fkey (
-        id,
-        title,
-        first_name,
-        last_name
-      ),
-      facility:facilities!reviews_id_facility_fkey (
-        id,
-        name
-      )
-    `,
-      { count: "exact" }
-    );
+      title,
+      first_name,
+      last_name
+    ),
+    facility:facilities!reviews_id_facility_fkey (
+      id,
+      name
+    )
+  `,
+    { count: "exact" }
+  );
 
   if (visibility === "visible") {
     query = query.is("deleted_at", null);
@@ -214,8 +213,8 @@ export default async function AdminReviewsPage({
 
         <p className="mt-2 max-w-3xl text-slate-600">
           Táto stránka slúži na kontrolu recenzií naprieč celým systémom.
-          Moderátor môže vidieť aktívne aj skryté recenzie a podľa potreby ich
-          skryť alebo obnoviť.
+          Moderátor alebo administrátor môže vidieť aktívne aj skryté recenzie
+          a podľa potreby ich skryť alebo obnoviť.
         </p>
       </section>
 
@@ -256,6 +255,7 @@ export default async function AdminReviewsPage({
             <label className="mb-1 block text-sm font-medium text-slate-700">
               Viditeľnosť
             </label>
+
             <select
               name="visibility"
               defaultValue={visibility}
@@ -271,6 +271,7 @@ export default async function AdminReviewsPage({
             <label className="mb-1 block text-sm font-medium text-slate-700">
               Cieľ hodnotenia
             </label>
+
             <select
               name="target"
               defaultValue={target}
@@ -286,6 +287,7 @@ export default async function AdminReviewsPage({
             <label className="mb-1 block text-sm font-medium text-slate-700">
               Vyhľadávanie v texte recenzie
             </label>
+
             <input
               name="q"
               defaultValue={q}
@@ -313,28 +315,38 @@ export default async function AdminReviewsPage({
 
         <div className="mt-4 flex flex-wrap gap-2 text-sm">
           <Link
-            href={createFilterHref({ visibility: "visible", target, q })}
+            href={createReviewsHref({ visibility: "visible", target, q })}
             className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
           >
             Viditeľné
           </Link>
+
           <Link
-            href={createFilterHref({ visibility: "hidden", target, q })}
+            href={createReviewsHref({ visibility: "hidden", target, q })}
             className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
           >
             Skryté
           </Link>
+
           <Link
-            href={createFilterHref({ visibility, target: "doctor", q })}
+            href={createReviewsHref({ visibility, target: "doctor", q })}
             className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
           >
             Lekári
           </Link>
+
           <Link
-            href={createFilterHref({ visibility, target: "facility", q })}
+            href={createReviewsHref({ visibility, target: "facility", q })}
             className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
           >
             Zariadenia
+          </Link>
+
+          <Link
+            href="/admin/reviews"
+            className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+          >
+            Reset filtrov
           </Link>
         </div>
       </section>
@@ -439,7 +451,9 @@ export default async function AdminReviewsPage({
                     <div className="rounded-xl border bg-white p-3">
                       <p className="text-sm text-slate-500">Vytvorené</p>
                       <p className="mt-1 font-semibold">
-                        {new Date(review.created_at).toLocaleDateString("sk-SK")}
+                        {new Date(review.created_at).toLocaleDateString(
+                          "sk-SK"
+                        )}
                       </p>
                     </div>
                   </div>
@@ -465,43 +479,18 @@ export default async function AdminReviewsPage({
         </section>
       )}
 
-      {totalPages > 1 ? (
-        <nav className="flex flex-col items-center justify-between gap-3 rounded-2xl border bg-white p-4 sm:flex-row">
-          <p className="text-sm text-slate-600">
-            Strana {page} z {totalPages} · spolu {totalCount} recenzií
-          </p>
-
-          <div className="flex gap-2">
-            {page > 1 ? (
-              <Link
-                href={createFilterHref({
-                  visibility,
-                  target,
-                  q,
-                  page: page - 1,
-                })}
-                className="rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Predchádzajúca
-              </Link>
-            ) : null}
-
-            {page < totalPages ? (
-              <Link
-                href={createFilterHref({
-                  visibility,
-                  target,
-                  q,
-                  page: page + 1,
-                })}
-                className="rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Ďalšia
-              </Link>
-            ) : null}
-          </div>
-        </nav>
-      ) : null}
+      <NumberedPagination
+        currentPage={page}
+        totalPages={totalPages}
+        createHref={(pageNumber) =>
+          createReviewsHref({
+            visibility,
+            target,
+            q,
+            page: pageNumber,
+          })
+        }
+      />
     </main>
   );
 }
