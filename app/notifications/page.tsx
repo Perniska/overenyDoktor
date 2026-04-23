@@ -1,7 +1,14 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Bell, CalendarDays, CheckCircle2 } from "lucide-react";
+import {
+  Bell,
+  CalendarDays,
+  CheckCircle2,
+  ExternalLink,
+} from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { NotificationsActions } from "@/components/notifications/NotificationsActions";
+import { NotificationsRealtimeRefresh } from "@/components/notifications/NotificationRealtimeRefresh";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
@@ -28,15 +35,23 @@ function getNotificationTypeLabel(type: string) {
   return labels[type] ?? "Notifikácia";
 }
 
+function getNotificationTitle(type: string, content: any) {
+  if (content?.title) return content.title;
+  return getNotificationTypeLabel(type);
+}
+
 function getNotificationMessage(content: any) {
   if (!content) return "Bez detailu.";
   if (typeof content === "string") return content;
   if (content.message) return content.message;
-  if (content.title && content.description) {
-    return `${content.title} — ${content.description}`;
-  }
-  if (content.title) return content.title;
+  if (content.text) return content.text;
+  if (content.description) return content.description;
   return JSON.stringify(content);
+}
+
+function getNotificationHref(content: any) {
+  if (!content || typeof content !== "object") return null;
+  return content.href ?? null;
 }
 
 export default async function NotificationsPage({
@@ -60,16 +75,28 @@ export default async function NotificationsPage({
     .select("id, created_at, type, content, is_read, read_at")
     .eq("id_user", user.id);
 
-  if (filter === "unread") query = query.eq("is_read", false);
-  if (filter === "read") query = query.eq("is_read", true);
+  if (filter === "unread") {
+    query = query.eq("is_read", false);
+  }
+
+  if (filter === "read") {
+    query = query.eq("is_read", true);
+  }
 
   const { data, error } = await query.order("created_at", { ascending: false });
 
+  const { count: unreadCount } = await supabase
+    .from("notifications")
+    .select("id", { count: "exact", head: true })
+    .eq("id_user", user.id)
+    .eq("is_read", false);
+
   const notifications = data ?? [];
-  const unreadCount = notifications.filter((item) => !item.is_read).length;
 
   return (
     <main className="mx-auto max-w-4xl space-y-6 px-4 py-8">
+      <NotificationsRealtimeRefresh userId={user.id} />
+
       <section>
         <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
           Používateľské centrum
@@ -80,7 +107,8 @@ export default async function NotificationsPage({
         </h1>
 
         <p className="mt-2 text-slate-600">
-          Tu nájdeš systémové upozornenia, výsledky moderovania a dôležité udalosti.
+          Tu nájdeš systémové upozornenia, výsledky moderovania a dôležité
+          udalosti.
         </p>
       </section>
 
@@ -92,7 +120,9 @@ export default async function NotificationsPage({
 
           <div>
             <p className="text-sm text-slate-500">Neprečítané notifikácie</p>
-            <p className="text-2xl font-bold text-slate-950">{unreadCount}</p>
+            <p className="text-2xl font-bold text-slate-950">
+              {unreadCount ?? 0}
+            </p>
           </div>
         </div>
 
@@ -100,15 +130,26 @@ export default async function NotificationsPage({
       </section>
 
       <section className="flex flex-wrap gap-2 text-sm">
-        <a href="/notifications" className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200">
+        <Link
+          href="/notifications"
+          className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+        >
           Všetky
-        </a>
-        <a href="/notifications?filter=unread" className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200">
+        </Link>
+
+        <Link
+          href="/notifications?filter=unread"
+          className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+        >
           Len neprečítané
-        </a>
-        <a href="/notifications?filter=read" className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200">
+        </Link>
+
+        <Link
+          href="/notifications?filter=read"
+          className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+        >
           Len prečítané
-        </a>
+        </Link>
       </section>
 
       {error ? (
@@ -125,57 +166,80 @@ export default async function NotificationsPage({
         </Card>
       ) : (
         <section className="space-y-4">
-          {notifications.map((notification) => (
-            <Card
-              key={notification.id}
-              className={!notification.is_read ? "border-sky-200 bg-sky-50/30" : ""}
-            >
-              <CardHeader>
-                <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
-                  <div>
-                    <CardTitle className="flex items-center gap-2 text-xl">
-                      <Bell className="size-5" />
-                      {getNotificationTypeLabel(notification.type)}
-                    </CardTitle>
+          {notifications.map((notification) => {
+            const href = getNotificationHref(notification.content);
 
-                    <p className="mt-2 flex items-center gap-1.5 text-sm text-slate-500">
-                      <CalendarDays className="size-4" />
-                      {new Date(notification.created_at).toLocaleString("sk-SK")}
-                    </p>
+            return (
+              <Card
+                key={notification.id}
+                className={
+                  !notification.is_read ? "border-sky-200 bg-sky-50/30" : ""
+                }
+              >
+                <CardHeader>
+                  <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
+                    <div>
+                      <CardTitle className="flex items-center gap-2 text-xl">
+                        <Bell className="size-5" />
+                        {getNotificationTitle(
+                          notification.type,
+                          notification.content
+                        )}
+                      </CardTitle>
+
+                      <p className="mt-2 flex items-center gap-1.5 text-sm text-slate-500">
+                        <CalendarDays className="size-4" />
+                        {new Date(notification.created_at).toLocaleString(
+                          "sk-SK"
+                        )}
+                      </p>
+                    </div>
+
+                    <span
+                      className={
+                        notification.is_read
+                          ? "inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700"
+                          : "inline-flex items-center gap-1 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
+                      }
+                    >
+                      {notification.is_read ? (
+                        <>
+                          <CheckCircle2 className="size-4" />
+                          Prečítaná
+                        </>
+                      ) : (
+                        "Neprečítaná"
+                      )}
+                    </span>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="space-y-4">
+                  <div className="rounded-xl bg-white p-4 text-sm text-slate-700">
+                    {getNotificationMessage(notification.content)}
                   </div>
 
-                  <span
-                    className={
-                      notification.is_read
-                        ? "inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700"
-                        : "inline-flex items-center gap-1 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
-                    }
-                  >
-                    {notification.is_read ? (
-                      <>
-                        <CheckCircle2 className="size-4" />
-                        Prečítaná
-                      </>
-                    ) : (
-                      "Neprečítaná"
-                    )}
-                  </span>
-                </div>
-              </CardHeader>
+                  <div className="flex flex-wrap gap-2">
+                    {href ? (
+                      <Link
+                        href={href}
+                        className="inline-flex min-h-10 items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                      >
+                        <ExternalLink className="size-4" />
+                        Otvoriť
+                      </Link>
+                    ) : null}
 
-              <CardContent className="space-y-4">
-                <div className="rounded-xl bg-white p-4 text-sm text-slate-700">
-                  {getNotificationMessage(notification.content)}
-                </div>
-
-                <NotificationsActions
-                  variant="single"
-                  notificationId={notification.id}
-                  isRead={notification.is_read}
-                />
-              </CardContent>
-            </Card>
-          ))}
+                    <NotificationsActions
+                      variant="single"
+                      notificationId={notification.id}
+                      isRead={notification.is_read}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </section>
       )}
     </main>

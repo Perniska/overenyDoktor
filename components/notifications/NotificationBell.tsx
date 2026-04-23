@@ -9,14 +9,20 @@ import { cn } from "@/lib/utils";
 export function NotificationBell() {
   const [unreadCount, setUnreadCount] = useState(0);
   const [hasSession, setHasSession] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
-  async function loadUnreadCount() {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
+  async function loadUnreadCount(userId?: string | null) {
+    let currentUserId = userId ?? null;
 
-    if (!session?.user) {
+    if (!currentUserId) {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      currentUserId = session?.user?.id ?? null;
+    }
+
+    if (!currentUserId) {
       setHasSession(false);
       setUnreadCount(0);
       return;
@@ -27,7 +33,7 @@ export function NotificationBell() {
     const { count, error } = await supabase
       .from("notifications")
       .select("id", { count: "exact", head: true })
-      .eq("id_user", session.user.id)
+      .eq("id_user", currentUserId)
       .eq("is_read", false);
 
     if (!error) {
@@ -35,29 +41,73 @@ export function NotificationBell() {
     }
   }
 
+  async function subscribeToNotifications() {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    const userId = session?.user?.id ?? null;
+
+    if (!userId) {
+      setHasSession(false);
+      setUnreadCount(0);
+      return;
+    }
+
+    setHasSession(true);
+    await loadUnreadCount(userId);
+
+    if (channelRef.current) {
+      await supabase.removeChannel(channelRef.current);
+      channelRef.current = null;
+    }
+
+    const channel = supabase
+      .channel(`notifications-${userId}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "notifications",
+          filter: `id_user=eq.${userId}`,
+        },
+        async () => {
+          await loadUnreadCount(userId);
+        }
+      )
+      .subscribe();
+
+    channelRef.current = channel;
+  }
+
   useEffect(() => {
-    loadUnreadCount();
+    subscribeToNotifications();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(() => {
-      loadUnreadCount();
-    });
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      await subscribeToNotifications();
 
-    intervalRef.current = setInterval(() => {
-      loadUnreadCount();
-    }, 30000);
+      if (!session?.user) {
+        setHasSession(false);
+        setUnreadCount(0);
+      }
+    });
 
     return () => {
       subscription.unsubscribe();
 
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      if (channelRef.current) {
+        supabase.removeChannel(channelRef.current);
+        channelRef.current = null;
       }
     };
   }, []);
 
-  if (!hasSession) return null;
+  if (!hasSession) {
+    return null;
+  }
 
   return (
     <Link
