@@ -6,8 +6,9 @@ import { ChevronDown, Menu, Shield, UserCircle, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import LogoutButton from "@/components/auth/LogoutButton";
-import { cn } from "@/lib/utils";
 import { NotificationBell } from "@/components/notifications/NotificationBell";
+import { getSafeSession } from "@/lib/supabase/getSafeSession";
+import { cn } from "@/lib/utils";
 
 type UserInfo = {
   email?: string;
@@ -22,6 +23,7 @@ type NavLink = {
 export default function Navbar() {
   const [user, setUser] = useState<UserInfo>(null);
   const pathname = usePathname();
+  const isAuthRoute = pathname.startsWith("/auth");
 
   const mobileDetailsRef = useRef<HTMLDetailsElement | null>(null);
   const accountDetailsRef = useRef<HTMLDetailsElement | null>(null);
@@ -88,6 +90,10 @@ export default function Navbar() {
       isStaff: false,
     });
 
+    if (isAuthRoute) {
+      return;
+    }
+
     roleTimerRef.current = setTimeout(async () => {
       try {
         const { data: isStaff, error } = await supabase.rpc(
@@ -127,9 +133,9 @@ export default function Navbar() {
       handleSessionChange(session);
     });
 
-    supabase.auth.getSession().then(({ data }) => {
+    getSafeSession().then(({ session }) => {
       if (isMountedRef.current) {
-        handleSessionChange(data.session);
+        handleSessionChange(session);
       }
     });
 
@@ -143,7 +149,7 @@ export default function Navbar() {
 
       subscription.unsubscribe();
     };
-  }, []);
+  }, [isAuthRoute]);
 
   useEffect(() => {
     closeMobileMenu();
@@ -191,7 +197,7 @@ export default function Navbar() {
               Správa
             </Link>
           ) : null}
-          
+
           {user ? <NotificationBell /> : null}
 
           {user ? (
@@ -220,6 +226,13 @@ export default function Navbar() {
                     className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
                   >
                     Profil
+                  </Link>
+
+                  <Link
+                    href="/notifications"
+                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    Notifikácie
                   </Link>
 
                   <Link
@@ -314,6 +327,7 @@ export default function Navbar() {
                     >
                       Profil
                     </Link>
+
                     <Link
                       href="/notifications"
                       onClick={closeMobileMenu}
@@ -321,6 +335,7 @@ export default function Navbar() {
                     >
                       Notifikácie
                     </Link>
+
                     <Link
                       href="/gdpr"
                       onClick={closeMobileMenu}

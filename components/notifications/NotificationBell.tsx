@@ -3,22 +3,22 @@
 import Link from "next/link";
 import { Bell } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
+import { getSafeSession } from "@/lib/supabase/getSafeSession";
 
 export function NotificationBell() {
   const [unreadCount, setUnreadCount] = useState(0);
   const [hasSession, setHasSession] = useState(false);
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
+  const pathname = usePathname();
 
   async function loadUnreadCount(userId?: string | null) {
     let currentUserId = userId ?? null;
 
     if (!currentUserId) {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
+      const { session } = await getSafeSession();
       currentUserId = session?.user?.id ?? null;
     }
 
@@ -42,10 +42,7 @@ export function NotificationBell() {
   }
 
   async function subscribeToNotifications() {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-
+    const { session } = await getSafeSession();
     const userId = session?.user?.id ?? null;
 
     if (!userId) {
@@ -82,17 +79,28 @@ export function NotificationBell() {
   }
 
   useEffect(() => {
+    if (
+      pathname.startsWith("/auth") ||
+      pathname.startsWith("/notifications") ||
+      pathname.startsWith("/gdpr")
+    ) {
+      setHasSession(false);
+      setUnreadCount(0);
+
+      if (channelRef.current) {
+        supabase.removeChannel(channelRef.current);
+        channelRef.current = null;
+      }
+
+      return;
+    }
+
     subscribeToNotifications();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange(async () => {
       await subscribeToNotifications();
-
-      if (!session?.user) {
-        setHasSession(false);
-        setUnreadCount(0);
-      }
     });
 
     return () => {
@@ -103,7 +111,15 @@ export function NotificationBell() {
         channelRef.current = null;
       }
     };
-  }, []);
+  }, [pathname]);
+
+  if (
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/notifications") ||
+    pathname.startsWith("/gdpr")
+  ) {
+    return null;
+  }
 
   if (!hasSession) {
     return null;

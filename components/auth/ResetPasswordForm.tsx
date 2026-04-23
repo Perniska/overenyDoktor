@@ -1,33 +1,56 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
+import { Eye, EyeOff, LockKeyhole } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
-import {
-  isPasswordValid,
-  PasswordRequirements,
-} from "@/components/auth/PasswordRequirements";
+
+function getPasswordChecks(password: string) {
+  return {
+    minLength: password.length >= 8,
+    hasLower: /[a-z]/.test(password),
+    hasUpper: /[A-Z]/.test(password),
+    hasNumber: /\d/.test(password),
+  };
+}
+
+function isPasswordValid(password: string) {
+  const checks = getPasswordChecks(password);
+  return Object.values(checks).every(Boolean);
+}
 
 export default function ResetPasswordForm() {
+  const router = useRouter();
+
   const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "info">(
     "info"
   );
-  const [saving, setSaving] = useState(false);
 
-  async function handleResetPassword() {
+  const checks = useMemo(() => getPasswordChecks(password), [password]);
+
+  async function handleResetPassword(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (saving) return;
+
     setMessage("");
     setMessageType("info");
 
     if (!isPasswordValid(password)) {
       setMessageType("error");
-      setMessage("Heslo nespĺňa všetky požadované pravidlá.");
+      setMessage(
+        "Heslo musí mať aspoň 8 znakov a obsahovať malé písmeno, veľké písmeno a číslo."
+      );
       return;
     }
 
-    if (password !== passwordAgain) {
+    if (password !== passwordConfirm) {
       setMessageType("error");
       setMessage("Heslá sa nezhodujú.");
       return;
@@ -35,22 +58,35 @@ export default function ResetPasswordForm() {
 
     setSaving(true);
 
-    const { error } = await supabase.auth.updateUser({
-      password,
-    });
+    try {
+      // počas recovery flow necháme auth session “ustáliť”
+      await new Promise((resolve) => setTimeout(resolve, 250));
 
-    setSaving(false);
+      const { error } = await supabase.auth.updateUser({
+        password,
+      });
 
-    if (error) {
+      if (error) {
+        throw error;
+      }
+
+      setMessageType("success");
+      setMessage("Heslo bolo úspešne zmenené. Teraz sa môžeš prihlásiť.");
+
+      setTimeout(() => {
+        router.replace("/auth/login");
+      }, 1200);
+    } catch (error: any) {
+      const text =
+        typeof error?.message === "string"
+          ? error.message
+          : "Heslo sa nepodarilo zmeniť.";
+
       setMessageType("error");
-      setMessage(`Heslo sa nepodarilo zmeniť: ${error.message}`);
-      return;
+      setMessage(text);
+    } finally {
+      setSaving(false);
     }
-
-    setPassword("");
-    setPasswordAgain("");
-    setMessageType("success");
-    setMessage("Heslo bolo úspešne zmenené. Teraz sa môžeš prihlásiť.");
   }
 
   const messageClassName =
@@ -61,84 +97,100 @@ export default function ResetPasswordForm() {
         : "border-slate-200 bg-slate-50 text-slate-700";
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-5 rounded-2xl border bg-white p-5 shadow-sm sm:p-6">
-      <div className="space-y-1">
-        <h1 className="text-xl font-semibold text-slate-950">
-          Nastavenie nového hesla
-        </h1>
-        <p className="text-sm text-slate-600">
-          Zadaj nové heslo pre svoj účet. Požiadavky na heslo sú zobrazené
-          nižšie.
-        </p>
-      </div>
-
-      <div className="space-y-2">
-        <label
-          htmlFor="new-password"
-          className="block text-sm font-medium text-slate-800"
-        >
+    <form onSubmit={handleResetPassword} className="space-y-5">
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
           Nové heslo
         </label>
 
-        <input
-          id="new-password"
-          type="password"
-          autoComplete="new-password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          placeholder="zadaj nové heslo"
-          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="new-password"
+            className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 pr-11 text-sm"
+            placeholder="Zadaj nové heslo"
+          />
 
-        <PasswordRequirements password={password} />
+          <button
+            type="button"
+            onClick={() => setShowPassword((value) => !value)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+            aria-label={showPassword ? "Skryť heslo" : "Zobraziť heslo"}
+          >
+            {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+          </button>
+        </div>
       </div>
 
-      <div className="space-y-2">
-        <label
-          htmlFor="new-password-again"
-          className="block text-sm font-medium text-slate-800"
-        >
-          Zopakuj nové heslo
+      <div>
+        <label className="mb-1 block text-sm font-medium text-slate-700">
+          Potvrdenie hesla
         </label>
 
-        <input
-          id="new-password-again"
-          type="password"
-          autoComplete="new-password"
-          value={passwordAgain}
-          onChange={(event) => setPasswordAgain(event.target.value)}
-          placeholder="zopakuj nové heslo"
-          className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 text-base outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
-        />
+        <div className="relative">
+          <input
+            type={showPasswordConfirm ? "text" : "password"}
+            value={passwordConfirm}
+            onChange={(event) => setPasswordConfirm(event.target.value)}
+            autoComplete="new-password"
+            className="min-h-11 w-full rounded-xl border border-slate-300 px-3 py-2 pr-11 text-sm"
+            placeholder="Zopakuj nové heslo"
+          />
 
-        {passwordAgain.length > 0 && password !== passwordAgain ? (
-          <p className="text-sm text-red-600">Heslá sa nezhodujú.</p>
-        ) : null}
+          <button
+            type="button"
+            onClick={() => setShowPasswordConfirm((value) => !value)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+            aria-label={
+              showPasswordConfirm ? "Skryť potvrdenie hesla" : "Zobraziť potvrdenie hesla"
+            }
+          >
+            {showPasswordConfirm ? (
+              <EyeOff className="size-4" />
+            ) : (
+              <Eye className="size-4" />
+            )}
+          </button>
+        </div>
       </div>
 
+      <div className="rounded-xl border bg-slate-50 p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-medium text-slate-800">
+          <LockKeyhole className="size-4" />
+          Požiadavky na heslo
+        </p>
+
+        <ul className="space-y-1 text-slate-600">
+          <li className={checks.minLength ? "text-emerald-700" : ""}>
+            Aspoň 8 znakov
+          </li>
+          <li className={checks.hasLower ? "text-emerald-700" : ""}>
+            Aspoň 1 malé písmeno
+          </li>
+          <li className={checks.hasUpper ? "text-emerald-700" : ""}>
+            Aspoň 1 veľké písmeno
+          </li>
+          <li className={checks.hasNumber ? "text-emerald-700" : ""}>
+            Aspoň 1 číslo
+          </li>
+        </ul>
+      </div>
+
+      {message ? (
+        <p className={`rounded-xl border px-3 py-3 text-sm ${messageClassName}`}>
+          {message}
+        </p>
+      ) : null}
+
       <button
-        type="button"
-        onClick={handleResetPassword}
+        type="submit"
         disabled={saving}
-        className="min-h-12 w-full rounded-xl bg-sky-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
       >
         {saving ? "Ukladá sa..." : "Zmeniť heslo"}
       </button>
-
-      {message ? (
-        <div className={`rounded-xl border px-3 py-3 text-sm ${messageClassName}`}>
-          <p>{message}</p>
-
-          {messageType === "success" ? (
-            <Link
-              href="/auth/login"
-              className="mt-3 inline-block font-medium text-sky-700 hover:underline"
-            >
-              Prejsť na prihlásenie
-            </Link>
-          ) : null}
-        </div>
-      ) : null}
-    </div>
+    </form>
   );
 }
