@@ -126,6 +126,12 @@ export default function Navbar() {
       handleSessionChange(session);
     });
 
+    supabase.auth.getSession().then(({ data }) => {
+      if (isMountedRef.current) {
+        handleSessionChange(data.session);
+      }
+    });
+
     return () => {
       isMountedRef.current = false;
 

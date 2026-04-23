@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50 text-slate-900">
         <Navbar />
         <main className="mx-auto w-full max-w-7xl px-4 py-8">{children}</main>
+        <Footer />
       </body>
     </html>
   );
