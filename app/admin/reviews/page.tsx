@@ -101,6 +101,18 @@ function getAuthorName(review: any) {
   return author?.username ?? "Neznámy používateľ";
 }
 
+function getSentimentLabelSk(label?: string | null) {
+  if (label === "positive") return "Pozitívny";
+  if (label === "negative") return "Negatívny";
+  if (label === "neutral") return "Neutrálny";
+  return label ?? "Neuvedené";
+}
+
+function formatSentimentScore(value?: number | null) {
+  if (value == null) return "—";
+  return Number(value).toFixed(2).replace(".", ",");
+}
+
 export default async function AdminReviewsPage({
   searchParams,
 }: AdminReviewsPageProps) {
@@ -247,7 +259,7 @@ export default async function AdminReviewsPage({
                 <ShieldAlert className="size-5" />
               </div>
               <div>
-                <p className="text-sm text-slate-500">Na tejto strane: pending/rizikové</p>
+                <p className="text-sm text-slate-500">Na tejto strane: pending / rizikové</p>
                 <p className="text-2xl font-bold text-slate-950">
                   {pendingCount} / {flaggedCount}
                 </p>
@@ -421,7 +433,8 @@ export default async function AdminReviewsPage({
                         {getTargetName(review)}
                       </p>
                       <p className="mt-1 text-sm text-slate-500">
-                        Autor: {getAuthorName(review)} · Vytvorené: {formatDate(review.created_at)}
+                        Autor: {getAuthorName(review)} · Vytvorené:{" "}
+                        {formatDate(review.created_at)}
                       </p>
                     </div>
 
@@ -429,9 +442,9 @@ export default async function AdminReviewsPage({
                       <Star className="size-4 fill-current text-yellow-500" />
                       {review.rating}/5
                       <span className="text-slate-400">·</span>
-                      Sentiment: {review.sentiment_label ?? "—"}
+                      Sentiment: {getSentimentLabelSk(review.sentiment_label)}
                       <span className="text-slate-400">·</span>
-                      Skóre: {review.sentiment_score ?? "—"}
+                      Skóre: {formatSentimentScore(review.sentiment_score)}
                     </div>
 
                     <p className="line-clamp-3 max-w-3xl text-sm leading-6 text-slate-700">

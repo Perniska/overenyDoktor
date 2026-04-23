@@ -309,7 +309,11 @@ export default async function AdminReviewDetailPage({
               </p>
             </div>
 
-            <AdminReviewActions reviewId={review.id} isHidden={isHidden} />
+            <AdminReviewActions
+            reviewId={review.id}
+            isHidden={isHidden}
+            status={review.status}
+            />
           </CardContent>
         </Card>
       </section>
