@@ -11,6 +11,7 @@ import { getSafeSession } from "@/lib/supabase/getSafeSession";
 import { cn } from "@/lib/utils";
 
 type UserInfo = {
+  id: string;
   email?: string;
   isStaff: boolean;
 } | null;
@@ -20,7 +21,7 @@ type NavLink = {
   label: string;
 };
 
-function NotificationMenuBadge() {
+function NotificationMenuBadge({ userId }: { userId: string }) {
   const [count, setCount] = useState(0);
   const pathname = usePathname();
 
@@ -30,28 +31,26 @@ function NotificationMenuBadge() {
       return;
     }
 
+    let cancelled = false;
+
     async function loadCount() {
-      const { session } = await getSafeSession();
-      const userId = session?.user?.id ?? null;
-
-      if (!userId) {
-        setCount(0);
-        return;
-      }
-
       const { count, error } = await supabase
         .from("notifications")
         .select("id", { count: "exact", head: true })
         .eq("id_user", userId)
         .eq("is_read", false);
 
-      if (!error) {
+      if (!cancelled && !error) {
         setCount(count ?? 0);
       }
     }
 
     loadCount();
-  }, [pathname]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname, userId]);
 
   if (count <= 0) return null;
 
@@ -126,8 +125,10 @@ export default function Navbar() {
     }
 
     const email = session.user.email ?? undefined;
+    const id = session.user.id;
 
     setUser({
+      id,
       email,
       isStaff: false,
     });
@@ -150,6 +151,7 @@ export default function Navbar() {
         }
 
         setUser({
+          id,
           email,
           isStaff: !error && Boolean(isStaff),
         });
@@ -159,6 +161,7 @@ export default function Navbar() {
         }
 
         setUser({
+          id,
           email,
           isStaff: false,
         });
@@ -240,7 +243,7 @@ export default function Navbar() {
             </Link>
           ) : null}
 
-          {user ? <NotificationBell /> : null}
+          {user ? <NotificationBell userId={user.id} /> : null}
 
           {user ? (
             <details ref={accountDetailsRef} className="relative">
@@ -275,7 +278,7 @@ export default function Navbar() {
                     className="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
                   >
                     <span>Notifikácie</span>
-                    <NotificationMenuBadge />
+                    <NotificationMenuBadge userId={user.id} />
                   </Link>
 
                   <Link
@@ -380,7 +383,7 @@ export default function Navbar() {
                       )}
                     >
                       <span>Notifikácie</span>
-                      <NotificationMenuBadge />
+                      <NotificationMenuBadge userId={user.id} />
                     </Link>
 
                     <Link

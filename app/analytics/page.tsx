@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CATEGORY_LABELS } from "@/lib/reviews/aspectLexicon";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,23 @@ type SpecializationRatingsRow = {
   average_rating: number | null;
 };
 
+type SentimentDistributionRow = {
+  sentiment_label: string;
+  review_count: number;
+  percentage: number;
+};
+
+type SentimentByMonthRow = {
+  month_key: string;
+  average_sentiment: number | null;
+  review_count: number;
+};
+
+type DetectedCategoryRow = {
+  category_key: string;
+  usage_count: number;
+};
+
 function formatNumber(value: number | null | undefined) {
   return new Intl.NumberFormat("sk-SK").format(value ?? 0);
 }
@@ -69,6 +87,13 @@ function monthKeyToLabel(monthKey: string) {
     month: "long",
     year: "numeric",
   });
+}
+
+function getSentimentLabelSk(label?: string | null) {
+  if (label === "positive") return "Pozitívny";
+  if (label === "negative") return "Negatívny";
+  if (label === "neutral") return "Neutrálny";
+  return label ?? "Neuvedené";
 }
 
 export default async function AnalyticsPage() {
@@ -97,6 +122,9 @@ export default async function AnalyticsPage() {
     facilitiesByRegionResult,
     doctorsBySpecializationResult,
     specializationRatingsResult,
+    sentimentDistributionResult,
+    sentimentByMonthResult,
+    detectedCategoriesResult,
     unreadNotificationsCountResult,
   ] = await Promise.all([
     supabase.rpc("analytics_overview"),
@@ -105,6 +133,9 @@ export default async function AnalyticsPage() {
     supabase.rpc("analytics_facilities_by_region", { p_limit: 8 }),
     supabase.rpc("analytics_doctors_by_specialization", { p_limit: 8 }),
     supabase.rpc("analytics_specialization_ratings", { p_limit: 8 }),
+    supabase.rpc("analytics_sentiment_distribution"),
+    supabase.rpc("analytics_sentiment_by_month", { p_limit: 6 }),
+    supabase.rpc("analytics_detected_categories", { p_limit: 8 }),
     supabase
       .from("notifications")
       .select("id", { count: "exact", head: true })
@@ -113,17 +144,31 @@ export default async function AnalyticsPage() {
   ]);
 
   const overview = (overviewResult.data ?? null) as AnalyticsOverview | null;
+
   const ratingDistribution =
     (ratingDistributionResult.data as RatingDistributionRow[] | null) ?? [];
+
   const reviewsByMonth =
     (reviewsByMonthResult.data as ReviewsByMonthRow[] | null) ?? [];
+
   const facilitiesByRegion =
     (facilitiesByRegionResult.data as FacilitiesByRegionRow[] | null) ?? [];
+
   const doctorsBySpecialization =
     (doctorsBySpecializationResult.data as DoctorsBySpecializationRow[] | null) ??
     [];
+
   const specializationRatings =
     (specializationRatingsResult.data as SpecializationRatingsRow[] | null) ?? [];
+
+  const sentimentDistribution =
+    (sentimentDistributionResult.data as SentimentDistributionRow[] | null) ?? [];
+
+  const sentimentByMonth =
+    (sentimentByMonthResult.data as SentimentByMonthRow[] | null) ?? [];
+
+  const detectedCategories =
+    (detectedCategoriesResult.data as DetectedCategoryRow[] | null) ?? [];
 
   const unreadNotificationsCount = unreadNotificationsCountResult.count ?? 0;
 
@@ -133,7 +178,10 @@ export default async function AnalyticsPage() {
     reviewsByMonthResult.error ||
     facilitiesByRegionResult.error ||
     doctorsBySpecializationResult.error ||
-    specializationRatingsResult.error;
+    specializationRatingsResult.error ||
+    sentimentDistributionResult.error ||
+    sentimentByMonthResult.error ||
+    detectedCategoriesResult.error;
 
   const maxMonthlyCount = Math.max(
     ...reviewsByMonth.map((item) => Number(item.review_count ?? 0)),
@@ -153,8 +201,9 @@ export default async function AnalyticsPage() {
 
         <p className="mt-2 max-w-3xl text-slate-600">
           Prehľad základných štatistických ukazovateľov systému, recenzií,
-          fóra, nahlásení a referenčných údajov. Táto stránka tvorí základ pre
-          ďalšie rozšírenie o sentiment a automatickú kategorizáciu spätnej väzby.
+          fóra, nahlásení a referenčných údajov. Stránka je rozšírená aj o
+          výsledky textovej analytiky, sentimentu a automatickej kategorizácie
+          spätnej väzby.
         </p>
       </section>
 
@@ -258,7 +307,8 @@ export default async function AnalyticsPage() {
                 <div key={row.rating} className="space-y-1">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-slate-700">
-                      {row.rating} {row.rating === 1 ? "hviezdička" : "hviezdičky"}
+                      {row.rating}{" "}
+                      {row.rating === 1 ? "hviezdička" : "hviezdičky"}
                     </span>
                     <span className="font-semibold text-slate-900">
                       {formatNumber(row.review_count)} (
@@ -310,9 +360,9 @@ export default async function AnalyticsPage() {
                 Interpretácia
               </p>
               <p className="mt-2 text-sm leading-6 text-slate-700">
-                Táto sekcia ukazuje základnú mieru aktivity používateľov v komunitnej
-                časti systému. V ďalšom kroku je možné ju rozšíriť o analýzu rastu
-                tém, odpovedí a používateľských interakcií v čase.
+                Táto sekcia ukazuje základnú mieru aktivity používateľov v
+                komunitnej časti systému. V ďalšom kroku je možné ju rozšíriť o
+                analýzu rastu tém, odpovedí a používateľských interakcií v čase.
               </p>
             </div>
           </CardContent>
@@ -431,34 +481,186 @@ export default async function AnalyticsPage() {
               </p>
             ) : (
               <div className="space-y-3">
-                {[...reviewsByMonth]
-                  .reverse()
-                  .map((row) => {
-                    const percentage =
-                      (Number(row.review_count) / maxMonthlyCount) * 100;
+                {[...reviewsByMonth].reverse().map((row) => {
+                  const percentage =
+                    (Number(row.review_count) / maxMonthlyCount) * 100;
 
-                    return (
-                      <div key={row.month_key} className="space-y-1">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-slate-700">
-                            {monthKeyToLabel(row.month_key)}
-                          </span>
-                          <span className="font-semibold text-slate-900">
-                            {formatNumber(row.review_count)}
-                          </span>
-                        </div>
-
-                        <div className="h-2 rounded-full bg-slate-100">
-                          <div
-                            className="h-2 rounded-full bg-emerald-600"
-                            style={{ width: `${percentage}%` }}
-                          />
-                        </div>
+                  return (
+                    <div key={row.month_key} className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-700">
+                          {monthKeyToLabel(row.month_key)}
+                        </span>
+                        <span className="font-semibold text-slate-900">
+                          {formatNumber(row.review_count)}
+                        </span>
                       </div>
-                    );
-                  })}
+
+                      <div className="h-2 rounded-full bg-slate-100">
+                        <div
+                          className="h-2 rounded-full bg-emerald-600"
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             )}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Rozdelenie recenzií podľa sentimentu</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {sentimentDistribution.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné dáta o sentimente recenzií.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {sentimentDistribution.map((row) => (
+                  <div key={row.sentiment_label} className="space-y-1">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-slate-700">
+                        {getSentimentLabelSk(row.sentiment_label)}
+                      </span>
+
+                      <span className="font-semibold text-slate-900">
+                        {formatNumber(row.review_count)} (
+                        {Number(row.percentage).toFixed(1).replace(".", ",")} %)
+                      </span>
+                    </div>
+
+                    <div className="h-2 rounded-full bg-slate-100">
+                      <div
+                        className={`h-2 rounded-full ${
+                          row.sentiment_label === "positive"
+                            ? "bg-emerald-600"
+                            : row.sentiment_label === "negative"
+                              ? "bg-red-600"
+                              : "bg-amber-500"
+                        }`}
+                        style={{
+                          width: `${Math.max(Number(row.percentage), 0)}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Najčastejšie kategórie spätnej väzby</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {detectedCategories.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné kategórie automatickej analýzy.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {detectedCategories.map((row) => (
+                  <div
+                    key={row.category_key}
+                    className="flex items-center justify-between rounded-xl border px-4 py-3"
+                  >
+                    <span className="text-sm text-slate-700">
+                      {CATEGORY_LABELS[row.category_key] ?? row.category_key}
+                    </span>
+                    <span className="text-sm font-semibold text-slate-950">
+                      {formatNumber(row.usage_count)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Vývoj priemerného sentimentu v čase</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {sentimentByMonth.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné časové dáta sentimentu.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {[...sentimentByMonth].reverse().map((row) => {
+                  const sentiment = Number(row.average_sentiment ?? 0);
+                  const percentage = ((sentiment + 1) / 2) * 100;
+
+                  return (
+                    <div key={row.month_key} className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-700">
+                          {monthKeyToLabel(row.month_key)}
+                        </span>
+                        <span className="font-semibold text-slate-900">
+                          {formatRating(row.average_sentiment)} ·{" "}
+                          {formatNumber(row.review_count)} recenzií
+                        </span>
+                      </div>
+
+                      <div className="h-2 rounded-full bg-slate-100">
+                        <div
+                          className={`h-2 rounded-full ${
+                            sentiment > 0.2
+                              ? "bg-emerald-600"
+                              : sentiment < -0.2
+                                ? "bg-red-600"
+                                : "bg-amber-500"
+                          }`}
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Interpretácia textovej analytiky</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-3 text-sm text-slate-700">
+            <p>
+              Sentiment recenzií je vypočítaný lexikónovým prístupom ako
+              normalizovaný rozdiel medzi pozitívnymi a negatívnymi jazykovými
+              zásahmi. Výsledok sa ukladá do intervalu od -1 do 1.
+            </p>
+
+            <p>
+              Okrem polarity sa z recenzie automaticky odvodzujú aj tematické
+              kategórie spätnej väzby, napríklad komunikácia, odbornosť,
+              čakacia doba, organizácia alebo prostredie.
+            </p>
+
+            <p>
+              Táto vrstva predstavuje praktickú implementáciu automatickej
+              kategorizácie a sentimentovej analýzy spätnej väzby pacientov v
+              systéme.
+            </p>
           </CardContent>
         </Card>
       </section>
@@ -472,8 +674,9 @@ export default async function AnalyticsPage() {
           <CardContent className="space-y-4">
             <p className="text-sm leading-6 text-slate-700">
               Tento dashboard tvorí základ pre ďalšie rozšírenie o analýzu
-              textu recenzií. V ďalšom kroku sa sem doplní sentiment,
-              kategorizácia spätnej väzby a aspektové hodnotenie recenzií.
+              textu recenzií. V ďalšom kroku je možné doplniť AI asistované
+              preformulovanie recenzií, TF-IDF reprezentáciu textu alebo
+              presnejšie modely automatickej klasifikácie.
             </p>
 
             <div className="grid gap-3">
@@ -508,8 +711,8 @@ export default async function AnalyticsPage() {
 
             <p>
               Takýto prístup zjednodušuje rozšírenie systému o ďalšie analytické
-              výstupy, napríklad sentiment recenzií, kategorizáciu spätnej väzby
-              alebo modely založené na TF-IDF reprezentácii textu.
+              výstupy, napríklad sentiment recenzií, kategorizáciu spätnej
+              väzby alebo modely založené na TF-IDF reprezentácii textu.
             </p>
           </CardContent>
         </Card>

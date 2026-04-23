@@ -6,12 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
-import { getSafeSession } from "@/lib/supabase/getSafeSession";
 
-export function NotificationBell() {
+type NotificationBellProps = {
+  userId: string;
+};
+
+export function NotificationBell({ userId }: NotificationBellProps) {
   const [unreadCount, setUnreadCount] = useState(0);
-  const [hasSession, setHasSession] = useState(false);
-
   const pathname = usePathname();
   const mountedRef = useRef(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -22,17 +23,6 @@ export function NotificationBell() {
     loadingRef.current = true;
 
     try {
-      const { session } = await getSafeSession();
-      const userId = session?.user?.id ?? null;
-
-      if (!mountedRef.current) return;
-
-      if (!userId) {
-        setHasSession(false);
-        setUnreadCount(0);
-        return;
-      }
-
       const { count, error } = await supabase
         .from("notifications")
         .select("id", { count: "exact", head: true })
@@ -42,7 +32,6 @@ export function NotificationBell() {
       if (!mountedRef.current) return;
 
       if (!error) {
-        setHasSession(true);
         setUnreadCount(count ?? 0);
       }
     } finally {
@@ -54,7 +43,6 @@ export function NotificationBell() {
     mountedRef.current = true;
 
     if (pathname.startsWith("/auth")) {
-      setHasSession(false);
       setUnreadCount(0);
 
       return () => {
@@ -63,12 +51,6 @@ export function NotificationBell() {
     }
 
     loadUnreadCount();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(() => {
-      loadUnreadCount();
-    });
 
     function handleVisibilityChange() {
       if (document.visibilityState === "visible") {
@@ -89,7 +71,6 @@ export function NotificationBell() {
 
     return () => {
       mountedRef.current = false;
-      subscription.unsubscribe();
 
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("focus", handleWindowFocus);
@@ -99,13 +80,9 @@ export function NotificationBell() {
         intervalRef.current = null;
       }
     };
-  }, [pathname]);
+  }, [pathname, userId]);
 
   if (pathname.startsWith("/auth")) {
-    return null;
-  }
-
-  if (!hasSession) {
     return null;
   }
 
