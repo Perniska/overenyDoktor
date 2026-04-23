@@ -1,0 +1,152 @@
+export const REVIEW_ASPECTS: Record<string, string[]> = {
+  komunikacia: [
+    "komunikacia",
+    "komunikoval",
+    "komunikovala",
+    "vysvetlil",
+    "vysvetlila",
+    "vysvetlenie",
+    "pristup",
+    "ochota",
+    "milý",
+    "mily",
+    "arogantny",
+    "arogantna",
+    "empaticky",
+    "empaticka",
+    "pocuval",
+    "pocuvala",
+  ],
+  odbornost: [
+    "odborny",
+    "odborna",
+    "profesionalny",
+    "profesionalna",
+    "kompetentny",
+    "kompetentna",
+    "nekompetentny",
+    "nekompetentna",
+    "diagnoza",
+    "liecba",
+    "vysetrenie",
+    "vysetril",
+    "vysetrila",
+    "skusenost",
+  ],
+  cakacia_doba: [
+    "cakal",
+    "cakala",
+    "cakali",
+    "cakanie",
+    "cakacia",
+    "dlho",
+    "rychlo",
+    "meskanie",
+    "termin",
+    "objednanie",
+    "objednat",
+  ],
+  organizacia: [
+    "organizacia",
+    "chaos",
+    "poriadok",
+    "sestricka",
+    "sestra",
+    "registracia",
+    "objednanie",
+    "termin",
+    "ambulancia",
+    "ordinacia",
+  ],
+  prostredie: [
+    "prostredie",
+    "cakaren",
+    "ambulancia",
+    "cisty",
+    "cista",
+    "ciste",
+    "spinavy",
+    "spinava",
+    "spinave",
+    "prijemne",
+    "vybavenie",
+  ],
+  dostupnost: [
+    "dostupnost",
+    "dostupny",
+    "dostupna",
+    "nedostupny",
+    "nedostupna",
+    "telefon",
+    "kontakt",
+    "objednat",
+    "objednanie",
+    "termin",
+  ],
+  personal: [
+    "personal",
+    "sestricka",
+    "sestra",
+    "recepcia",
+    "prijem",
+    "ochotny",
+    "ochotna",
+    "neochotny",
+    "neochotna",
+  ],
+  vybavenie: [
+    "vybavenie",
+    "pristroj",
+    "pristroje",
+    "moderne",
+    "zastarale",
+    "ordinacia",
+    "ambulancia",
+  ],
+  sukromie: [
+    "sukromie",
+    "diskretnost",
+    "sukromny",
+    "sukromna",
+    "sukromne",
+    "diskretne",
+    "intimita",
+  ],
+  odporucanie: [
+    "odporucam",
+    "neodporucam",
+    "odporucila",
+    "odporucil",
+    "spokojny",
+    "nespokojny",
+    "vratim",
+    "nevratim",
+  ],
+};
+
+export const CATEGORY_LABELS: Record<string, string> = {
+  komunikacia: "Komunikácia",
+  odbornost: "Odbornosť",
+  cakacia_doba: "Čakacia doba",
+  organizacia: "Organizácia",
+  prostredie: "Prostredie",
+  dostupnost: "Dostupnosť",
+  personal: "Personál",
+  vybavenie: "Vybavenie",
+  sukromie: "Súkromie",
+  odporucanie: "Odporúčanie",
+};
+
+export function getDetectedAspectCategories(tokens: string[]) {
+  const detected = new Set<string>();
+
+  for (const [aspectKey, aspectTerms] of Object.entries(REVIEW_ASPECTS)) {
+    const hasAspect = tokens.some((token) => aspectTerms.includes(token));
+
+    if (hasAspect) {
+      detected.add(aspectKey);
+    }
+  }
+
+  return Array.from(detected);
+}

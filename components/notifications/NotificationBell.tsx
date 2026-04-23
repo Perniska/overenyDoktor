@@ -11,100 +11,92 @@ import { getSafeSession } from "@/lib/supabase/getSafeSession";
 export function NotificationBell() {
   const [unreadCount, setUnreadCount] = useState(0);
   const [hasSession, setHasSession] = useState(false);
-  const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
+
   const pathname = usePathname();
+  const mountedRef = useRef(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const loadingRef = useRef(false);
 
-  async function loadUnreadCount(userId?: string | null) {
-    let currentUserId = userId ?? null;
+  async function loadUnreadCount() {
+    if (loadingRef.current) return;
+    loadingRef.current = true;
 
-    if (!currentUserId) {
+    try {
       const { session } = await getSafeSession();
-      currentUserId = session?.user?.id ?? null;
+      const userId = session?.user?.id ?? null;
+
+      if (!mountedRef.current) return;
+
+      if (!userId) {
+        setHasSession(false);
+        setUnreadCount(0);
+        return;
+      }
+
+      const { count, error } = await supabase
+        .from("notifications")
+        .select("id", { count: "exact", head: true })
+        .eq("id_user", userId)
+        .eq("is_read", false);
+
+      if (!mountedRef.current) return;
+
+      if (!error) {
+        setHasSession(true);
+        setUnreadCount(count ?? 0);
+      }
+    } finally {
+      loadingRef.current = false;
     }
-
-    if (!currentUserId) {
-      setHasSession(false);
-      setUnreadCount(0);
-      return;
-    }
-
-    setHasSession(true);
-
-    const { count, error } = await supabase
-      .from("notifications")
-      .select("id", { count: "exact", head: true })
-      .eq("id_user", currentUserId)
-      .eq("is_read", false);
-
-    if (!error) {
-      setUnreadCount(count ?? 0);
-    }
-  }
-
-  async function subscribeToNotifications() {
-    const { session } = await getSafeSession();
-    const userId = session?.user?.id ?? null;
-
-    if (!userId) {
-      setHasSession(false);
-      setUnreadCount(0);
-      return;
-    }
-
-    setHasSession(true);
-    await loadUnreadCount(userId);
-
-    if (channelRef.current) {
-      await supabase.removeChannel(channelRef.current);
-      channelRef.current = null;
-    }
-
-    const channel = supabase
-      .channel(`notifications-${userId}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "notifications",
-          filter: `id_user=eq.${userId}`,
-        },
-        async () => {
-          await loadUnreadCount(userId);
-        }
-      )
-      .subscribe();
-
-    channelRef.current = channel;
   }
 
   useEffect(() => {
+    mountedRef.current = true;
+
     if (pathname.startsWith("/auth")) {
       setHasSession(false);
       setUnreadCount(0);
 
-      if (channelRef.current) {
-        supabase.removeChannel(channelRef.current);
-        channelRef.current = null;
-      }
-
-      return;
+      return () => {
+        mountedRef.current = false;
+      };
     }
 
-    subscribeToNotifications();
+    loadUnreadCount();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async () => {
-      await subscribeToNotifications();
+    } = supabase.auth.onAuthStateChange(() => {
+      loadUnreadCount();
     });
 
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        loadUnreadCount();
+      }
+    }
+
+    function handleWindowFocus() {
+      loadUnreadCount();
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("focus", handleWindowFocus);
+
+    intervalRef.current = setInterval(() => {
+      loadUnreadCount();
+    }, 15000);
+
     return () => {
+      mountedRef.current = false;
       subscription.unsubscribe();
 
-      if (channelRef.current) {
-        supabase.removeChannel(channelRef.current);
-        channelRef.current = null;
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("focus", handleWindowFocus);
+
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
       }
     };
   }, [pathname]);
