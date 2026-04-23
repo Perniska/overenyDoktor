@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
 import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
-import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
 import { buildStructuredReviewComment } from "@/lib/reviews/buildStructuredReviewComment";
+import { RewriteSuggestionBox } from "@/components/reviews/RewriteSuggestionBox";
+import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
+import type { ReviewRewriteResult } from "@/lib/reviews/rewriteReviewText";
 
 type ReviewCreateFormProps = {
   targetType: "doctor" | "facility";
@@ -176,22 +178,6 @@ function RatingInput({
   );
 }
 
-function getRatingWord(value: number) {
-  if (value === 5) return "výborne";
-  if (value === 4) return "dobre";
-  if (value === 3) return "primerane";
-  if (value === 2) return "skôr slabšie";
-  return "nedostatočne";
-}
-
-function getOverallWord(average: number) {
-  if (average >= 4.6) return "veľmi pozitívne";
-  if (average >= 3.8) return "pozitívne";
-  if (average >= 2.8) return "neutrálne";
-  if (average >= 2) return "skôr negatívne";
-  return "negatívne";
-}
-
 function getAverageRating(ratings: Ratings, questions: RatingQuestion[]) {
   const values = questions.map((question) => ratings[question.key]);
   const average = values.reduce((sum, value) => sum + value, 0) / values.length;
@@ -202,6 +188,20 @@ function getAverageRating(ratings: Ratings, questions: RatingQuestion[]) {
   };
 }
 
+function buildFinalComment(structuredComment: string, manualComment: string) {
+  const trimmedManual = manualComment.trim();
+
+  if (!trimmedManual) {
+    return structuredComment;
+  }
+
+  return [
+    structuredComment,
+    "",
+    "Vlastná poznámka používateľa:",
+    trimmedManual,
+  ].join("\n");
+}
 
 export function ReviewCreateForm({
   targetType,
@@ -227,6 +227,12 @@ export function ReviewCreateForm({
 
   const [visitType, setVisitType] = useState("first_visit");
   const [isAnonymous, setIsAnonymous] = useState(false);
+  const [manualComment, setManualComment] = useState("");
+  const [rewriteMeta, setRewriteMeta] = useState<{
+    suggestedText: string | null;
+    applied: boolean;
+    version: string | null;
+  } | null>(null);
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -241,6 +247,22 @@ export function ReviewCreateForm({
       [key]: value,
     }));
   }
+
+  const structuredComment = useMemo(
+    () =>
+      buildStructuredReviewComment({
+        targetType,
+        ratings,
+        questions,
+        visitTypeLabel,
+      }),
+    [targetType, ratings, questions, visitTypeLabel]
+  );
+
+  const finalComment = useMemo(
+    () => buildFinalComment(structuredComment, manualComment),
+    [structuredComment, manualComment]
+  );
 
   async function handleSubmit() {
     setMessage("");
@@ -259,13 +281,7 @@ export function ReviewCreateForm({
         ? { id_doctor: targetId, id_facility: null }
         : { id_doctor: null, id_facility: targetId };
 
-    const generatedComment = buildStructuredReviewComment({
-      targetType,
-      ratings,
-      questions,
-      visitTypeLabel,
-    });
-    const analysisPayload = buildReviewAnalysisPayload(generatedComment);
+    const analysisPayload = buildReviewAnalysisPayload(finalComment);
 
     const { error } = await supabase.from("reviews").insert({
       ...targetPayload,
@@ -284,12 +300,14 @@ export function ReviewCreateForm({
       rating_privacy: ratings.privacy,
       rating_recommendation: ratings.recommendation,
       visit_type: visitType,
-      comment: generatedComment,
+      comment: finalComment,
       generated_summary: {
         targetType,
         visitType,
         visitTypeLabel,
         average: average.exact,
+        structuredComment,
+        manualComment: manualComment.trim() || null,
         questions: questions.map((question) => ({
           key: question.key,
           label: question.label,
@@ -297,8 +315,14 @@ export function ReviewCreateForm({
         })),
       },
       is_anonymous: isAnonymous,
-      review_source: "structured_form",
+      review_source: manualComment.trim() ? "manual" : "structured_form",
       status: analysisPayload.needs_manual_review ? "pending" : "approved",
+      ai_rewrite_suggested: rewriteMeta?.suggestedText ?? null,
+      ai_rewrite_applied: rewriteMeta?.applied ?? false,
+      ai_rewrite_generated_at: rewriteMeta?.applied
+        ? new Date().toISOString()
+        : null,
+      ai_rewrite_version: rewriteMeta?.version ?? null,
       ...analysisPayload,
     });
 
@@ -348,8 +372,8 @@ export function ReviewCreateForm({
           Priebežné celkové hodnotenie: {average.exact}/5
         </p>
         <p className="mt-1 text-sm text-slate-600">
-          Výsledná recenzia bude vytvorená automaticky zo zvolených kategórií,
-          bez urážlivého alebo osobného textu.
+          Hodnotenie sa vytvorí zo štruktúrovaných odpovedí. Voliteľne môžeš
+          doplniť aj vlastnú poznámku k skúsenosti.
         </p>
       </div>
 
@@ -362,6 +386,54 @@ export function ReviewCreateForm({
             onChange={(value) => updateRating(question.key, value)}
           />
         ))}
+      </div>
+
+      <div className="space-y-3 rounded-2xl border bg-slate-50 p-4">
+        <div>
+          <label className="block text-sm font-medium text-slate-700">
+            Voliteľná vlastná poznámka
+          </label>
+          <p className="mt-1 text-sm text-slate-600">
+            Sem môžeš doplniť vlastnú skúsenosť vlastnými slovami. Odporúča sa
+            nepísať osobné údaje ani urážlivé výrazy.
+          </p>
+        </div>
+
+        <textarea
+          value={manualComment}
+          onChange={(event) => setManualComment(event.target.value)}
+          placeholder="Napíš vlastnú poznámku k návšteve..."
+          className="min-h-32 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800"
+        />
+
+        <RewriteSuggestionBox
+          value={manualComment}
+          onApply={(result: ReviewRewriteResult) => {
+            setManualComment(result.rewrittenText);
+            setRewriteMeta({
+              suggestedText: result.rewrittenText,
+              applied: true,
+              version: result.rewriteVersion,
+            });
+          }}
+        />
+      </div>
+
+      <div className="space-y-3 rounded-2xl border bg-white p-4">
+        <div>
+          <p className="text-sm font-medium text-slate-700">
+            Náhľad výslednej recenzie
+          </p>
+          <p className="mt-1 text-sm text-slate-500">
+            Toto je text, ktorý sa uloží a následne analyzuje.
+          </p>
+        </div>
+
+        <textarea
+          value={finalComment}
+          readOnly
+          className="min-h-40 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-800"
+        />
       </div>
 
       <label className="flex items-center gap-3 text-sm text-slate-700">

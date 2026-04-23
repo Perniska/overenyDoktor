@@ -1,4 +1,5 @@
-import { analyzeReviewText } from "@/lib/reviews/analyzaReviewText";
+import { analyzeReviewText } from "@/lib/reviews/analyzeReviewText";
+import { classifyReviewWithTfIdf } from "@/lib/reviews/classifyReviewWithTfIdf";
 
 export type ReviewAnalysisDbPayload = {
   sentiment_score: number;
@@ -10,6 +11,10 @@ export type ReviewAnalysisDbPayload = {
   contains_offensive_language: boolean;
   needs_manual_review: boolean;
   analysis_version: string;
+  tfidf_categories: string[];
+  tfidf_scores: Record<string, number>;
+  tfidf_top_terms: string[];
+  tfidf_version: string;
 };
 
 export function buildReviewAnalysisPayload(
@@ -28,10 +33,15 @@ export function buildReviewAnalysisPayload(
       contains_offensive_language: false,
       needs_manual_review: false,
       analysis_version: "lexicon-sk-v1",
+      tfidf_categories: [],
+      tfidf_scores: {},
+      tfidf_top_terms: [],
+      tfidf_version: "tfidf-sk-v1",
     };
   }
 
   const analysis = analyzeReviewText(text);
+  const tfidf = classifyReviewWithTfIdf(text);
 
   return {
     sentiment_score: analysis.sentimentScore,
@@ -43,5 +53,9 @@ export function buildReviewAnalysisPayload(
     contains_offensive_language: analysis.containsOffensiveLanguage,
     needs_manual_review: analysis.needsManualReview,
     analysis_version: analysis.analysisVersion,
+    tfidf_categories: tfidf.categories,
+    tfidf_scores: tfidf.scores,
+    tfidf_top_terms: tfidf.topTerms,
+    tfidf_version: tfidf.version,
   };
 }

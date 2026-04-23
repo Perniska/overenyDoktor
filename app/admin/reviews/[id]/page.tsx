@@ -4,12 +4,10 @@ import {
   AlertTriangle,
   ArrowLeft,
   Building2,
-  CalendarDays,
   EyeOff,
   ShieldCheck,
   Star,
   Stethoscope,
-  UserCircle,
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireModeratorOrAdmin } from "@/lib/authz";
@@ -125,6 +123,14 @@ export default async function AdminReviewDetailPage({
       rating_accessibility,
       rating_privacy,
       rating_recommendation,
+      ai_rewrite_suggested,
+      ai_rewrite_applied,
+      ai_rewrite_generated_at,
+      ai_rewrite_version,
+      tfidf_categories,
+      tfidf_scores,
+      tfidf_top_terms,
+      tfidf_version,
       doctor:doctors!reviews_id_doctor_fkey (
         id,
         title,
@@ -178,6 +184,18 @@ export default async function AdminReviewDetailPage({
     review.aspect_scores && typeof review.aspect_scores === "object"
       ? review.aspect_scores
       : {};
+  const tfidfCategories = Array.isArray(review.tfidf_categories)
+  ? review.tfidf_categories
+  : [];
+
+const tfidfTopTerms = Array.isArray(review.tfidf_top_terms)
+  ? review.tfidf_top_terms
+  : [];
+
+const tfidfScores =
+  review.tfidf_scores && typeof review.tfidf_scores === "object"
+    ? review.tfidf_scores
+    : {};
 
   return (
     <main className="mx-auto max-w-5xl space-y-6">
@@ -491,6 +509,123 @@ export default async function AdminReviewDetailPage({
           </CardContent>
         </Card>
       </section>
+      <section className="grid gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>AI asistované preformulovanie</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Rewrite použitý</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {review.ai_rewrite_applied ? "Áno" : "Nie"}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Verzia rewrite</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {review.ai_rewrite_version ?? "—"}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4 sm:col-span-2">
+                <p className="text-sm text-slate-500">Vygenerované</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {review.ai_rewrite_generated_at
+                    ? formatDateTime(review.ai_rewrite_generated_at)
+                    : "—"}
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Navrhnutá verzia textu</p>
+              <p className="mt-2 whitespace-pre-line text-slate-800">
+                {review.ai_rewrite_suggested ??
+                  "Nebola uložená žiadna navrhnutá verzia."}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+<section className="grid gap-6">
+  <Card>
+    <CardHeader>
+      <CardTitle>TF-IDF klasifikácia recenzie</CardTitle>
+    </CardHeader>
+
+    <CardContent className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border p-4">
+          <p className="text-sm text-slate-500">Verzia klasifikátora</p>
+          <p className="mt-2 font-semibold text-slate-950">
+            {review.tfidf_version ?? "—"}
+          </p>
+        </div>
+
+        <div className="rounded-2xl border p-4">
+          <p className="text-sm text-slate-500">Najdôležitejšie termíny</p>
+          <p className="mt-2 font-semibold text-slate-950">
+            {tfidfTopTerms.length > 0 ? tfidfTopTerms.join(", ") : "—"}
+          </p>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border p-4">
+        <p className="text-sm text-slate-500">TF-IDF kategórie</p>
+
+        {tfidfCategories.length === 0 ? (
+          <p className="mt-2 text-sm text-slate-600">
+            Neboli priradené žiadne kategórie.
+          </p>
+        ) : (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {tfidfCategories.map((category: string) => (
+              <span
+                key={category}
+                className="rounded-full bg-slate-200 px-3 py-1 text-xs font-medium text-slate-800"
+              >
+                {CATEGORY_LABELS[category] ?? category}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="rounded-2xl border p-4">
+        <p className="text-sm text-slate-500">
+          Skóre podobnosti ku kategóriám
+        </p>
+
+        {Object.keys(tfidfScores).length === 0 ? (
+          <p className="mt-2 text-sm text-slate-600">
+            Skóre podobnosti nie je dostupné.
+          </p>
+        ) : (
+          <div className="mt-3 space-y-2">
+            {Object.entries(tfidfScores).map(([key, value]) => (
+              <div
+                key={key}
+                className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2"
+              >
+                <span className="text-sm text-slate-700">
+                  {CATEGORY_LABELS[key] ?? key}
+                </span>
+                <span className="text-sm font-semibold text-slate-950">
+                  {formatNumber(Number(value))}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </CardContent>
+  </Card>
+</section>
+
     </main>
   );
 }
