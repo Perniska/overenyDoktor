@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import LogoutButton from "@/components/auth/LogoutButton";
 import { cn } from "@/lib/utils";
+import { NotificationBell } from "@/components/notifications/NotificationBell";
 
 type UserInfo = {
   email?: string;
@@ -190,6 +191,8 @@ export default function Navbar() {
               Správa
             </Link>
           ) : null}
+          
+          {user ? <NotificationBell /> : null}
 
           {user ? (
             <details ref={accountDetailsRef} className="relative">
@@ -311,7 +314,13 @@ export default function Navbar() {
                     >
                       Profil
                     </Link>
-
+                    <Link
+                      href="/notifications"
+                      onClick={closeMobileMenu}
+                      className={getMobileLinkClassName("/notifications")}
+                    >
+                      Notifikácie
+                    </Link>
                     <Link
                       href="/gdpr"
                       onClick={closeMobileMenu}
