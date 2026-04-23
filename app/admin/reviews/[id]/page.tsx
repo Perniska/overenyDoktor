@@ -131,6 +131,7 @@ export default async function AdminReviewDetailPage({
       tfidf_scores,
       tfidf_top_terms,
       tfidf_version,
+      generated_summary,
       doctor:doctors!reviews_id_doctor_fkey (
         id,
         title,
@@ -196,6 +197,15 @@ const tfidfScores =
   review.tfidf_scores && typeof review.tfidf_scores === "object"
     ? review.tfidf_scores
     : {};
+
+const generatedSummary =
+  review.generated_summary && typeof review.generated_summary === "object"
+    ? review.generated_summary
+    : null;
+
+const generatedQuestions = Array.isArray(generatedSummary?.questions)
+  ? generatedSummary.questions
+  : [];
 
   return (
     <main className="mx-auto max-w-5xl space-y-6">
@@ -551,6 +561,72 @@ const tfidfScores =
           </CardContent>
         </Card>
       </section>
+
+      <section className="grid gap-6">
+  <Card>
+    <CardHeader>
+      <CardTitle>Review dáta a generovaný sumár</CardTitle>
+    </CardHeader>
+
+    <CardContent className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border p-4">
+          <p className="text-sm text-slate-500">Zdroj recenzie</p>
+          <p className="mt-2 font-semibold text-slate-950">
+            {getReviewSourceLabel(review.review_source)}
+          </p>
+        </div>
+
+        <div className="rounded-2xl border p-4">
+          <p className="text-sm text-slate-500">Typ návštevy</p>
+          <p className="mt-2 font-semibold text-slate-950">
+            {getVisitTypeLabel(review.visit_type)}
+          </p>
+        </div>
+
+        <div className="rounded-2xl border p-4 sm:col-span-2">
+          <p className="text-sm text-slate-500">Štruktúrovaný sumár</p>
+          <p className="mt-2 whitespace-pre-line text-slate-800">
+            {generatedSummary?.structuredComment ?? "Nie je uložený."}
+          </p>
+        </div>
+
+        <div className="rounded-2xl border p-4 sm:col-span-2">
+          <p className="text-sm text-slate-500">Vlastná poznámka používateľa</p>
+          <p className="mt-2 whitespace-pre-line text-slate-800">
+            {generatedSummary?.manualComment ?? "Používateľ nepridal vlastnú poznámku."}
+          </p>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border p-4">
+        <p className="text-sm text-slate-500">Otázky a odpovede formulára</p>
+
+        {generatedQuestions.length === 0 ? (
+          <p className="mt-2 text-sm text-slate-600">
+            Detailné údaje formulára nie sú dostupné.
+          </p>
+        ) : (
+          <div className="mt-3 space-y-2">
+            {generatedQuestions.map((item: any) => (
+              <div
+                key={item.key}
+                className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2"
+              >
+                <span className="text-sm text-slate-700">
+                  {item.label ?? item.key}
+                </span>
+                <span className="text-sm font-semibold text-slate-950">
+                  {item.rating}/5
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </CardContent>
+  </Card>
+</section>
 <section className="grid gap-6">
   <Card>
     <CardHeader>

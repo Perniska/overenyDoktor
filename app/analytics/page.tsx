@@ -5,8 +5,10 @@ import {
   Building2,
   FileWarning,
   MessageSquare,
+  Sparkles,
   Star,
   Stethoscope,
+  Tags,
   Users,
 } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -70,6 +72,22 @@ type DetectedCategoryRow = {
   usage_count: number;
 };
 
+type TfidfCategoryRow = {
+  category_key: string;
+  usage_count: number;
+};
+
+type AiRewriteUsageRow = {
+  total_reviews: number;
+  rewrite_applied_count: number;
+  rewrite_percentage: number;
+};
+
+type TfidfTopTermRow = {
+  term: string;
+  usage_count: number;
+};
+
 function formatNumber(value: number | null | undefined) {
   return new Intl.NumberFormat("sk-SK").format(value ?? 0);
 }
@@ -125,6 +143,9 @@ export default async function AnalyticsPage() {
     sentimentDistributionResult,
     sentimentByMonthResult,
     detectedCategoriesResult,
+    tfidfCategoriesResult,
+    aiRewriteUsageResult,
+    tfidfTopTermsResult,
     unreadNotificationsCountResult,
   ] = await Promise.all([
     supabase.rpc("analytics_overview"),
@@ -136,6 +157,9 @@ export default async function AnalyticsPage() {
     supabase.rpc("analytics_sentiment_distribution"),
     supabase.rpc("analytics_sentiment_by_month", { p_limit: 6 }),
     supabase.rpc("analytics_detected_categories", { p_limit: 8 }),
+    supabase.rpc("analytics_tfidf_categories", { p_limit: 8 }),
+    supabase.rpc("analytics_ai_rewrite_usage"),
+    supabase.rpc("analytics_tfidf_top_terms", { p_limit: 12 }),
     supabase
       .from("notifications")
       .select("id", { count: "exact", head: true })
@@ -170,6 +194,15 @@ export default async function AnalyticsPage() {
   const detectedCategories =
     (detectedCategoriesResult.data as DetectedCategoryRow[] | null) ?? [];
 
+  const tfidfCategories =
+    (tfidfCategoriesResult.data as TfidfCategoryRow[] | null) ?? [];
+
+  const aiRewriteUsage =
+    ((aiRewriteUsageResult.data as AiRewriteUsageRow[] | null) ?? [])[0] ?? null;
+
+  const tfidfTopTerms =
+    (tfidfTopTermsResult.data as TfidfTopTermRow[] | null) ?? [];
+
   const unreadNotificationsCount = unreadNotificationsCountResult.count ?? 0;
 
   const overviewError =
@@ -181,7 +214,10 @@ export default async function AnalyticsPage() {
     specializationRatingsResult.error ||
     sentimentDistributionResult.error ||
     sentimentByMonthResult.error ||
-    detectedCategoriesResult.error;
+    detectedCategoriesResult.error ||
+    tfidfCategoriesResult.error ||
+    aiRewriteUsageResult.error ||
+    tfidfTopTermsResult.error;
 
   const maxMonthlyCount = Math.max(
     ...reviewsByMonth.map((item) => Number(item.review_count ?? 0)),
@@ -201,9 +237,8 @@ export default async function AnalyticsPage() {
 
         <p className="mt-2 max-w-3xl text-slate-600">
           Prehľad základných štatistických ukazovateľov systému, recenzií,
-          fóra, nahlásení a referenčných údajov. Stránka je rozšírená aj o
-          výsledky textovej analytiky, sentimentu a automatickej kategorizácie
-          spätnej väzby.
+          fóra, nahlásení a referenčných údajov. Stránka zahŕňa aj výstupy
+          textovej analytiky, sentimentu, AI rewrite a TF-IDF klasifikácie.
         </p>
       </section>
 
@@ -222,7 +257,6 @@ export default async function AnalyticsPage() {
               <div className="rounded-xl bg-sky-50 p-3 text-sky-700">
                 <Stethoscope className="size-5" />
               </div>
-
               <div>
                 <p className="text-sm text-slate-500">Lekári</p>
                 <p className="text-2xl font-bold text-slate-950">
@@ -239,7 +273,6 @@ export default async function AnalyticsPage() {
               <div className="rounded-xl bg-emerald-50 p-3 text-emerald-700">
                 <Building2 className="size-5" />
               </div>
-
               <div>
                 <p className="text-sm text-slate-500">Zariadenia</p>
                 <p className="text-2xl font-bold text-slate-950">
@@ -256,7 +289,6 @@ export default async function AnalyticsPage() {
               <div className="rounded-xl bg-amber-50 p-3 text-amber-700">
                 <Star className="size-5" />
               </div>
-
               <div>
                 <p className="text-sm text-slate-500">Recenzie</p>
                 <p className="text-2xl font-bold text-slate-950">
@@ -276,7 +308,6 @@ export default async function AnalyticsPage() {
               <div className="rounded-xl bg-red-50 p-3 text-red-700">
                 <FileWarning className="size-5" />
               </div>
-
               <div>
                 <p className="text-sm text-slate-500">Otvorené nahlásenia</p>
                 <p className="text-2xl font-bold text-slate-950">
@@ -294,43 +325,227 @@ export default async function AnalyticsPage() {
       <section className="grid gap-6 xl:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Rozdelenie hodnotení recenzií</CardTitle>
+            <CardTitle>Rozdelenie recenzií podľa sentimentu</CardTitle>
           </CardHeader>
 
-          <CardContent className="space-y-3">
-            {ratingDistribution.length === 0 ? (
+          <CardContent>
+            {sentimentDistribution.length === 0 ? (
               <p className="text-sm text-slate-600">
-                Zatiaľ nie sú dostupné dáta o hodnoteniach recenzií.
+                Zatiaľ nie sú dostupné dáta o sentimente recenzií.
               </p>
             ) : (
-              ratingDistribution.map((row) => (
-                <div key={row.rating} className="space-y-1">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-700">
-                      {row.rating}{" "}
-                      {row.rating === 1 ? "hviezdička" : "hviezdičky"}
-                    </span>
-                    <span className="font-semibold text-slate-900">
-                      {formatNumber(row.review_count)} (
-                      {Number(row.percentage).toFixed(1).replace(".", ",")} %)
-                    </span>
-                  </div>
+              <div className="space-y-3">
+                {sentimentDistribution.map((row) => (
+                  <div key={row.sentiment_label} className="space-y-1">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-slate-700">
+                        {getSentimentLabelSk(row.sentiment_label)}
+                      </span>
+                      <span className="font-semibold text-slate-900">
+                        {formatNumber(row.review_count)} (
+                        {Number(row.percentage).toFixed(1).replace(".", ",")} %)
+                      </span>
+                    </div>
 
-                  <div className="h-2 rounded-full bg-slate-100">
-                    <div
-                      className="h-2 rounded-full bg-sky-600"
-                      style={{ width: `${Math.max(Number(row.percentage), 0)}%` }}
-                    />
+                    <div className="h-2 rounded-full bg-slate-100">
+                      <div
+                        className={`h-2 rounded-full ${
+                          row.sentiment_label === "positive"
+                            ? "bg-emerald-600"
+                            : row.sentiment_label === "negative"
+                              ? "bg-red-600"
+                              : "bg-amber-500"
+                        }`}
+                        style={{
+                          width: `${Math.max(Number(row.percentage), 0)}%`,
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))
+                ))}
+              </div>
             )}
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Aktivita fóra a komunity</CardTitle>
+            <CardTitle>Vývoj priemerného sentimentu v čase</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {sentimentByMonth.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné časové dáta sentimentu.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {[...sentimentByMonth].reverse().map((row) => {
+                  const sentiment = Number(row.average_sentiment ?? 0);
+                  const percentage = ((sentiment + 1) / 2) * 100;
+
+                  return (
+                    <div key={row.month_key} className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-700">
+                          {monthKeyToLabel(row.month_key)}
+                        </span>
+                        <span className="font-semibold text-slate-900">
+                          {formatRating(row.average_sentiment)} ·{" "}
+                          {formatNumber(row.review_count)} recenzií
+                        </span>
+                      </div>
+
+                      <div className="h-2 rounded-full bg-slate-100">
+                        <div
+                          className={`h-2 rounded-full ${
+                            sentiment > 0.2
+                              ? "bg-emerald-600"
+                              : sentiment < -0.2
+                                ? "bg-red-600"
+                                : "bg-amber-500"
+                          }`}
+                          style={{ width: `${percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Lexikónové kategórie spätnej väzby</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {detectedCategories.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné kategórie automatickej analýzy.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {detectedCategories.map((row) => (
+                  <div
+                    key={row.category_key}
+                    className="flex items-center justify-between rounded-xl border px-4 py-3"
+                  >
+                    <span className="text-sm text-slate-700">
+                      {CATEGORY_LABELS[row.category_key] ?? row.category_key}
+                    </span>
+                    <span className="text-sm font-semibold text-slate-950">
+                      {formatNumber(row.usage_count)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>TF-IDF kategórie recenzií</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {tfidfCategories.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné TF-IDF kategórie.
+              </p>
+            ) : (
+              <div className="space-y-3">
+                {tfidfCategories.map((row) => (
+                  <div
+                    key={row.category_key}
+                    className="flex items-center justify-between rounded-xl border px-4 py-3"
+                  >
+                    <span className="text-sm text-slate-700">
+                      {CATEGORY_LABELS[row.category_key] ?? row.category_key}
+                    </span>
+                    <span className="text-sm font-semibold text-slate-950">
+                      {formatNumber(row.usage_count)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>AI rewrite využitie</CardTitle>
+          </CardHeader>
+
+          <CardContent className="grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border bg-slate-50 p-4">
+              <p className="flex items-center gap-2 text-sm text-slate-500">
+                <Sparkles className="size-4" />
+                Všetky recenzie
+              </p>
+              <p className="mt-2 text-2xl font-bold text-slate-950">
+                {formatNumber(aiRewriteUsage?.total_reviews)}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border bg-slate-50 p-4">
+              <p className="text-sm text-slate-500">Rewrite použitý</p>
+              <p className="mt-2 text-2xl font-bold text-slate-950">
+                {formatNumber(aiRewriteUsage?.rewrite_applied_count)}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border bg-slate-50 p-4">
+              <p className="text-sm text-slate-500">Podiel</p>
+              <p className="mt-2 text-2xl font-bold text-slate-950">
+                {formatRating(aiRewriteUsage?.rewrite_percentage)} %
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Najčastejšie TF-IDF termíny</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {tfidfTopTerms.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Zatiaľ nie sú dostupné TF-IDF termíny.
+              </p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {tfidfTopTerms.map((row) => (
+                  <span
+                    key={row.term}
+                    className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+                  >
+                    <Tags className="size-3" />
+                    {row.term}
+                    <span className="text-slate-400">
+                      {formatNumber(row.usage_count)}
+                    </span>
+                  </span>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Základné systémové ukazovatele</CardTitle>
           </CardHeader>
 
           <CardContent className="grid gap-4 sm:grid-cols-2">
@@ -354,118 +569,25 @@ export default async function AnalyticsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border bg-slate-50 p-4 sm:col-span-2">
+            <div className="rounded-2xl border bg-slate-50 p-4">
               <p className="flex items-center gap-2 text-sm text-slate-500">
-                <Activity className="size-4" />
-                Interpretácia
+                <Building2 className="size-4" />
+                Regióny zariadení
               </p>
-              <p className="mt-2 text-sm leading-6 text-slate-700">
-                Táto sekcia ukazuje základnú mieru aktivity používateľov v
-                komunitnej časti systému. V ďalšom kroku je možné ju rozšíriť o
-                analýzu rastu tém, odpovedí a používateľských interakcií v čase.
+              <p className="mt-2 text-2xl font-bold text-slate-950">
+                {formatNumber(facilitiesByRegion.length)}
               </p>
             </div>
-          </CardContent>
-        </Card>
-      </section>
 
-      <section className="grid gap-6 xl:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Najčastejšie regióny zariadení</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {facilitiesByRegion.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Regióny sa zatiaľ nepodarilo načítať.
+            <div className="rounded-2xl border bg-slate-50 p-4">
+              <p className="flex items-center gap-2 text-sm text-slate-500">
+                <Activity className="size-4" />
+                Mesačné dáta recenzií
               </p>
-            ) : (
-              <div className="space-y-3">
-                {facilitiesByRegion.map((row) => (
-                  <div
-                    key={row.region}
-                    className="flex items-center justify-between rounded-xl border px-4 py-3"
-                  >
-                    <span className="text-sm text-slate-700">{row.region}</span>
-                    <span className="text-sm font-semibold text-slate-950">
-                      {formatNumber(row.facility_count)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Najčastejšie špecializácie lekárov</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {doctorsBySpecialization.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Špecializácie sa zatiaľ nepodarilo načítať.
+              <p className="mt-2 text-2xl font-bold text-slate-950">
+                {formatNumber(reviewsByMonth.length)}
               </p>
-            ) : (
-              <div className="space-y-3">
-                {doctorsBySpecialization.map((row) => (
-                  <div
-                    key={row.specialization_name}
-                    className="rounded-xl border px-4 py-3"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-medium text-slate-800">
-                        {row.specialization_name}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-950">
-                        {formatNumber(row.doctor_count)} lekárov
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="grid gap-6 xl:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Priemerné hodnotenie podľa špecializácie</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {specializationRatings.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Zatiaľ nie sú dostupné dáta pre špecializácie a recenzie.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {specializationRatings.map((row) => (
-                  <div
-                    key={row.specialization_name}
-                    className="rounded-xl border px-4 py-3"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-medium text-slate-800">
-                        {row.specialization_name}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-950">
-                        {formatRating(row.average_rating)}
-                      </span>
-                    </div>
-
-                    <p className="mt-1 text-xs text-slate-500">
-                      {formatNumber(row.doctor_count)} lekárov ·{" "}
-                      {formatNumber(row.review_count)} recenzií
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
+            </div>
           </CardContent>
         </Card>
 
@@ -514,169 +636,40 @@ export default async function AnalyticsPage() {
       <section className="grid gap-6 xl:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Rozdelenie recenzií podľa sentimentu</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {sentimentDistribution.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Zatiaľ nie sú dostupné dáta o sentimente recenzií.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {sentimentDistribution.map((row) => (
-                  <div key={row.sentiment_label} className="space-y-1">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-700">
-                        {getSentimentLabelSk(row.sentiment_label)}
-                      </span>
-
-                      <span className="font-semibold text-slate-900">
-                        {formatNumber(row.review_count)} (
-                        {Number(row.percentage).toFixed(1).replace(".", ",")} %)
-                      </span>
-                    </div>
-
-                    <div className="h-2 rounded-full bg-slate-100">
-                      <div
-                        className={`h-2 rounded-full ${
-                          row.sentiment_label === "positive"
-                            ? "bg-emerald-600"
-                            : row.sentiment_label === "negative"
-                              ? "bg-red-600"
-                              : "bg-amber-500"
-                        }`}
-                        style={{
-                          width: `${Math.max(Number(row.percentage), 0)}%`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Najčastejšie kategórie spätnej väzby</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {detectedCategories.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Zatiaľ nie sú dostupné kategórie automatickej analýzy.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {detectedCategories.map((row) => (
-                  <div
-                    key={row.category_key}
-                    className="flex items-center justify-between rounded-xl border px-4 py-3"
-                  >
-                    <span className="text-sm text-slate-700">
-                      {CATEGORY_LABELS[row.category_key] ?? row.category_key}
-                    </span>
-                    <span className="text-sm font-semibold text-slate-950">
-                      {formatNumber(row.usage_count)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="grid gap-6 xl:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Vývoj priemerného sentimentu v čase</CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            {sentimentByMonth.length === 0 ? (
-              <p className="text-sm text-slate-600">
-                Zatiaľ nie sú dostupné časové dáta sentimentu.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {[...sentimentByMonth].reverse().map((row) => {
-                  const sentiment = Number(row.average_sentiment ?? 0);
-                  const percentage = ((sentiment + 1) / 2) * 100;
-
-                  return (
-                    <div key={row.month_key} className="space-y-1">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-700">
-                          {monthKeyToLabel(row.month_key)}
-                        </span>
-                        <span className="font-semibold text-slate-900">
-                          {formatRating(row.average_sentiment)} ·{" "}
-                          {formatNumber(row.review_count)} recenzií
-                        </span>
-                      </div>
-
-                      <div className="h-2 rounded-full bg-slate-100">
-                        <div
-                          className={`h-2 rounded-full ${
-                            sentiment > 0.2
-                              ? "bg-emerald-600"
-                              : sentiment < -0.2
-                                ? "bg-red-600"
-                                : "bg-amber-500"
-                          }`}
-                          style={{ width: `${percentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Interpretácia textovej analytiky</CardTitle>
+            <CardTitle>Interpretácia analytiky</CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-3 text-sm text-slate-700">
             <p>
-              Sentiment recenzií je vypočítaný lexikónovým prístupom ako
-              normalizovaný rozdiel medzi pozitívnymi a negatívnymi jazykovými
-              zásahmi. Výsledok sa ukladá do intervalu od -1 do 1.
+              Lexikónová analytika určuje sentiment recenzie a deteguje základné
+              tematické kategórie spätnej väzby.
             </p>
 
             <p>
-              Okrem polarity sa z recenzie automaticky odvodzujú aj tematické
-              kategórie spätnej väzby, napríklad komunikácia, odbornosť,
-              čakacia doba, organizácia alebo prostredie.
+              TF-IDF klasifikátor reprezentuje text recenzie pomocou vážených
+              termínov a porovnáva ju s prototypovým korpusom jednotlivých
+              kategórií.
             </p>
 
             <p>
-              Táto vrstva predstavuje praktickú implementáciu automatickej
-              kategorizácie a sentimentovej analýzy spätnej väzby pacientov v
-              systéme.
+              AI rewrite vrstva pomáha používateľovi vytvoriť bezpečnejšiu,
+              kultivovanejšiu a GDPR-vhodnejšiu verziu textu bez straty
+              významového jadra.
             </p>
           </CardContent>
         </Card>
-      </section>
 
-      <section className="grid gap-6 xl:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Ďalší analytický krok</CardTitle>
+            <CardTitle>Ďalší krok</CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-4">
             <p className="text-sm leading-6 text-slate-700">
-              Tento dashboard tvorí základ pre ďalšie rozšírenie o analýzu
-              textu recenzií. V ďalšom kroku je možné doplniť AI asistované
-              preformulovanie recenzií, TF-IDF reprezentáciu textu alebo
-              presnejšie modely automatickej klasifikácie.
+              Aktuálna implementácia už pokrýva sentiment, kategorizáciu,
+              AI-assisted rewrite a TF-IDF klasifikáciu. Ďalším rozšírením môže
+              byť odporúčanie relevantného obsahu alebo pokročilejší model
+              klasifikácie nad väčším korpusom dát.
             </p>
 
             <div className="grid gap-3">
@@ -694,26 +687,6 @@ export default async function AnalyticsPage() {
                 Prejsť na fórum
               </Link>
             </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Poznámka k implementácii</CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-3 text-sm text-slate-700">
-            <p>
-              Základné agregácie sú realizované na databázovej vrstve cez RPC
-              funkcie. Prezentačná vrstva následne zobrazuje pripravené
-              analytické výstupy bez potreby rozsiahleho prepočtu v UI.
-            </p>
-
-            <p>
-              Takýto prístup zjednodušuje rozšírenie systému o ďalšie analytické
-              výstupy, napríklad sentiment recenzií, kategorizáciu spätnej
-              väzby alebo modely založené na TF-IDF reprezentácii textu.
-            </p>
           </CardContent>
         </Card>
       </section>
