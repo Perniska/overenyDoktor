@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import {
+  AlertTriangle,
   ArrowLeft,
   Building2,
   CalendarDays,
@@ -18,6 +19,7 @@ import {
   getReviewStatusLabel,
   getVisitTypeLabel,
 } from "@/lib/labels";
+import { CATEGORY_LABELS } from "@/lib/reviews/aspectLexicon";
 import { AdminReviewActions } from "@/components/admin/AdminReviewActions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -40,6 +42,11 @@ function formatDateTime(value?: string | null) {
   return new Date(value).toLocaleString("sk-SK");
 }
 
+function formatNumber(value?: number | null) {
+  if (value == null) return "—";
+  return Number(value).toFixed(2).replace(".", ",");
+}
+
 function getRatingRows(review: any) {
   return [
     ["Komunikácia", review.rating_communication],
@@ -55,6 +62,13 @@ function getRatingRows(review: any) {
     ["Súkromie", review.rating_privacy],
     ["Odporúčanie", review.rating_recommendation],
   ].filter(([, value]) => value !== null && value !== undefined);
+}
+
+function getSentimentLabelSk(label?: string | null) {
+  if (label === "positive") return "Pozitívny";
+  if (label === "negative") return "Negatívny";
+  if (label === "neutral") return "Neutrálny";
+  return "Neuvedené";
 }
 
 export default async function AdminReviewDetailPage({
@@ -90,6 +104,15 @@ export default async function AdminReviewDetailPage({
       is_anonymous,
       visit_type,
       review_source,
+      sentiment_score,
+      sentiment_label,
+      sentiment_confidence,
+      detected_categories,
+      aspect_scores,
+      contains_sensitive_data,
+      contains_offensive_language,
+      needs_manual_review,
+      analysis_version,
       rating_communication,
       rating_explanation,
       rating_waiting_time,
@@ -145,20 +168,28 @@ export default async function AdminReviewDetailPage({
       : "#";
 
   const targetLabel = doctor ? "Lekár" : facility ? "Zariadenie" : "Neznáme";
-
   const ratingRows = getRatingRows(review);
 
+  const detectedCategories = Array.isArray(review.detected_categories)
+    ? review.detected_categories
+    : [];
+
+  const aspectScores =
+    review.aspect_scores && typeof review.aspect_scores === "object"
+      ? review.aspect_scores
+      : {};
+
   return (
-    <main className="mx-auto max-w-4xl space-y-6 px-4 py-8">
+    <main className="mx-auto max-w-5xl space-y-6">
       <Link
         href="/admin/reviews"
-        className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-sky-700"
+        className="inline-flex min-h-10 items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
       >
         <ArrowLeft className="size-4" />
         Späť na recenzie
       </Link>
 
-      <section>
+      <section className="rounded-2xl border bg-white p-6 shadow-sm">
         <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
           Správa recenzie
         </p>
@@ -174,145 +205,288 @@ export default async function AdminReviewDetailPage({
         </p>
       </section>
 
-      <Card className={isHidden ? "border-red-200 bg-red-50/30" : ""}>
-        <CardHeader>
-          <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
-            <div>
-              <CardTitle className="flex items-center gap-2 text-2xl">
+      <section className="grid gap-6 xl:grid-cols-3">
+        <Card className="xl:col-span-2">
+          <CardHeader>
+            <CardTitle>Cieľ recenzie</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="flex items-start gap-3 rounded-2xl border bg-slate-50 p-4">
+              <div className="rounded-xl bg-white p-3 text-slate-700">
                 {doctor ? (
-                  <Stethoscope className="size-6" />
+                  <Stethoscope className="size-5" />
                 ) : (
-                  <Building2 className="size-6" />
+                  <Building2 className="size-5" />
                 )}
-                {targetName}
-              </CardTitle>
+              </div>
 
-              <p className="mt-1 text-sm text-slate-500">{targetLabel}</p>
+              <div>
+                <p className="font-semibold text-slate-900">{targetName}</p>
+                <p className="mt-1 text-sm text-slate-500">{targetLabel}</p>
+
+                <Link
+                  href={targetHref}
+                  className="mt-3 inline-flex min-h-10 items-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-white"
+                >
+                  Otvoriť verejný profil
+                </Link>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Celkové hodnotenie</p>
+                <p className="mt-2 text-2xl font-bold text-slate-950">
+                  {review.rating}/5
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Typ návštevy</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {getVisitTypeLabel(review.visit_type)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Zdroj recenzie</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {getReviewSourceLabel(review.review_source)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Autor</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {review.is_anonymous
+                    ? "Anonymná recenzia"
+                    : author?.username ?? "Neznámy používateľ"}
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Komentár</p>
+              <p className="mt-2 whitespace-pre-line text-slate-800">
+                {review.comment ?? "Bez komentára"}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Stav a moderácia</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Stav recenzie</p>
+              <p className="mt-2 font-semibold text-slate-950">
                 {getReviewStatusLabel(review.status)}
-              </span>
-
-              <span
-                className={
-                  isHidden
-                    ? "inline-flex items-center gap-1 rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-700"
-                    : "rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
-                }
-              >
-                {isHidden ? (
-                  <>
-                    <EyeOff className="size-4" />
-                    Skrytá
-                  </>
-                ) : (
-                  "Viditeľná"
-                )}
-              </span>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-5">
-          <div className="grid gap-3 md:grid-cols-3">
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Celkové hodnotenie</p>
-              <p className="mt-1 flex items-center gap-1.5 text-lg font-bold">
-                <Star className="size-5" />
-                {review.rating}/5
               </p>
             </div>
 
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Typ návštevy</p>
-              <p className="mt-1 font-semibold">
-                {getVisitTypeLabel(review.visit_type)}
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Viditeľnosť</p>
+              <p className="mt-2 font-semibold text-slate-950">
+                {isHidden ? "Skrytá" : "Viditeľná"}
               </p>
             </div>
 
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Zdroj recenzie</p>
-              <p className="mt-1 font-semibold">
-                {getReviewSourceLabel(review.review_source)}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-3">
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Autor</p>
-              <p className="mt-1 flex items-center gap-1.5 font-semibold">
-                <UserCircle className="size-4" />
-                {review.is_anonymous
-                  ? "Anonymná recenzia"
-                  : author?.username ?? "Neznámy používateľ"}
-              </p>
-            </div>
-
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Vytvorená</p>
-              <p className="mt-1 flex items-center gap-1.5 font-semibold">
-                <CalendarDays className="size-4" />
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Vytvorené</p>
+              <p className="mt-2 font-semibold text-slate-950">
                 {formatDateTime(review.created_at)}
               </p>
             </div>
 
-            <div className="rounded-xl border bg-white p-3">
-              <p className="text-sm text-slate-500">Naposledy upravená</p>
-              <p className="mt-1 font-semibold">
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Aktualizované</p>
+              <p className="mt-2 font-semibold text-slate-950">
                 {formatDateTime(review.updated_at)}
               </p>
             </div>
-          </div>
 
-          {review.comment ? (
-            <div className="rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">Text recenzie</p>
-              <p className="mt-2 whitespace-pre-wrap">{review.comment}</p>
-            </div>
-          ) : (
-            <div className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
-              Recenzia neobsahuje textový komentár.
-            </div>
-          )}
+            <AdminReviewActions reviewId={review.id} isHidden={isHidden} />
+          </CardContent>
+        </Card>
+      </section>
 
-          {ratingRows.length > 0 ? (
-            <div className="rounded-xl border bg-white p-4">
-              <p className="flex items-center gap-2 font-semibold text-slate-900">
-                <ShieldCheck className="size-5 text-sky-700" />
-                Detailné hodnotenie
+      <section className="grid gap-6 xl:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Štruktúrované hodnotenie</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-3">
+            {ratingRows.length === 0 ? (
+              <p className="text-sm text-slate-600">
+                Táto recenzia neobsahuje detailné ratingy.
               </p>
+            ) : (
+              ratingRows.map(([label, value]) => (
+                <div
+                  key={label}
+                  className="flex items-center justify-between rounded-xl border px-4 py-3"
+                >
+                  <span className="text-sm text-slate-700">{label}</span>
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-950">
+                    <Star className="size-4 fill-current text-yellow-500" />
+                    {value}/5
+                  </span>
+                </div>
+              ))
+            )}
+          </CardContent>
+        </Card>
 
-              <div className="mt-3 grid gap-3 md:grid-cols-2">
-                {ratingRows.map(([label, value]) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2 text-sm"
-                  >
-                    <span className="text-slate-600">{label}</span>
-                    <span className="font-semibold">{value}/5</span>
-                  </div>
-                ))}
+        <Card>
+          <CardHeader>
+            <CardTitle>Analýza recenzie</CardTitle>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Sentiment</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {getSentimentLabelSk(review.sentiment_label)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Skóre sentimentu</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {formatNumber(review.sentiment_score)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Dôvera výsledku</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {formatNumber(review.sentiment_confidence)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border p-4">
+                <p className="text-sm text-slate-500">Verzia analýzy</p>
+                <p className="mt-2 font-semibold text-slate-950">
+                  {review.analysis_version ?? "—"}
+                </p>
               </div>
             </div>
-          ) : null}
 
-          <div className="flex flex-wrap gap-2">
-            {targetHref !== "#" ? (
-              <Link
-                href={targetHref}
-                className="inline-flex min-h-10 items-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Detegované kategórie</p>
+
+              {detectedCategories.length === 0 ? (
+                <p className="mt-2 text-sm text-slate-600">
+                  Neboli detegované žiadne kategórie.
+                </p>
+              ) : (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {detectedCategories.map((category: string) => (
+                    <span
+                      key={category}
+                      className="rounded-full bg-slate-200 px-3 py-1 text-xs font-medium text-slate-800"
+                    >
+                      {CATEGORY_LABELS[category] ?? category}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="rounded-2xl border p-4">
+              <p className="text-sm text-slate-500">Aspektové skóre</p>
+
+              {Object.keys(aspectScores).length === 0 ? (
+                <p className="mt-2 text-sm text-slate-600">
+                  Aspektové skóre nie je dostupné.
+                </p>
+              ) : (
+                <div className="mt-3 space-y-2">
+                  {Object.entries(aspectScores).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2"
+                    >
+                      <span className="text-sm text-slate-700">
+                        {CATEGORY_LABELS[key] ?? key}
+                      </span>
+                      <span className="text-sm font-semibold text-slate-950">
+                        {formatNumber(Number(value))}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="grid gap-3">
+              <div
+                className={`rounded-2xl border p-4 ${
+                  review.contains_sensitive_data
+                    ? "border-amber-200 bg-amber-50"
+                    : "border-emerald-200 bg-emerald-50"
+                }`}
               >
-                Otvoriť verejný profil
-              </Link>
-            ) : null}
-          </div>
-        </CardContent>
-      </Card>
+                <p className="flex items-center gap-2 font-semibold text-slate-900">
+                  <ShieldCheck className="size-4" />
+                  Citlivé údaje
+                </p>
+                <p className="mt-1 text-sm text-slate-700">
+                  {review.contains_sensitive_data
+                    ? "Systém detegoval možné osobné alebo citlivé údaje."
+                    : "Neboli detegované zjavné osobné alebo citlivé údaje."}
+                </p>
+              </div>
 
-      <AdminReviewActions reviewId={review.id} isHidden={isHidden} />
+              <div
+                className={`rounded-2xl border p-4 ${
+                  review.contains_offensive_language
+                    ? "border-red-200 bg-red-50"
+                    : "border-emerald-200 bg-emerald-50"
+                }`}
+              >
+                <p className="flex items-center gap-2 font-semibold text-slate-900">
+                  <AlertTriangle className="size-4" />
+                  Nevhodný jazyk
+                </p>
+                <p className="mt-1 text-sm text-slate-700">
+                  {review.contains_offensive_language
+                    ? "Systém detegoval nevhodné alebo urážlivé výrazy."
+                    : "Neboli detegované zjavné urážlivé výrazy."}
+                </p>
+              </div>
+
+              <div
+                className={`rounded-2xl border p-4 ${
+                  review.needs_manual_review
+                    ? "border-red-200 bg-red-50"
+                    : "border-emerald-200 bg-emerald-50"
+                }`}
+              >
+                <p className="flex items-center gap-2 font-semibold text-slate-900">
+                  {review.needs_manual_review ? (
+                    <EyeOff className="size-4" />
+                  ) : (
+                    <ShieldCheck className="size-4" />
+                  )}
+                  Manuálne posúdenie
+                </p>
+                <p className="mt-1 text-sm text-slate-700">
+                  {review.needs_manual_review
+                    ? "Táto recenzia bola označená na manuálne posúdenie."
+                    : "Táto recenzia nebola označená ako riziková."}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
     </main>
   );
 }

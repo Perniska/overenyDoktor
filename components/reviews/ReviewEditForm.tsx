@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Star } from "lucide-react";
+import { Link, Star } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
+import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
+import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
 
 type TargetType = "doctor" | "facility";
 
@@ -162,9 +164,9 @@ function RatingInput({
   onChange: (value: number) => void;
 }) {
   return (
-    <div className="rounded-xl border bg-white p-4">
-      <div className="mb-3">
-        <p className="font-medium text-slate-900">{question.label}</p>
+    <div className="space-y-2 rounded-2xl border bg-white p-4">
+      <div>
+        <p className="font-semibold text-slate-900">{question.label}</p>
         <p className="mt-1 text-sm text-slate-600">{question.description}</p>
       </div>
 
@@ -180,12 +182,12 @@ function RatingInput({
                 : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
             }`}
           >
-            <Star className="size-4" />
+            <Star className="size-4 fill-current" />
           </button>
         ))}
       </div>
 
-      <p className="mt-2 text-sm text-slate-500">Vybrané: {value}/5</p>
+      <p className="text-sm text-slate-500">Vybrané: {value}/5</p>
     </div>
   );
 }
@@ -316,11 +318,18 @@ export function ReviewEditForm({
     setMessage("");
     setSaving(true);
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const guard = await guardClientWriteAction();
 
-    if (!user) {
+    if (!guard.allowed) {
+      setSaving(false);
+      setMessage(guard.message ?? "Na úpravu recenzie sa musíš prihlásiť.");
+      return;
+    }
+
+    const { data: sessionData } = await supabase.auth.getSession();
+    const userId = sessionData.session?.user?.id ?? null;
+
+    if (!userId) {
       setSaving(false);
       setMessage("Na úpravu recenzie sa musíš prihlásiť.");
       return;
@@ -332,6 +341,8 @@ export function ReviewEditForm({
       questions,
       visitTypeLabel,
     });
+
+    const analysisPayload = buildReviewAnalysisPayload(generatedComment);
 
     const { error } = await supabase
       .from("reviews")
@@ -363,12 +374,13 @@ export function ReviewEditForm({
           })),
         },
         is_anonymous: isAnonymous,
-        status: "approved",
+        status: analysisPayload.needs_manual_review ? "pending" : "approved",
         review_source: "structured_form",
         updated_at: new Date().toISOString(),
+        ...analysisPayload,
       })
       .eq("id", reviewId)
-      .eq("id_user", user.id);
+      .eq("id_user", userId);
 
     setSaving(false);
 
@@ -382,28 +394,30 @@ export function ReviewEditForm({
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6 rounded-2xl border bg-white p-6 shadow-sm">
       <div>
-        <p className="text-sm text-slate-500">Upravuješ recenziu pre</p>
-        <p className="font-semibold text-slate-900">{targetName}</p>
-        <a
+        <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
+          Úprava hodnotenia
+        </p>
+        <h2 className="mt-1 text-2xl font-bold text-slate-950">
+          Upravuješ recenziu pre
+        </h2>
+        <p className="mt-1 text-slate-700">{targetName}</p>
+
+        <Link
           href={targetHref}
-          className="mt-1 inline-block text-sm font-medium text-sky-700 hover:underline"
+          className="mt-3 inline-flex min-h-10 items-center rounded-xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
         >
           Otvoriť verejný profil
-        </a>
+        </Link>
       </div>
 
-      <div className="rounded-xl border bg-slate-50 p-4">
-        <label
-          htmlFor="visit-type"
-          className="mb-2 block text-sm font-medium text-slate-800"
-        >
+      <div>
+        <label className="mb-2 block text-sm font-medium text-slate-700">
           Typ skúsenosti
         </label>
 
         <select
-          id="visit-type"
           value={visitType}
           onChange={(event) => setVisitType(event.target.value)}
           className="min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base"
@@ -416,13 +430,18 @@ export function ReviewEditForm({
         </select>
       </div>
 
-      <div className="rounded-xl border bg-sky-50 p-4">
-        <p className="text-sm font-medium text-sky-900">
+      <div className="rounded-2xl bg-slate-50 p-4">
+        <p className="font-semibold text-slate-900">
           Priebežné celkové hodnotenie: {average.exact}/5
+        </p>
+        <p className="mt-1 text-sm text-slate-600">
+          Text recenzie sa vytvára automaticky zo zvolených kategórií a po
+          uložení sa znovu analyzuje z pohľadu sentimentu, kategórií a rizikového
+          obsahu.
         </p>
       </div>
 
-      <div className="space-y-3">
+      <div className="grid gap-4">
         {questions.map((question) => (
           <RatingInput
             key={question.key}
@@ -433,7 +452,7 @@ export function ReviewEditForm({
         ))}
       </div>
 
-      <label className="flex items-center gap-2 text-sm text-slate-700">
+      <label className="flex items-center gap-3 text-sm text-slate-700">
         <input
           type="checkbox"
           checked={isAnonymous}
@@ -447,15 +466,15 @@ export function ReviewEditForm({
         type="button"
         onClick={handleSave}
         disabled={saving}
-        className="min-h-12 w-full rounded-xl bg-sky-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
       >
         {saving ? "Ukladá sa..." : "Uložiť úpravy"}
       </button>
 
       {message ? (
-        <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-sm text-red-700">
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {message}
-        </p>
+        </div>
       ) : null}
     </div>
   );

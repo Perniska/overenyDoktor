@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
+import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
+import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
 
 type ReviewCreateFormProps = {
   targetType: "doctor" | "facility";
@@ -110,7 +112,8 @@ const facilityQuestions: RatingQuestion[] = [
   {
     key: "equipment",
     label: "Vybavenie",
-    description: "Subjektívne vnímanie technického a organizačného vybavenia.",
+    description:
+      "Subjektívne vnímanie technického a organizačného vybavenia.",
   },
   {
     key: "privacy",
@@ -143,9 +146,9 @@ function RatingInput({
   onChange: (value: number) => void;
 }) {
   return (
-    <div className="rounded-xl border bg-white p-4">
-      <div className="mb-3">
-        <p className="font-medium text-slate-900">{question.label}</p>
+    <div className="space-y-2 rounded-2xl border bg-white p-4">
+      <div>
+        <p className="font-semibold text-slate-900">{question.label}</p>
         <p className="mt-1 text-sm text-slate-600">{question.description}</p>
       </div>
 
@@ -162,12 +165,12 @@ function RatingInput({
             }`}
             aria-label={`${number} z 5`}
           >
-            <Star className="size-4" />
+            <Star className="size-4 fill-current" />
           </button>
         ))}
       </div>
 
-      <p className="mt-2 text-sm text-slate-500">Vybrané: {value}/5</p>
+      <p className="text-sm text-slate-500">Vybrané: {value}/5</p>
     </div>
   );
 }
@@ -243,7 +246,9 @@ function buildStructuredComment({
 
   const improvementSentence =
     weakerAreas.length > 0
-      ? `Priestor na zlepšenie bol vnímaný najmä v oblastiach: ${weakerAreas.join(", ")}.`
+      ? `Priestor na zlepšenie bol vnímaný najmä v oblastiach: ${weakerAreas.join(
+          ", "
+        )}.`
       : "Používateľ neoznačil žiadnu oblasť ako výrazne problematickú.";
 
   const detailSentence = questions
@@ -309,26 +314,18 @@ export function ReviewCreateForm({
     setMessage("");
     setSaving(true);
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const guard = await guardClientWriteAction();
 
-    if (!user) {
+    if (!guard.allowed || !guard.userId) {
       setSaving(false);
-      setMessage("Pre pridanie recenzie sa musíš prihlásiť.");
+      setMessage(guard.message ?? "Pre pridanie recenzie sa musíš prihlásiť.");
       return;
     }
 
     const targetPayload =
       targetType === "doctor"
-        ? {
-            id_doctor: targetId,
-            id_facility: null,
-          }
-        : {
-            id_doctor: null,
-            id_facility: targetId,
-          };
+        ? { id_doctor: targetId, id_facility: null }
+        : { id_doctor: null, id_facility: targetId };
 
     const generatedComment = buildStructuredComment({
       targetType,
@@ -337,9 +334,11 @@ export function ReviewCreateForm({
       visitTypeLabel,
     });
 
+    const analysisPayload = buildReviewAnalysisPayload(generatedComment);
+
     const { error } = await supabase.from("reviews").insert({
       ...targetPayload,
-      id_user: user.id,
+      id_user: guard.userId,
       rating: average.rounded,
       rating_communication: ratings.communication,
       rating_explanation: ratings.explanation,
@@ -367,8 +366,9 @@ export function ReviewCreateForm({
         })),
       },
       is_anonymous: isAnonymous,
-      status: "approved",
+      status: analysisPayload.needs_manual_review ? "pending" : "approved",
       review_source: "structured_form",
+      ...analysisPayload,
     });
 
     setSaving(false);
@@ -378,27 +378,30 @@ export function ReviewCreateForm({
       return;
     }
 
-    router.push(targetType === "doctor" ? `/doctors/${targetId}` : `/facilities/${targetId}`);
+    router.push(
+      targetType === "doctor" ? `/doctors/${targetId}` : `/facilities/${targetId}`
+    );
     router.refresh();
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6 rounded-2xl border bg-white p-6 shadow-sm">
       <div>
-        <p className="text-sm text-slate-500">Hodnotíš</p>
-        <p className="font-semibold text-slate-900">{targetName}</p>
+        <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
+          Hodnotenie
+        </p>
+        <h2 className="mt-1 text-2xl font-bold text-slate-950">
+          Hodnotíš
+        </h2>
+        <p className="mt-1 text-slate-700">{targetName}</p>
       </div>
 
-      <div className="rounded-xl border bg-slate-50 p-4">
-        <label
-          htmlFor="visit-type"
-          className="mb-2 block text-sm font-medium text-slate-800"
-        >
+      <div>
+        <label className="mb-2 block text-sm font-medium text-slate-700">
           Typ skúsenosti
         </label>
 
         <select
-          id="visit-type"
           value={visitType}
           onChange={(event) => setVisitType(event.target.value)}
           className="min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base"
@@ -411,17 +414,17 @@ export function ReviewCreateForm({
         </select>
       </div>
 
-      <div className="rounded-xl border bg-sky-50 p-4">
-        <p className="text-sm font-medium text-sky-900">
+      <div className="rounded-2xl bg-slate-50 p-4">
+        <p className="font-semibold text-slate-900">
           Priebežné celkové hodnotenie: {average.exact}/5
         </p>
-        <p className="mt-1 text-sm text-sky-800">
+        <p className="mt-1 text-sm text-slate-600">
           Výsledná recenzia bude vytvorená automaticky zo zvolených kategórií,
           bez urážlivého alebo osobného textu.
         </p>
       </div>
 
-      <div className="space-y-3">
+      <div className="grid gap-4">
         {questions.map((question) => (
           <RatingInput
             key={question.key}
@@ -432,7 +435,7 @@ export function ReviewCreateForm({
         ))}
       </div>
 
-      <label className="flex items-center gap-2 text-sm text-slate-700">
+      <label className="flex items-center gap-3 text-sm text-slate-700">
         <input
           type="checkbox"
           checked={isAnonymous}
@@ -446,15 +449,15 @@ export function ReviewCreateForm({
         type="button"
         onClick={handleSubmit}
         disabled={saving}
-        className="min-h-12 w-full rounded-xl bg-sky-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
       >
         {saving ? "Ukladá sa..." : "Zverejniť hodnotenie"}
       </button>
 
       {message ? (
-        <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-sm text-red-700">
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {message}
-        </p>
+        </div>
       ) : null}
     </div>
   );
