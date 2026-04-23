@@ -6,6 +6,7 @@ import { Link, Star } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
 import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
 import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
+import { buildStructuredReviewComment } from "@/lib/reviews/buildStructuredReviewComment";
 
 type TargetType = "doctor" | "facility";
 
@@ -218,59 +219,6 @@ function getAverageRating(ratings: Ratings, questions: RatingQuestion[]) {
   };
 }
 
-function buildStructuredComment({
-  targetType,
-  ratings,
-  questions,
-  visitTypeLabel,
-}: {
-  targetType: TargetType;
-  ratings: Ratings;
-  questions: RatingQuestion[];
-  visitTypeLabel: string;
-}) {
-  const average = getAverageRating(ratings, questions).exact;
-  const overall = getOverallWord(average);
-
-  const strongAreas = questions
-    .filter((question) => ratings[question.key] >= 4)
-    .map((question) => question.label.toLowerCase());
-
-  const weakerAreas = questions
-    .filter((question) => ratings[question.key] <= 2)
-    .map((question) => question.label.toLowerCase());
-
-  const subject =
-    targetType === "doctor"
-      ? "návštevu lekára"
-      : "návštevu zdravotníckeho zariadenia";
-
-  const intro = `Používateľ hodnotil ${subject} prostredníctvom štruktúrovaného formulára. Typ skúsenosti: ${visitTypeLabel}. Celkové hodnotenie vyznieva ${overall}.`;
-
-  const positiveSentence =
-    strongAreas.length > 0
-      ? `Najlepšie boli hodnotené oblasti: ${strongAreas.join(", ")}.`
-      : "";
-
-  const improvementSentence =
-    weakerAreas.length > 0
-      ? `Priestor na zlepšenie bol vnímaný najmä v oblastiach: ${weakerAreas.join(", ")}.`
-      : "Používateľ neoznačil žiadnu oblasť ako výrazne problematickú.";
-
-  const detailSentence = questions
-    .map(
-      (question) =>
-        `${question.label} bola hodnotená ${getRatingWord(
-          ratings[question.key]
-        )}.`
-    )
-    .join(" ");
-
-  return [intro, positiveSentence, improvementSentence, detailSentence]
-    .filter(Boolean)
-    .join(" ");
-}
-
 export function ReviewEditForm({
   reviewId,
   targetType,
@@ -335,13 +283,12 @@ export function ReviewEditForm({
       return;
     }
 
-    const generatedComment = buildStructuredComment({
-      targetType,
-      ratings,
-      questions,
-      visitTypeLabel,
-    });
-
+    const generatedComment = buildStructuredReviewComment({
+    targetType,
+    ratings,
+    questions,
+    visitTypeLabel,
+  });
     const analysisPayload = buildReviewAnalysisPayload(generatedComment);
 
     const { error } = await supabase

@@ -6,6 +6,7 @@ import { Star } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
 import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
 import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
+import { buildStructuredReviewComment } from "@/lib/reviews/buildStructuredReviewComment";
 
 type ReviewCreateFormProps = {
   targetType: "doctor" | "facility";
@@ -201,75 +202,6 @@ function getAverageRating(ratings: Ratings, questions: RatingQuestion[]) {
   };
 }
 
-function buildStructuredComment({
-  targetType,
-  ratings,
-  questions,
-  visitTypeLabel,
-}: {
-  targetType: "doctor" | "facility";
-  ratings: Ratings;
-  questions: RatingQuestion[];
-  visitTypeLabel: string;
-}) {
-  const average = getAverageRating(ratings, questions).exact;
-  const overall = getOverallWord(average);
-
-  const strongAreas = questions
-    .filter((question) => ratings[question.key] >= 4)
-    .map((question) => question.label.toLowerCase());
-
-  const weakerAreas = questions
-    .filter((question) => ratings[question.key] <= 2)
-    .map((question) => question.label.toLowerCase());
-
-  const neutralAreas = questions
-    .filter((question) => ratings[question.key] === 3)
-    .map((question) => question.label.toLowerCase());
-
-  const subject =
-    targetType === "doctor"
-      ? "návštevu lekára"
-      : "návštevu zdravotníckeho zariadenia";
-
-  const intro = `Používateľ hodnotil ${subject} prostredníctvom štruktúrovaného formulára. Typ skúsenosti: ${visitTypeLabel}. Celkové hodnotenie vyznieva ${overall}.`;
-
-  const positiveSentence =
-    strongAreas.length > 0
-      ? `Najlepšie boli hodnotené oblasti: ${strongAreas.join(", ")}.`
-      : "";
-
-  const neutralSentence =
-    neutralAreas.length > 0
-      ? `Neutrálne boli hodnotené oblasti: ${neutralAreas.join(", ")}.`
-      : "";
-
-  const improvementSentence =
-    weakerAreas.length > 0
-      ? `Priestor na zlepšenie bol vnímaný najmä v oblastiach: ${weakerAreas.join(
-          ", "
-        )}.`
-      : "Používateľ neoznačil žiadnu oblasť ako výrazne problematickú.";
-
-  const detailSentence = questions
-    .map(
-      (question) =>
-        `${question.label} bola hodnotená ${getRatingWord(
-          ratings[question.key]
-        )}.`
-    )
-    .join(" ");
-
-  return [
-    intro,
-    positiveSentence,
-    neutralSentence,
-    improvementSentence,
-    detailSentence,
-  ]
-    .filter(Boolean)
-    .join(" ");
-}
 
 export function ReviewCreateForm({
   targetType,
@@ -327,13 +259,12 @@ export function ReviewCreateForm({
         ? { id_doctor: targetId, id_facility: null }
         : { id_doctor: null, id_facility: targetId };
 
-    const generatedComment = buildStructuredComment({
+    const generatedComment = buildStructuredReviewComment({
       targetType,
       ratings,
       questions,
       visitTypeLabel,
     });
-
     const analysisPayload = buildReviewAnalysisPayload(generatedComment);
 
     const { error } = await supabase.from("reviews").insert({
@@ -366,8 +297,8 @@ export function ReviewCreateForm({
         })),
       },
       is_anonymous: isAnonymous,
-      status: analysisPayload.needs_manual_review ? "pending" : "approved",
       review_source: "structured_form",
+      status: analysisPayload.needs_manual_review ? "pending" : "approved",
       ...analysisPayload,
     });
 
@@ -390,9 +321,7 @@ export function ReviewCreateForm({
         <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
           Hodnotenie
         </p>
-        <h2 className="mt-1 text-2xl font-bold text-slate-950">
-          Hodnotíš
-        </h2>
+        <h2 className="mt-1 text-2xl font-bold text-slate-950">Hodnotíš</h2>
         <p className="mt-1 text-slate-700">{targetName}</p>
       </div>
 
