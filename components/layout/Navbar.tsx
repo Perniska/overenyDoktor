@@ -20,6 +20,48 @@ type NavLink = {
   label: string;
 };
 
+function NotificationMenuBadge() {
+  const [count, setCount] = useState(0);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.startsWith("/auth")) {
+      setCount(0);
+      return;
+    }
+
+    async function loadCount() {
+      const { session } = await getSafeSession();
+      const userId = session?.user?.id ?? null;
+
+      if (!userId) {
+        setCount(0);
+        return;
+      }
+
+      const { count, error } = await supabase
+        .from("notifications")
+        .select("id", { count: "exact", head: true })
+        .eq("id_user", userId)
+        .eq("is_read", false);
+
+      if (!error) {
+        setCount(count ?? 0);
+      }
+    }
+
+    loadCount();
+  }, [pathname]);
+
+  if (count <= 0) return null;
+
+  return (
+    <span className="ml-2 inline-flex min-w-5 items-center justify-center rounded-full bg-red-600 px-1.5 py-0.5 text-[11px] font-bold text-white">
+      {count > 99 ? "99+" : count}
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [user, setUser] = useState<UserInfo>(null);
   const pathname = usePathname();
@@ -230,9 +272,10 @@ export default function Navbar() {
 
                   <Link
                     href="/notifications"
-                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                    className="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
                   >
-                    Notifikácie
+                    <span>Notifikácie</span>
+                    <NotificationMenuBadge />
                   </Link>
 
                   <Link
@@ -331,9 +374,13 @@ export default function Navbar() {
                     <Link
                       href="/notifications"
                       onClick={closeMobileMenu}
-                      className={getMobileLinkClassName("/notifications")}
+                      className={cn(
+                        getMobileLinkClassName("/notifications"),
+                        "flex items-center justify-between"
+                      )}
                     >
-                      Notifikácie
+                      <span>Notifikácie</span>
+                      <NotificationMenuBadge />
                     </Link>
 
                     <Link

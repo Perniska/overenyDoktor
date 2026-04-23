@@ -79,11 +79,7 @@ export function NotificationBell() {
   }
 
   useEffect(() => {
-    if (
-      pathname.startsWith("/auth") ||
-      pathname.startsWith("/notifications") ||
-      pathname.startsWith("/gdpr")
-    ) {
+    if (pathname.startsWith("/auth")) {
       setHasSession(false);
       setUnreadCount(0);
 
@@ -113,11 +109,7 @@ export function NotificationBell() {
     };
   }, [pathname]);
 
-  if (
-    pathname.startsWith("/auth") ||
-    pathname.startsWith("/notifications") ||
-    pathname.startsWith("/gdpr")
-  ) {
+  if (pathname.startsWith("/auth")) {
     return null;
   }
 
