@@ -4,11 +4,19 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
 import { getAvatarByKey } from "@/lib/constants/avatars";
-import type { Profile } from "@/types/user";
+import type {
+  Profile,
+  ProfileComment,
+  ProfileReview,
+  ProfileTopic,
+} from "@/types/user";
 
 export default function ProfileDetails() {
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [topics, setTopics] = useState<ProfileTopic[]>([]);
+  const [comments, setComments] = useState<ProfileComment[]>([]);
+  const [reviews, setReviews] = useState<ProfileReview[]>([]);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -27,21 +35,61 @@ export default function ProfileDetails() {
         return;
       }
 
-      const { data, error } = await supabase
+      const { data: profileData, error: profileError } = await supabase
         .from("profiles")
         .select(
-          "id, username, is_banned, created_at, role_id, deleted_at, anonymized_at, bio, avatar_key"
+          `
+          id,
+          username,
+          created_at,
+          role_id,
+          bio,
+          avatar_key,
+          roles:roles!profiles_role_id_fkey (
+            name,
+            slug
+          )
+          `
         )
         .eq("id", user.id)
         .single();
 
-      if (error) {
-        setMessage(`Chyba pri načítaní profilu: ${error.message}`);
+      if (profileError) {
+        setMessage(`Chyba pri načítaní profilu: ${profileError.message}`);
         setLoading(false);
         return;
       }
 
-      setProfile(data);
+      const [topicsResult, commentsResult, reviewsResult] = await Promise.all([
+        supabase
+          .from("forum_topics")
+          .select("id, title, description, created_at")
+          .eq("id_creator", user.id)
+          .is("deleted_at", null)
+          .order("created_at", { ascending: false })
+          .limit(2),
+
+        supabase
+          .from("forum_comments")
+          .select("id, content, created_at, id_topic")
+          .eq("id_user", user.id)
+          .is("deleted_at", null)
+          .order("created_at", { ascending: false })
+          .limit(2),
+
+        supabase
+          .from("reviews")
+          .select("id, rating, comment, created_at")
+          .eq("id_user", user.id)
+          .is("deleted_at", null)
+          .order("created_at", { ascending: false })
+          .limit(2),
+      ]);
+
+      setProfile(profileData as Profile);
+      setTopics((topicsResult.data ?? []) as ProfileTopic[]);
+      setComments((commentsResult.data ?? []) as ProfileComment[]);
+      setReviews((reviewsResult.data ?? []) as ProfileReview[]);
       setLoading(false);
     };
 
@@ -94,23 +142,24 @@ export default function ProfileDetails() {
 
           <div className="mt-4 space-y-3 text-sm">
             <div>
-              <span className="font-medium text-slate-700">ID používateľa:</span>{" "}
+              <span className="font-medium text-slate-700">
+                ID používateľa:
+              </span>{" "}
               <span className="break-all text-slate-600">{profile.id}</span>
             </div>
 
             <div>
-              <span className="font-medium text-slate-700">Používateľské meno:</span>{" "}
+              <span className="font-medium text-slate-700">
+                Používateľské meno:
+              </span>{" "}
               <span className="text-slate-600">{profile.username}</span>
             </div>
 
             <div>
               <span className="font-medium text-slate-700">Rola:</span>{" "}
-              <span className="text-slate-600">{profile.role_id}</span>
-            </div>
-
-            <div>
-              <span className="font-medium text-slate-700">Zablokovaný používateľ:</span>{" "}
-              <span className="text-slate-600">{profile.is_banned ? "áno" : "nie"}</span>
+              <span className="text-slate-600">
+                {profile.roles?.[0]?.name ?? "nezadané"}
+              </span>
             </div>
 
             <div>
@@ -128,24 +177,88 @@ export default function ProfileDetails() {
                   : "nezadané"}
               </span>
             </div>
+          </div>
 
-            <div>
-              <span className="font-medium text-slate-700">Deleted at:</span>{" "}
-              <span className="text-slate-600">
-                {profile.deleted_at
-                  ? new Date(profile.deleted_at).toLocaleString("sk-SK")
-                  : "nie"}
-              </span>
-            </div>
+          <div className="mt-8 space-y-6">
+            <section>
+              <h3 className="text-lg font-semibold">Aktuálne témy vo fóre</h3>
+              <div className="mt-3 space-y-3">
+                {topics.length > 0 ? (
+                  topics.map((topic) => (
+                    <div key={topic.id} className="rounded-xl border p-4">
+                      <p className="font-medium text-slate-800">{topic.title}</p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        {topic.created_at
+                          ? new Date(topic.created_at).toLocaleString("sk-SK")
+                          : "bez dátumu"}
+                      </p>
+                      {topic.description ? (
+                        <p className="mt-2 line-clamp-2 text-sm text-slate-600">
+                          {topic.description}
+                        </p>
+                      ) : null}
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-slate-500">
+                    Zatiaľ nemáš žiadne témy vo fóre.
+                  </p>
+                )}
+              </div>
+            </section>
 
-            <div>
-              <span className="font-medium text-slate-700">Anonymized at:</span>{" "}
-              <span className="text-slate-600">
-                {profile.anonymized_at
-                  ? new Date(profile.anonymized_at).toLocaleString("sk-SK")
-                  : "nie"}
-              </span>
-            </div>
+            <section>
+              <h3 className="text-lg font-semibold">Aktuálne komentáre vo fóre</h3>
+              <div className="mt-3 space-y-3">
+                {comments.length > 0 ? (
+                  comments.map((comment) => (
+                    <div key={comment.id} className="rounded-xl border p-4">
+                      <p className="line-clamp-3 text-sm text-slate-600">
+                        {comment.content}
+                      </p>
+                      <p className="mt-2 text-xs text-slate-500">
+                        {comment.created_at
+                          ? new Date(comment.created_at).toLocaleString("sk-SK")
+                          : "bez dátumu"}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-slate-500">
+                    Zatiaľ nemáš žiadne komentáre vo fóre.
+                  </p>
+                )}
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-lg font-semibold">Posledné hodnotenia</h3>
+              <div className="mt-3 space-y-3">
+                {reviews.length > 0 ? (
+                  reviews.map((review) => (
+                    <div key={review.id} className="rounded-xl border p-4">
+                      <p className="font-medium text-slate-800">
+                        Hodnotenie: {review.rating}/5
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        {review.created_at
+                          ? new Date(review.created_at).toLocaleString("sk-SK")
+                          : "bez dátumu"}
+                      </p>
+                      {review.comment ? (
+                        <p className="mt-2 line-clamp-3 text-sm text-slate-600">
+                          {review.comment}
+                        </p>
+                      ) : null}
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-slate-500">
+                    Zatiaľ nemáš žiadne hodnotenia.
+                  </p>
+                )}
+              </div>
+            </section>
           </div>
         </div>
       </div>

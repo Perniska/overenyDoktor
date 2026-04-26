@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
 import {
   AlertTriangle,
   BarChart3,
@@ -10,10 +11,13 @@ import {
   Shield,
   UserCog,
 } from "lucide-react";
+
 import { requireModeratorOrAdmin } from "@/lib/authz";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const dynamic = "force-dynamic";
+
+type AdminCardAccess = "moderator" | "admin";
 
 type AdminCard = {
   href: string;
@@ -22,6 +26,7 @@ type AdminCard = {
   helper: string;
   icon: React.ComponentType<{ className?: string }>;
   enabled?: boolean;
+  access: AdminCardAccess;
 };
 
 const cards: AdminCard[] = [
@@ -33,15 +38,16 @@ const cards: AdminCard[] = [
       "Použi vtedy, keď používateľ nahlási recenziu ako nevhodnú, nepravdivú alebo obsahujúcu osobné údaje.",
     icon: AlertTriangle,
     enabled: true,
+    access: "moderator",
   },
   {
     href: "/admin/reviews",
     title: "Moderovanie recenzií",
     description: "Prehľad recenzií, ich stavov a moderátorských zásahov.",
-    helper:
-      "Použi na kontrolu zverejnených, skrytých alebo sporných recenzií.",
+    helper: "Použi na kontrolu zverejnených, skrytých alebo sporných recenzií.",
     icon: ClipboardList,
     enabled: true,
+    access: "moderator",
   },
   {
     href: "/admin/forum",
@@ -51,15 +57,16 @@ const cards: AdminCard[] = [
       "Použi pri diskusných témach alebo komentároch, ktoré porušujú pravidlá platformy.",
     icon: MessageSquare,
     enabled: true,
+    access: "moderator",
   },
   {
     href: "/admin/users",
     title: "Používatelia a roly",
     description: "Správa používateľov, moderátorov a administrátorov.",
-    helper:
-      "Použi len pri zmene oprávnení alebo riešení problémového účtu.",
+    helper: "Použi len pri zmene oprávnení alebo riešení problémového účtu.",
     icon: UserCog,
     enabled: true,
+    access: "admin",
   },
   {
     href: "/admin/gdpr",
@@ -69,6 +76,7 @@ const cards: AdminCard[] = [
       "Použi pri žiadosti používateľa o prístup, export, opravu alebo výmaz údajov.",
     icon: FileText,
     enabled: true,
+    access: "admin",
   },
   {
     href: "/admin/audit",
@@ -78,15 +86,16 @@ const cards: AdminCard[] = [
       "Použi pri spätnej kontrole zásahov do recenzií, nahlásení alebo používateľských údajov.",
     icon: Shield,
     enabled: true,
+    access: "admin",
   },
   {
     href: "/admin/data",
     title: "Referenčné údaje",
     description: "Správa lekárov, zariadení, špecializácií a typov zariadení.",
-    helper:
-      "Použi pri úprave alebo kontrole importovaných údajov z EVÚC.",
+    helper: "Použi pri úprave alebo kontrole importovaných údajov z EVÚC.",
     icon: Database,
     enabled: true,
+    access: "admin",
   },
   {
     href: "/analytics",
@@ -96,6 +105,7 @@ const cards: AdminCard[] = [
       "Použi na vizualizáciu výsledkov spätnej väzby a dát pre praktickú časť práce.",
     icon: BarChart3,
     enabled: true,
+    access: "admin",
   },
 ];
 
@@ -110,6 +120,10 @@ export default async function AdminPage() {
     redirect("/");
   }
 
+  const visibleCards = auth.isAdmin
+    ? cards
+    : cards.filter((card) => card.access === "moderator");
+
   return (
     <main className="mx-auto max-w-6xl space-y-8 px-4 py-8">
       <section>
@@ -118,13 +132,13 @@ export default async function AdminPage() {
         </p>
 
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
-          Admin a moderátorský panel
+          {auth.isAdmin ? "Admin panel" : "Moderátorský panel"}
         </h1>
 
         <p className="mt-2 max-w-3xl text-slate-600">
-          Táto časť slúži na riešenie nahláseného obsahu, kontrolu recenzií,
-          správu používateľov, auditných záznamov a GDPR požiadaviek. Bežný
-          používateľ túto časť nevidí.
+          {auth.isAdmin
+            ? "Administrátor má prístup ku všetkým častiam systému vrátane moderovania obsahu, správy používateľov, auditných záznamov, referenčných údajov a GDPR procesov."
+            : "Moderátor má prístup k riešeniu nahláseného obsahu, kontrole recenzií a moderovaniu fóra. Správa používateľov, auditné záznamy, referenčné údaje a GDPR procesy sú dostupné iba administrátorovi."}
         </p>
       </section>
 
@@ -133,12 +147,12 @@ export default async function AdminPage() {
         <p className="mt-1">
           Moderátor rieši hlavne obsah: nahlásenia, recenzie a fórum.
           Administrátor má navyše prístup k rolám, auditným záznamom,
-          referenčným údajom a GDPR procesom.
+          referenčným údajom, analytike a GDPR procesom.
         </p>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {cards.map((card) => {
+        {visibleCards.map((card) => {
           const Icon = card.icon;
 
           const content = (

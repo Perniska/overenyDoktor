@@ -12,17 +12,56 @@ export async function requireModeratorOrAdmin() {
       allowed: false,
       user: null,
       roleAllowed: false,
+      isAdmin: false,
+      isModerator: false,
     };
   }
 
-  const { data: roleAllowed } = await supabase.rpc("current_user_has_role", {
-    p_allowed_slugs: ["admin", "moderator"],
+  const { data: isAdmin } = await supabase.rpc("current_user_has_role", {
+    p_allowed_slugs: ["admin"],
+  });
+
+  const { data: isModerator } = await supabase.rpc("current_user_has_role", {
+    p_allowed_slugs: ["moderator"],
+  });
+
+  const allowed = Boolean(isAdmin) || Boolean(isModerator);
+
+  return {
+    allowed,
+    user,
+    roleAllowed: allowed,
+    isAdmin: Boolean(isAdmin),
+    isModerator: Boolean(isModerator),
+  };
+}
+export async function getCurrentUserRole() {
+  const supabase = await createSupabaseServerClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      user: null,
+      isAdmin: false,
+      isModerator: false,
+    };
+  }
+
+  const { data: isAdmin } = await supabase.rpc("current_user_has_role", {
+    p_allowed_slugs: ["admin"],
+  });
+
+  const { data: isModerator } = await supabase.rpc("current_user_has_role", {
+    p_allowed_slugs: ["moderator"],
   });
 
   return {
-    allowed: Boolean(roleAllowed),
     user,
-    roleAllowed: Boolean(roleAllowed),
+    isAdmin: Boolean(isAdmin),
+    isModerator: Boolean(isModerator),
   };
 }
 

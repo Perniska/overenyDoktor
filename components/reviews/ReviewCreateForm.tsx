@@ -1,13 +1,17 @@
+// components/reviews/ReviewCreateForm.tsx
+
 "use client";
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star } from "lucide-react";
+
 import { supabase } from "@/lib/supabase/client";
 import { buildReviewAnalysisPayload } from "@/lib/reviews/buildReviewAnalysisPayload";
 import { buildStructuredReviewComment } from "@/lib/reviews/buildStructuredReviewComment";
 import { RewriteSuggestionBox } from "@/components/reviews/RewriteSuggestionBox";
 import { guardClientWriteAction } from "@/lib/profile/clientActionGuard";
+
 import type { ReviewRewriteResult } from "@/lib/reviews/rewriteReviewText";
 
 type ReviewCreateFormProps = {
@@ -115,8 +119,7 @@ const facilityQuestions: RatingQuestion[] = [
   {
     key: "equipment",
     label: "Vybavenie",
-    description:
-      "Subjektívne vnímanie technického a organizačného vybavenia.",
+    description: "Subjektívne vnímanie technického a organizačného vybavenia.",
   },
   {
     key: "privacy",
@@ -149,13 +152,17 @@ function RatingInput({
   onChange: (value: number) => void;
 }) {
   return (
-    <div className="space-y-2 rounded-2xl border bg-white p-4">
-      <div>
-        <p className="font-semibold text-slate-900">{question.label}</p>
-        <p className="mt-1 text-sm text-slate-600">{question.description}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-3">
+        <p className="text-sm font-semibold text-slate-900">
+          {question.label}
+        </p>
+        <p className="mt-1 text-sm leading-5 text-slate-500">
+          {question.description}
+        </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {[1, 2, 3, 4, 5].map((number) => (
           <button
             key={number}
@@ -168,12 +175,18 @@ function RatingInput({
             }`}
             aria-label={`${number} z 5`}
           >
-            <Star className="size-4 fill-current" />
+            <Star
+              className={`h-5 w-5 ${
+                value >= number ? "fill-yellow-400" : "fill-transparent"
+              }`}
+            />
           </button>
         ))}
-      </div>
 
-      <p className="text-sm text-slate-500">Vybrané: {value}/5</p>
+        <span className="ml-1 text-sm font-medium text-slate-600">
+          {value}/5
+        </span>
+      </div>
     </div>
   );
 }
@@ -195,12 +208,14 @@ function buildFinalComment(structuredComment: string, manualComment: string) {
     return structuredComment;
   }
 
-  return [
-    structuredComment,
-    "",
-    "Vlastná poznámka používateľa:",
-    trimmedManual,
-  ].join("\n");
+  return [structuredComment, trimmedManual].join("\n\n---\n\n");
+}
+
+function formatReviewPreview(text: string) {
+  return text
+    .split("\n")
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 export function ReviewCreateForm({
@@ -238,6 +253,7 @@ export function ReviewCreateForm({
 
   const questions = targetType === "doctor" ? doctorQuestions : facilityQuestions;
   const average = getAverageRating(ratings, questions);
+
   const visitTypeLabel =
     visitTypes.find((item) => item.value === visitType)?.label ?? "Neuvedené";
 
@@ -262,6 +278,11 @@ export function ReviewCreateForm({
   const finalComment = useMemo(
     () => buildFinalComment(structuredComment, manualComment),
     [structuredComment, manualComment]
+  );
+
+  const structuredPreviewParts = useMemo(
+    () => formatReviewPreview(structuredComment),
+    [structuredComment]
   );
 
   async function handleSubmit() {
@@ -334,132 +355,224 @@ export function ReviewCreateForm({
     }
 
     router.push(
-      targetType === "doctor" ? `/doctors/${targetId}` : `/facilities/${targetId}`
+      targetType === "doctor"
+        ? `/doctors/${targetId}`
+        : `/facilities/${targetId}`
     );
     router.refresh();
   }
 
   return (
-    <div className="space-y-6 rounded-2xl border bg-white p-6 shadow-sm">
-      <div>
-        <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
-          Hodnotenie
-        </p>
-        <h2 className="mt-1 text-2xl font-bold text-slate-950">Hodnotíš</h2>
-        <p className="mt-1 text-slate-700">{targetName}</p>
-      </div>
+    <div className="mx-auto w-full max-w-7xl space-y-6">
+      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-wide text-sky-700">
+              Nové hodnotenie
+            </p>
 
-      <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700">
-          Typ skúsenosti
-        </label>
+            <h2 className="mt-1 max-w-3xl text-2xl font-bold leading-tight text-slate-950">
+              {targetName}
+            </h2>
 
-        <select
-          value={visitType}
-          onChange={(event) => setVisitType(event.target.value)}
-          className="min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base"
-        >
-          {visitTypes.map((item) => (
-            <option key={item.value} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-      </div>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              Hodnotenie môžeš vytvoriť dvoma spôsobmi: cez číselné hodnotenie
+              jednotlivých oblastí a cez vlastný komentár. Komentár je
+              voliteľný.
+            </p>
+          </div>
 
-      <div className="rounded-2xl bg-slate-50 p-4">
-        <p className="font-semibold text-slate-900">
-          Priebežné celkové hodnotenie: {average.exact}/5
-        </p>
-        <p className="mt-1 text-sm text-slate-600">
-          Hodnotenie sa vytvorí zo štruktúrovaných odpovedí. Voliteľne môžeš
-          doplniť aj vlastnú poznámku k skúsenosti.
-        </p>
-      </div>
+          <div className="w-full rounded-2xl bg-sky-50 px-4 py-3 text-center sm:w-auto sm:min-w-32">
+            <p className="text-xs font-medium uppercase tracking-wide text-sky-700">
+              Celkové hodnotenie
+            </p>
+            <p className="mt-1 text-3xl font-bold text-sky-900">
+              {average.exact}/5
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <div className="grid gap-4">
-        {questions.map((question) => (
-          <RatingInput
-            key={question.key}
-            question={question}
-            value={ratings[question.key]}
-            onChange={(value) => updateRating(question.key, value)}
-          />
-        ))}
-      </div>
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
+        <div className="space-y-6">
+          <section className="rounded-3xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+            <div className="mb-5">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Spôsob hodnotenia 1
+              </p>
 
-      <div className="space-y-3 rounded-2xl border bg-slate-50 p-4">
-        <div>
-          <label className="block text-sm font-medium text-slate-700">
-            Voliteľná vlastná poznámka
-          </label>
-          <p className="mt-1 text-sm text-slate-600">
-            Sem môžeš doplniť vlastnú skúsenosť vlastnými slovami. Odporúča sa
-            nepísať osobné údaje ani urážlivé výrazy.
-          </p>
+              <h3 className="mt-1 text-xl font-bold text-slate-950">
+                Štruktúrované hodnotenie
+              </h3>
+
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                Vyber typ skúsenosti a ohodnoť jednotlivé oblasti. Z odpovedí sa
+                automaticky vytvorí stručná recenzia.
+              </p>
+            </div>
+
+            <div className="mb-5">
+              <label
+                htmlFor="visit-type"
+                className="mb-2 block text-sm font-medium text-slate-700"
+              >
+                Typ skúsenosti
+              </label>
+
+              <select
+                id="visit-type"
+                value={visitType}
+                onChange={(event) => setVisitType(event.target.value)}
+                className="min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base text-slate-900"
+              >
+                {visitTypes.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {questions.map((question) => (
+                <RatingInput
+                  key={question.key}
+                  question={question}
+                  value={ratings[question.key]}
+                  onChange={(value) => updateRating(question.key, value)}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+            <div className="mb-4">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Spôsob hodnotenia 2
+              </p>
+
+              <h3 className="mt-1 text-xl font-bold text-slate-950">
+                Vlastný komentár
+              </h3>
+
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                Tu môžeš doplniť vlastnú skúsenosť vlastnými slovami. Nepíš
+                osobné údaje, diagnózy iných osôb ani urážlivé výrazy.
+              </p>
+            </div>
+
+            <textarea
+              value={manualComment}
+              onChange={(event) => setManualComment(event.target.value)}
+              placeholder="Napíš komentár k návšteve..."
+              className="min-h-36 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm leading-6 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            />
+
+            <div className="mt-4">
+              <RewriteSuggestionBox
+                value={manualComment}
+                onApply={(result: ReviewRewriteResult) => {
+                  setManualComment(result.rewrittenText);
+                  setRewriteMeta({
+                    suggestedText: result.rewrittenText,
+                    applied: true,
+                    version: result.rewriteVersion,
+                  });
+                }}
+              />
+            </div>
+          </section>
         </div>
 
-        <textarea
-          value={manualComment}
-          onChange={(event) => setManualComment(event.target.value)}
-          placeholder="Napíš vlastnú poznámku k návšteve..."
-          className="min-h-32 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800"
-        />
+        <aside className="space-y-6 xl:sticky xl:top-6 xl:self-start">
+          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-bold text-slate-950">
+                Náhľad recenzie
+              </h3>
 
-        <RewriteSuggestionBox
-          value={manualComment}
-          onApply={(result: ReviewRewriteResult) => {
-            setManualComment(result.rewrittenText);
-            setRewriteMeta({
-              suggestedText: result.rewrittenText,
-              applied: true,
-              version: result.rewriteVersion,
-            });
-          }}
-        />
+              <p className="mt-1 text-sm leading-6 text-slate-500">
+                Takto bude recenzia uložená a následne vyhodnotená systémom.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <p className="text-sm font-semibold text-slate-800">
+                    Súhrn z hodnotenia
+                  </p>
+
+                  <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-800">
+                    {average.exact}/5
+                  </span>
+                </div>
+
+                <div className="space-y-3">
+                  {structuredPreviewParts.map((part, index) => (
+                    <p key={index} className="text-sm leading-6 text-slate-700">
+                      {part}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="mb-3 text-sm font-semibold text-slate-800">
+                  Komentár
+                </p>
+
+                {manualComment.trim() ? (
+                  <p className="whitespace-pre-line text-sm leading-6 text-slate-700">
+                    {manualComment.trim()}
+                  </p>
+                ) : (
+                  <p className="text-sm leading-6 text-slate-500">
+                    Komentár zatiaľ nie je vyplnený. Recenziu môžeš odoslať aj
+                    bez neho.
+                  </p>
+                )}
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+            <label className="flex items-start gap-3 text-sm text-slate-700">
+              <input
+                type="checkbox"
+                checked={isAnonymous}
+                onChange={(event) => setIsAnonymous(event.target.checked)}
+                className="mt-1 size-4 rounded border-slate-300"
+              />
+
+              <span>
+                <span className="block font-medium text-slate-900">
+                  Zverejniť anonymne
+                </span>
+
+                <span className="mt-1 block text-slate-500">
+                  Tvoje meno sa pri recenzii verejne nezobrazí.
+                </span>
+              </span>
+            </label>
+
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={saving}
+              className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+            >
+              {saving ? "Ukladá sa..." : "Zverejniť hodnotenie"}
+            </button>
+
+            {message ? (
+              <div className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                {message}
+              </div>
+            ) : null}
+          </section>
+        </aside>
       </div>
-
-      <div className="space-y-3 rounded-2xl border bg-white p-4">
-        <div>
-          <p className="text-sm font-medium text-slate-700">
-            Náhľad výslednej recenzie
-          </p>
-          <p className="mt-1 text-sm text-slate-500">
-            Toto je text, ktorý sa uloží a následne analyzuje.
-          </p>
-        </div>
-
-        <textarea
-          value={finalComment}
-          readOnly
-          className="min-h-40 w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-800"
-        />
-      </div>
-
-      <label className="flex items-center gap-3 text-sm text-slate-700">
-        <input
-          type="checkbox"
-          checked={isAnonymous}
-          onChange={(event) => setIsAnonymous(event.target.checked)}
-          className="size-4"
-        />
-        Zverejniť anonymne
-      </label>
-
-      <button
-        type="button"
-        onClick={handleSubmit}
-        disabled={saving}
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-300"
-      >
-        {saving ? "Ukladá sa..." : "Zverejniť hodnotenie"}
-      </button>
-
-      {message ? (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {message}
-        </div>
-      ) : null}
     </div>
   );
 }

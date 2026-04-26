@@ -36,21 +36,10 @@ function getOverallSentence(average: number, targetType: TargetType) {
   const subject =
     targetType === "doctor" ? "návštevy lekára" : "návštevy zariadenia";
 
-  if (average >= 4.6) {
-    return `Celkový dojem z ${subject} bol veľmi pozitívny.`;
-  }
-
-  if (average >= 3.8) {
-    return `Celkový dojem z ${subject} bol pozitívny.`;
-  }
-
-  if (average >= 2.8) {
-    return `Celkový dojem z ${subject} bol skôr neutrálny.`;
-  }
-
-  if (average >= 2) {
-    return `Celkový dojem z ${subject} bol skôr negatívny.`;
-  }
+  if (average >= 4.6) return `Celkový dojem z ${subject} bol veľmi pozitívny.`;
+  if (average >= 3.8) return `Celkový dojem z ${subject} bol pozitívny.`;
+  if (average >= 2.8) return `Celkový dojem z ${subject} bol skôr neutrálny.`;
+  if (average >= 2) return `Celkový dojem z ${subject} bol skôr negatívny.`;
 
   return `Celkový dojem z ${subject} bol výrazne negatívny.`;
 }
@@ -92,11 +81,7 @@ export function buildStructuredReviewComment({
     .filter((question) => ratings[question.key] <= 2)
     .map((question) => getReadableLabel(question.label));
 
-  const intro =
-    "Táto recenzia bola vytvorená zo štruktúrovaného hodnotiaceho formulára.";
-
   const visitInfo = `Typ návštevy: ${visitTypeLabel}.`;
-
   const overall = getOverallSentence(average, targetType);
 
   const strengths =
@@ -116,7 +101,7 @@ export function buildStructuredReviewComment({
       ? `Priemerne boli hodnotené oblasti: ${formatAreaList(neutralAreas)}.`
       : "";
 
-  return [intro, visitInfo, "", overall, strengths, weaknesses, neutral]
+  return [visitInfo, overall, strengths, weaknesses, neutral]
     .filter((part) => part !== "")
-    .join(" ");
+    .join("\n\n");
 }

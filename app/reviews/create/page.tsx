@@ -1,144 +1,91 @@
 import Link from "next/link";
-import { AlertCircle } from "lucide-react";
+import { notFound } from "next/navigation";
+
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { ReviewCreateForm } from "@/components/reviews/ReviewCreateForm";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
-export const dynamic = "force-dynamic";
-
-type CreateReviewPageProps = {
-  searchParams: Promise<{
-    doctorId?: string | string[];
-    facilityId?: string | string[];
-  }>;
+type SearchParams = {
+  doctorId?: string;
+  facilityId?: string;
 };
-
-function getSingleParam(value: string | string[] | undefined) {
-  return Array.isArray(value) ? value[0] : value;
-}
-
-function getDoctorName(doctor: {
-  title: string | null;
-  first_name: string;
-  last_name: string;
-}) {
-  return [doctor.title, doctor.first_name, doctor.last_name]
-    .filter(Boolean)
-    .join(" ");
-}
 
 export default async function CreateReviewPage({
   searchParams,
-}: CreateReviewPageProps) {
+}: {
+  searchParams: Promise<SearchParams>;
+}) {
   const params = await searchParams;
-
-  const doctorId = getSingleParam(params.doctorId);
-  const facilityId = getSingleParam(params.facilityId);
-
-  if ((!doctorId && !facilityId) || (doctorId && facilityId)) {
-    return (
-      <main className="mx-auto max-w-2xl px-4 py-8">
-        <Card className="border-amber-200 bg-amber-50">
-          <CardContent className="flex gap-3 py-4 text-amber-800">
-            <AlertCircle className="mt-0.5 size-5" />
-            <div>
-              <p className="font-medium">Nie je zvolený cieľ hodnotenia.</p>
-              <p className="text-sm">
-                Recenzia musí patriť buď lekárovi, alebo zariadeniu.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </main>
-    );
-  }
-
   const supabase = await createSupabaseServerClient();
 
-  if (doctorId) {
-    const { data: doctor, error } = await supabase
+  if (params.doctorId) {
+    const { data: doctor } = await supabase
       .from("doctors")
-      .select("id, title, first_name, last_name")
-      .eq("id", doctorId)
-      .is("deleted_at", null)
+      .select("id, full_name")
+      .eq("id", params.doctorId)
       .single();
 
-    if (error || !doctor) {
-      return (
-        <main className="mx-auto max-w-2xl px-4 py-8">
-          <Card>
-            <CardContent className="py-8 text-center">
-              Lekár neexistuje alebo nie je dostupný.
-            </CardContent>
-          </Card>
-        </main>
-      );
+    if (!doctor) {
+      notFound();
     }
 
     return (
-      <main className="mx-auto max-w-2xl space-y-6 px-4 py-8">
-        <Button variant="ghost" asChild>
-          <Link href={`/doctors/${doctor.id}`}>Späť na profil lekára</Link>
-        </Button>
+      <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8">
+        <Link
+          href={`/doctors/${doctor.id}`}
+          className="inline-flex text-sm font-medium text-slate-700 hover:text-sky-700"
+        >
+          Späť na profil lekára
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Pridať recenziu lekára</CardTitle>
-          </CardHeader>
+        <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+          <h1 className="mb-6 text-lg font-semibold text-slate-950">
+            Pridať recenziu lekára
+          </h1>
 
-          <CardContent>
-            <ReviewCreateForm
-              targetType="doctor"
-              targetId={doctor.id}
-              targetName={getDoctorName(doctor)}
-            />
-          </CardContent>
-        </Card>
+          <ReviewCreateForm
+            targetType="doctor"
+            targetId={doctor.id}
+            targetName={doctor.full_name}
+          />
+        </section>
       </main>
     );
   }
 
-  const { data: facility, error } = await supabase
-    .from("facilities")
-    .select("id, name")
-    .eq("id", facilityId)
-    .is("deleted_at", null)
-    .single();
+  if (params.facilityId) {
+    const { data: facility } = await supabase
+      .from("facilities")
+      .select("id, name")
+      .eq("id", params.facilityId)
+      .single();
 
-  if (error || !facility) {
+    if (!facility) {
+      notFound();
+    }
+
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8">
-        <Card>
-          <CardContent className="py-8 text-center">
-            Zariadenie neexistuje alebo nie je dostupné.
-          </CardContent>
-        </Card>
-      </main>
-    );
-  }
-
-  return (
-    <main className="mx-auto max-w-2xl space-y-6 px-4 py-8">
-      <Button variant="ghost" asChild>
-        <Link href={`/facilities/${facility.id}`}>
+      <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8">
+        <Link
+          href={`/facilities/${facility.id}`}
+          className="inline-flex text-sm font-medium text-slate-700 hover:text-sky-700"
+        >
           Späť na profil zariadenia
         </Link>
-      </Button>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Pridať recenziu zariadenia</CardTitle>
-        </CardHeader>
+        <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+          <h1 className="mb-6 text-lg font-semibold text-slate-950">
+            Pridať recenziu zariadenia
+          </h1>
 
-        <CardContent>
           <ReviewCreateForm
             targetType="facility"
             targetId={facility.id}
             targetName={facility.name}
           />
-        </CardContent>
-      </Card>
-    </main>
-  );
+        </section>
+      </main>
+    );
+  }
+
+  notFound();
 }
