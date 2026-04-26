@@ -1,91 +1,167 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { AlertCircle } from "lucide-react";
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { ReviewCreateForm } from "@/components/reviews/ReviewCreateForm";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-type SearchParams = {
-  doctorId?: string;
-  facilityId?: string;
+export const dynamic = "force-dynamic";
+
+type CreateReviewPageProps = {
+  searchParams: Promise<{
+    doctorId?: string | string[];
+    facilityId?: string | string[];
+  }>;
 };
+
+function getSingleParam(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function getDoctorName(doctor: {
+  title: string | null;
+  first_name: string;
+  last_name: string;
+}) {
+  return [doctor.title, doctor.first_name, doctor.last_name]
+    .filter(Boolean)
+    .join(" ");
+}
 
 export default async function CreateReviewPage({
   searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
+}: CreateReviewPageProps) {
   const params = await searchParams;
-  const supabase = await createSupabaseServerClient();
+  const doctorId = getSingleParam(params.doctorId);
+  const facilityId = getSingleParam(params.facilityId);
 
-  if (params.doctorId) {
-    const { data: doctor } = await supabase
-      .from("doctors")
-      .select("id, full_name")
-      .eq("id", params.doctorId)
-      .single();
-
-    if (!doctor) {
-      notFound();
-    }
-
+  if ((!doctorId && !facilityId) || (doctorId && facilityId)) {
     return (
-      <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8">
-        <Link
-          href={`/doctors/${doctor.id}`}
-          className="inline-flex text-sm font-medium text-slate-700 hover:text-sky-700"
-        >
-          Späť na profil lekára
-        </Link>
+      <main className="mx-auto max-w-2xl space-y-6 px-4 py-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-red-700">
+              <AlertCircle className="size-5" />
+              Nie je zvolený cieľ hodnotenia.
+            </CardTitle>
+          </CardHeader>
 
-        <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-          <h1 className="mb-6 text-lg font-semibold text-slate-950">
-            Pridať recenziu lekára
-          </h1>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-slate-600">
+              Recenzia musí patriť buď lekárovi, alebo zariadeniu.
+            </p>
 
-          <ReviewCreateForm
-            targetType="doctor"
-            targetId={doctor.id}
-            targetName={doctor.full_name}
-          />
-        </section>
+            <Button asChild variant="outline">
+              <Link href="/">Späť na úvod</Link>
+            </Button>
+          </CardContent>
+        </Card>
       </main>
     );
   }
 
-  if (params.facilityId) {
-    const { data: facility } = await supabase
-      .from("facilities")
-      .select("id, name")
-      .eq("id", params.facilityId)
-      .single();
+  const supabase = await createSupabaseServerClient();
 
-    if (!facility) {
-      notFound();
+  if (doctorId) {
+    const { data: doctor, error } = await supabase
+      .from("doctors")
+      .select("id, title, first_name, last_name")
+      .eq("id", doctorId)
+      .maybeSingle();
+
+    if (error || !doctor) {
+      return (
+        <main className="mx-auto max-w-2xl space-y-6 px-4 py-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-red-700">
+                <AlertCircle className="size-5" />
+                Lekár neexistuje alebo nie je dostupný.
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent>
+              <Button asChild variant="outline">
+                <Link href="/">Späť na úvod</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </main>
+      );
     }
 
     return (
       <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8">
-        <Link
-          href={`/facilities/${facility.id}`}
-          className="inline-flex text-sm font-medium text-slate-700 hover:text-sky-700"
-        >
+        <Button asChild variant="ghost">
+          <Link href={`/doctors/${doctor.id}`}>Späť na profil lekára</Link>
+        </Button>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Pridať recenziu lekára</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            <ReviewCreateForm
+              targetType="doctor"
+              targetId={doctor.id}
+              targetName={getDoctorName(doctor)}
+            />
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
+
+  const { data: facility, error } = await supabase
+    .from("facilities")
+    .select("id, name")
+    .eq("id", facilityId)
+    .maybeSingle();
+
+  if (error || !facility) {
+    return (
+      <main className="mx-auto max-w-2xl space-y-6 px-4 py-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-red-700">
+              <AlertCircle className="size-5" />
+              Zariadenie neexistuje alebo nie je dostupné.
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            <Button asChild variant="outline">
+              <Link href="/">Späť na úvod</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
+
+  return (
+    <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8">
+      <Button asChild variant="ghost">
+        <Link href={`/facilities/${facility.id}`}>
           Späť na profil zariadenia
         </Link>
+      </Button>
 
-        <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-          <h1 className="mb-6 text-lg font-semibold text-slate-950">
-            Pridať recenziu zariadenia
-          </h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>Pridať recenziu zariadenia</CardTitle>
+        </CardHeader>
 
+        <CardContent>
           <ReviewCreateForm
             targetType="facility"
             targetId={facility.id}
             targetName={facility.name}
           />
-        </section>
-      </main>
-    );
-  }
-
-  notFound();
+        </CardContent>
+      </Card>
+    </main>
+  );
 }
