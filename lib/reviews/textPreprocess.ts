@@ -1,9 +1,14 @@
+import { removeStopWords } from "@/lib/reviews/stopWords"
+import { lemmatizeTokens } from "@/lib/reviews/lemmatize"
+
 export type PreprocessedText = {
-  original: string;
-  normalized: string;
-  cleaned: string;
-  tokens: string[];
-};
+  original: string
+  normalized: string
+  cleaned: string
+  rawTokens: string[]
+  filteredTokens: string[]
+  tokens: string[]
+}
 
 const DIACRITICS_MAP: Record<string, string> = {
   á: "a",
@@ -23,17 +28,14 @@ const DIACRITICS_MAP: Record<string, string> = {
   ú: "u",
   ý: "y",
   ž: "z",
-};
+}
 
 export function removeSlovakDiacritics(text: string) {
-  return text.replace(
-    /[áäčďéíľĺňóôŕšťúýž]/g,
-    (char) => DIACRITICS_MAP[char] ?? char
-  );
+  return text.replace(/[áäčďéíľĺňóôŕšťúýž]/g, (char) => DIACRITICS_MAP[char] ?? char)
 }
 
 export function normalizeReviewText(text: string) {
-  return removeSlovakDiacritics(text.toLowerCase()).trim();
+  return removeSlovakDiacritics(text.toLowerCase()).trim()
 }
 
 export function cleanReviewText(text: string) {
@@ -41,27 +43,40 @@ export function cleanReviewText(text: string) {
     .replace(/[\r\n\t]+/g, " ")
     .replace(/[.,!?;:()"“”„'`/\\[\]{}<>|_*+=~^-]+/g, " ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
 }
 
 export function tokenizeReviewText(text: string) {
-  if (!text.trim()) return [];
+  if (!text.trim()) return []
 
   return text
     .split(" ")
     .map((token) => token.trim())
-    .filter(Boolean);
+    .filter(Boolean)
 }
 
 export function preprocessReviewText(text: string): PreprocessedText {
-  const normalized = normalizeReviewText(text);
-  const cleaned = cleanReviewText(normalized);
-  const tokens = tokenizeReviewText(cleaned);
+  const normalized = normalizeReviewText(text)
+  const cleaned = cleanReviewText(normalized)
+
+  // Surové tokeny po základnom čistení
+  const rawTokens = tokenizeReviewText(cleaned)
+
+  // Odstránenie stop-slov
+  // Dôležité: negácie ako "nie" a "nikdy" zostávajú zachované,
+  // lebo ich potrebuje sentimentová analýza.
+  const filteredTokens = removeStopWords(rawTokens)
+
+  // Heuristická lematizácia / lema-normalizácia
+  // Cieľ: zjednotiť časté tvary slov do stabilnejšej podoby.
+  const tokens = lemmatizeTokens(filteredTokens)
 
   return {
     original: text,
     normalized,
     cleaned,
+    rawTokens,
+    filteredTokens,
     tokens,
-  };
+  }
 }
